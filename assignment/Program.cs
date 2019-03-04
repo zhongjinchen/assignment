@@ -7,12 +7,38 @@ namespace assignment
         static void Main(string[] args)
         {
             Mimicstact imitate = new Mimicstact(5);
-            imitate.Push(8);
-            imitate.Push(10);
-            imitate.Push(4);
-            imitate.Push(7);
-            imitate.Push(5);
+            //imitate.Push(new int[]{8});
+            //imitate.Push(8,9);
+            //imitate.pop();
+            //imitate.Push(10);
+            //imitate.Push(4);
+            //imitate.Push(7);
+
+            // Bueaty bueaty = new Bueaty(20);
+            //// bueaty.toBueaty();
+            // Console.WriteLine(bueaty.toBueaty);
+            //Bueaty BueatyHeight = new Bueaty(170);
+            //  bueaty.Bueatyheight(168);
+
+            // bueaty.Age = 100;
+            // Console.WriteLine(bueaty.Age);
+            //Console.WriteLine(bueaty.Height);
+            //Child money = new Child();
+            //Console.WriteLine(money.Tomoney);
+            school();
             Console.Read();
+        }
+        static void school()
+        {
+            string name = "yuanzhan";
+            char[] array = name.ToCharArray();
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = array[array.Length - 1 - i];
+            }
+
+            Console.WriteLine(array);
         }
         static void Date()
         {
@@ -55,21 +81,20 @@ namespace assignment
     class Mimicstact
     {
         private int[] array = null;
-        private int top;
-        private int max;
+        private int top;   
         public Mimicstact(int Length)
         {
             array = new int[Length];
         }
-        internal void Push(int[]value)
+        internal void Push(params int[] value)
         {
-            for (int i = 0; i <value.Length; i++)
+            for (int i = 0; i < value.Length; i++)
             {
                 array[top] = value[i];
                 top++;
             }
             Console.WriteLine($"{value}入栈");
-           
+
             ArrayShow.Inline(array);
             Console.WriteLine();
             Console.WriteLine("------------------");
@@ -108,4 +133,56 @@ namespace assignment
             }
         }
     }
+    class Father
+    {
+        protected int money = 5;
+    }
+    class mm : Father
+    {
+
+    }
+    class Child : Father
+    {
+        internal int Tomoney;
+        public Child()
+        {
+            Tomoney = money;
+        }
+
+
+
+}
+    class Bueaty
+    {
+        //internal readonly int Age;
+        //internal int Height;
+        private int Age;
+        public Bueaty(int age)
+        {
+            
+            Age = age;
+        }
+        //public int toBueaty
+        //{
+        //    get{ return Age; }
+
+        //  //  set { Age = value; }
+        //}
+        public int toBueaty { get; private set; } = 100;
+        //public Bueaty(int age, int height)
+        //{
+        //    Age = age;
+        //    Height = height;
+        //}
+
+        //public int Bueatyheight(int height)
+        //{
+        //    Height = height;
+        //    return Height;
+        //}
+
+    }
+
+
+
 }
