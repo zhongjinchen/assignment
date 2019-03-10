@@ -25,20 +25,23 @@ namespace assignment
             //Console.WriteLine(bueaty.Height);
             //Child money = new Child();
             //Console.WriteLine(money.Tomoney);
-            school();
+            //school("yuanzhan");
+            Date date = new Date();
             Console.Read();
         }
-        static void school()
+        static void school(string name)
         {
-            string name = "yuanzhan";
-            char[] array = name.ToCharArray();
 
-            for (int i = 0; i < array.Length; i++)
+            char[] input = name.ToCharArray();
+            char[] output = new char[input.Length];
+
+
+            for (int i = 0; i < input.Length; i++)
             {
-                array[i] = array[array.Length - 1 - i];
+                output[i] = input[input.Length - 1 - i];
             }
 
-            Console.WriteLine(array);
+            Console.WriteLine(output);
         }
         static void Date()
         {
@@ -81,7 +84,7 @@ namespace assignment
     class Mimicstact
     {
         private int[] array = null;
-        private int top;   
+        private int top;
         public Mimicstact(int Length)
         {
             array = new int[Length];
@@ -151,7 +154,7 @@ namespace assignment
 
 
 
-}
+    }
     class Bueaty
     {
         //internal readonly int Age;
@@ -159,7 +162,7 @@ namespace assignment
         private int Age;
         public Bueaty(int age)
         {
-            
+
             Age = age;
         }
         //public int toBueaty
@@ -182,7 +185,39 @@ namespace assignment
         //}
 
     }
+    class Date
+    {
+        internal DateTime date1 = new DateTime(2019, 3, 6);
 
+        internal Date()
+        {
+            Console.WriteLine($"当前日期{date1.Year}年{date1.Month}月{date1.Day}日请输入：");
+            string input = Convert.ToString(Console.ReadLine());
+            string integer = input.Substring(0, input.Length-1);
+            string Chinese = input.Substring(input.Length - 1);
+            int integer1 = Convert.ToInt32(integer);
+            if (Chinese == "周")
+            {
+                DateTime end = date1.AddDays(integer1 * 7);
+                Console.WriteLine($"{input}过后的日期为：{end.Year}年{end.Month}月{end.Day}日");
+            }
+            if (Chinese == "月")
+            {
+                DateTime end = date1.AddMonths(integer1);
+                Console.WriteLine($"{input}过后的日期为：{end.Year}年{end.Month}月{end.Day}日");
+            }
+            if (Chinese == "日")
+            {
+                DateTime end = date1.AddDays(integer1);
+                Console.WriteLine($"{input}过后的日期为：{end.Year}年{end.Month}月{end.Day}日");
+            }
+        }
+
+
+
+
+
+    }
 
 
 }
