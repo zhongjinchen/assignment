@@ -6,12 +6,14 @@
 
     <span style="float:left;margin-top:20px;margin-left:10px;color:gray;"> <b>一起帮 </b>· 网络互助平台</span>
     <form style="float:right;margin-top:20px;margin-right:50px;color:gray;" action="">
-        <select name="cars">
-            <option value="求助">求助</option>
-            <option value="发布">发布</option>
-            <option value="列表">列表</option>
-        </select>
-        <select name="cars">
+        <ul>
+            <li style="float:right;margin-right:100px;"><a class="dropdown;" href="">求助</a>
+                <ul class="dropdown-content;">
+                    <li><a href="">发布</a></li>
+                    <li><a href="">列表</a></li>
+                </ul>
+            </li>
+            @*<select name="cars">
             <option value="督促">督促</option>
             <option value="求督促">求督促</option>
             <option value="督促别人">督促别人</option>
@@ -31,16 +33,17 @@
             <option value="登陆">登陆</option>
             <option value="注册">注册</option>
             <option value="忘记密码">忘记密码</option>
-        </select>
+        </select>*@
+        </ul>
     </form>
 
 </header>
 <div class="small"><a style="float:right;margin-right:25px;margin-top:3px;color:#23527c;" href="http://17bang.ren/Message/Index">全部消息</a></div>
 <article>
-    <a style="float:right;" href="http://17bang.ren/">返回</a>
-  
+    <a style="float:right;border:0px;background-color:rgba(128,255,212,.7);color:#23527c;padding:10px;" href="http://17bang.ren/">返回</a>
+
     <h1 style="font-size:30px;">®注册</h1>
-    <hr style="border:0px;border-top:1px solid #eee;"/><br />
+    <hr style="border:0px;border-top:1px solid #eee;" /><br />
     <form class="content">
         <div class="framefirst">
             邀请人：<a style="margin-left:120px;float:right;" href="  http://17bang.ren/FAQ/Account#invite">为什么需要邀请</a><br />
@@ -57,38 +60,42 @@
             <input type="password" name="验证密码" style="width:325px;height:30px;border:1px solid #ccc;" maxlength="16" placeholder="和密码相同" /><br /><br />
             验证码：<br />
             <input type="text" name="验证码" style="width:80px;height:30px;border:1px solid #ccc;" maxlength="16" /><br /><br />
-            <input type="submit" value="提交" /><label><input type="checkbox" name="vehicle" value="记住我"> 记住我</label>
+            <input type="submit" value="提交"style="width:50px;height:30px;border:1px solid #204d74;background-color:#286090;color:#fff;" /><input type="reset" value="重置" style="width:50px;height:30px;border:1px solid #ccc;margin-left:10px;"/><label><input type="checkbox" name="vehicle" value="记住我"> 记住我</label><a style="margin-left:120px;color:#23527c;" href="http://17bang.ren/Log/On?prepage=%2f">登陆</a>
         </div>
     </form>
 </article>
 
 <aside>
-    <h2>说明</h2>
+    <h2 style="color:#23527c;">说明</h2>
     <ol>
-        <li>
+        <li style="margin-bottom:12px;">
             我们希望通过一起帮，能直接解决大家在电脑操作/软件使用/编程学<br />
             习等方面的具体问题。
         </li>
-
-        <li>
+        
+        <li style="margin-bottom:12px;">
             现在互联网远程技术（比如QQ桌面共享）已经非常成熟，当我们再<br />
             遇到上述问题，如果别人能直接远程给予帮助，岂不是好？
         </li>
 
-        <li>
+        <li style="margin-bottom:12px;">
             当然，你也可以在你熟悉的领域去帮助别人。由此而形成我们这<br />
             个“你帮他他帮我我帮你，大家一起帮”的网上互助社区平台。
         </li>
 
-        <li>
+        <li style="margin-bottom:12px;">
             公平起见，我们还引入了 帮帮点/币/豆 三级概念，以记录和衡量社<br />
             区成员的收获和贡献。
         </li>
-        <li> 赶快加入我们，赚取帮帮币吧！</li>
+        <li style="margin-bottom:12px;"> 赶快加入我们，赚取帮帮币吧！</li>
         <li> <a style="color:#23527c;" href="#">了解更多</a></li>
     </ol>
     </p>
 </aside>
-<br  style="clear:both;"/>
-<hr style=" margin-left:50px;margin-right:50px;border:0px;border-top:1px solid #eee;" />
-<footer></footer>
+
+<br style="clear:both;" />
+<hr style=" margin-left:100px;margin-right:100px;border:0px;border-top:1px solid #eee;" />
+<footer><a style="float:left;margin-top:10px; margin-left:100px;color:#23527c;" href="http://17bang.ren/About/Us">关于我们</a><div style="float:left;margin-top:10px;margin-left:4px;">|</div><a style="float:left;margin-top:10px; margin-left:7px;color:#23527c;" href="http://17bang.ren/FAQ">常见问题</a><div style="float:left;margin-top:10px;margin-left:4px;">|</div><a style="float:left;margin-top:10px; margin-left:7px;color:#23527c;" href="http://17bang.ren/Suggest">意见建议</a><div style="float:left;margin-top:10px;margin-left:4px;">|</div><a style="float:left;margin-top:10px; margin-left:7px;color:#23527c;" href="http://17bang.ren/Notice">历史通知</a><div style="float:left;margin-top:10px;margin-left:4px;">|</div><a style="float:left;margin-top:10px; margin-left:7px;color:#2b542c;" href="http://17bang.ren/Donate">友情捐赠</a></footer>
+
+<a style="border:0px;background-color:rgba(128,255,212,.7);color:#23527c;position:fixed;bottom:100px;right:40px;padding:10px;" href="http://17bang.ren/Contact/Us">帮助</a>  
+ <a style="border:0px;background-color:rgba(128,255,212,.7);color:#23527c;position:fixed;bottom:55px;right:40px;padding:10px;"  href="http://17bang.ren/Suggest/New">反馈</a>
