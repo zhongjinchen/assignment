@@ -1,4 +1,5 @@
-
+ï»¿body {
+}
 .small {
     margin-top: 63px;
     margin-left: auto;
@@ -9,7 +10,6 @@
     height: 28px;
 }
 main {
-    
     margin-left: 100px;
     margin-right: 100px
 }
@@ -51,8 +51,8 @@ aside {
 
     aside > ol li {
         margin-bottom: 12px;
-        /*word-wrap: break-word;*/
-        /*Ö÷Á÷ä¯ÀÀÆ÷Ö§³Ö×Ô¶¯»»ĞĞ*/
+        /*word-wrap: break-word;
+        ä¸»æµæµè§ˆå™¨æ”¯æŒè‡ªåŠ¨æ¢è¡Œ*/
     }
 
 footer {
@@ -74,3 +74,13 @@ footer {
         margin-left: 4px;
     }
 
+.help-feedback a {
+    border: 0px;
+    background-color: rgba(128,255,212,.7);
+    color: #23527c;
+    position: fixed;
+    bottom: 100px;
+    right: 40px;
+    padding: 10px;
+    border-radius: 0px 10px;
+}
