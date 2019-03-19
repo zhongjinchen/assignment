@@ -9,7 +9,10 @@ main a:hover {
     text-decoration: underline;
 }
 
-.article a :hover {
+.article a:hover {
+    text-decoration: underline;
+}
+.advertisement a:hover {
     text-decoration: underline;
 }
 
@@ -89,6 +92,7 @@ main {
     width: 350px;
     margin-right: 220px;
     margin-top: 70px;
+    padding-bottom:20px;
 }
 
     .keywords a {
@@ -133,6 +137,7 @@ main {
 .advertisement-content {
     margin: 10px 10px 10px 10px;
 }
+
 footer {
     margin-top: 10px;
     margin-left: 200px;

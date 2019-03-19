@@ -52,8 +52,8 @@
     <a class="notice" href="http://17bang.ren/Message/Index">全部消息</a>
 </div>
 <main>
-    <div style=" background-color: #777; width:6px;height:30px;float:left;margin-top:10px;"></div>
-    <div style="color:gray;">
+    <div style=" background-color: #777; width:6px;height:30px;float:left;margin-top:10px;color:gray;"></div>
+    <form>
         <ul class="select">
             <li> 不显示</li>
             <li><label><input type="checkbox" name="vehicle" value="已酬谢"> 已酬谢</label></li>
@@ -63,7 +63,7 @@
             <li style="color:#337ab7;"><label><input type="checkbox" name="vehicle" value="我的关注"> 我的关注</label></li>
             <li style="color:#337ab7;"> <label><input type="checkbox" name="vehicle" value="有总结"> 有总结</label></li>
         </ul>
-    </div>
+    </form>
 
     <div>
         <div class="date">
@@ -138,11 +138,18 @@
         <a style="font-size:20px;" href="http://17bang.ren/Problem?keyword=171">Javascript</a><a style="font-size:20px;" href="http://17bang.ren/Problem?keyword=164">顾问咨询</a><a style="font-size:19px;" href="http://17bang.ren/Problem?keyword=199">html</a><a style="font-size:19px;" href="http://17bang.ren/Problem?keyword=161">操作系统</a>
         <a style="font-size:19px;" href="http://17bang.ren/Problem?keyword=182">VisualStudio</a><a style="font-size:18px;" href="http://17bang.ren/Problem?keyword=174">SQL</a><a style="font-size:18px;" href="http://17bang.ren/Problem?keyword=188">法律</a><a style="font-size:18px;" hhref="http://17bang.ren/Problem?keyword=184">职场</a>
         <a style="font-size:17px;" href="http://17bang.ren/Problem?keyword=173">Python</a><a style="font-size:17px;" href="http://17bang.ren/Problem?keyword=89">.net</a><a style="font-size:17px;" href="http://17bang.ren/Problem?keyword=200">css</a><a style="font-size:17px;" href="http://17bang.ren/Problem?keyword=167">Linux</a>
+        <hr style="border:0px;border-top:1px solid  #eee;width:290px;text-align:center;" />
+        <div style="margin-top:15px;">
+            <input type="password" name="查找" style="width:200px;height:25px;border:1px solid #ccc;border-radius:5px;margin-left:30px;" maxlength="16" placeholder="直接输入关键字查找" />
+            <input type="reset" value="换一批" style="width:60px;height:30px;border:1px solid #ccc;margin-left:10px;border-radius:5px;" />
+        </div>
     </div>
     <div class="article">
         <div style="font-size:25px;margin-top:5px;margin-bottom:5px;margin-left:20px;">精品文章</div>
         <hr style="border:0px;border-top:1px solid  #eee;width:290px;text-align:center;" />
-        <div class="article-content"> <a href="http://17bang.ren/Article/424">培训班的同学，拜托不要把用人单位想得那么傻，好不好？！</a></div>
+        <div class="article-content">
+            <a href="http://17bang.ren/Article/424">培训班的同学，拜托不要把用人单位想得那么傻，好不好？！</a>
+        </div>
         <div class="article-content">
             <a href="http://17bang.ren/Article/422">人心</a>
         </div>
@@ -156,7 +163,7 @@
             <a href="http://17bang.ren/Article/419">请个假，立个誓</a>
         </div>
         <div class="article-content">
-            <a href="http://17bang.ren/Article">更多</a>
+            <a style="margin-left:270px;" href="http://17bang.ren/Article">更多</a>
         </div>
     </div>
     <div class="advertisement">
@@ -175,12 +182,13 @@
         <div class="advertisement-content">
             <a href="http://17bang.ren/AdInWidget/_Free?position=2">5 免费广告位，抢到就是赚到！</a>
         </div>
-        <div class="advertisement-content">
+        <div style=" margin: 10px 10px 10px 10px;">
             6 本站主机由西部数码提供
-            <div/>
         </div>
+    </div>
 </aside>
-<br style="clear:both;" />
+<div style="clear:both;"></div>
+<br style="margin-top:30px;" />
 <footer>
     <a style="color:#23527c;" href="http://17bang.ren/About/Us">关于我们</a>
     <div>|</div>
