@@ -16,14 +16,14 @@ main a:hover {
     text-decoration: underline;
 }
 
-.notice {
+.small {
     float: right;
     margin-right: 25px;
     margin-top: 3px;
     color: #23527c;
 }
 
-.small {
+.notice {
     margin-top: 63px;
     margin-left: auto;
     margin-right: auto;
@@ -41,6 +41,8 @@ main {
 }
 
 .select {
+    border-left: 6px solid gray;
+    height:30px;
     list-style: none;
     text-decoration: none;
     margin-bottom: 50px;
@@ -49,6 +51,9 @@ main {
     .select > li {
         display: inline-block;
         margin-left: 7px;
+    }
+    .select > color-profile {
+        color: #337ab7;
     }
 
 .content {

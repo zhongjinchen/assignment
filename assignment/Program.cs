@@ -26,7 +26,9 @@ namespace assignment
             //Child money = new Child();
             //Console.WriteLine(money.Tomoney);
             //school("yuanzhan");
-            Date date = new Date();
+            //Date date = new Date();
+            Beautyliu liu = new Beautyliu();
+            liu.beauty = 30;
             Console.Read();
         }
         static void school(string name)
@@ -219,5 +221,32 @@ namespace assignment
 
     }
 
+    class Beautyliu
+    {
+        private int _age;
+        //internal int beauty
+        //{
+        //    get { return _age; }
+        //    //set { _age = 20; }
+        //}
 
+        //internal int beauty { get;private set; }
+        //internal int Age { get; set; } = 28;
+
+        public int beauty
+        {
+            get => _age;
+            //set => _age = 18;
+            set { _age = 18; }
+        }
+
+        //public Beauty()
+        //{
+
+        //}
+
+
+
+
+    }
 }

@@ -1,9 +1,11 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <link rel="shortcut icon" href="~/images/logo-big.ico" />
+    <link rel="shortcut icon" type="text/css" href="~/images/logo-big.ico" />
     <meta charset="utf-8" />
+    
     <title>注册·一起帮</title>
+   
     <style>
         header {
             border: 0px;
@@ -12,18 +14,40 @@
             top: 0;
             right: 0;
             left: 0;
-            height: 60px;          
+            height: 60px;
             background-color: #fff;
+            z-index:999;
         }
+
+            header > span {
+                float: left;
+                margin-top: 6px;
+                margin-left: 50px;
+            }
+
+            header > div {
+                float: left;
+                margin-top: 20px;
+                margin-left: 10px;
+                color: gray;
+            }
+
+            header > form {
+                float: right;
+                margin-top: 20px;
+                margin-right: 50px;
+                color: gray;
+            }
+
         .dropdown {
             float: right;
-           
         }
-        .dropdown >li{
-            position: relative;            
-            margin-right: 50px;
-            display: inline-block;
-        }
+
+            .dropdown > li {
+                position: relative;
+                margin-right: 50px;
+                display: inline-block;
+            }
 
         a {
             text-decoration: none;
@@ -62,13 +86,11 @@
             padding: 10px;
             border-radius: 0px 10px;
         }
-       
-
     </style>
 </head>
 <body>
-
     
+
     @RenderBody()
 
 </body>
