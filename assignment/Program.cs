@@ -6,7 +6,12 @@ namespace assignment
     {
         static void Main(string[] args)
         {
-            Mimicstact imitate = new Mimicstact(5);
+            //son Son = new son();
+            //bbb(Money)
+
+
+
+            //Mimicstact imitate = new Mimicstact(5);
             //imitate.Push(new int[]{8});
             //imitate.Push(8,9);
             //imitate.pop();
@@ -27,10 +32,15 @@ namespace assignment
             //Console.WriteLine(money.Tomoney);
             //school("yuanzhan");
             //Date date = new Date();
-            Beautyliu liu = new Beautyliu();
-            liu.beauty = 30;
+            //Beautyliu liu = new Beautyliu();
+            //liu.beauty = 30;
             Console.Read();
         }
+        static void bbb(mather Money)
+        {
+
+        }
+
         static void school(string name)
         {
 

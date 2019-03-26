@@ -1,11 +1,12 @@
 ﻿@page
 <link rel="stylesheet" type="text/css" href="~/css/Problem.css" />
+<link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 <header>
 
     <span><img src="~/images/logo-big.ico"></span>
 
     <div><b>一起帮</b>·网络互助平台</div>
-    <form >
+    <form>
         <ul class="dropdown">
             <li>
                 <a href="">求助</a>
@@ -53,28 +54,29 @@
 </div>
 <main>
     <form>
-      
+
         <ul class="select">
-            <li> 不显示</li>
+            
+            <li><span class="glyphicon glyphicon-eye-close"></span> 不显示</li>
             <li><label><input type="checkbox" name="已酬谢" value="已酬谢"> 已酬谢</label></li>
             <li><label><input type="checkbox" name="已撤销" value="已撤销"> 已撤销</label></li>
             <li><label><input type="checkbox" name="协助中" value="协助中"> 协助中</label></li>
-            <li class="color;">只显示</li>
-            <li class="color;"><label><input type="checkbox" name="vehicle" value="我的关注"> 我的关注</label></li>
-            <li class="color;"> <label><input type="checkbox" name="vehicle" value="有总结"> 有总结</label></li>
+            <li class="color"><span class="glyphicon glyphicon-eye-open"></span>只显示</li>
+            <li class="color"><label><input type="checkbox" name="vehicle" value="我的关注"> 我的关注</label></li>
+            <li class="color"> <label><input type="checkbox" name="vehicle" value="有总结"> 有总结</label></li>
         </ul>
     </form>
 
     <div>
         <div class="date">
-            2019年03月12日 20点40分
-            <a style="float:right;color:#337ab7;" href="http://17bang.ren/User/1628">asd7231</a>
+            <span class="glyphicon glyphicon-calendar"></span>2019年03月12日 20点40分
+            <a href="http://17bang.ren/User/1628">asd7231</a>
         </div>
-        <div style="border:0px;background-color:#5bc0de;border-radius:10px;width:55px;height:20px; color:white;margin-top:10px;margin-bottom:10px;float:left;padding:5px;">
+        <div class="wait">
             待协助
         </div>
 
-        <a style="float:left;margin-top:7px;margin-left:5px;font-size:23px;color:black;" href="http://17bang.ren/Problem/707">python爬虫设置代理无效</a>
+        <a class="problem" href="http://17bang.ren/Problem/707">python爬虫设置代理无效</a>
 
 
         <div class="answer">如题，初学python,没有用框架，设置了chrome和PhantomJS代理都没有效果 <a href="http://17bang.ren/Problem/707">……</a></div>
@@ -84,37 +86,43 @@
             <a href="http://17bang.ren/Problem?keyword=173"> Python</a><a href="http://17bang.ren/Problem?keyword=163">编程开发语言</a>
         </div>
         <div class="status">
-
-            悬赏： 20 <a href="http://17bang.ren/Problem/707#new-comment"></a><a href=" http://17bang.ren/Problem/707#new-comment"> 应答：</a>0 <a href="http://17bang.ren/Problem/707#summary">总结：</a> 0
+            悬赏： 20                                          
+            <a href=" http://17bang.ren/Problem/707#new-comment"><span class="glyphicon glyphicon-heart"></span> 应答：0</a>
+            <a href="http://17bang.ren/Problem/707#summary">总结：0</a> 
         </div>
     </div>
-    <hr style="border:0px;border-top:1px solid  #eee;width:750px;text-align:center;margin-top:10px;margin-bottom:15px;margin-top: 20px;margin-bottom: 40px;" />
+    <hr class="cut-offruie" />
     <div>
         <div class="date">
-            2019年03月12日 20点40分
-            <a style="float:right;color:#337ab7;" href="http://17bang.ren/User/3129">1462556133</a>
+            <span class="glyphicon glyphicon-calendar"></span>2019年03月12日 20点40分
+            <a href="http://17bang.ren/User/3129">1462556133</a>
         </div>
-        <div style="clear:both; border:0px;background-color:#5bc0de;border-radius:10px;width:55px;height:20px; color:white;margin-top:10px;margin-bottom:10px;float:left;padding:5px;">
+        <div class="wait">
             待协助
         </div>
-        <div style=" clear: both;"><a href="http://17bang.ren/Problem/396">……</a></div>
+        <div class="clearfix"><a href="http://17bang.ren/Problem/396">……</a></div>
         <div class="tag">
             <a hhref="http://17bang.ren/Problem?keyword=109"> 多线程</a>
             <a href="http://17bang.ren/Problem?keyword=170"> Java</a><a href="http://17bang.ren/Problem?keyword=163">编程开发语言</a>
         </div>
         <div class="status">
 
-            悬赏： 20 <a href="http://17bang.ren/Problem/707#new-comment"></a><a href=" http://17bang.ren/Problem/707#new-comment"> 应答：</a> 3<a href="http://17bang.ren/Problem/707#summary">总结：</a> 0
+            悬赏： 20
+            <a href=" http://17bang.ren/Problem/707#new-comment"><span class="glyphicon glyphicon-heart"></span>  应答：3</a> 
+            <a href="http://17bang.ren/Problem/707#summary">总结：0</a> 
         </div>
     </div>
-    <hr style="border:0px;border-top:1px solid  #eee;width:750px;text-align:center;margin-top:10px;margin-bottom:15px;margin-top: 20px;margin-bottom: 40px;" />
+    <hr class="cut-offruie" />
     <div>
-
-        <div style="border:0px;background-color:#5bc0de;border-radius:10px;width:55px;height:20px; color:white;margin-top:10px;margin-bottom:10px;float:left;padding:5px;">
+        <div class="date">
+            <span class="glyphicon glyphicon-calendar"></span> 2019年03月12日 20点40分
+            <a href="http://17bang.ren/User/3129">2556133</a>
+        </div>
+        <div class="wait">
             待协助
         </div>
 
-        <a style="float:left;margin-top:7px;margin-left:5px;font-size:23px;color:black;" href="http://17bang.ren/Problem/391">Winform里控件绑定数据源就会报错</a>
+        <a class="problem" href="http://17bang.ren/Problem/391">Winform里控件绑定数据源就会报错</a>
 
 
         <div class="answer"> 项目里的控件绑定属性都会出现这个问题<a href="http://17bang.ren/Problem/391">……</a></div>
@@ -125,41 +133,76 @@
         </div>
         <div class="status">
 
-            悬赏： 20 <a href="http://17bang.ren/Problem/707#new-comment"></a><a href=" http://17bang.ren/Problem/707#new-comment"> 应答：</a>0 <a href="http://17bang.ren/Problem/707#summary">总结：</a> 0
+            悬赏： 20 
+            <a href=" http://17bang.ren/Problem/707#new-comment"><span class="glyphicon glyphicon-heart"></span>  应答：0</a> 
+            <a href="http://17bang.ren/Problem/707#summary">总结：0</a> 
         </div>
     </div>
-    <hr style="border:0px;border-top:1px solid  #eee;width:750px;text-align:center;margin-top:10px;margin-bottom:15px;margin-top: 20px;margin-bottom: 40px;" />
+    <hr class="cut-offruie" />
+    <div>
+        <div class="date">
+            <span class="glyphicon glyphicon-calendar"></span> 2019年03月12日 20点40分
+            <a href="http://17bang.ren/User/1628">asd7231</a>
+        </div>
+        <div class="wait">
+            待协助
+        </div>
+
+        <a class="problem" href="http://17bang.ren/Problem/707">python爬虫设置代理无效</a>
+
+
+        <div class="answer">如题，初学python,没有用框架，设置了chrome和PhantomJS代理都没有效果 <a href="http://17bang.ren/Problem/707">……</a></div>
+
+        <div class="tag">
+            <a hhref="http://17bang.ren/Problem?keyword=704">爬虫代理设置</a><a hhref="http://17bang.ren/Problem?keyword=109"> 爬虫</a>
+            <a href="http://17bang.ren/Problem?keyword=173"> Python</a><a href="http://17bang.ren/Problem?keyword=163">编程开发语言</a>
+        </div>
+        <div class="status">
+
+            悬赏： 20
+            <a href=" http://17bang.ren/Problem/707#new-comment"><span class="glyphicon glyphicon-heart"></span>  应答：0</a>
+            <a href="http://17bang.ren/Problem/707#summary">总结：0</a> 
+        </div>
+    </div>
+    <hr class="cut-offruie" />
 </main>
 
 <aside>
     <div class=" keywords">
-        <div style="font-size:25px;margin-top:5px;margin-bottom:5px;margin-left:20px;">关键字</div>
-        <hr style="border:0px;border-top:1px solid  #eee;width:290px;text-align:center;" />
-        <a style="font-size:21px;" href="http://17bang.ren/Problem?keyword=163">编程开发语言</a>
-        <a style="font-size:21px;" href="http://17bang.ren/Problem?keyword=169">C#</a>
-        <a style="font-size:21px;" href="http://17bang.ren/Problem?keyword=170">Java</a>
-        <a style="font-size:20px;" href="http://17bang.ren/Problem?keyword=162">工具软件</a>
-        <a style="font-size:20px;" href="http://17bang.ren/Problem?keyword=171">Javascript</a>
-        <a style="font-size:20px;" href="http://17bang.ren/Problem?keyword=164">顾问咨询</a>
-        <a style="font-size:19px;" href="http://17bang.ren/Problem?keyword=199">html</a>
-        <a style="font-size:19px;" href="http://17bang.ren/Problem?keyword=161">操作系统</a>
-        <a style="font-size:19px;" href="http://17bang.ren/Problem?keyword=182">VisualStudio</a>
-        <a style="font-size:18px;" href="http://17bang.ren/Problem?keyword=174">SQL</a>
-        <a style="font-size:18px;" href="http://17bang.ren/Problem?keyword=188">法律</a>
-        <a style="font-size:18px;" hhref="http://17bang.ren/Problem?keyword=184">职场</a>
-        <a style="font-size:17px;" href="http://17bang.ren/Problem?keyword=173">Python</a>
-        <a style="font-size:17px;" href="http://17bang.ren/Problem?keyword=89">.net</a>
-        <a style="font-size:17px;" href="http://17bang.ren/Problem?keyword=200">css</a>
-        <a style="font-size:17px;" href="http://17bang.ren/Problem?keyword=167">Linux</a>
-        <hr style="border:0px;border-top:1px solid  #eee;width:290px;text-align:center;" />
-        <div style="margin-top:15px;">
-            <input type="password" name="查找" style="width:200px;height:25px;border:1px solid #ccc;border-radius:5px;margin-left:30px;" maxlength="16" placeholder="直接输入关键字查找" />
-            <input type="reset" value="换一批" style="width:60px;height:30px;border:1px solid #ccc;margin-left:10px;border-radius:5px;" />
+        <h3>  <span class="glyphicon glyphicon-tags"></span>     关键字</h3>
+        <hr class="line" />
+        <a  href="http://17bang.ren/Problem?keyword=163">编程开发语言</a>
+        <a  href="http://17bang.ren/Problem?keyword=169">C#</a>
+        <a  href="http://17bang.ren/Problem?keyword=170">Java</a>
+        <a  href="http://17bang.ren/Problem?keyword=162">工具软件</a>
+        <a  href="http://17bang.ren/Problem?keyword=171">Javascript</a>
+        <a  href="http://17bang.ren/Problem?keyword=164">顾问咨询</a>
+        <a  href="http://17bang.ren/Problem?keyword=199">html</a>
+        <a  href="http://17bang.ren/Problem?keyword=161">操作系统</a>
+        <a href="http://17bang.ren/Problem?keyword=182">VisualStudio</a>
+        <a  href="http://17bang.ren/Problem?keyword=174">SQL</a>
+        <a  href="http://17bang.ren/Problem?keyword=188">法律</a>
+        <a  hhref="http://17bang.ren/Problem?keyword=184">职场</a>
+        <a href="http://17bang.ren/Problem?keyword=173">Python</a>
+        <a  href="http://17bang.ren/Problem?keyword=89">.net</a>
+        <a href="http://17bang.ren/Problem?keyword=200">css</a>
+        <a  href="http://17bang.ren/Problem?keyword=167">Linux</a>
+        <hr class="line" />
+        <div class="separate">
+            <form role="form">
+                <div div class="form-group col-lg-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="直接输入关键字查找">
+                        <span class="input-group-addon "><span class="glyphicon glyphicon-search"></span></span>
+                    </div>
+                </div>
+            </form>
+            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-random"></span>    换一批</button>
         </div>
     </div>
     <div class="article">
-        <div style="font-size:25px;margin-top:5px;margin-bottom:5px;margin-left:20px;">精品文章</div>
-        <hr style="border:0px;border-top:1px solid  #eee;width:290px;text-align:center;" />
+        <h3><span class="glyphicon glyphicon-book"></span>  精品文章</h3>
+        <hr class="line" />
         <div class="article-content">
             <a href="http://17bang.ren/Article/424">培训班的同学，拜托不要把用人单位想得那么傻，好不好？！</a>
         </div>
@@ -176,7 +219,7 @@
             <a href="http://17bang.ren/Article/419">请个假，立个誓</a>
         </div>
         <div class="article-content">
-            <a style="margin-left:270px;" href="http://17bang.ren/Article">更多</a>
+            <a class="move" href="http://17bang.ren/Article">更多</a>
         </div>
     </div>
     <div class="advertisement">
@@ -195,15 +238,16 @@
         <div class="advertisement-content">
             <a href="http://17bang.ren/AdInWidget/_Free?position=2">5 免费广告位，抢到就是赚到！</a>
         </div>
-        <div style=" margin: 10px 10px 10px 10px;">
+        <div class="advertisement-content">
             6 本站主机由西部数码提供
         </div>
     </div>
 </aside>
-<div style="clear:both;"></div>
-<br style="margin-top:30px;" />
+<div class="clearfix"></div>
+
 <footer>
     <a style="color:#23527c;" href="http://17bang.ren/About/Us">关于我们</a>
+
     <div>|</div>
     <a style=" margin-left:7px;color:#23527c;" href="http://17bang.ren/FAQ">常见问题</a>
     <div>|</div>
@@ -216,6 +260,6 @@
 
 
 <div class="help-feedback">
-    <a style="bottom:100px;" href="http://17bang.ren/Contact/Us">帮助</a>
-    <a style=" bottom:55px;" href="http://17bang.ren/Suggest/New">反馈</a>
+    <a href="http://17bang.ren/Contact/Us">帮助</a>
+    <a class="bottom" href="http://17bang.ren/Suggest/New">反馈</a>
 </div>

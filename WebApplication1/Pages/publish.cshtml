@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/publish.css" />
 </head>
 <body>
     <header>
@@ -55,23 +56,17 @@
             </ul>
         </form>
     </header>
-    <div style=" margin-top: 63px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1200px;
-    text-align: center;
-    background-color: #eee;
-    height: 28px;">
-        <a style="float:right;margin-right:25px;margin-top:3px;color:#23527c;" href="http://17bang.ren/Message/Index">全部消息</a>
+    <div class="notice">
+        <a href="http://17bang.ren/Message/Index">全部消息</a>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-md-9">
                 <div class="page-header">
-                    
+
                     <h1><span class="glyphicon glyphicon-question-sign"></span> 我要求助</h1>
                 </div>
-                <div style="border:1px dashed  #eee;background-color:#ffffe0;border-width:2px; border-radius: 5px;">
+                <div class="color">
 
                     <p class="glyphicon glyphicon-info-sign"> 这是你第一次发布求助，求助发布成功系统会奖励你 20<a href=""> 帮帮点 </a>。</p>
 
@@ -150,7 +145,7 @@
 
                     </div>
                     <div div class="form-group">
-                        <label>悬赏 帮帮币 ：（现有4枚 ）</label>
+                        <label>悬赏 帮帮币 ：（现有4枚 ）</label><label> <input type="checkbox">据实结算</label>
                         <div class="input-group">
                             <span class="input-group-addon">@@</span>
                             <input type="text" class="form-control" placeholder="正整数，建议十枚以上">
@@ -163,25 +158,53 @@
                     </div>
                 </form>
             </div>
-            <div class="col-lg-3" style="border:1px dashed  #eee;background-color:#ffffe0;border-width:2px; border-radius: 5px;margin-top:40px;">
-                <h4>新手任务</h4>
-                <hr />
+            <div  class="col-lg-3">
+                <div class="assignment">
+                    <h4><span class="glyphicon glyphicon-th-list"></span> 新手任务</h4>
+                    <hr />
 
-                <p> 填写：联系方式</p>
+                    <p><input type="checkbox"> 填写：联系方式</p>
 
-                <p>激活：Email</p>
+                    <p><input type="checkbox">激活：Email</p>
 
-                <p>邀请：我的小伙伴</p>
+                    <p><input type="checkbox">邀请：我的小伙伴</p>
 
-                <p> 参加：新人测试 </p>
+                    <p><input type="checkbox"> 参加：新人测试 </p>
 
-                <p>发布：第一个求助</p>
-                <p>尝试： 第一次协助</p>
+                    <p><input type="checkbox">发布：第一个求助</p>
+                    <p><input type="checkbox">尝试： 第一次协助</p>
 
-                <p> 获得：若干 帮帮币</p>
+                    <p><input type="checkbox"> 获得：若干 帮帮币</p>
+                </div>
+            </div>
 
+
+
+
+            <div class="clearfix">
+                <a class="pull-right" href="#">修改</a>
+            </div>
+            <br  />
+            <footer>
+                <a class="footer-color" href="http://17bang.ren/About/Us">关于我们</a>
+
+                <div>|</div>
+                <a class="footer-position" href="http://17bang.ren/FAQ">常见问题</a>
+                <div>|</div>
+                <a class="footer-position" href="http://17bang.ren/Suggest">意见建议</a>
+                <div>|</div>
+                <a class="footer-position" href="http://17bang.ren/Notice">历史通知</a>
+                <div>|</div>
+                <a class="footer-position" href="http://17bang.ren/Donate">友情捐赠</a>
+            </footer>
+
+
+            <div class="help-feedback">
+                <a style="bottom:100p href="http://17bang.ren/Contact/Us">帮助</a>
+                <a style=" bottom:55px;" href="http://17bang.ren/Suggest/New">反馈</a>
             </div>
         </div>
+
     </div>
 
 </body>

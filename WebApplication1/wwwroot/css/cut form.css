@@ -1,79 +1,36 @@
 ﻿body {
 }
-
-main a:hover {
-    text-decoration: underline;
-}
-
-.notice:hover {
-    text-decoration: underline;
-}
-
-.article a:hover {
-    text-decoration: underline;
-}
-.advertisement a:hover {
-    text-decoration: underline;
-}
-
-.small {
-    float: right;
-    margin-right: 25px;
-    margin-top: 3px;
-    color: #23527c;
-}
-
 .notice {
-    margin-top: 63px;
+    margin-top: -8px;
     margin-left: auto;
     margin-right: auto;
     width: 1200px;
     text-align: center;
     background-color: #eee;
     height: 28px;
-}
-
+    }
+    .notice a {
+        float: right;
+        margin-right: 25px;
+        margin-top: 3px;
+        color: #23527c;
+    }
 main {
-    float: left;
-    margin-top: 50px;
-    margin-left: 200px;
-    width: 750px;
-}
-.color {
-    color: #23527c;
-}
-.select {
-    border-left: 6px solid gray;
-    height:30px;
-    list-style: none;
-    text-decoration: none;
-    margin-bottom: 50px;
-}
-
-    .select > li {
-        display: inline-block;
-        margin-left: 7px;
-    }
-    .select > color-profile {
-        color: #337ab7;
-    }
-
-.content {
-    border: 1px solid;
-    width: 500px
+    margin-top: 70px;
 }
 .wait {
     border: 0px;
     background-color: #5bc0de;
     border-radius: 20px;
     width: 55px;
-    
+   
     color: white;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     float: left;
     padding: 5px;
 }
+
 .problem {
     float: left;
     margin-top: 7px;
@@ -81,23 +38,17 @@ main {
     font-size: 23px;
     color: black;
 }
-.cut-offruie {
-    border: 0px;
-    border-top: 1px solid #eee;
-    width: 750px;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    margin-top: 20px;
-    margin-bottom: 40px;
-}
+
+
 .date {
     font-size: 13px;
 }
+
     .date a {
         float: right;
         color: #337ab7;
     }
+
 .answer {
     clear: both;
     font-size: 14px;
@@ -122,14 +73,40 @@ main {
     margin-left: 12px;
     color: #337ab7;
 }
-.status span{color:red;}
+.shift{
+
+    float:right;
+    margin-top:25px;}
+.border {
+    clear:both;
+    margin-top:10px;
+    border: 1px dashed #eee;
+    border-radius: 5px;
+    padding:10px;
+}
+.button{margin-top:30px;
+        margin-left:270px;
+            
+}
+.frame {
+    border: 1px solid #eee;
+    padding:50px 30px;
+}
+td span {
+    border: 0px;
+    color: white;
+    background-color: #777;
+    display: inline-block;
+    margin: 5px 10px 5px 10px;
+    border-radius: 10px;
+}
 .keywords {
     border: 1px dashed #eee;
-    float: right;
-    width: 350px;
-    margin-right: 220px;
+    
+   
+   
     margin-top: 70px;
-    padding-bottom:20px;
+    padding-bottom: 20px;
 }
 
     .keywords a {
@@ -150,9 +127,11 @@ main {
     width: 290px;
     text-align: center;
 }
+
 .separate {
     margin-top: 15px;
 }
+
 .seek {
     width: 200px;
     height: 25px;
@@ -164,8 +143,8 @@ main {
 .article {
     border: 1px dashed #eee;
     float: right;
-    width: 350px;
-    margin-right: 220px;
+
+ 
     margin-top: 20px;
 }
 
@@ -176,14 +155,15 @@ main {
 .article-content {
     margin: 10px 10px 10px 10px;
 }
+
 .move {
     margin-left: 270px;
 }
+
 .advertisement {
     border: 1px dashed #eee;
     float: right;
-    width: 350px;
-    margin-right: 220px;
+    padding-right:150PX;
     margin-top: 20px;
 }
 
@@ -196,9 +176,9 @@ main {
 }
 
 footer {
-    margin-top: 10px;
-    margin-left: 200px;
-    margin-right: 200px;
+    clear:both;
+    margin-top: 50px;
+   
     margin-bottom: 70px;
     border-top: 1px solid #eee;
 }
