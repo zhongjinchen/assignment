@@ -170,19 +170,49 @@
 
 --SELECT * FROM TUser
 --WHERE Id IN (SELECT Author FROM TProblem GROUP BY Author HAVING COUNT(Author)>1)
-SET STATISTICS IO ON
-SET STATISTICS TIME ON
-SELECT Title FROM TProblem opr
-WHERE opr.PublishTime =(SELECT MAX(ipr.PublishTime) 
-FROM TProblem ipr WHERE opr.Author=ipr.Author  GROUP BY Author)	
-SET STATISTICS IO OFF
+--SET STATISTICS IO ON
+--SET STATISTICS TIME ON
+--SELECT Title FROM TProblem opr
+--WHERE opr.PublishTime =(SELECT MAX(ipr.PublishTime) 
+--FROM TProblem ipr WHERE opr.Author=ipr.Author  GROUP BY Author)	
+--SET STATISTICS IO OFF
 
-SET STATISTICS IO ON
-SELECT B.Id,Author,Title,PublishTime
-FROM TProblem B
-WHERE PublishTime = (SELECT MAX(PublishTime)
-FROM TProblem A WHERE A.Author=B.Author)
-SET STATISTICS IO OFF
+--SET STATISTICS IO ON
+--SELECT B.Id,Author,Title,PublishTime
+--FROM TProblem B
+--WHERE PublishTime = (SELECT MAX(PublishTime)
+--FROM TProblem A WHERE A.Author=B.Author)
+--SET STATISTICS IO OFF
 --SELECT UserName FROM TUser
 --WHERE Id IN (SELECT Author FROM TProblem GROUP BY Author HAVING MIN(Reward)>5)
 
+----索引
+--CREATE TABLE TMessage(
+--Id INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+--FromUser NVARCHAR(10) NOT NULL,
+--ToUser NVARCHAR(10) NOT NULL,
+--UrgentLevel INT NOT NULL, 
+--Kind NVARCHAR(10) NOT NULL,
+--HasRead BIT NOT NULL, 
+--IsDelete BIT NOT NULL,
+--Content NVARCHAR(100)
+--) 
+ALTER TABLE TMessage ADD CONSTRAINT AK_FromUser UNIQUE(FromUser)
+SELECT [name], [type],  is_unique, is_primary_key, is_unique_constraint
+FROM sys.indexes 
+WHERE [NAME]='AK_FromUser'
+
+ALTER TABLE TMessage DROP CONSTRAINT PK__TMessage__3214EC073CC4D4F9 
+CREATE CLUSTERED INDEX CL_ToUser ON TMessage(ToUser)
+ALTER TABLE TMessage ADD CONSTRAINT PK_Id PRIMARY KEY(Id) 
+CREATE UNIQUE NONCLUSTERED INDEX NCL_Id ON TMessage(Id)
+DROP INDEX TMessage.NCL_Id
+
+SELECT *
+--[name], [type],  is_unique, is_primary_key, is_unique_constraint
+FROM sys.indexes 
+WHERE [NAME]='NCL_Id'
+
+ALTER TABLE TMessage ADD CONSTRAINT FK_UrgentLevel FOREIGN KEY (UrgentLevel) REFERENCES TUser(Id) 
+SELECT name,type,is_unique,is_primary_key,is_unique_constraint  FROM sys.indexes
+WHERE name='FK_UrgentLevel'
