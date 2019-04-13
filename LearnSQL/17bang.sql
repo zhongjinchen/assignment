@@ -187,7 +187,7 @@
 --WHERE Id IN (SELECT Author FROM TProblem GROUP BY Author HAVING MIN(Reward)>5)
 
 ----索引
---CREATE TABLE TMessage(
+--CREATE TABLE Message(
 --Id INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 --FromUser NVARCHAR(10) NOT NULL,
 --ToUser NVARCHAR(10) NOT NULL,
@@ -197,22 +197,104 @@
 --IsDelete BIT NOT NULL,
 --Content NVARCHAR(100)
 --) 
-ALTER TABLE TMessage ADD CONSTRAINT AK_FromUser UNIQUE(FromUser)
-SELECT [name], [type],  is_unique, is_primary_key, is_unique_constraint
-FROM sys.indexes 
-WHERE [NAME]='AK_FromUser'
+--ALTER TABLE TMessage ADD CONSTRAINT AK_FromUser UNIQUE(FromUser)
+--SELECT [name], [type],  is_unique, is_primary_key, is_unique_constraint
+--FROM sys.indexes 
+--WHERE [NAME]='AK_FromUser'
 
-ALTER TABLE TMessage DROP CONSTRAINT PK__TMessage__3214EC073CC4D4F9 
-CREATE CLUSTERED INDEX CL_ToUser ON TMessage(ToUser)
-ALTER TABLE TMessage ADD CONSTRAINT PK_Id PRIMARY KEY(Id) 
-CREATE UNIQUE NONCLUSTERED INDEX NCL_Id ON TMessage(Id)
-DROP INDEX TMessage.NCL_Id
+--ALTER TABLE TMessage DROP CONSTRAINT PK__TMessage__3214EC073CC4D4F9 
+--CREATE CLUSTERED INDEX CL_ToUser ON TMessage(ToUser)
+--ALTER TABLE TMessage ADD CONSTRAINT PK_Id PRIMARY KEY(Id) 
+--CREATE UNIQUE NONCLUSTERED INDEX NCL_Id ON TMessage(Id)
+--DROP INDEX TMessage.NCL_Id
 
-SELECT *
---[name], [type],  is_unique, is_primary_key, is_unique_constraint
-FROM sys.indexes 
-WHERE [NAME]='NCL_Id'
+--SELECT *
+----[name], [type],  is_unique, is_primary_key, is_unique_constraint
+--FROM sys.indexes 
+--WHERE [NAME]='NCL_Id'
 
-ALTER TABLE TMessage ADD CONSTRAINT FK_UrgentLevel FOREIGN KEY (UrgentLevel) REFERENCES TUser(Id) 
-SELECT name,type,is_unique,is_primary_key,is_unique_constraint  FROM sys.indexes
-WHERE name='FK_UrgentLevel'
+--ALTER TABLE TMessage ADD CONSTRAINT FK_UrgentLevel FOREIGN KEY (UrgentLevel) REFERENCES TUser(Id) 
+--SELECT name,type,is_unique,is_primary_key,is_unique_constraint  FROM sys.indexes
+--WHERE name='FK_UrgentLevel'
+
+--SELECT TOP(1) * FROM TProblem GROUP BY Author
+--SELECT Author,MAX(Id) FROM TProblem GROUP BY Author
+
+----创建全文索引
+--CREATE FULLTEXT CATALOG  CA_             --创建目录   
+--DROP FULLTEXT CATALOG  CA_                 --删除全文索引
+
+--CREATE FULLTEXT INDEX ON Message(...)
+--KEY INDEX  FU_
+--ON CA_
+
+--作业
+SELECT *FROM TProblem otp JOIN  
+(SELECT MAX(ire.COKD) OVER(PARTITION BY Author)maxco,ire.TPD,
+ipr.Author AS Auth,COKD  FROM TProblem ipr JOIN
+(SELECT TProblemId TPD,COUNT(KeyId)COKD  FROM TRelation
+GROUP BY TProblemId) ire
+ON ipr.Id=ire.TPD
+) opr
+ON otp.Author=opr.Auth AND otp.Id=opr.TPD
+WHERE maxco=COKD
+--
+SELECT * FROM
+(SELECT MAX(co) OVER(PARTITION BY Author) ma,* FROM
+(SELECT COUNT(*) co,TR.TProblemId ,Author
+FROM  TProblem TP JOIN TRelation TR
+ON TP.Id=TR.TProblemId
+GROUP BY Author,TR.TProblemId) A
+)B  JOIN TProblem C
+ON B.Author=C.Author AND B.TProblemId=C.Id
+WHERE B.ma=B.co
+--公用表
+WITH A AS(SELECT COUNT(*) co,TR.TProblemId ,Author
+FROM  TProblem TP JOIN TRelation TR
+ON TP.Id=TR.TProblemId
+GROUP BY Author,TR.TProblemId)
+
+SELECT * FROM
+(SELECT MAX(co) OVER(PARTITION BY Author) ma,* FROM A
+)B  JOIN TProblem C
+ON B.Author=C.Author AND B.TProblemId=C.Id
+WHERE B.ma=B.co
+
+--临时表
+CREATE TABLE #COUNT(
+co int,
+TProblemId int,
+Author int
+)
+INSERT #COUNT SELECT * FROM (SELECT COUNT(*) co,TR.TProblemId ,Author
+FROM  TProblem TP JOIN TRelation TR
+ON TP.Id=TR.TProblemId
+GROUP BY Author,TR.TProblemId)A
+
+SELECT * FROM
+(SELECT MAX(co) OVER(PARTITION BY Author) ma,* FROM tempdb.#COUNT
+)B  JOIN TProblem C
+ON B.Author=C.Author AND B.TProblemId=C.Id
+WHERE B.ma=B.co
+
+--表变量
+DECLARE @TVariable TABLE(
+co int,
+TProblemId int,
+Author int
+)
+INSERT @TVariable SELECT * FROM (SELECT COUNT(*) co,TR.TProblemId ,Author
+FROM  TProblem TP JOIN TRelation TR
+ON TP.Id=TR.TProblemId
+GROUP BY Author,TR.TProblemId)A
+
+--SELECT * FROM
+--(SELECT MAX(co) OVER(PARTITION BY Author) ma,* FROM tempdb.#COUNT
+--)B  JOIN TProblem C
+--ON B.Author=C.Author AND B.TProblemId=C.Id
+--WHERE B.ma=B.co
+
+SELECT * FROM @TVariable
+
+
+
