@@ -229,64 +229,47 @@
 --ON CA_
 
 --作业
-SELECT *FROM TProblem otp JOIN  
-(SELECT MAX(ire.COKD) OVER(PARTITION BY Author)maxco,ire.TPD,
-ipr.Author AS Auth,COKD  FROM TProblem ipr JOIN
-(SELECT TProblemId TPD,COUNT(KeyId)COKD  FROM TRelation
-GROUP BY TProblemId) ire
-ON ipr.Id=ire.TPD
-) opr
-ON otp.Author=opr.Auth AND otp.Id=opr.TPD
-WHERE maxco=COKD
---
-SELECT * FROM
-(SELECT MAX(co) OVER(PARTITION BY Author) ma,* FROM
-(SELECT COUNT(*) co,TR.TProblemId ,Author
-FROM  TProblem TP JOIN TRelation TR
-ON TP.Id=TR.TProblemId
-GROUP BY Author,TR.TProblemId) A
-)B  JOIN TProblem C
-ON B.Author=C.Author AND B.TProblemId=C.Id
-WHERE B.ma=B.co
---公用表
-WITH A AS(SELECT COUNT(*) co,TR.TProblemId ,Author
-FROM  TProblem TP JOIN TRelation TR
-ON TP.Id=TR.TProblemId
-GROUP BY Author,TR.TProblemId)
+--SELECT *FROM TProblem otp JOIN  
+--(SELECT MAX(ire.COKD) OVER(PARTITION BY Author)maxco,ire.TPD,
+--ipr.Author AS Auth,COKD  FROM TProblem ipr JOIN
+--(SELECT TProblemId TPD,COUNT(KeyId)COKD  FROM TRelation
+--GROUP BY TProblemId) ire
+--ON ipr.Id=ire.TPD
+--) opr
+--ON otp.Author=opr.Auth AND otp.Id=opr.TPD
+--WHERE maxco=COKD
+----
+--SELECT * FROM
+--(SELECT MAX(co) OVER(PARTITION BY Author) ma,* FROM
+--(SELECT COUNT(*) co,TR.TProblemId ,Author
+--FROM  TProblem TP JOIN TRelation TR
+--ON TP.Id=TR.TProblemId
+--GROUP BY Author,TR.TProblemId) A
+--)B  JOIN TProblem C
+--ON B.Author=C.Author AND B.TProblemId=C.Id
+--WHERE B.ma=B.co
+----公用表
+--WITH A AS(SELECT COUNT(*) co,TR.TProblemId ,Author
+--FROM  TProblem TP JOIN TRelation TR
+--ON TP.Id=TR.TProblemId
+--GROUP BY Author,TR.TProblemId)
 
-SELECT * FROM
-(SELECT MAX(co) OVER(PARTITION BY Author) ma,* FROM A
-)B  JOIN TProblem C
-ON B.Author=C.Author AND B.TProblemId=C.Id
-WHERE B.ma=B.co
+--SELECT * FROM
+--(SELECT MAX(co) OVER(PARTITION BY Author) ma,* FROM A
+--)B  JOIN TProblem C
+--ON B.Author=C.Author AND B.TProblemId=C.Id
+--WHERE B.ma=B.co
 
---临时表
-CREATE TABLE #COUNT(
-co int,
-TProblemId int,
-Author int
-)
-INSERT #COUNT SELECT * FROM (SELECT COUNT(*) co,TR.TProblemId ,Author
-FROM  TProblem TP JOIN TRelation TR
-ON TP.Id=TR.TProblemId
-GROUP BY Author,TR.TProblemId)A
-
-SELECT * FROM
-(SELECT MAX(co) OVER(PARTITION BY Author) ma,* FROM tempdb.#COUNT
-)B  JOIN TProblem C
-ON B.Author=C.Author AND B.TProblemId=C.Id
-WHERE B.ma=B.co
-
---表变量
-DECLARE @TVariable TABLE(
-co int,
-TProblemId int,
-Author int
-)
-INSERT @TVariable SELECT * FROM (SELECT COUNT(*) co,TR.TProblemId ,Author
-FROM  TProblem TP JOIN TRelation TR
-ON TP.Id=TR.TProblemId
-GROUP BY Author,TR.TProblemId)A
+----临时表
+--CREATE TABLE #COUNT(
+--co int,
+--TProblemId int,
+--Author int
+--)
+--INSERT #COUNT SELECT * FROM (SELECT COUNT(*) co,TR.TProblemId ,Author
+--FROM  TProblem TP JOIN TRelation TR
+--ON TP.Id=TR.TProblemId
+--GROUP BY Author,TR.TProblemId)A
 
 --SELECT * FROM
 --(SELECT MAX(co) OVER(PARTITION BY Author) ma,* FROM tempdb.#COUNT
@@ -294,7 +277,55 @@ GROUP BY Author,TR.TProblemId)A
 --ON B.Author=C.Author AND B.TProblemId=C.Id
 --WHERE B.ma=B.co
 
-SELECT * FROM @TVariable
+----表变量
+--DECLARE @TVariable TABLE(
+--co int,
+--TProblemId int,
+--Author int
+--)
+--INSERT @TVariable SELECT * FROM (SELECT COUNT(*) co,TR.TProblemId ,Author
+--FROM  TProblem TP JOIN TRelation TR
+--ON TP.Id=TR.TProblemId
+--GROUP BY Author,TR.TProblemId)A
 
+----SELECT * FROM
+----(SELECT MAX(co) OVER(PARTITION BY Author) ma,* FROM tempdb.#COUNT
+----)B  JOIN TProblem C
+----ON B.Author=C.Author AND B.TProblemId=C.Id
+----WHERE B.ma=B.co
 
+--SELECT * FROM @TVariable
 
+----事物(显示事物)
+ALTER TABLE TUser ADD CONSTRAINT CK_Positive  CHECK(Balance>0)  
+
+SELECT * FROM TUser
+
+SET XACT_ABORT ON
+BEGIN TRANSACTION
+
+	UPDATE TUser SET Balance = Balance + 150 WHERE Id = 1
+	UPDATE TUser SET Balance = Balance + 150 WHERE Id = 6
+COMMIT TRANSACTION
+SET XACT_ABORT OFF
+
+--作业
+BEGIN TRANSACTION 
+BEGIN TRY  
+INSERT  TProblem VALUES(N'看完',N'健康度',50,1,2,'2019/4/14') 
+UPDATE  TUser SET   balance=balance-50 WHERE Id=2	
+COMMIT TRANSACTION
+END TRY
+BEGIN CATCH
+IF @@TRANCOUNT>0
+ROLLBACK;
+THROW
+END CATCH
+--隐式事物
+SET IMPLICIT_TRANSACTIONS ON
+	UPDATE TUser SET Balance = Balance + 150 WHERE Id = 1
+	UPDATE TUser SET Balance = Balance + 150 WHERE Id = 6
+	COMMIT TRAN
+SET IMPLICIT_TRANSACTIONS OFF
+COMMIT TRAN  --一定要结束，不然整个表就被索在事物里面了
+SELECT * FROM TUser
