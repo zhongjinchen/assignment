@@ -297,35 +297,75 @@
 --SELECT * FROM @TVariable
 
 ----事物(显示事物)
-ALTER TABLE TUser ADD CONSTRAINT CK_Positive  CHECK(Balance>0)  
+--ALTER TABLE TUser ADD CONSTRAINT CK_Positive  CHECK(Balance>0)  
 
-SELECT * FROM TUser
+--SELECT * FROM TUser
 
-SET XACT_ABORT ON
-BEGIN TRANSACTION
+--SET XACT_ABORT ON
+--BEGIN TRANSACTION
 
-	UPDATE TUser SET Balance = Balance + 150 WHERE Id = 1
-	UPDATE TUser SET Balance = Balance + 150 WHERE Id = 6
-COMMIT TRANSACTION
-SET XACT_ABORT OFF
+--	UPDATE TUser SET Balance = Balance + 150 WHERE Id = 1
+--	UPDATE TUser SET Balance = Balance + 150 WHERE Id = 6
+--COMMIT TRANSACTION
+--SET XACT_ABORT OFF
 
+----作业
+--BEGIN TRANSACTION 
+--BEGIN TRY  
+--INSERT  TProblem VALUES(N'看完',N'健康度',50,1,2,'2019/4/14') 
+--UPDATE  TUser SET   balance=balance-50 WHERE Id=2	
+--COMMIT TRANSACTION
+--END TRY
+--BEGIN CATCH
+--IF @@TRANCOUNT>0
+--ROLLBACK;
+--THROW
+--END CATCH
+----隐式事物
+--SET IMPLICIT_TRANSACTIONS ON
+--	UPDATE TUser SET Balance = Balance + 150 WHERE Id = 1
+--	UPDATE TUser SET Balance = Balance + 150 WHERE Id = 6
+--	COMMIT TRAN
+--SET IMPLICIT_TRANSACTIONS OFF
+--COMMIT TRAN           --一定要结束，不然整个表就被索在事物里面了
+--SELECT * FROM TUser
+
+------锁
+----(查看工具)
+EXEC sp_lock
+--SELECT * FROM sys.dm_tran_locks
+SELECT 
+request_mode,request_session_id,request_status,
+request_type,resource_database_id 
+FROM sys.dm_tran_locks
+ORDER BY request_session_id
 --作业
-BEGIN TRANSACTION 
-BEGIN TRY  
-INSERT  TProblem VALUES(N'看完',N'健康度',50,1,2,'2019/4/14') 
-UPDATE  TUser SET   balance=balance-50 WHERE Id=2	
-COMMIT TRANSACTION
-END TRY
-BEGIN CATCH
-IF @@TRANCOUNT>0
-ROLLBACK;
-THROW
-END CATCH
---隐式事物
-SET IMPLICIT_TRANSACTIONS ON
-	UPDATE TUser SET Balance = Balance + 150 WHERE Id = 1
-	UPDATE TUser SET Balance = Balance + 150 WHERE Id = 6
-	COMMIT TRAN
-SET IMPLICIT_TRANSACTIONS OFF
-COMMIT TRAN  --一定要结束，不然整个表就被索在事物里面了
+UPDATE TUser SET Balance = Balance - 50 WHERE Id = 6
+SELECT  * FROM TUser
+UPDATE TUser SET Balance =100
 SELECT * FROM TUser
+--1，丢失的更新
+BEGIN TRAN
+--A想更新Balance为250
+	UPDATE TUser WITH(HOLDLOCK) SET Balance = Balance + 150 WHERE Id = 6
+--B想更新Balance为200
+	UPDATE TUser SET Balance = Balance - 50 WHERE Id = 6
+COMMIT 
+--2，脏读
+BEGIN TRAN
+	UPDATE TUser WITH(HOLDLOCK) SET Balance = Balance + 150 WHERE Id = 6
+	SELECT  * FROM TUser
+	ROLLBACK
+--3,不可重复读
+BEGIN TRAN
+    SELECT  * FROM TUser WITH(HOLDLOCK)
+	UPDATE TUser SET Balance = Balance + 150 WHERE Id = 6	
+	COMMIT
+	SELECT  * FROM TUser
+--4,幻影读
+BEGIN TRAN
+    SELECT  * FROM TUser WITH(HOLDLOCK)
+	DELETE TUser WHERE Id=7
+	INSERT TUser VALUES(6523,4,2637,N'luwei',100)
+	COMMIT
+	SELECT  * FROM TUser
