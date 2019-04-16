@@ -332,40 +332,79 @@
 
 ------锁
 ----(查看工具)
-EXEC sp_lock
---SELECT * FROM sys.dm_tran_locks
-SELECT 
-request_mode,request_session_id,request_status,
-request_type,resource_database_id 
-FROM sys.dm_tran_locks
-ORDER BY request_session_id
---作业
-UPDATE TUser SET Balance = Balance - 50 WHERE Id = 6
-SELECT  * FROM TUser
-UPDATE TUser SET Balance =100
-SELECT * FROM TUser
---1，丢失的更新
-BEGIN TRAN
---A想更新Balance为250
-	UPDATE TUser WITH(HOLDLOCK) SET Balance = Balance + 150 WHERE Id = 6
---B想更新Balance为200
-	UPDATE TUser SET Balance = Balance - 50 WHERE Id = 6
-COMMIT 
---2，脏读
-BEGIN TRAN
-	UPDATE TUser WITH(HOLDLOCK) SET Balance = Balance + 150 WHERE Id = 6
-	SELECT  * FROM TUser
+--EXEC sp_lock
+----SELECT * FROM sys.dm_tran_locks
+--SELECT 
+--request_mode,request_session_id,request_status,
+--request_type,resource_database_id 
+--FROM sys.dm_tran_locks
+--ORDER BY request_session_id
+----作业
+--UPDATE TUser SET Balance = Balance - 50 WHERE Id = 6
+--SELECT  * FROM TUser
+--UPDATE TUser SET Balance =100
+--SELECT * FROM TUser
+----1，丢失的更新
+--BEGIN TRAN
+----A想更新Balance为250
+--	UPDATE TUser WITH(HOLDLOCK) SET Balance = Balance + 150 WHERE Id = 6
+----B想更新Balance为200
+--	UPDATE TUser SET Balance = Balance - 50 WHERE Id = 6
+--COMMIT 
+----2，脏读
+--BEGIN TRAN
+--	UPDATE TUser WITH(HOLDLOCK) SET Balance = Balance + 150 WHERE Id = 6
+--	SELECT  * FROM TUser
+--	ROLLBACK
+----3,不可重复读
+--BEGIN TRAN
+--    SELECT  * FROM TUser WITH(HOLDLOCK)
+--	UPDATE TUser SET Balance = Balance + 150 WHERE Id = 6	
+--	COMMIT
+--	SELECT  * FROM TUser
+----4,幻影读
+--BEGIN TRAN
+--    SELECT  * FROM TUser WITH(HOLDLOCK)
+--	DELETE TUser WHERE Id=7
+--	INSERT TUser VALUES(6523,4,2637,N'luwei',100)
+--	COMMIT
+--	SELECT  * FROM TUser
+
+--	SET TRANSACTION ISOLATION LEVEL  READ COMMITTED    --REPEATABLE READ
+
+	--快照
+	SELECT * FROM sys.dm_tran_version_store 
+	DBCC USEROPTIONS
+	--（1，快照隔离）
+	ALTER DATABASE _17Bang SET ALLOW_SNAPSHOT_ISOLATION ON
+	ALTER DATABASE _17Bang SET ALLOW_SNAPSHOT_ISOLATION OFF
+	SET TRANSACTION ISOLATION LEVEL SNAPSHOT
+	BEGIN TRAN	
+	UPDATE TUser  SET Balance = Balance + 150 WHERE Id = 6
 	ROLLBACK
---3,不可重复读
-BEGIN TRAN
-    SELECT  * FROM TUser WITH(HOLDLOCK)
-	UPDATE TUser SET Balance = Balance + 150 WHERE Id = 6	
-	COMMIT
-	SELECT  * FROM TUser
---4,幻影读
-BEGIN TRAN
-    SELECT  * FROM TUser WITH(HOLDLOCK)
-	DELETE TUser WHERE Id=7
-	INSERT TUser VALUES(6523,4,2637,N'luwei',100)
-	COMMIT
-	SELECT  * FROM TUser
+		SELECT  * FROM TUser
+	--（2，基于快照的提交读）
+	ALTER DATABASE _17Bang SET READ_COMMITTED_SNAPSHOT ON  
+	ALTER DATABASE _17Bang SET READ_COMMITTED_SNAPSHOT OFF
+	SET TRANSACTION ISOLATION LEVEL  READ COMMITTED
+
+	--查询当前事物数量
+	SELECT @@TRANCOUNT
+	--查询当前会话数量
+	SELECT * FROM sys.sysprocesses
+select * from master.dbo.sysprocesses
+where dbid = DB_ID('_17bang')
+
+--视图
+CREATE VIEW VTproblem 
+AS
+SELECT *  FROM TProblem
+UPDATE VTproblem SET Reward=500 WHERE Id=5
+SELECT * FROM VTproblem
+
+CREATE VIEW V_TProblem_TUser
+AS
+SELECT A.Title,A.Reward,B.Id,B.UserName FROM TProblem A JOIN TUser B 
+ON A.Author=B.Id
+--UPDATE V_TProblem_TUser SET Reward=100,UserName=N'fei'   
+--WHERE Id=1          -- (错误示范，视图是JOIN语句构成时不能同时影响多个基表)

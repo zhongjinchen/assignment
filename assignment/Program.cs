@@ -6,9 +6,13 @@ namespace assignment
     {
         static void Main(string[] args)
         {
-            //son Son = new son();
-            //bbb(Money)
- 
+            //多态练习
+            Father son = new Son();
+            son.Fly();
+            //Console.WriteLine(son.Bird());
+            Dad dad = new Boy();
+            dad.Eat();
+
             //Mimicstact imitate = new Mimicstact(5);
             //imitate.Push(new int[]{8});
             //imitate.Push(8,9);
@@ -33,10 +37,6 @@ namespace assignment
             //Beautyliu liu = new Beautyliu();
             //liu.beauty = 30;
             Console.Read();
-        }
-        static void bbb(mather Money)
-        {
-
         }
 
         static void school(string name)
@@ -146,115 +146,100 @@ namespace assignment
             }
         }
     }
-    class Father
-    {
-        protected int money = 5;
-    }
-    class mm : Father
-    {
-
-    }
-    class Child : Father
-    {
-        internal int Tomoney;
-        public Child()
-        {
-            Tomoney = money;
-        }
 
 
 
-    }
-    class Bueaty
-    {
-        //internal readonly int Age;
-        //internal int Height;
-        private int Age;
-        public Bueaty(int age)
-        {
-
-            Age = age;
-        }
-        //public int toBueaty
-        //{
-        //    get{ return Age; }
-
-        //  //  set { Age = value; }
-        //}
-        public int toBueaty { get; private set; } = 100;
-        //public Bueaty(int age, int height)
-        //{
-        //    Age = age;
-        //    Height = height;
-        //}
-
-        //public int Bueatyheight(int height)
-        //{
-        //    Height = height;
-        //    return Height;
-        //}
-
-    }
-    class Date
-    {
-        internal DateTime date1 = new DateTime(2019, 3, 6);
-
-        internal Date()
-        {
-            Console.WriteLine($"当前日期{date1.Year}年{date1.Month}月{date1.Day}日请输入：");
-            string input = Convert.ToString(Console.ReadLine());
-            string integer = input.Substring(0, input.Length-1);
-            string Chinese = input.Substring(input.Length - 1);
-            int integer1 = Convert.ToInt32(integer);
-            if (Chinese == "周")
-            {
-                DateTime end = date1.AddDays(integer1 * 7);
-                Console.WriteLine($"{input}过后的日期为：{end.Year}年{end.Month}月{end.Day}日");
-            }
-            if (Chinese == "月")
-            {
-                DateTime end = date1.AddMonths(integer1);
-                Console.WriteLine($"{input}过后的日期为：{end.Year}年{end.Month}月{end.Day}日");
-            }
-            if (Chinese == "日")
-            {
-                DateTime end = date1.AddDays(integer1);
-                Console.WriteLine($"{input}过后的日期为：{end.Year}年{end.Month}月{end.Day}日");
-            }
-        }
-
-
-
-
-
-    }
-
-    class Beautyliu
-    {
-        private int _age;
-        //internal int beauty
-        //{
-        //    get { return _age; }
-        //    //set { _age = 20; }
-        //}
-
-        //internal int beauty { get;private set; }
-        //internal int Age { get; set; } = 28;
-
-        public int beauty
-        {
-            get => _age;
-            //set => _age = 18;
-            set { _age = 18; }
-        }
-
-        //public Beauty()
-        //{
-
-        //}
-
-
-
-
-    }
 }
+class Bueaty
+{
+    //internal readonly int Age;
+    //internal int Height;
+    private int Age;
+    public Bueaty(int age)
+    {
+
+        Age = age;
+    }
+    //public int toBueaty
+    //{
+    //    get{ return Age; }
+
+    //  //  set { Age = value; }
+    //}
+    public int toBueaty { get; private set; } = 100;
+    //public Bueaty(int age, int height)
+    //{
+    //    Age = age;
+    //    Height = height;
+    //}
+
+    //public int Bueatyheight(int height)
+    //{
+    //    Height = height;
+    //    return Height;
+    //}
+
+}
+class Date
+{
+    internal DateTime date1 = new DateTime(2019, 3, 6);
+
+    internal Date()
+    {
+        Console.WriteLine($"当前日期{date1.Year}年{date1.Month}月{date1.Day}日请输入：");
+        string input = Convert.ToString(Console.ReadLine());
+        string integer = input.Substring(0, input.Length - 1);
+        string Chinese = input.Substring(input.Length - 1);
+        int integer1 = Convert.ToInt32(integer);
+        if (Chinese == "周")
+        {
+            DateTime end = date1.AddDays(integer1 * 7);
+            Console.WriteLine($"{input}过后的日期为：{end.Year}年{end.Month}月{end.Day}日");
+        }
+        if (Chinese == "月")
+        {
+            DateTime end = date1.AddMonths(integer1);
+            Console.WriteLine($"{input}过后的日期为：{end.Year}年{end.Month}月{end.Day}日");
+        }
+        if (Chinese == "日")
+        {
+            DateTime end = date1.AddDays(integer1);
+            Console.WriteLine($"{input}过后的日期为：{end.Year}年{end.Month}月{end.Day}日");
+        }
+    }
+
+
+
+
+
+}
+
+class Beautyliu
+{
+    private int _age;
+    //internal int beauty
+    //{
+    //    get { return _age; }
+    //    //set { _age = 20; }
+    //}
+
+    //internal int beauty { get;private set; }
+    //internal int Age { get; set; } = 28;
+
+    public int beauty
+    {
+        get => _age;
+        //set => _age = 18;
+        set { _age = 18; }
+    }
+
+    //public Beauty()
+    //{
+
+    //}
+
+
+
+
+}
+

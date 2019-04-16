@@ -4,20 +4,46 @@ using System.Text;
 
 namespace assignment
 {
-    class polymorphic
+    class Father
     {
-
-    }
-    abstract class mather
-    {
-        internal int Money = 1000000;
-    }
-    class son:mather
-    {
-        public void a()
+        internal virtual void Fly()
         {
-            Console.WriteLine("花光");
+            Console.WriteLine("飞");
         }
-        
     }
+    class Son : Father
+    {
+        internal override void Fly()
+        {
+            Console.WriteLine("扇翅膀飞");
+        }
+    }
+    //class Father
+    //{
+    //    internal string Fly()
+    //    {
+    //        return "飞";
+    //    }
+    //}
+    //class Son : Father
+    //{
+    //    internal string Bird()
+    //    {
+    //        return "扇翅膀飞";
+    //    }
+    //}
+
+    abstract class Dad
+    {
+        internal abstract void Eat();
+    }
+    class Boy:Dad
+    {
+        internal override void Eat()
+        {
+            Console.WriteLine("吃饭");
+        }
+    }
+
+
 }
