@@ -373,38 +373,92 @@
 --	SET TRANSACTION ISOLATION LEVEL  READ COMMITTED    --REPEATABLE READ
 
 	--快照
-	SELECT * FROM sys.dm_tran_version_store 
-	DBCC USEROPTIONS
-	--（1，快照隔离）
-	ALTER DATABASE _17Bang SET ALLOW_SNAPSHOT_ISOLATION ON
-	ALTER DATABASE _17Bang SET ALLOW_SNAPSHOT_ISOLATION OFF
-	SET TRANSACTION ISOLATION LEVEL SNAPSHOT
-	BEGIN TRAN	
-	UPDATE TUser  SET Balance = Balance + 150 WHERE Id = 6
-	ROLLBACK
-		SELECT  * FROM TUser
-	--（2，基于快照的提交读）
-	ALTER DATABASE _17Bang SET READ_COMMITTED_SNAPSHOT ON  
-	ALTER DATABASE _17Bang SET READ_COMMITTED_SNAPSHOT OFF
-	SET TRANSACTION ISOLATION LEVEL  READ COMMITTED
+--	SELECT * FROM sys.dm_tran_version_store 
+--	DBCC USEROPTIONS
+--	--（1，快照隔离）
+--	ALTER DATABASE _17Bang SET ALLOW_SNAPSHOT_ISOLATION ON
+--	ALTER DATABASE _17Bang SET ALLOW_SNAPSHOT_ISOLATION OFF
+--	SET TRANSACTION ISOLATION LEVEL SNAPSHOT
+--	BEGIN TRAN	
+--	UPDATE TUser  SET Balance = Balance + 150 WHERE Id = 6
+--	ROLLBACK
+--		SELECT  * FROM TUser
+--	--（2，基于快照的提交读）
+--	ALTER DATABASE _17Bang SET READ_COMMITTED_SNAPSHOT ON  
+--	ALTER DATABASE _17Bang SET READ_COMMITTED_SNAPSHOT OFF
+--	SET TRANSACTION ISOLATION LEVEL  READ COMMITTED
 
-	--查询当前事物数量
-	SELECT @@TRANCOUNT
-	--查询当前会话数量
-	SELECT * FROM sys.sysprocesses
-select * from master.dbo.sysprocesses
-where dbid = DB_ID('_17bang')
+--	--查询当前事物数量
+--	SELECT @@TRANCOUNT
+--	--查询当前进程数量
+--	SELECT * FROM sys.sysprocesses
+--select * from master.dbo.sysprocesses
+--where dbid = DB_ID('_17bang')
 
---视图
+----视图
 CREATE VIEW VTproblem 
 AS
 SELECT *  FROM TProblem
+WHERE Reward>50 WITH CHECK OPTION
 UPDATE VTproblem SET Reward=500 WHERE Id=5
 SELECT * FROM VTproblem
 
-CREATE VIEW V_TProblem_TUser
+
+--CREATE VIEW V_TProblem_TUser
+--AS
+--SELECT A.Title,A.Reward,B.Id,B.UserName FROM TProblem A JOIN TUser B 
+--ON A.Author=B.Id
+----UPDATE V_TProblem_TUser SET Reward=100,UserName=N'fei'   
+----WHERE Id=1          -- (错误示范，视图是JOIN语句构成时不能同时影响多个基表)
+
+----作业
+--1
+--CREATE TABLE TResponse(
+--Id int PRIMARY KEY identity(1,1), 
+--Content Ntext NOT NULL,
+--AuthorId int NOT NULL,
+--ProblemId int NOT NULL,
+--CreateTime DATE NOT NULL
+--CONSTRAINT FK_ProblemId FOREIGN KEY (AuthorId) REFERENCES TUser(Id)
+--) 
+--INSERT TResponse VALUES(N'是第一位看',2,1,'2019/4/10')
+--INSERT TResponse VALUES(N'回房间',3,4,'2019/4/11')
+--INSERT TResponse VALUES(N'的合体时间',4,5,'2019/4/12')
+--INSERT TResponse VALUES(N'水库位于',2,6,'2019/4/13')
+--INSERT TResponse VALUES(N'圣维特u哦',6,7,'2019/4/14')
+--INSERT TResponse VALUES(N'雷人剧场版',5,8,'2019/4/15')
+--2
+ALTER VIEW  VResponse(ResponseId, Content, AuthorId,
+AuthorName, ProblemId,PrAuthorName, ProblemTitle,Reward, CreateTime)WITH ENCRYPTION, SCHEMABINDING
 AS
-SELECT A.Title,A.Reward,B.Id,B.UserName FROM TProblem A JOIN TUser B 
-ON A.Author=B.Id
---UPDATE V_TProblem_TUser SET Reward=100,UserName=N'fei'   
---WHERE Id=1          -- (错误示范，视图是JOIN语句构成时不能同时影响多个基表)
+SELECT TR.Id,TR.Content,TR.AuthorId,TU.UserName,TR.ProblemId,TUs.UserName,TP.Title,TP.Reward,TR.CreateTime 
+FROM dbo.TResponse TR 
+JOIN dbo.TUser TU ON TR.AuthorId=TU.Id
+JOIN dbo.TProblem TP ON TR.ProblemId=TP.Id 
+JOIN dbo.TUser TUs ON TP.Author=TUs.Id
+WHERE Reward>5 
+
+WITH CHECK OPTION
+DROP VIEW VResponse
+--EXEC sp_helptext 'VResponse'
+--3,4
+INSERT VResponse(Content, AuthorId,
+ ProblemId) VALUES ('dddddd',8,11)
+ SELECT  * FROM VResponse
+--5
+CREATE VIEW VProblemKeyword(
+ProblemId , ProblemTitle, ProblemReward, KeywordAmount)WITH SCHEMABINDING 
+AS 
+SELECT TP.Id,TP.Title,TP.Reward,COUNT_BIG(*)COU
+FROM dbo.TProblem TP JOIN dbo.TRelation TR ON TP.Id=TR.TProblemId
+GROUP BY TP.Id,TP.Title,TP.Reward
+
+DROP VIEW VProblemKeyword
+CREATE UNIQUE CLUSTERED INDEX UCI_ProblemId ON VProblemKeyword(ProblemId)
+CREATE NONCLUSTERED INDEX NC_ProblemReward ON VProblemKeyword(ProblemReward)
+--6
+INSERT  TProblem VALUES('SWD','健康度',50,1,2,'2019/4/16')
+INSERT TResponse(Content, AuthorId,
+ ProblemId) VALUES ('CCCC',7,15)
+SELECT * FROM VResponse                      ???
+
