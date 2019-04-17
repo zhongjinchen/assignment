@@ -428,37 +428,37 @@ SELECT * FROM VTproblem
 --INSERT TResponse VALUES(N'圣维特u哦',6,7,'2019/4/14')
 --INSERT TResponse VALUES(N'雷人剧场版',5,8,'2019/4/15')
 --2
-ALTER VIEW  VResponse(ResponseId, Content, AuthorId,
-AuthorName, ProblemId,PrAuthorName, ProblemTitle,Reward, CreateTime)WITH ENCRYPTION, SCHEMABINDING
-AS
-SELECT TR.Id,TR.Content,TR.AuthorId,TU.UserName,TR.ProblemId,TUs.UserName,TP.Title,TP.Reward,TR.CreateTime 
-FROM dbo.TResponse TR 
-JOIN dbo.TUser TU ON TR.AuthorId=TU.Id
-JOIN dbo.TProblem TP ON TR.ProblemId=TP.Id 
-JOIN dbo.TUser TUs ON TP.Author=TUs.Id
-WHERE Reward>5 
+--ALTER VIEW  VResponse(ResponseId, Content, AuthorId,
+--AuthorName, ProblemId,PrAuthorName, ProblemTitle,Reward, CreateTime)WITH ENCRYPTION, SCHEMABINDING
+--AS
+--SELECT TR.Id,TR.Content,TR.AuthorId,TU.UserName,TR.ProblemId,TUs.UserName,TP.Title,TP.Reward,TR.CreateTime 
+--FROM dbo.TResponse TR 
+--JOIN dbo.TUser TU ON TR.AuthorId=TU.Id
+--JOIN dbo.TProblem TP ON TR.ProblemId=TP.Id 
+--JOIN dbo.TUser TUs ON TP.Author=TUs.Id
+--WHERE Reward>5 
 
-WITH CHECK OPTION
-DROP VIEW VResponse
+--WITH CHECK OPTION
+--DROP VIEW VResponse
 --EXEC sp_helptext 'VResponse'
 --3,4
-INSERT VResponse(Content, AuthorId,
- ProblemId) VALUES ('dddddd',8,11)
- SELECT  * FROM VResponse
+--INSERT VResponse(Content, AuthorId,
+-- ProblemId) VALUES ('dddddd',8,11)
+-- SELECT  * FROM VResponse
 --5
-CREATE VIEW VProblemKeyword(
-ProblemId , ProblemTitle, ProblemReward, KeywordAmount)WITH SCHEMABINDING 
-AS 
-SELECT TP.Id,TP.Title,TP.Reward,COUNT_BIG(*)COU
-FROM dbo.TProblem TP JOIN dbo.TRelation TR ON TP.Id=TR.TProblemId
-GROUP BY TP.Id,TP.Title,TP.Reward
+--CREATE VIEW VProblemKeyword(
+--ProblemId , ProblemTitle, ProblemReward, KeywordAmount)WITH SCHEMABINDING 
+--AS 
+--SELECT TP.Id,TP.Title,TP.Reward,COUNT_BIG(*)COU
+--FROM dbo.TProblem TP JOIN dbo.TRelation TR ON TP.Id=TR.TProblemId
+--GROUP BY TP.Id,TP.Title,TP.Reward
 
-DROP VIEW VProblemKeyword
-CREATE UNIQUE CLUSTERED INDEX UCI_ProblemId ON VProblemKeyword(ProblemId)
-CREATE NONCLUSTERED INDEX NC_ProblemReward ON VProblemKeyword(ProblemReward)
+--DROP VIEW VProblemKeyword
+--CREATE UNIQUE CLUSTERED INDEX UCI_ProblemId ON VProblemKeyword(ProblemId)
+--CREATE NONCLUSTERED INDEX NC_ProblemReward ON VProblemKeyword(ProblemReward)
 --6
-INSERT  TProblem VALUES('SWD','健康度',50,1,2,'2019/4/16')
-INSERT TResponse(Content, AuthorId,
- ProblemId) VALUES ('CCCC',7,15)
-SELECT * FROM VResponse                      ???
+--INSERT  TProblem VALUES('SWD','健康度',50,1,2,'2019/4/16')
+--INSERT TResponse(Content, AuthorId,
+-- ProblemId) VALUES ('CCCC',7,15)
+--SELECT * FROM VResponse                      ???
 
