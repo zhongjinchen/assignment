@@ -3,12 +3,11 @@
 <head>
     <link rel="shortcut icon" type="text/css" href="~/images/logo-big.ico" />
     <meta charset="utf-8" />
-    
+
     <title>注册·一起帮</title>
-   
+
     <style>
         header {
-            
             border-bottom: 1px solid #e7e7e7;
             position: fixed;
             top: 0;
@@ -16,7 +15,7 @@
             left: 0;
             height: 60px;
             background-color: #fff;
-            z-index:999;
+            z-index: 999;
         }
 
             header > span {
@@ -86,13 +85,53 @@
             padding: 10px;
             border-radius: 0px 10px;
         }
+
         .bottom {
             bottom: 100px;
         }
     </style>
 </head>
 <body>
-    
+    <script>
+        //x = [(23 + 7) * 12 - 8] / 6;
+        //alert(x)
+        //console.log(x)      在控制台使用
+        //var add=1 ;
+        //var walk = 1;
+        //while (((walk * 2) - 1)<99)
+        //{
+        //    walk += 1;
+        //    add += (walk * 2) - 1;
+        //}
+        //alert(add);
+        //var student = ["飞哥", "老程", "老赵", "路炜", "小龙", "子祥", "文轩", "明辉", "王峰", "云帆", "小余"];
+        //student.unshift("头部");
+        //student.push("尾部")
+        //for (var i in student) {
+        //}
+        //alert(i);
+        //alert(stutent)
+        var rand = new Array;
+        for (var i = 0; i < 10; i++) {
+            rand[i] = Math.floor(Math.random() * 100);
+           
+        }
+
+        var max = 0;
+        for (var i = 0; i < 10; i++)
+        {
+
+            if (max < rand[i])
+            {
+                 max = rand[i]
+            }
+        
+        }
+             alert(max);
+       
+
+
+    </script>
 
     @RenderBody()
 
