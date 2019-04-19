@@ -7,11 +7,17 @@ namespace assignment
         static void Main(string[] args)
         {
             //多态练习
-            Father son = new Son();
-            son.Fly();
-            //Console.WriteLine(son.Bird());
-            Dad dad = new Boy();
-            dad.Eat();
+            //Father father = new Son();    //----父类的实例指向子类的引用
+            //father.Fly();
+            ////Console.WriteLine(father.Bird());
+            //Dad dad = new Boy();
+            //dad.Eat();
+
+            ////接口联系
+            //Man man = new Man();
+            //man.Lunch();
+            //man.Rest();
+            //man.Swim();
 
             //Mimicstact imitate = new Mimicstact(5);
             //imitate.Push(new int[]{8});
