@@ -2,6 +2,7 @@
 <html>
 <head>
     <link rel="shortcut icon" type="text/css" href="~/images/logo-big.ico" />
+    <script type="text/javascript" src="~/js/site.js"></script>
     <meta charset="utf-8" />
 
     <title>注册·一起帮</title>
@@ -93,6 +94,8 @@
 </head>
 <body>
     <script>
+      
+        "use strict";
         //x = [(23 + 7) * 12 - 8] / 6;
         //alert(x)
         //console.log(x)      在控制台使用
@@ -175,7 +178,7 @@
 
         //    }
         //    return array;
-        //}      
+        //}
         //alert(findPrime(100));
 
         //function getMaxNumber() {
@@ -185,7 +188,7 @@
         //        if (typeof arguments[i] =="number") {
         //            array[x] = arguments[i];
         //            x++;
-        //        }             
+        //        }
         //    }
         //    var max = 0;
         //    for (var i = 0; i < arguments.length; i++) {
@@ -229,19 +232,19 @@
         //alert(Money(6, 0.3));
 
         ////颠倒位置
-        var array = "hello,yuanzhan";
-        var yz = array.split("");
-        for (var i = 0; i < Math.floor(yz.length / 2); i++) {
-            x = array[i];
-            yz[i] = yz[yz.length - 1 - i];
-            yz[yz.length - 1 - i] = x;
-        }
-        var star = yz[0];
-        for (var t = 0; t < yz.length-1; t++) {
-            star = star + yz[t + 1];
-        }
-        console.log(star);
-
+        //var array = "hello,yuanzhan";
+        //var yz = array.split("");
+        //for (var i = 0; i < Math.floor(yz.length / 2); i++) {
+        //    x = array[i];
+        //    yz[i] = yz[yz.length - 1 - i];
+        //    yz[yz.length - 1 - i] = x;
+        //}
+        //var star = yz[0];
+        //for (var t = 0; t < yz.length-1; t++) {
+        //    star = star + yz[t + 1];
+        //}
+        ////console.log(star);
+        //alert(star);
         ////统计单词的数量
         //var text = "There are two ways to create a RegExp object: a literal notation and a constructor.To indicate strings, the parameters to the literal notation do not use quotation marks while the parameters to the constructor function do use quotation - marks.So the following expressions create the same regular expression";
         //text = text.replace(",", "");
@@ -250,9 +253,61 @@
         //text = text.replace(":", "");
         //var are = text.split(" ");
         //alert(are.length);
+
+        //yz.fei.get986()中嵌入不带参数的函数has9() / has8() / has6(),并调用上述函数，找出10000以内有多少个数字包含：9或者8或者6。
+        //var yz = {}
+        //yz.fei = {}
+        //yz.fei.get986 = function (max) {
+        //    function has9() {
+        //        var amount = 0;
+
+        //        for (var i = 0; i < max + 1; i++) {
+        //            if ((i - 9) % 10 === 0) {
+        //                amount++;
+        //            }
+        //        }
+        //        return amount;
+        //    }
+        //    return has9();
+          
+        //}
+        //function has986(max) {
+        //    function has9() {
+        //        var amount = 0;
+
+        //        for (var i = 0; i < max + 1; i++) {
+        //            if ((i - 9) % 10 === 0) {
+        //                amount++;
+        //            }
+        //        }
+            
+        //    }
+        //    function has8() {
+        //        for (var i = 0; i < max + 1; i++) {
+        //            if ((i - 8) % 10 === 0) {
+        //                amount++;
+        //            }
+        //        }
+             
+        //    }
+
+        //    function has6() {
+        //        for (var i = 0; i < max + 1; i++) {
+        //            if ((i - 6) % 10 === 0) {
+        //                amount++;
+        //            }
+        //        }
+        //    }
+        //    return amount;
+        //}
+        
+        //console.log(yz.fei.get986(10000));
+
+
+        //console.log(yz.fei.get986(10000));
     </script>
 
-    @RenderBody()
+    @RenderBody()  
 
 </body>
 </html>
