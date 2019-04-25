@@ -6,6 +6,7 @@ namespace assignment
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(typeof(char));
             //多态练习
             //Father father = new Son();    //----父类的实例指向子类的引用
             //father.Fly();
