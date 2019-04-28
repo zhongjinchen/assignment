@@ -7,6 +7,7 @@
  * 
  * 
 */
+
 //function classmatess() {
 //    let n = 1;
 
@@ -14,9 +15,9 @@
 
 //        let random = Math.floor(Math.random() * 100);
 //        alert(`第${n}周，源栈同学${random}人 `);
-//        setTimeout(classmates, 1000); 
+//        setTimeout(classmates, 1000);
 //        n++;
-//    } 
+//    }
 //    classmates();
 //};
 //classmatess();
@@ -30,52 +31,54 @@
 //只用了不到8次就猜到，弹出：666！
 //用了8 - 10次猜到，弹出：猜到了。
 //用了10次都还没猜对，弹出：^ (*￣(oo) ￣)^ 
+
 /*
  * 
  * 
  * 
- * 
- * /
-(function guess() {
-    alert("游戏说明");
-    var random = Math.floor(Math.random() * 1000);
-    var i = 0;
-    (function compare() {
-        var ipt = prompt();
-        i++
-        if (ipt === random) {
-            if (i < 6) {
-                alert("碉堡了！");
-                compare();
-            }
-            if (i >= 6 && i < 8) {
-                alert("666");
-                compare()
-            }
-            if (i >= 8 && i <= 10) {
-                alert("猜到了。");
-                compare()
-            }
-        }
-        if (typeof ipt !== "number") {
-            alert("反手就是一个巴掌");
-            compare();
-        }
-        else {
-            if (i <10 && ipt < random) {
-                alert("猜小了")
-                compare()
-            }
-            if (i < 10 && ipt > random) {
-                alert("猜大了")
-                compare()
-            }
-            else {
-                alert("^ (*￣(oo) ￣) ^");
-            }
-        }
-    })();
-})();
+ */
+
+
+//(function guess() {          //输入非数字，直接结束
+//    alert("游戏说明");
+//    var random = Math.floor(Math.random() * 10);
+//    var i = 0;
+//    (function compare() {
+//        var ipt = prompt();
+//        i++;
+//            if (parseInt(ipt) === random) {
+//                if (i < 6) {
+//                    alert("碉堡了！");
+
+//                }
+
+//                else if (i >= 6 && i < 8) {
+//                    alert("666");
+
+//                }
+//                else if (i >= 8 && i <= 10) {
+//                    alert("猜到了。");
+
+//                }
+//            }
+
+//            else if (parseInt(ipt) !== random) {
+//                if (i <= 10 && parseInt(ipt) < random) {
+//                    alert("猜小了");
+//                    compare();
+//                }
+//                else if (i <= 10 && parseInt(ipt) > random) {
+//                    alert("猜大了");
+//                    compare();
+//                }
+//                else if (i > 10) {
+//                    alert("^ (*￣(oo) ￣) ^");
+//                }
+//            }
+       
+
+//    })();
+//})();
 
 
 //(function () {
