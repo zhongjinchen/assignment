@@ -12,6 +12,7 @@
 //    }
 //    return x;
 //}
+ //console.log(Many());
 
 //将状态为“协助中”的求助背景改成灰黑色 
 //(function () {
@@ -29,6 +30,7 @@
 //    }
 //})();
 
+
 //写一个函数，可以统计某个求助使用了多少关键字 
 //function kayCount(x){
 //    var count = document.getElementsByClassName(x)[0].children[4].children.length;
@@ -45,19 +47,20 @@
 //        }
 //    }
 //})();
+//kayCount("b");
 
 //参考用户注册页面，创建一下函数： 
 //显示密码的长度
 //document.getElementsByClassName("framesecond")[0].children[5].value.length;
 
 //如果密码和确认密码不一致，弹出提示
-//function prompt() {
-//    var pass = document.getElementsByClassName("framesecond")[0].children[5].value;
-//    var ispass = document.getElementsByClassName("framesecond")[0].children[9].value;
-//    if (pass !== ispass) {
+//var iput = document.getElementsByClassName("framesecond")[0].getElementsByTagName("input");
+//iput[4].onclick = function prompt() {
+//    if (iput[1].value !== iput[2].value) {
 //        alert("密码和验证密码不一致");
 //    }
 //}
+
 //----另一种更加简便的写法（但是必须在body之后使用）
 //document.getElementsByClassName("framesecond")[0].children[16].onclick = function prompt() {
 //    var pass = document.getElementsByClassName("framesecond")[0].children[5].value;
@@ -83,6 +86,29 @@
 
 //document.getElementsByName("SelfDescription")[0].value
 
+//实现铃铛（没有学bootstrap的同学用文字代替）闪烁效果
+//function smallbell () {
+//    var i = true;
+//    function twinkle() {
+
+//        if (i === true) {
+//            document.getElementsByTagName("span")[1].style.color = "black";
+//            i = false;
+//        }
+//        else {
+//            document.getElementsByTagName("span")[1].style.color = "gray";
+//            i = true;
+//        }
+          
+//    }
+//    setInterval(twinkle, 300);
+//}
+    //smallbell();
+
+
+
+
+
 //----删除
 //remove()                      删除自己
 //removeChild(document.getElementsByTagName("main")[0].children[1])
@@ -99,7 +125,7 @@
 //document.getElementsByTagName("main")[0]replaceChild
 //(document.getElementsByTagName("main")[0].children[1], document.getElementsByTagName("main")[0].children[2])
 
-//----添加 appendChild(添加到第一个孩子)/prepend(添加到最后一个孩子)
+//----添加 prepend(添加到第一个孩子)/appendChild(添加到最后一个孩子)
 //var qoute = document.createElement("qoute");
 //qoute.setAttribute("class", "lucky-stack");
 //qoute.style.cssFloat = "left";
@@ -122,6 +148,29 @@
 //window.onload = function () {
 //                            //加载事件
 //}                                  
-window.onbeforeunload = function () {
-    return confirm("你确定要离开吗？");       //关闭页面事件
-}                                  
+//window.onbeforeunload = function () {
+//    return confirm("你确定要离开吗？");       //关闭页面事件
+//}                
+
+//window.addEventListener('beforeunload', function (e) {
+//    // Cancel the event
+//    e.preventDefault();
+//    // Chrome requires returnValue to be set
+//    e.returnValue = '';
+//})  
+
+//document.getElementsByClassName("framefirst")[0].children[2].onmouseover = function () { alert("sddd") }
+//document.getElementsByClassName("framefirst")[0].children[2].onmouseout = function () { alert("离开") }  
+
+//resizeBy / resizeTo          ////页面缩放
+
+//scroll
+
+//document.getElementsByClassName("framefirst")[0].children[2].onfocus = function () { alert("focus") }
+//document.getElementsByClassName("framefirst")[0].children[2].onblur = function () { alert("blur") }
+
+
+
+
+
+

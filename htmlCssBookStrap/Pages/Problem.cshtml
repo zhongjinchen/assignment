@@ -56,8 +56,9 @@
     <form>
 
         <ul class="select">
-            
+
             <li><span class="glyphicon glyphicon-eye-close"></span> 不显示</li>
+            <li><label><input type="checkbox" name="已酬谢" value="已酬谢"> 全部</label></li>
             <li><label><input type="checkbox" name="已酬谢" value="已酬谢"> 已酬谢</label></li>
             <li><label><input type="checkbox" name="已撤销" value="已撤销"> 已撤销</label></li>
             <li><label><input type="checkbox" name="协助中" value="协助中"> 协助中</label></li>
@@ -85,9 +86,9 @@
             <a href="http://17bang.ren/Problem?keyword=173"> Python</a><a href="http://17bang.ren/Problem?keyword=163">编程开发语言</a>
         </div>
         <div class="status">
-            悬赏：<span class="rew">1</span>                                           
+                      悬赏：<span class="rew">1</span>
             <a href=" http://17bang.ren/Problem/707#new-comment"><span class="glyphicon glyphicon-heart"></span> 应答：0</a>
-            <a href="http://17bang.ren/Problem/707#summary">总结：0</a> 
+            <a href="http://17bang.ren/Problem/707#summary">总结：0</a>
         </div>
     </div>
     <hr class="cut-offruie" />
@@ -170,22 +171,22 @@
     <div class=" keywords">
         <h3>  <span class="glyphicon glyphicon-tags"></span>     关键字</h3>
         <hr class="line" />
-        <a  href="http://17bang.ren/Problem?keyword=163">编程开发语言</a>
-        <a  href="http://17bang.ren/Problem?keyword=169">C#</a>
-        <a  href="http://17bang.ren/Problem?keyword=170">Java</a>
-        <a  href="http://17bang.ren/Problem?keyword=162">工具软件</a>
-        <a  href="http://17bang.ren/Problem?keyword=171">Javascript</a>
-        <a  href="http://17bang.ren/Problem?keyword=164">顾问咨询</a>
-        <a  href="http://17bang.ren/Problem?keyword=199">html</a>
-        <a  href="http://17bang.ren/Problem?keyword=161">操作系统</a>
-        <a href="http://17bang.ren/Problem?keyword=182">VisualStudio</a>
-        <a  href="http://17bang.ren/Problem?keyword=174">SQL</a>
-        <a  href="http://17bang.ren/Problem?keyword=188">法律</a>
-        <a  hhref="http://17bang.ren/Problem?keyword=184">职场</a>
-        <a href="http://17bang.ren/Problem?keyword=173">Python</a>
-        <a  href="http://17bang.ren/Problem?keyword=89">.net</a>
-        <a href="http://17bang.ren/Problem?keyword=200">css</a>
-        <a  href="http://17bang.ren/Problem?keyword=167">Linux</a>
+        <a data-used="被使用了1万次" href="http://17bang.ren/Problem?keyword=163">编程开发语言</a>
+        <a data-used="被使用了2万次"  href="http://17bang.ren/Problem?keyword=169">C#</a>
+        <a data-used="被使用了3万次"  href="http://17bang.ren/Problem?keyword=170">Java</a>
+        <a data-used="被使用了4万次"  href="http://17bang.ren/Problem?keyword=162">工具软件</a>
+        <a data-used="被使用了5万次"  href="http://17bang.ren/Problem?keyword=171">Javascript</a>
+        <a data-used="被使用了6万次"  href="http://17bang.ren/Problem?keyword=164">顾问咨询</a>
+        <a data-used="被使用了7万次" href="http://17bang.ren/Problem?keyword=199">html</a>
+        <a data-used="被使用了8万次" href="http://17bang.ren/Problem?keyword=161">操作系统</a>
+        <a data-used="被使用了9万次" href="http://17bang.ren/Problem?keyword=182">VisualStudio</a>
+        <a data-used="被使用了10万次" href="http://17bang.ren/Problem?keyword=174">SQL</a>
+        <a data-used="被使用了11万次" href="http://17bang.ren/Problem?keyword=188">法律</a>
+        <a data-used="被使用了12万次" hhref="http://17bang.ren/Problem?keyword=184">职场</a>
+        <a data-used="被使用了13万次" href="http://17bang.ren/Problem?keyword=173">Python</a>
+        <a data-used="被使用了14万次" href="http://17bang.ren/Problem?keyword=89">.net</a>
+        <a data-used="被使用了15万次" href="http://17bang.ren/Problem?keyword=200">css</a>
+        <a data-used="被使用了16万次" href="http://17bang.ren/Problem?keyword=167">Linux</a>
         <hr class="line" />
         <div class="separate">
             <form role="form">
@@ -239,6 +240,34 @@
         </div>
         <div class="advertisement-content">
             6 本站主机由西部数码提供
+        </div>
+    </div>
+    <div class="Write">
+        申请免费广告位<hr />
+        之前用过的广告
+        <select name="Content.SelectedHistory" class="form-control" id="Content_SelectedHistory" data-val-number="字段 SelectedHistory 必须是一个数字。" data-val="true" zyf-ad-in-widget-history-select="">
+            <option value="">----- 使用新的广告 -----</option>
+        </select>
+        <section class="yellow-highlight" style="padding:10px 20px; margin-bottom:20px;" zyf-ad-content-container="">
+            <div class="text-right checkbox">
+                <label>
+                    <input name="Content.Edit" id="Content_Edit" type="checkbox" value="true" data-val="true" data-val-required="Edit 字段是必需的。" zyf-ad-content-edit=""><input name="Content.Edit" type="hidden" value="false"> 修改
+                </label>
+            </div>
+            <div class="form-group">
+                <label>文字内容：（* 必填）</label>
+                <input name="Content.Text" class="form-control" id="Content_Text" type="text" placeholder="最多不超过24个字符" value="" data-val="true" data-val-required="* 文本不能为空" zyf-ad-in-widget-input-text="" data-val-length-max="30" data-val-length="* 文本的长度不能大于30">
+                <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Content.Text"></span>
+            </div>
+            <div class="form-group">
+                <label>链接：（* 必填）</label>
+                <input name="Content.Url" class="form-control" id="Content_Url" type="text" placeholder="http或https开头的网址" value="" data-val="true" data-val-required="* 链接不能为空" zyf-ad-in-widget-input-url="" data-val-regex-pattern="http(s)?://.*" data-val-regex="* URL格式错误">
+                <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Content.Url"></span>
+            </div>
+        </section>
+        <div class="modal-footer">
+            <input class="btn btn-primary loading" type="submit" value="提交" zyf-submit-once="">
+            <input class="btn btn-default" type="reset" value="重填">
         </div>
     </div>
 </aside>

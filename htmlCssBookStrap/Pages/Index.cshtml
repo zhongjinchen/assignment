@@ -1,10 +1,12 @@
 ﻿@page
 <link rel="stylesheet" type="text/css" href="~/css/site.css" />
+<link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 <header>
 
     <span><img src="~/images/logo-big.ico"></span>
 
-    <div> <b>一起帮 </b>· 网络互助平台</div>
+   
+    <div> <b>一起帮 </b>· 网络互助平台 <span class=" glyphicon glyphicon-bell" style="color: gray"></span></div>
     <form>
         <ul class="dropdown">
             <li>
@@ -64,8 +66,12 @@
             <input type="text" name="邀请码" style="width:300px;height:30px;border:1px solid #ccc;" maxlength="16" placeholder="4位数字" /><br />
         </div>
         <div class="framesecond">
-            用户名：<br />
-            <input type="text" name="用户名" style="width:325px;height:30px;border:1px solid #ccc;" maxlength="16" placeholder="登陆用户名，可修改，不能重复" /><br /><br />
+            <span>
+                用户名：<br />
+                <input type="text" name="用户名" style="width:325px;height:30px;border:1px solid #ccc;" maxlength="16" placeholder="登陆用户名，可修改，不能重复" /><br />
+            </span>
+                <br />
+        
             密码：<br />
             <input type="password" name="密码" style="width:325px;height:30px;border:1px solid #ccc;" maxlength="16" placeholder="不少于4个字符" /><br /><br />
             验证密码：<br />

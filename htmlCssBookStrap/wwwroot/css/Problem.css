@@ -123,6 +123,12 @@ main {
     color: #337ab7;
 }
 .status span{color:red;}
+
+aside {
+    width: 350px;
+    float: right;
+}
+
 .keywords {
     border: 1px dashed #eee;
     float: right;
@@ -193,6 +199,14 @@ main {
 
 .advertisement-content {
     margin: 10px 10px 10px 10px;
+}
+
+.Write {
+    border: 1px solid #eee;
+    float: right;
+    width: 350px;
+    margin-right: 220px;
+    margin-top: 20px;
 }
 
 footer {
