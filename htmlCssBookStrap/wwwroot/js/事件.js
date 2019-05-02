@@ -44,7 +44,7 @@
 //        }
 //    }
 //}
-  //Tick();
+//Tick();
 
 //参考注册页面：
 //提交时，如果用户名重复（已有用户名用数组保存），阻止form提交，提示“用户名重复”。
@@ -54,12 +54,14 @@
 //    var arr = ["xiaolong", "laozhao", "wenxuan"];
 //    var nam = document.getElementsByClassName("framesecond")[0].getElementsByTagName("input");
 
-//    nam[4].onclick = function isrepeat() {
-        
+//    nam[4].onsubmit = function isrepeat() {
+
 
 //        for (var i = 0; i < arr.length; i++) {
 //            if (nam[0].value === arr[i]) {
 //                event.preventDefault();
+//               // return false;
+
 //                var div = document.createElement("div");
 //                div.style.color = "red";
 //                var text = document.createTextNode("用户名重复");
@@ -80,7 +82,7 @@
 //                }
 //            }
 //            else {
-                    
+
 //            }
 //        }
 //    }
@@ -103,6 +105,90 @@
 //参考求助首页侧边栏“免费广告发布”弹出Modal，实现（不需要弹出Modal）：
 //根据下拉列表选中项，填充“文字内容”和“链接”文本框
 //勾选修改的checkbox，实现“文字内容”和“链接”文本框的禁用和启用
+
+//(function () {
+//    var op = document.getElementsByTagName("option");
+//    var ipt = document.getElementsByTagName("section")[0].getElementsByTagName("input");
+//    for (var i = 0; i < op.length; i++) {
+//        op[i].onclick = function () {
+
+//            if (this.innerText !== op[0].innerText) {
+//                ipt[2].value = "不以物喜不以己悲";
+//                ipt[3].value = "http://localhost:54018/problem";
+//                if (ipt[0].checked === false) {
+//                    ipt[2].readOnly = "readonly";
+//                    ipt[3].readOnly = "readonly";
+//                }
+
+//            }
+//            else if (this.innerText === op[0].innerText) {
+//                ipt[2].value = "";
+//                ipt[3].value = "";
+//            }
+
+//        }
+//    }
+//    ipt[0].onclick = function () {
+//        if (ipt[0].checked === false) {
+//            ipt[2].readOnly = "readonly";
+//            ipt[3].readOnly = "readonly";
+//        }
+//        else {
+//            ipt[2].removeAttribute("readOnly");
+//            ipt[3].removeAttribute("readOnly");
+//        }
+//    }
+//})();
+
+//参考发布求助，实现其关键字功能：
+//没有选择一级关键字，不能选择二级关键字
+//选择一级关键字后，二级关键字只能是一级关键字下的子集
+//一级关键字和二级关键字被选中后，会显示在下拉列表上方
+//自定义关键字输入完成后（按空格键），输入的关键字显示在下拉列表上方
+//后输入的关键字显示在前面 
+//var buton = document.getElementsByClassName("input-group")[0].children;
+//document.getElementsByClassName("btn btn-default")[1].onclick = function () {
+//    if (buton[0].getAttribute("class").toString() === "input-group-btn") {
+//        buton[0].setAttribute("class", "input-group-btn open");
+//    }
+//    else {
+//        buton[0].setAttribute("class", "input-group-btn");
+//    }
+//}
+//var li = document.getElementsByClassName("input-group")[0].getElementsByTagName("ul")[0].children;
+//li[i].onclick = function () {
+//   // <span title="" class="badge badge-has-used" style="margin-right:5px;" data-original-title="" zyf-keyword-new="">编程开发语言 <small style="margin-left:5px;" zyf-keyword-remove=""><span class="fa fa-times"></span></small></span>
+//    //var div = document.createElement("div");
+//    //div.style.cssFloat = "left";
+//    //document.getElementsByClassName("form-group")[2].getElementsByTagName("span")[0].prepend(div);
+//    var span = document.createElement("span");
+//    span.setAttribute("class", "badge badge-has-used");
+//    span.style.marginRight = "5px";
+//    var text = document.createTextNode(li[i].innerText);
+//    span.appendChild(text);
+//    document.getElementsByClassName("form-group")[2].getElementsByTagName("div")[0].prepend(span);
+   
+
+//}
+
+
+
+//-----二级关键字不知道写
+//li[i].onclick = function () {
+//    buton[1].appendChild(<li><a data-keyword-id="169">C#</a></li>);
+
+//        //<li><a data-keyword-id="170">JAVA</a></li>
+//        //<li><a data-keyword-id="171">Javascript</a></li>
+//        //<li><a data-keyword-id="199">html</a></li>
+//        //<li><a data-keyword-id="174">SQL</a></li>
+//        //<li><a data-keyword-id="173">Python</a></li>
+//        //<li><a data-keyword-id="200">CSS</a></li>
+//        //<li><a data-keyword-id="172">PHP</a></li>
+//        //<li><a data-keyword-id="175">C++</a></li>
+//        //<li><a data-keyword-id="176">C</a></li>
+   
+
+//}
 
 
 
