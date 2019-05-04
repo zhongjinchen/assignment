@@ -26,6 +26,18 @@
 
 //参考文章的全系列阅读功能，当滚动到页面底部时，将页面现有内容粘贴到页面底部，
 //直到5次过后，在页面底部显示：已经没有更多内容了 
+document.body.onscroll = function () {
+    var height = document.documentElement.clientHeight;
+    var contentHeight = document.documentElement.offsetHeight;
+    var scrolHeight = document.documentElement.scrollTop;
+    if (contentHeight - height === scrolHeight) {
+        var a = document.body;
+        var b = a.cloneNode(true);
+        document.body.append(b);
+    }
+}
+
+
 
 
 ////参考消息页面：完成勾选全选功能
