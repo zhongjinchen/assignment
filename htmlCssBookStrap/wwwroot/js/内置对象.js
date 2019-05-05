@@ -19,21 +19,21 @@
 
 //        var countTime = parseInt(document.getElementById("student").getElementsByClassName("form-control")[1].value);
 //        var hourlyBasis = document.getElementsByClassName("checkbox-inline")
-      
+
 //        if (hourlyBasis[0].children[0].checked) {
 //            var expiryDate1 = new Date(inputDate.setDate(inputDate.getDate() + countTime));
 
-//            document.getElementById("student").getElementsByClassName("form-control")[2].value = `截止日期${expiryDate1.getFullYear()}年${expiryDate1.getMonth()}月${expiryDate1.getDay()}日，学费${(986 / 5) * countTime}元`;
+//            document.getElementById("student").getElementsByClassName("form-control")[2].value = `截止日期${expiryDate1.getFullYear()}年${expiryDate1.getMonth()+1}月${expiryDate1.getDay()}日，学费${(986 / 5) * countTime}元`;
 //        }
 //        else if (hourlyBasis[1].children[0].checked) {
 //            var expiryDate2 = new Date(inputDate.setDate(inputDate.getDate() + (countTime * 7)));
 
-//            document.getElementById("student").getElementsByClassName("form-control")[2].value = `截止日期${expiryDate2.getFullYear()}年${expiryDate2.getMonth()}月${expiryDate2.getDay()}日，学费${986 * countTime}元`;
+//            document.getElementById("student").getElementsByClassName("form-control")[2].value = `截止日期${expiryDate2.getFullYear()}年${expiryDate2.getMonth()+1}月${expiryDate2.getDay()}日，学费${986 * countTime}元`;
 //        }
 //        else if (hourlyBasis[2].children[0].checked) {
 //            var expiryDate3 = new Date(inputDate.setDate(inputDate.getDate() + (countTime * 30)));
 
-//            document.getElementById("student").getElementsByClassName("form-control")[2].value = `截止日期${expiryDate3.getFullYear()}年${expiryDate3.getMonth()}月${expiryDate3.getDay()}日，学费${(986/7)*30 * countTime}元`;
+//            document.getElementById("student").getElementsByClassName("form-control")[2].value = `截止日期${expiryDate3.getFullYear()}年${expiryDate3.getMonth()+1}月${expiryDate3.getDay()}日，学费${(986/7)*30 * countTime}元`;
 //        }
 //    }
 //})();
@@ -46,9 +46,21 @@
 //(^[\w|_]|^[\w|_][\w|.|_]*[\w|_])[@][?=\w|?=_][\w|.|_]*[.][\w|.|_]*[\w|_]$  //只能判断一个
 //([\w|_]|[\w|_][\w|.|_]*[\w|_])[@][?=\w|?=_][\w|.|_]*[.][\w|.|_]*[\w|_]  //可以找出多个
 //^\d+[.]\d+$
+function deletezyf(str) {
+    //var str = document.getElementsByTagName("body")[0].innerHTML,
+    var reg = /<.*?>/g,
+        secondReg = /\s(zyf\-)[\S]*?=/g,
+        firstSelect = str.match(reg),
+        result = [];
+    for (var i = 0; i < firstSelect.length; i++) {
+        result.push(firstSelect[i].replace(secondReg, function (match, content) {
+            return match.replace(content,'');
+        }));
+    }
 
-//[<](?!<).*?[z][y][f][-][\w\-]*[=](?!<).*?[>]         //写不出来
-//[z][y][f][-][\w\-]*[=].*?(?!<)[>]
+    return result;
+}
+
 
 
 
