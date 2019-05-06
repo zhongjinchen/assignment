@@ -52,8 +52,8 @@
 //6,在Course中使用getter和setter包装endDate，保证endDate不会小于startDate，也不会比startDate多出365天
 //7,判断并证明以下说法：
 //ES里的class其实就是一个function
-class a {}
-a.__proto__;
+//class a {}
+//a.__proto__;
 
 //constructor总是返回class的实例
 
@@ -65,7 +65,7 @@ a.__proto__;
 
 //只有Function才有prototype
 //error
-a.prototype;
+//a.prototype;
 
 //Javascript是动态类型语言，所以对象的类型是可以随意更改的 
 
