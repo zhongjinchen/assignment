@@ -1,4 +1,4 @@
-﻿
+﻿//作业
 //模拟求助首页，并：
 //统计有多少个悬赏大于1的求助 
 //function Many() {
@@ -106,10 +106,7 @@
 //}
     //smallbell();
 
-
-
-
-
+////笔记
 //----删除
 //remove()                      删除自己
 //removeChild(document.getElementsByTagName("main")[0].children[1])

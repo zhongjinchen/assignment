@@ -9,31 +9,32 @@
 
 
 
-
+//作业
 //1,完成详细的、可测试的需求文档：学费计算器（Web版）。实现以下功能： 
 //用户可以选择在源栈学习的开始时间、共学习多少天 / 周 / 月
 //然后，系统自动计算出截至日期和总学费 
 //(function () {
-//    document.getElementsByTagName("input")[5].onclick = function () {
-//        var inputDate = new Date(document.getElementById("student").getElementsByClassName("form-control")[0].value);
+//    var inputBox = document.querySelectorAll("[zjc-input]");
+//    inputBox[5].onclick = function () {
+//        var inputDate = new Date(inputBox[0].value);
 
-//        var countTime = parseInt(document.getElementById("student").getElementsByClassName("form-control")[1].value);
+//        var countTime = parseInt(inputBox[1].value);
 //        var hourlyBasis = document.getElementsByClassName("checkbox-inline")
 
 //        if (hourlyBasis[0].children[0].checked) {
 //            var expiryDate1 = new Date(inputDate.setDate(inputDate.getDate() + countTime));
 
-//            document.getElementById("student").getElementsByClassName("form-control")[2].value = `截止日期${expiryDate1.getFullYear()}年${expiryDate1.getMonth()+1}月${expiryDate1.getDay()}日，学费${(986 / 5) * countTime}元`;
+//            inputBox[6].value = `截止日期${expiryDate1.getFullYear()}年${expiryDate1.getMonth() + 1}月${expiryDate1.getDay()}日，学费${(986 / 5) * countTime}元`;
 //        }
 //        else if (hourlyBasis[1].children[0].checked) {
 //            var expiryDate2 = new Date(inputDate.setDate(inputDate.getDate() + (countTime * 7)));
 
-//            document.getElementById("student").getElementsByClassName("form-control")[2].value = `截止日期${expiryDate2.getFullYear()}年${expiryDate2.getMonth()+1}月${expiryDate2.getDay()}日，学费${986 * countTime}元`;
+//            inputBox[6].value = `截止日期${expiryDate2.getFullYear()}年${expiryDate2.getMonth() + 1}月${expiryDate2.getDay()}日，学费${986 * countTime}元`;
 //        }
 //        else if (hourlyBasis[2].children[0].checked) {
 //            var expiryDate3 = new Date(inputDate.setDate(inputDate.getDate() + (countTime * 30)));
 
-//            document.getElementById("student").getElementsByClassName("form-control")[2].value = `截止日期${expiryDate3.getFullYear()}年${expiryDate3.getMonth()+1}月${expiryDate3.getDay()}日，学费${(986/7)*30 * countTime}元`;
+//            inputBox[6].value = `截止日期${expiryDate3.getFullYear()}年${expiryDate3.getMonth() + 1}月${expiryDate3.getDay()}日，学费${(986 / 7) * 30 * countTime}元`;
 //        }
 //    }
 //})();
@@ -46,20 +47,20 @@
 //(^[\w|_]|^[\w|_][\w|.|_]*[\w|_])[@][?=\w|?=_][\w|.|_]*[.][\w|.|_]*[\w|_]$  //只能判断一个
 //([\w|_]|[\w|_][\w|.|_]*[\w|_])[@][?=\w|?=_][\w|.|_]*[.][\w|.|_]*[\w|_]  //可以找出多个
 //^\d+[.]\d+$
-function deletezyf(str) {
-    //var str = document.getElementsByTagName("body")[0].innerHTML,
-    var reg = /<.*?>/g,
-        secondReg = /\s(zyf\-)[\S]*?=/g,
-        firstSelect = str.match(reg),
-        result = [];
-    for (var i = 0; i < firstSelect.length; i++) {
-        result.push(firstSelect[i].replace(secondReg, function (match, content) {
-            return match.replace(content,'');
-        }));
-    }
+//function deletezyf(str) {
+//    //var str = document.getElementsByTagName("body")[0].innerHTML,
+//    var reg = /<.*?>/g,
+//        secondReg = /\s(zyf\-)[\S]*?=/g,
+//        firstSelect = str.match(reg),
+//        result = [];
+//    for (var i = 0; i < firstSelect.length; i++) {
+//        result.push(firstSelect[i].replace(secondReg, function (match, content) {
+//            return match.replace(content,'');
+//        }));
+//    }
 
-    return result;
-}
+//    return result;
+//}
 
 
 
@@ -67,7 +68,6 @@ function deletezyf(str) {
 
 //JSON生成和解析：
 //按自己的情况，生成一个JSON字符串，包括真实姓名、QQ昵称、年龄、性别、兴趣爱好、自我介绍……，上传到QQ群：一起帮·有意向（729600626）
-//根据其他同学的JSON获得其个人资料，生成一个表格显示。 
 //var littleDragon = {
 //    name: "小龙",
 //    nickname: "江流儿",
@@ -76,18 +76,22 @@ function deletezyf(str) {
 //    hobby: ["eat", "drink", "goWhoring", "gamble"],
 //    indroduce: "神一样男人"
 //}
-////< table class="table table-bordered" >
-////        <tbody>
-////            <tr>
-////                <td>name</td>
-////                <td>小龙</td>
-////            </tr>
-////            <tr>
-////                <td>Sachin</td>
-////                <td>Mumbai</td>
-////            </tr>
-////        </tbody>
-////</table >
+//console.log(JSON.stringify(littleDragon));
+
+////根据其他同学的JSON获得其个人资料，生成一个表格显示。 
+//< table class="table table-bordered" >      ////----最终添加到html页面的代码
+//        <tbody>
+//            <tr>
+//                <td>name</td>
+//                <td>小龙</td>
+//            </tr>
+//            <tr>
+//                <td>Sachin</td>
+//                <td>Mumbai</td>
+//            </tr>
+//        </tbody>
+//</table >
+
 //console.log(JSON.stringify(littleDragon));
 //var bigDragon = JSON.parse('{ "name": "小龙", "nickname": "江流儿", "age": 3, "isFamel": true, "hobby": ["eat", "drink", "goWhoring", "gamble"], "indroduce": "神一样男人" }')
 

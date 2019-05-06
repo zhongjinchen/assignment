@@ -1,4 +1,5 @@
-﻿//参考求助首页侧边栏关键字，实现：当鼠标移动到关键字上，显示关键字被使用次数 
+﻿//作业
+//参考求助首页侧边栏关键字，实现：当鼠标移动到关键字上，显示关键字被使用次数
 //function many() {
 //    var a = document.getElementsByClassName("keywords")[0].getElementsByTagName("a")
 //    for (let i = 2; i < a.length; i++) {
