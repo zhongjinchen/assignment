@@ -188,7 +188,7 @@
 //    var text = document.createTextNode(li[i].innerText);
 //    span.appendChild(text);
 //    document.getElementsByClassName("form-group")[2].getElementsByTagName("div")[0].prepend(span);
-   
+
 
 //}
 
@@ -207,13 +207,6 @@
 //        //<li><a data-keyword-id="172">PHP</a></li>
 //        //<li><a data-keyword-id="175">C++</a></li>
 //        //<li><a data-keyword-id="176">C</a></li>
-   
+
 
 //}
-
-
-
-
-
-
-

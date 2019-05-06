@@ -123,4 +123,3 @@
 //tbody.appendChild(tr2_tr);
 //table.appendChild(tbody);
 //document.getElementsByTagName("aside")[0].appendChild(table);
-
