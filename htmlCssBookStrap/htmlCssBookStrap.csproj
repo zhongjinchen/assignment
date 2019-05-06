@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\Shared\TuitionCalculator.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Shared\TuitionCalculator.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="htmlpage.html+css" />
   </ItemGroup>
 
