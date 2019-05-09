@@ -1,4 +1,4 @@
-﻿//x = [(23 + 7) * 12 - 8] / 6;
+﻿//export var x = [(23 + 7) * 12 - 8] / 6;
 //alert(x)
 //console.log(x)      在控制台使用
 //var add = 1;

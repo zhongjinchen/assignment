@@ -18,19 +18,21 @@
 //        var inputDate = new Date(inputBox[0].value);
 
 //        var countTime = parseInt(inputBox[1].value);
-//        var hourlyBasis = document.getElementsByClassName("checkbox-inline")
 
-//        if (hourlyBasis[0].children[0].checked) {
+
+//        if (inputBox[2].checked) {
 //            var expiryDate1 = new Date(inputDate.setDate(inputDate.getDate() + countTime));
 
 //            inputBox[6].value = `截止日期${expiryDate1.getFullYear()}年${expiryDate1.getMonth() + 1}月${expiryDate1.getDay()}日，学费${(986 / 5) * countTime}元`;
 //        }
-//        else if (hourlyBasis[1].children[0].checked) {
+
+//        else if (inputBox[3].checked) {
 //            var expiryDate2 = new Date(inputDate.setDate(inputDate.getDate() + (countTime * 7)));
 
 //            inputBox[6].value = `截止日期${expiryDate2.getFullYear()}年${expiryDate2.getMonth() + 1}月${expiryDate2.getDay()}日，学费${986 * countTime}元`;
 //        }
-//        else if (hourlyBasis[2].children[0].checked) {
+
+//        else if (inputBox[4].checked) {
 //            var expiryDate3 = new Date(inputDate.setDate(inputDate.getDate() + (countTime * 30)));
 
 //            inputBox[6].value = `截止日期${expiryDate3.getFullYear()}年${expiryDate3.getMonth() + 1}月${expiryDate3.getDay()}日，学费${(986 / 7) * 30 * countTime}元`;
@@ -91,34 +93,44 @@
 //        </tbody>
 //</table >
 
-//console.log(JSON.stringify(littleDragon));
-//var bigDragon = JSON.parse('{ "name": "小龙", "nickname": "江流儿", "age": 3, "isFamel": true, "hobby": ["eat", "drink", "goWhoring", "gamble"], "indroduce": "神一样男人" }')
+//(function personalProfile() {
+//    var bigDragon = JSON.parse('{ "name": "小龙", "nickname": "江流儿", "age": 3, "isFamel": false, "hobby": ["eat", "drink", "goWhoring", "gamble"], "indroduce": "神一样男人" }')
 
-//var table = document.createElement("table");
-//table.setAttribute("class", "table table-bordered");
-//var tbody = document.createElement("tbody");
+//    var table = document.createElement("table");
+//    table.setAttribute("class", "table table-bordered");
+//    var tbody = document.createElement("tbody");
 
-//var tr = document.createElement("tr");
-//var td1 = document.createElement("td");
-//var text1 = document.createTextNode("name");
-//var td2 = document.createElement("td");
-//var text2 = document.createTextNode(bigDragon.name);
-//td1.appendChild(text1);
-//td2.appendChild(text2);
-//tr.appendChild(td1);
-//tr.appendChild(td2);
+////            <tr>
+////                <td>name</td>
+////                <td>小龙</td>
+////            </tr>
+//    var tr = document.createElement("tr");
+//    var td1 = document.createElement("td");
+//    var text1 = document.createTextNode("name");
+//    var td2 = document.createElement("td");
+//    var text2 = document.createTextNode(bigDragon.name);
+//    td1.appendChild(text1);
+//    td2.appendChild(text2);
+//    tr.appendChild(td1);
+//    tr.appendChild(td2);
+//    tbody.appendChild(tr);
 
-//var tr2_tr = document.createElement("tr");
-//var tr2_td1 = document.createElement("td");
-//var tr2_text1 = document.createTextNode("nickname");
-//var tr2_td2 = document.createElement("td");
-//var tr2_text2 = document.createTextNode(bigDragon.nickname);
-//tr2_td1.appendChild(tr2_text1);
-//tr2_td2.appendChild(tr2_text2);
-//tr2_tr.appendChild(tr2_td1);
-//tr2_tr.appendChild(tr2_td2);
+//// <tr>
+////      <td>nickname</td>
+////      <td>江流儿</td>
+//// </tr>
+//    var tr2_tr = document.createElement("tr");
+//    var tr2_td1 = document.createElement("td");
+//    var tr2_text1 = document.createTextNode("nickname");
+//    var tr2_td2 = document.createElement("td");
+//    var tr2_text2 = document.createTextNode(bigDragon.nickname);
+//    tr2_td1.appendChild(tr2_text1);
+//    tr2_td2.appendChild(tr2_text2);
+//    tr2_tr.appendChild(tr2_td1);
+//    tr2_tr.appendChild(tr2_td2);
+//    tbody.appendChild(tr2_tr);
 
-//tbody.appendChild(tr);
-//tbody.appendChild(tr2_tr);
-//table.appendChild(tbody);
-//document.getElementsByTagName("aside")[0].appendChild(table);
+
+//    table.appendChild(tbody);
+//    document.getElementsByTagName("aside")[0].appendChild(table);
+//})();

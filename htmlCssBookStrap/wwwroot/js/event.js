@@ -161,14 +161,14 @@
 //    }
 //})();
 
-//参考发布求助，实现其关键字功能：
-//没有选择一级关键字，不能选择二级关键字
-//选择一级关键字后，二级关键字只能是一级关键字下的子集
-//一级关键字和二级关键字被选中后，会显示在下拉列表上方
-//自定义关键字输入完成后（按空格键），输入的关键字显示在下拉列表上方
-//后输入的关键字显示在前面 
-//var buton = document.getElementsByClassName("input-group")[0].children;
-//document.getElementsByClassName("btn btn-default")[1].onclick = function () {
+////参考发布求助，实现其关键字功能：
+////没有选择一级关键字，不能选择二级关键字
+////选择一级关键字后，二级关键字只能是一级关键字下的子集
+////一级关键字和二级关键字被选中后，会显示在下拉列表上方
+////自定义关键字输入完成后（按空格键），输入的关键字显示在下拉列表上方
+////后输入的关键字显示在前面 
+//var buton = document.querySelectorAll("[zjc-group-btn]");
+//document.querySelectorAll("[zjc-btn-default]")[0].onclick = function () {
 //    if (buton[0].getAttribute("class").toString() === "input-group-btn") {
 //        buton[0].setAttribute("class", "input-group-btn open");
 //    }
@@ -176,37 +176,79 @@
 //        buton[0].setAttribute("class", "input-group-btn");
 //    }
 //}
-//var li = document.getElementsByClassName("input-group")[0].getElementsByTagName("ul")[0].children;
-//li[i].onclick = function () {
-//   // <span title="" class="badge badge-has-used" style="margin-right:5px;" data-original-title="" zyf-keyword-new="">编程开发语言 <small style="margin-left:5px;" zyf-keyword-remove=""><span class="fa fa-times"></span></small></span>
-//    //var div = document.createElement("div");
-//    //div.style.cssFloat = "left";
-//    //document.getElementsByClassName("form-group")[2].getElementsByTagName("span")[0].prepend(div);
+//var li = document.querySelectorAll("[zjc-keyword-dropdownlist]");
+
+
+////document.querySelectorAll("[zjc-keyword-dropdownlist]")[1].children[0].replaceWith(document.querySelectorAll("[zjc-keyword-dropdownlist]")[0].children[0])
+
+//function add(identifier, sname) {
+//    var a = document.createElement("a");
+//    var li = document.createElement("li");
+//    //var ul = document.createElement("ul");
+//    a.setAttribute("data-keyword-id", identifier);
+//    var text = document.createTextNode(sname);
+//    //ul.setAttribute("class", "dropdown-menu");
+//    //ul.setAttribute("zjc-keyword-dropdownlist", "2");
+//    a.appendChild(text);
+//    li.appendChild(a);
+//    document.querySelectorAll("[zjc-keyword-dropdownlist]")[1].appendChild(li);
+//    //ul.appendChild(li);
+//    //document.querySelectorAll("[zjc-group-btn]")[1].appendChild(ul);
+//}
+//function addKeyWord(s,i) {
+//    var div = document.createElement("div");
+//    div.style.cssFloat = "left";
+//    document.getElementsByClassName("form-group")[2].getElementsByTagName("span")[0].prepend(div);
 //    var span = document.createElement("span");
 //    span.setAttribute("class", "badge badge-has-used");
 //    span.style.marginRight = "5px";
-//    var text = document.createTextNode(li[i].innerText);
+//    var text = document.createTextNode(li[s].children[i].innerText);
 //    span.appendChild(text);
 //    document.getElementsByClassName("form-group")[2].getElementsByTagName("div")[0].prepend(span);
+//}
+//var x = 0;
+//li[0].children[0].onclick = function () {
 
+//    if (x === 0) {
+//        add("5", "C#");
+//        add("6", "JAVA");
+//        add("7", "Javascript");
+//        add("8", "html");
+//        add("9", "SQL");
+//        add("10", "Python");
+//        addKeyWord(0, 0);
+//        x++;
+//    }
+    
+//    //else {
+//    //    delete(document.querySelectorAll("[zjc-keyword-dropdownlist]")[1].children);
+//    //}
+//    buton[0].setAttribute("class", "input-group-btn");
 
+//}
+//var a = 0;
+//li[1].children[0].onclick = function () {
+//    if (a === 0) {
+//        addKeyWord(1, 0);
+//        a++;
+//    }
+//    //else {
+//    //    delete(document.querySelectorAll("[zjc-keyword-dropdownlist]")[1].children);
+//    //}
+//    buton[1].setAttribute("class", "input-group-btn");
+//}
+
+//document.querySelectorAll("[zjc-btn-default]")[1].onclick = function () {
+//    if (buton[1].getAttribute("class").toString() === "input-group-btn") {
+//        buton[1].setAttribute("class", "input-group-btn open");
+//    }
+//    else {
+//        buton[1].setAttribute("class", "input-group-btn");
+//    }
 //}
 
 
 
-//-----二级关键字不知道写
-//li[i].onclick = function () {
-//    buton[1].appendChild(<li><a data-keyword-id="169">C#</a></li>);
-
-//        //<li><a data-keyword-id="170">JAVA</a></li>
-//        //<li><a data-keyword-id="171">Javascript</a></li>
-//        //<li><a data-keyword-id="199">html</a></li>
-//        //<li><a data-keyword-id="174">SQL</a></li>
-//        //<li><a data-keyword-id="173">Python</a></li>
-//        //<li><a data-keyword-id="200">CSS</a></li>
-//        //<li><a data-keyword-id="172">PHP</a></li>
-//        //<li><a data-keyword-id="175">C++</a></li>
-//        //<li><a data-keyword-id="176">C</a></li>
 
 
-//}
+
