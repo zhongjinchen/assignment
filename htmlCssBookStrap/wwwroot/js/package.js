@@ -1,12 +1,12 @@
 ﻿////1,用class声明一个课程（Course），包含属性：name，startDate，
-//endDate，students，以及方法：begin()和end()
+////endDate，students，以及方法：begin()和end()
 
 //class Course {
-//    constructor() {
-//        this.name = "老赵";
-//        //this.startDate = "2019,1,6";
-//       // this.endDate = "2020,2,18";
-//        this.students = "beauty";
+//    constructor(name, start, students) {
+//        this.name = name;
+//        this.startDate = start;
+//        this.endDate;
+//        this.students = students;
 //        this.end = function () {
 //            console.log("富可敌国");
 //        }
@@ -14,27 +14,26 @@
 //    begin() {
 //        console.log("穷困潦倒");
 //    }
-//    get select() {
-//        if ((new Date(this.endDate)).valueOf() > (new Date(this.startDate)).valueOf() && (new Date(this.endDate)).valueOf() - (new Date(this.startDate)).valueOf() < (365*24*60*60*1000)) {
+//    set EndDate(endDate) {
+//        var gap = Date.parse(this.endDate) - Date.parse(this.startDate);
+//        var oneYear = 365 * 24 * 60 * 60 * 1000;
+//        if (gap > 0 && gap < oneYear) {
 //            return this.endDate;
 //        }
 //        else {
 //            console.log("抛出异常");
 //        }
-//    }
-//    set StartDate(startTime) {
-//        this.startDate = startTime;
-//    }
-//    set EndDate(endTime) {
-//        this.endDate = endTime;
 
+//    }
+//    get EndDate() {
+//        this.EndDate = endDate;
 //    }
 //}
 
 
-//////2,生成两个课程对象：JavaScript和SQL
-//var javascript = new Course();
-//var sql = new Course();
+////////2,生成两个课程对象：JavaScript和SQL
+////var javascript = new Course();
+//var sql = new Course("sql","2019,1,1",["xl","wp","wf"]);
 
 ////3,调用对象的begin()和end()方法，可以在控制台输出开课信息，
 ////如：JavaScript于2019年5月5日开课，共有5名同学（两开花、王枫、王平、采铃、老程）报名。
