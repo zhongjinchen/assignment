@@ -227,15 +227,15 @@
 
 //}
 //var a = 0;
-//li[1].children[0].onclick = function () {
-//    if (a === 0) {
-//        addKeyWord(1, 0);
-//        a++;
-//    }
-//    //else {
-//    //    delete(document.querySelectorAll("[zjc-keyword-dropdownlist]")[1].children);
-//    //}
-//    buton[1].setAttribute("class", "input-group-btn");
+////li[1].children[0].onclick = function () {
+////    if (a === 0) {
+////        addKeyWord(1, 0);
+////        a++;
+////    }
+////    //else {
+////    //    delete(document.querySelectorAll("[zjc-keyword-dropdownlist]")[1].children);
+////    //}
+////    buton[1].setAttribute("class", "input-group-btn");
 //}
 
 //document.querySelectorAll("[zjc-btn-default]")[1].onclick = function () {
