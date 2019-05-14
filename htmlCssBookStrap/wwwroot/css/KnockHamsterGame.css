@@ -3,7 +3,192 @@
     background-size:100%;
 }
 
+.taft > img {
+    position: absolute;
+    width: 250px;
+    height: 100px;
+    z-index: 1;
+}
 
+.Hamster > img {
+    position: absolute;
+    width: 85px;
+    height: 82px;
+}
+.Hamster1 {
+    
+    animation: myfirst1 1s;
+
+}
+@keyframes myfirst1 {
+    0% {
+        top: 400px;
+    }
+
+    50% {
+        top: 350px;
+    }
+
+    100% {
+        top: 400px;
+    }
+}
+
+.Hamster2 {
+   
+    animation: myfirst2 0.7s;
+  
+}
+@keyframes myfirst2 {
+    0% {
+        top: 400px;
+    }
+
+    50% {
+        top: 350px;
+    }
+
+    100% {
+        top: 400px;
+    }
+}
+
+.Hamster3 {
+   
+    animation: myfirst3 0.8s;
+ 
+}
+
+@keyframes myfirst3 {
+    0% {
+        top: 400px;
+    }
+
+    50% {
+        top: 350px;
+    }
+
+    100% {
+        top: 400px;
+    }
+}
+
+.Hamster4 {
+
+    animation: mysecond1 1.4s;
+
+}
+
+@keyframes mysecond1 {
+    0% {
+        top: 550px;
+    }
+
+    50% {
+        top: 500px;
+    }
+
+    100% {
+        top: 550px;
+    }
+}
+.Hamster5 {
+  
+    animation: mysecond2 0.9s;
+
+}
+@keyframes mysecond2 {
+    0% {
+        top: 550px;
+    }
+
+    50% {
+        top: 500px;
+    }
+
+    100% {
+        top: 550px;
+    }
+}
+
+.Hamster6 {
+
+    animation: mysecond3 0.7s;
+ 
+}
+
+@keyframes mysecond3 {
+    0% {
+        top: 550px;
+    }
+
+    50% {
+        top: 500px;
+    }
+
+    100% {
+        top: 550px;
+    }
+}
+
+
+.Hamster7 {
+
+    animation: mythird1 2s;
+   
+}
+@keyframes mythird1 {
+    0% {
+        top: 700px;
+    }
+
+    50% {
+        top: 650px;
+    }
+
+    100% {
+        top: 700px;
+    }
+}
+
+.Hamster8 {
+  
+    animation: mythird2 1s;
+   
+}
+@keyframes mythird2 {
+    0% {
+        top: 700px;
+    }
+
+    50% {
+        top: 650px;
+    }
+
+    100% {
+        top: 700px;
+    }
+}
+
+.Hamster9 {
+    animation: mythird3 0.5s;
+
+}
+
+
+@keyframes mythird3 {
+    0% {
+        top: 700px;
+    }
+
+    50% {
+        top: 650px;
+    }
+
+    100% {
+        top: 700px;
+    }
+}
 
 
 
