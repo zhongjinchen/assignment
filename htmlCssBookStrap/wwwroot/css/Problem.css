@@ -129,36 +129,31 @@ aside {
     float: right;
 }
 
-.keywords {
+.keywords-border {
     border: 1px dashed #eee;
-    float: right;
     width: 350px;
-    margin-right: 220px;
-    margin-top: 70px;
+   margin-top:40px;
+    margin-left: -220px;
     padding-bottom:20px;
 }
 
-    .keywords a {
-        border: 0px;
-        color: white;
-        background-color: #777;
-        display: inline-block;
-        margin: 5px 10px 5px 10px;
-        font-weight: 900;
-        border-radius: 10px;
-        padding: 2px;
-        font-size:18px;
-    }
+iframe {
+    width: 350px;
+    height: 220px;
 
+    color: transparent;
+}
 .line {
     border: 0px;
     border-top: 1px solid #eee;
     width: 290px;
     text-align: center;
 }
+
 .separate {
     margin-top: 15px;
 }
+
 .seek {
     width: 200px;
     height: 25px;

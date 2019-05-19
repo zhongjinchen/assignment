@@ -1,4 +1,5 @@
 ﻿@page
+
 <link rel="stylesheet" type="text/css" href="~/css/Problem.css" />
 <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 <header>
@@ -165,28 +166,14 @@
         </div>
     </div>
     <hr class="cut-offruie" />
+    <canvas style="height:300px;width:300px;border:1px dashed red;"></canvas>
 </main>
 
 <aside>
-    <div class=" keywords">
+    <div class="keywords-border">
         <h3>  <span class="glyphicon glyphicon-tags"></span>     关键字</h3>
         <hr class="line" />
-        <a data-used="被使用了1万次" href="http://17bang.ren/Problem?keyword=163">编程开发语言</a>
-        <a data-used="被使用了2万次"  href="http://17bang.ren/Problem?keyword=169">C#</a>
-        <a data-used="被使用了3万次"  href="http://17bang.ren/Problem?keyword=170">Java</a>
-        <a data-used="被使用了4万次"  href="http://17bang.ren/Problem?keyword=162">工具软件</a>
-        <a data-used="被使用了5万次"  href="http://17bang.ren/Problem?keyword=171">Javascript</a>
-        <a data-used="被使用了6万次"  href="http://17bang.ren/Problem?keyword=164">顾问咨询</a>
-        <a data-used="被使用了7万次" href="http://17bang.ren/Problem?keyword=199">html</a>
-        <a data-used="被使用了8万次" href="http://17bang.ren/Problem?keyword=161">操作系统</a>
-        <a data-used="被使用了9万次" href="http://17bang.ren/Problem?keyword=182">VisualStudio</a>
-        <a data-used="被使用了10万次" href="http://17bang.ren/Problem?keyword=174">SQL</a>
-        <a data-used="被使用了11万次" href="http://17bang.ren/Problem?keyword=188">法律</a>
-        <a data-used="被使用了12万次" hhref="http://17bang.ren/Problem?keyword=184">职场</a>
-        <a data-used="被使用了13万次" href="http://17bang.ren/Problem?keyword=173">Python</a>
-        <a data-used="被使用了14万次" href="http://17bang.ren/Problem?keyword=89">.net</a>
-        <a data-used="被使用了15万次" href="http://17bang.ren/Problem?keyword=200">css</a>
-        <a data-used="被使用了16万次" href="http://17bang.ren/Problem?keyword=167">Linux</a>
+        <iframe src="/KeyWords1"></iframe>
         <hr class="line" />
         <div class="separate">
             <form role="form">
@@ -197,7 +184,7 @@
                     </div>
                 </div>
             </form>
-            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-random"></span>    换一批</button>
+            <button type="button" class="btn btn-default" zjc-button><span class="glyphicon glyphicon-random"></span>    换一批</button>
         </div>
     </div>
     <div class="article">
@@ -245,11 +232,11 @@
     <div class="Write">
         申请免费广告位<hr />
         之前用过的广告
-               <select name="Content.SelectedHistory" class="form-control" id="Content_SelectedHistory" data-val-number="字段 SelectedHistory 必须是一个数字。" data-val="true" zyf-ad-in-widget-history-select="">
-                   <option value="">----- 使用新的广告 -----</option>
-                   <option value="">十年磨一剑，霜刃未曾试。</option>
-                   <option value="">今日把示君，谁有不平事。</option>
-               </select>
+        <select name="Content.SelectedHistory" class="form-control" id="Content_SelectedHistory" data-val-number="字段 SelectedHistory 必须是一个数字。" data-val="true" zyf-ad-in-widget-history-select="">
+            <option value="">----- 使用新的广告 -----</option>
+            <option value="">十年磨一剑，霜刃未曾试。</option>
+            <option value="">今日把示君，谁有不平事。</option>
+        </select>
         <section class="yellow-highlight" style="padding:10px 20px; margin-bottom:20px;" zyf-ad-content-container="">
             <div class="text-right checkbox">
                 <label>
