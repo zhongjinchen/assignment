@@ -1,17 +1,19 @@
-﻿//"use strict"
+﻿
+
+//"use strict"
 
 document.getElementsByTagName("button")[0].onclick = function () {
     let i = 0;
-    
+
     setInterval(() => {
         i++;
-        let ran = Math.ceil(Math.random() * 60);
-        if (ran<20 && i>10) {
+        let ran = Math.ceil(Math.random() * 80);
+        if (ran < 28 && i > 5) {
             var randm = Math.ceil(Math.random() * 9);
             document.querySelectorAll("[zjc-Hamster1]")[randm].className = `Hamster1-${randm}`;
             setTimeout(() => { document.querySelectorAll("[zjc-Hamster1]")[randm].className = ""; }, 2000)
         }
-        else if (ran>50 && i > 10) {
+        else if (ran > 60 && i > 5) {
             var randm = Math.ceil(Math.random() * 9);
             document.querySelectorAll("[zjc-Hamster2]")[randm].className = `Hamster2-${randm}`;
             setTimeout(() => { document.querySelectorAll("[zjc-Hamster2]")[randm].className = ""; }, 2000)
@@ -26,10 +28,10 @@ document.getElementsByTagName("button")[0].onclick = function () {
                 setTimeout(() => { document.querySelectorAll("[zjc-Hamster]")[rando].className = ""; }, 2000)
             }
         }
-     
-       
+
+
     }, 2000);
-  
+
 };
 
 (function () {
@@ -38,10 +40,17 @@ document.getElementsByTagName("button")[0].onclick = function () {
 
         document.querySelectorAll("[zjc-Hamster]")[i].onmousedown = function () {
             score.innerText = parseInt(score.innerText) + 1;
+
+            $(this).html('<img class="" src="~/images/KnockHamsterGame/晕地鼠.png" zjc-Hamster>');
         }
         document.querySelectorAll("[zjc-Hamster1]")[i].onmousedown = function () {
             score.innerText = parseInt(score.innerText) - 1;
         };
+        document.querySelectorAll("[zjc-Hamster2]")[i].onmousedown = function () {
+
+            $('#identifier').modal({ keyboard: false });
+            document.querySelector("[zjc-score-end]").innerText = parseInt(score.innerText);
+        }
     }
 })();
 
