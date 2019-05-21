@@ -5,41 +5,41 @@
 ////getRecord() ：根据用户Id，返回该用户“打地鼠”游戏的最高记录
 ////捕获抛出的异常，输出（console.log）异常信息
 
-//function getPassword(callback,name) {
-//    setTimeout(function (name) {
-//        if (name) {
-//            var pass = 333;
-//            callback(pass);
-//        }
-//    }, 300);
-//}
+function getPassword(callback,name) {
+    setTimeout(function (name) {
+        if (name) {
+            var pass = 333;
+            callback(pass);
+        }
+    }, 300);
+}
 
-//function login(callback) {
-//    setTimeout(function () {
-//        getPassword(callback);    
-//    }, 300);
-//}
+function login(callback) {
+    setTimeout(function () {
+        getPassword(callback);    
+    }, 300);
+}
 
-//login((pass) => {
-//    if (pass === 333) {
-//        var Id = 1;
-//        console.log(Id);
-//        console.log('record:500');
+login((pass) => {
+    if (pass === 333) {
+        var Id = 1;
+        console.log(Id);
+        console.log('record:500');
 
-//    }
-//    else {
-//        try {
-//            throw ("异常");
-//        }
-//        catch (e) {
-//            console.log(e);
-//        }
-//        finally {
-//            console.log("管你有没有异常")
-//        }
+    }
+    else {
+        try {
+            throw ("异常");
+        }
+        catch (e) {
+            console.log(e);
+        }
+        finally {
+            console.log("管你有没有异常")
+        }
 
-//    }
-//})
+    }
+})
 
 //function getRecord(callback) {
 //    setTimeout(() => { login(callback) }, 1000);

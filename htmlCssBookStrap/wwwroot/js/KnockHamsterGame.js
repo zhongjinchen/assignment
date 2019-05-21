@@ -55,17 +55,14 @@ document.querySelector("[btn-begin]").onclick = function () {
 (function () {
     let score = document.querySelector("[zjc-score]");
     for (let i = 0; i < 9; i++) {
-
         document.querySelectorAll("[zjc-Hamster]")[i].onmousedown = function () {
             score.innerText = parseInt(score.innerText) + 1;
-
-            $(this).html('<img class="" src="~/images/KnockHamsterGame/晕地鼠.png" zjc-Hamster>');
+            $(this).attr("src","~/images/KnockHamsterGame/晕地鼠.png");     //修改属性之后图片未能正确显示
         }
         document.querySelectorAll("[zjc-Hamster1]")[i].onmousedown = function () {
             score.innerText = parseInt(score.innerText) - 1;
         };
         document.querySelectorAll("[zjc-Hamster2]")[i].onmousedown = function () {
-
             $('#identifier').modal({ keyboard: false });
             document.querySelector("[zjc-score-end]").innerText = parseInt(score.innerText);
         }
