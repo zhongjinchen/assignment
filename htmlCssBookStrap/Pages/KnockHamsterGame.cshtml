@@ -8,78 +8,81 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="~/css/KnockHamsterGame.css" />
     <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
 </head>
 <body>
-    <div style="font-size:35px;font-weight:900;margin-left:300px; margin-top:130px;position: absolute;">分数：<span zjc-score>0</span></div>
+   
+        <div style="font-size:35px;font-weight:900;margin-left:300px; margin-top:130px;position: absolute;">分数：<span zjc-score>0</span></div>
 
-    <button style="font-size:35px;font-weight:900;width:200px;height:80px;margin-left:670px; margin-top:120px;border:1px solid #204d74;background-color:limegreen;color:#fff;border-radius:5px;position: absolute;">开始</button>
-    <div class="taft">
-        @*data-toggle="modal" data-target="#identifier"*@
-        <img src="~/images/KnockHamsterGame/土堆.png" alt="taft" style=" left:350px; top:350px;">
-        <img src="~/images/KnockHamsterGame/土堆.png" alt="taft" style="left:650px; top:350px;">
-        <img src="~/images/KnockHamsterGame/土堆.png" alt="taft" style="left:950px; top:350px;">
-        <img src="~/images/KnockHamsterGame/土堆.png" alt="taft" style="left:350px; top:550px;">
-        <img src="~/images/KnockHamsterGame/土堆.png" alt="taft" style="left:650px; top:550px;">
-        <img src="~/images/KnockHamsterGame/土堆.png" alt="taft" style="left:950px; top:550px;">
-        <img src="~/images/KnockHamsterGame/土堆.png" alt="taft" style="left:350px; top:750px;">
-        <img src="~/images/KnockHamsterGame/土堆.png" alt="taft" style="left:650px; top:750px;">
-        <img src="~/images/KnockHamsterGame/土堆.png" alt="taft" style="left:950px; top:750px;">
-        <img class="" src="~/images/KnockHamsterGame/晕地鼠.png" zjc-Hamster style="left:950px; top:850px;">
-    </div>
-
-    <div class="Hamster">
-        <img class="" src="~/images/KnockHamsterGame/萌地鼠.png" zjc-Hamster alt="taft" style="left: 432px;top: 375px;">
-        <img class="" src="~/images/KnockHamsterGame/萌地鼠.png" zjc-Hamster alt="taft" style="left: 732px;top: 375px;">
-        <img class="" src="~/images/KnockHamsterGame/萌地鼠.png" zjc-Hamster alt="taft" style="left: 1032px;top: 375px;">
-
-        <img class="" src="~/images/KnockHamsterGame/萌地鼠.png" zjc-Hamster alt="taft" style="left: 432px;top: 575px;">
-        <img class="" src="~/images/KnockHamsterGame/萌地鼠.png" zjc-Hamster alt="taft" style="left: 732px;top: 575px;">
-        <img class="" src="~/images/KnockHamsterGame/萌地鼠.png" zjc-Hamster alt="taft" style="left: 1032px;top: 575px;">
-
-        <img class="" src="~/images/KnockHamsterGame/萌地鼠.png" zjc-Hamster alt="taft" style="left: 432px;top: 775px;">
-        <img class="" src="~/images/KnockHamsterGame/萌地鼠.png" zjc-Hamster alt="taft" style="left: 732px;top: 775px;">
-        <img class="" src="~/images/KnockHamsterGame/萌地鼠.png" zjc-Hamster alt="taft" style="left: 1032px;top: 775px;">
-
-        <img class="" src="~/images/KnockHamsterGame/坏地鼠.png" zjc-Hamster1 alt="taft" style="left: 432px;top: 375px;">
-        <img class="" src="~/images/KnockHamsterGame/坏地鼠.png" zjc-Hamster1 alt="taft" style="left: 732px;top: 375px;">
-        <img class="" src="~/images/KnockHamsterGame/坏地鼠.png" zjc-Hamster1 alt="taft" style="left: 1032px;top: 375px;">
-
-        <img class="" src="~/images/KnockHamsterGame/坏地鼠.png" zjc-Hamster1 alt="taft" style="left: 432px;top: 575px;">
-        <img class="" src="~/images/KnockHamsterGame/坏地鼠.png" zjc-Hamster1 alt="taft" style="left: 732px;top: 575px;">
-        <img class="" src="~/images/KnockHamsterGame/坏地鼠.png" zjc-Hamster1 alt="taft" style="left: 1032px;top: 575px;">
-
-        <img class="" src="~/images/KnockHamsterGame/坏地鼠.png" zjc-Hamster1 alt="taft" style="left: 432px;top: 775px;">
-        <img class="" src="~/images/KnockHamsterGame/坏地鼠.png" zjc-Hamster1 alt="taft" style="left: 732px;top: 775px;">
-        <img class="" src="~/images/KnockHamsterGame/坏地鼠.png" zjc-Hamster1 alt="taft" style="left: 1032px;top: 775px;">
-
-        <img class="" src="~/images/KnockHamsterGame/地雷.png" zjc-Hamster2 alt="taft" style="left: 432px;top: 375px;">
-        <img class="" src="~/images/KnockHamsterGame/地雷.png" zjc-Hamster2 alt="taft" style="left: 732px;top: 375px;">
-        <img class="" src="~/images/KnockHamsterGame/地雷.png" zjc-Hamster2 alt="taft" style="left: 1032px;top: 375px;">
-
-        <img class="" src="~/images/KnockHamsterGame/地雷.png" zjc-Hamster2 alt="taft" style="left: 432px;top: 575px;">
-        <img class="" src="~/images/KnockHamsterGame/地雷.png" zjc-Hamster2 alt="taft" style="left: 732px;top: 575px;">
-        <img class="" src="~/images/KnockHamsterGame/地雷.png" zjc-Hamster2 alt="taft" style="left: 1032px;top: 575px;">
-
-        <img class="" src="~/images/KnockHamsterGame/地雷.png" zjc-Hamster2 alt="taft" style="left: 432px;top: 775px;">
-        <img class="" src="~/images/KnockHamsterGame/地雷.png" zjc-Hamster2 alt="taft" style="left: 732px;top: 775px;">
-        <img class="" src="~/images/KnockHamsterGame/地雷.png" zjc-Hamster2 alt="taft" style="left: 1032px;top: 775px;">
-    </div>
-
-
-    <div class="modal" style="margin-top:200px" id="identifier">
-        <div class="modal-dialog modal-sm">
-
-            <div class="modal-content text-center" style="padding:20px 20px;">
-                <div style="font-size:48px;font-weight:900;color:cornflowerblue">游戏结束</div>
-                <div style="font-size:28px;font-weight:900;">最终成绩：<span zjc-score-end>0</span></div>
-            </div>
+        <button btn-begin style="font-size:35px;font-weight:900;width:200px;height:80px;margin-left:670px; margin-top:120px;border:1px solid #204d74;background-color:limegreen;color:#fff;border-radius:5px;position: absolute;">开始</button>
+    
+        <div class="taft">           
+            <img src="~/images/knockhamstergame/土堆.png" alt="taft" style=" left:350px; top:350px;">
+            <img src="~/images/knockhamstergame/土堆.png" alt="taft" style="left:650px; top:350px;">
+            <img src="~/images/knockhamstergame/土堆.png" alt="taft" style="left:950px; top:350px;">
+            <img src="~/images/knockhamstergame/土堆.png" alt="taft" style="left:350px; top:550px;">
+            <img src="~/images/knockhamstergame/土堆.png" alt="taft" style="left:650px; top:550px;">
+            <img src="~/images/knockhamstergame/土堆.png" alt="taft" style="left:950px; top:550px;">
+            <img src="~/images/knockhamstergame/土堆.png" alt="taft" style="left:350px; top:750px;">
+            <img src="~/images/knockhamstergame/土堆.png" alt="taft" style="left:650px; top:750px;">
+            <img src="~/images/knockhamstergame/土堆.png" alt="taft" style="left:950px; top:750px;">
 
         </div>
-    </div>
+
+        <div class="Hamster">
+            <img class="" src="~/images/knockhamstergame/萌地鼠.png" zjc-hamster alt="taft" style="left: 432px;top: 375px;">
+            <img class="" src="~/images/knockhamstergame/萌地鼠.png" zjc-hamster alt="taft" style="left: 732px;top: 375px;">
+            <img class="" src="~/images/knockhamstergame/萌地鼠.png" zjc-hamster alt="taft" style="left: 1032px;top: 375px;">
+
+            <img class="" src="~/images/knockhamstergame/萌地鼠.png" zjc-hamster alt="taft" style="left: 432px;top: 575px;">
+            <img class="" src="~/images/knockhamstergame/萌地鼠.png" zjc-hamster alt="taft" style="left: 732px;top: 575px;">
+            <img class="" src="~/images/knockhamstergame/萌地鼠.png" zjc-hamster alt="taft" style="left: 1032px;top: 575px;">
+
+            <img class="" src="~/images/knockhamstergame/萌地鼠.png" zjc-hamster alt="taft" style="left: 432px;top: 775px;">
+            <img class="" src="~/images/knockhamstergame/萌地鼠.png" zjc-hamster alt="taft" style="left: 732px;top: 775px;">
+            <img class="" src="~/images/knockhamstergame/萌地鼠.png" zjc-hamster alt="taft" style="left: 1032px;top: 775px;">
+
+            <img class="" src="~/images/knockhamstergame/坏地鼠.png" zjc-hamster1 alt="taft" style="left: 432px;top: 375px;">
+            <img class="" src="~/images/knockhamstergame/坏地鼠.png" zjc-hamster1 alt="taft" style="left: 732px;top: 375px;">
+            <img class="" src="~/images/knockhamstergame/坏地鼠.png" zjc-hamster1 alt="taft" style="left: 1032px;top: 375px;">
+
+            <img class="" src="~/images/knockhamstergame/坏地鼠.png" zjc-hamster1 alt="taft" style="left: 432px;top: 575px;">
+            <img class="" src="~/images/knockhamstergame/坏地鼠.png" zjc-hamster1 alt="taft" style="left: 732px;top: 575px;">
+            <img class="" src="~/images/knockhamstergame/坏地鼠.png" zjc-hamster1 alt="taft" style="left: 1032px;top: 575px;">
+
+            <img class="" src="~/images/knockhamstergame/坏地鼠.png" zjc-hamster1 alt="taft" style="left: 432px;top: 775px;">
+            <img class="" src="~/images/knockhamstergame/坏地鼠.png" zjc-hamster1 alt="taft" style="left: 732px;top: 775px;">
+            <img class="" src="~/images/knockhamstergame/坏地鼠.png" zjc-hamster1 alt="taft" style="left: 1032px;top: 775px;">
+
+            <img class="" src="~/images/knockhamstergame/地雷.png" zjc-hamster2 alt="taft" style="left: 432px;top: 375px;">
+            <img class="" src="~/images/knockhamstergame/地雷.png" zjc-hamster2 alt="taft" style="left: 732px;top: 375px;">
+            <img class="" src="~/images/knockhamstergame/地雷.png" zjc-hamster2 alt="taft" style="left: 1032px;top: 375px;">
+
+            <img class="" src="~/images/knockhamstergame/地雷.png" zjc-hamster2 alt="taft" style="left: 432px;top: 575px;">
+            <img class="" src="~/images/knockhamstergame/地雷.png" zjc-hamster2 alt="taft" style="left: 732px;top: 575px;">
+            <img class="" src="~/images/knockhamstergame/地雷.png" zjc-hamster2 alt="taft" style="left: 1032px;top: 575px;">
+
+            <img class="" src="~/images/knockhamstergame/地雷.png" zjc-hamster2 alt="taft" style="left: 432px;top: 775px;">
+            <img class="" src="~/images/knockhamstergame/地雷.png" zjc-hamster2 alt="taft" style="left: 732px;top: 775px;">
+            <img class="" src="~/images/knockhamstergame/地雷.png" zjc-hamster2 alt="taft" style="left: 1032px;top: 775px;">
+        </div>
+
+
+        <div class="modal" style="margin-top:200px" id="identifier">
+            <div class="modal-dialog modal-sm">
+
+                <div class="modal-content text-center" style="padding:20px 20px;">
+                    <div style="font-size:48px;font-weight:900;color:cornflowerblue">游戏结束</div>
+                    <div style="font-size:28px;font-weight:900;">最终成绩：<span zjc-score-end>0</span></div>
+                </div>
+
+            </div>
+        </div>
+ 
     <script type="text/javascript" src="~/js/KnockHamsterGame.js"></script>
 
 </body>

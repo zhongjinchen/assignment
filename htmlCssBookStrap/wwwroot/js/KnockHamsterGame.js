@@ -2,35 +2,53 @@
 
 //"use strict"
 
-document.getElementsByTagName("button")[0].onclick = function () {
-    let i = 0;
 
-    setInterval(() => {
+
+
+document.querySelector("[btn-begin]").onclick = function () {
+    let i = 0;
+    setInterval(() => {      
         i++;
-        let ran = Math.ceil(Math.random() * 80);
-        if (ran < 28 && i > 5) {
-            var randm = Math.ceil(Math.random() * 9);
-            document.querySelectorAll("[zjc-Hamster1]")[randm].className = `Hamster1-${randm}`;
-            setTimeout(() => { document.querySelectorAll("[zjc-Hamster1]")[randm].className = ""; }, 2000)
+        let randomFirst = Math.ceil(Math.random() * 80);
+        let randomSecond = Math.ceil(Math.random() * 9);     
+        let zjcHamster="";
+        let Hamster="";
+        if (i <= 5) {
+            zjcHamster = "zjc-Hamster";
+            Hamster = "Hamster";     
         }
-        else if (ran > 60 && i > 5) {
-            var randm = Math.ceil(Math.random() * 9);
-            document.querySelectorAll("[zjc-Hamster2]")[randm].className = `Hamster2-${randm}`;
-            setTimeout(() => { document.querySelectorAll("[zjc-Hamster2]")[randm].className = ""; }, 2000)
-        }
-        else {
-            var rand = Math.floor(Math.random() * 9);
-            document.querySelectorAll("[zjc-Hamster]")[rand].className = `Hamster${rand}`;
-            setTimeout(() => { document.querySelectorAll("[zjc-Hamster]")[rand].className = ""; }, 2000)
-            if (i > 25) {
-                var rando = Math.floor(Math.random() * 9);
-                document.querySelectorAll("[zjc-Hamster]")[rando].className = `Hamster${rando}`;
-                setTimeout(() => { document.querySelectorAll("[zjc-Hamster]")[rando].className = ""; }, 2000)
+        else if (i > 5 && i <= 15) {
+            if (randomFirst < 35) {
+                zjcHamster = "zjc-Hamster1";
+                Hamster = "Hamster1-";             
+            }
+            else {
+                zjcHamster = "zjc-Hamster";
+                Hamster = "Hamster";
+
             }
         }
+        else {
+            if (randomFirst < 28) {
+                zjcHamster = "zjc-Hamster1";
+                Hamster = "Hamster1-";
 
+            }
+            else if (randomFirst >= 28 && randomFirst < 62) {
+                zjcHamster = "zjc-Hamster";
+                Hamster = "Hamster";  
 
-    }, 2000);
+            }
+            else {
+                zjcHamster = "zjc-Hamster2";
+                Hamster = "Hamster2-";
+            
+            }
+        }
+        document.querySelectorAll(`[${zjcHamster}]`)[randomSecond].className = `${Hamster}${randomSecond}`;
+        setTimeout(() => { document.querySelectorAll(`[${zjcHamster}]`)[randomSecond].className = ""; }, 1500);
+
+    },2000)
 
 };
 

@@ -1,7 +1,7 @@
 ﻿body {
+    background-size: 100%;
     background-image: url(/images/KnockHamsterGame/背景.jpg);
-    background-size:100%;
-    cursor:url("../images/KnockHamsterGame/锤子.png")20 80; 
+
 }
 
 .taft > img {
@@ -16,91 +16,82 @@
     width: 85px;
     height: 82px;
 }
-.Hamster0 {
-    
-    animation: myfirst 2s;
 
+.Hamster0 {
+    animation: myfirst 2s;
 }
 
 
 .Hamster1 {
-   
     animation: myfirst 2s;
-  
 }
 
 
 .Hamster2 {
-   
     animation: myfirst 2s;
- 
 }
 
 @keyframes myfirst {
     0% {
         top: 375px;
     }
+
     50% {
         top: 300px;
     }
+
     100% {
         top: 375px;
     }
 }
 
 .Hamster3 {
-
     animation: mysecond 2s;
-
 }
 
 .Hamster4 {
-  
     animation: mysecond 2s;
-
 }
 
 .Hamster5 {
-
     animation: mysecond 2s;
- 
 }
 
 @keyframes mysecond {
     0% {
         top: 575px;
     }
+
     50% {
         top: 500px;
     }
+
     100% {
         top: 575px;
     }
 }
 
 .Hamster6 {
-
     animation: mythird 2s;
-   
 }
+
 .Hamster7 {
-  
     animation: mythird 2s;
-   
 }
 
 .Hamster8 {
     animation: mythird 2s;
-
 }
 
 @keyframes mythird {
     0% {
         top: 775px;
     }
+
     50% {
         top: 700px;
     }
+
     100% {
         top: 775px;
     }
@@ -109,30 +100,39 @@
 .Hamster1-1 {
     animation: myfirst 2s;
 }
+
 .Hamster1-2 {
     animation: myfirst 2s;
 }
+
 .Hamster1-3 {
     animation: myfirst 2s;
 }
+
 .Hamster1-4 {
     animation: mysecond 2s;
 }
+
 .Hamster1-5 {
     animation: mysecond 2s;
 }
-.Hamster1-6{
+
+.Hamster1-6 {
     animation: mysecond 2s;
 }
+
 .Hamster1-7 {
     animation: mythird 2s;
 }
+
 .Hamster1-8 {
     animation: mythird 2s;
 }
+
 .Hamster1-9 {
     animation: mythird 2s;
 }
+
 .Hamster2-1 {
     animation: myfirst 2s;
 }
@@ -166,7 +166,4 @@
 }
 
 .Hamster2-9 {
-    animation: mythird 2s;
-}
-
-
+    animation: mythird 2
