@@ -6,7 +6,7 @@ namespace assignment
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(typeof(char));
+            //Console.WriteLine(typeof(char));
             //多态练习
             //Father father = new Son();    //----父类的实例指向子类的引用
             //father.Fly();
@@ -19,6 +19,16 @@ namespace assignment
             //man.Lunch();
             //man.Rest();
             //man.Swim();
+
+            ////接口作业
+            ////用接口实例（不是类的实例）调用“找到最大值”的方法 
+            //seekMaxValue Seek = new BinaryChop();
+            //seekMaxValue Seek = new violenceSeek();
+            //显式实现
+            //seekMaxValue Seek = new DisplayImplementation();
+            seekMinValue Seek = new DisplayImplementation();
+            Seek.seek();
+
 
             //Mimicstact imitate = new Mimicstact(5);
             //imitate.Push(new int[]{8});

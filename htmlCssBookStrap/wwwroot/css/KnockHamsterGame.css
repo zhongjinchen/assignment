@@ -1,7 +1,12 @@
-﻿body {
+﻿* {
+    cursor: url(/images/KnockHamsterGame/锤子.png)7 58,auto;
+}
+
+body {
     background-size: 100%;
     background-image: url(/images/KnockHamsterGame/背景.jpg);
-
+    width: 1600px;
+    height: 980px
 }
 
 .taft > img {
@@ -17,17 +22,8 @@
     height: 82px;
 }
 
-.Hamster0 {
-    animation: myfirst 2s;
-}
-
-
-.Hamster1 {
-    animation: myfirst 2s;
-}
-
-
-.Hamster2 {
+.Hamster0, .Hamster1, .Hamster2, .Hamster1-1, .Hamster1-2,
+.Hamster1-3, .Hamster2-1, .Hamster2-2, .Hamster2-3 {
     animation: myfirst 2s;
 }
 
@@ -36,134 +32,66 @@
         top: 375px;
     }
 
-    50% {
+    40% {
         top: 300px;
     }
 
+    60% {
+        top: 300px;
+    }
     100% {
         top: 375px;
     }
 }
 
-.Hamster3 {
+.Hamster3, .Hamster4, .Hamste5, .Hamster1-4, .Hamster1-5,
+.Hamster1-6, .Hamster2-4, .Hamster2-5, .Hamster2-6 {
     animation: mysecond 2s;
 }
 
-.Hamster4 {
-    animation: mysecond 2s;
-}
-
-.Hamster5 {
-    animation: mysecond 2s;
-}
 
 @keyframes mysecond {
     0% {
         top: 575px;
     }
 
-    50% {
+    40% {
         top: 500px;
     }
-
+    60% {
+        top: 500px;
+    }
     100% {
         top: 575px;
     }
 }
 
-.Hamster6 {
+.Hamster6, .Hamster7, .Hamster8, .Hamster1-7,
+.Hamster1-8, .Hamster1-9, .Hamster2-7, .Hamster2-8, .Hamster2-9 {
     animation: mythird 2s;
 }
 
-.Hamster7 {
-    animation: mythird 2s;
-}
-
-.Hamster8 {
-    animation: mythird 2s;
-}
 
 @keyframes mythird {
     0% {
         top: 775px;
     }
 
-    50% {
+    40% {
         top: 700px;
     }
 
+    60% {
+        top: 700px;
+    }
     100% {
         top: 775px;
     }
 }
 
-.Hamster1-1 {
-    animation: myfirst 2s;
+.Bomb > img {
+    z-index: 10;
+    position: absolute;
+    height: 150px;
+    width: 150px;
 }
-
-.Hamster1-2 {
-    animation: myfirst 2s;
-}
-
-.Hamster1-3 {
-    animation: myfirst 2s;
-}
-
-.Hamster1-4 {
-    animation: mysecond 2s;
-}
-
-.Hamster1-5 {
-    animation: mysecond 2s;
-}
-
-.Hamster1-6 {
-    animation: mysecond 2s;
-}
-
-.Hamster1-7 {
-    animation: mythird 2s;
-}
-
-.Hamster1-8 {
-    animation: mythird 2s;
-}
-
-.Hamster1-9 {
-    animation: mythird 2s;
-}
-
-.Hamster2-1 {
-    animation: myfirst 2s;
-}
-
-.Hamster2-2 {
-    animation: myfirst 2s;
-}
-
-.Hamster2-3 {
-    animation: myfirst 2s;
-}
-
-.Hamster2-4 {
-    animation: mysecond 2s;
-}
-
-.Hamster2-5 {
-    animation: mysecond 2s;
-}
-
-.Hamster1-6 {
-    animation: mysecond 2s;
-}
-
-.Hamster2-7 {
-    animation: mythird 2s;
-}
-
-.Hamster2-8 {
-    animation: mythird 2s;
-}
-
-.Hamster2-9 {
-    animation: mythird 2
