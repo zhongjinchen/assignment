@@ -115,12 +115,14 @@ function AddHamsterImage(position, what, imageName, addReduce, replaceImage, aud
 }
 
 //添加炸弹方法
-function AddBombImage(position, what, imageName) {
-    let $bombMole = $(`<img class="${what}" src="/images/knockHamsterGame/${imageName}.png">`);
+function AddBombImage(position) {
+    let $bombMole = $('<img class="Bomb" src="/images/knockHamsterGame/炸弹1.png">');
     $(`[taft='${position}']`).after($bombMole);
     $bombMole.mousedown(function () {
         $("[bomb-audio]")[0].play();
-        $bombMole.html('<img class="what" src=" / images / knockHamsterGame /爆炸1.png">');
+        $(".Bomb").after('<img class="explode" src="/images/knockHamsterGame/爆炸1.png">');
+       
+
         ResultModalFrame();
     });
 }
@@ -192,7 +194,7 @@ $(".begin-btn").click(function () {
                 //console.log("5");
             }
             else {
-                AddBombImage(position, "Bomb", "炸弹1");
+                AddBombImage(position);
                 clearInterval(countDown);
                 clearInterval(animation);
 

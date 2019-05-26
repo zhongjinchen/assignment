@@ -42,7 +42,7 @@ main {
 
     #mole-container td {
         position: relative;
-        padding: 40px 40px 0px 40px;
+        padding: 40px 40px 20px 40px;
     }
 
 .taft {
@@ -75,7 +75,15 @@ main {
     animation: animationTime 2s;
 }
 
-@keyframes animationTime{
+.explode {
+    /*width: 45px;
+    right: 114px;*/
+    top: -32px;
+    right:90px;
+    position: absolute;   
+}
+
+@keyframes animationTime {
     0% {
         top: 53px;
     }
