@@ -116,12 +116,12 @@ function AddHamsterImage(position, what, imageName, addReduce, replaceImage, aud
 
 //添加炸弹方法
 function AddBombImage(position, what, imageName) {
-    let $badMole = $(`<img class="${what}" src="/images/knockHamsterGame/${imageName}.png">`);
-    $(`[taft='${position}']`).after($badMole);
-    $badMole.mousedown(function () {
+    let $bombMole = $(`<img class="${what}" src="/images/knockHamsterGame/${imageName}.png">`);
+    $(`[taft='${position}']`).after($bombMole);
+    $bombMole.mousedown(function () {
         $("[bomb-audio]")[0].play();
-    
-
+        $bombMole.html('<img class="what" src=" / images / knockHamsterGame /爆炸1.png">');
+        ResultModalFrame();
     });
 }
 
@@ -138,6 +138,7 @@ $(".begin-btn").click(function () {
     
     let i = 0;
     $(".begin-btn").remove();
+    $("[background-audio]")[0].play();
 
     //倒计时
     let countDown = setInterval(function () {
@@ -151,7 +152,7 @@ $(".begin-btn").click(function () {
         }
     }, 1000)
         ;
-    //使用了全局变量
+   
     let animation = setInterval(() => {
         i++;
         let probability = Math.ceil(Math.random() * 80);
@@ -164,7 +165,7 @@ $(".begin-btn").click(function () {
 
             //console.log("1");
         }
-        else if (i > 1 && i <= 2) {
+        else if (i > 1 && i <=2 ) {
             if (probability < 25) {
                 AddHamsterImage(position, "CuteHamster", "萌地鼠1", -1, "哭地鼠", "beatError-audio");
                 setTimeout(function () { $(".CuteHamster").remove(); }, 1800);
@@ -179,13 +180,13 @@ $(".begin-btn").click(function () {
             }
         }
         else {
-            if (probability < 30) {
+            if (probability < 3) {
                 AddHamsterImage(position, "BadHamster", "坏地鼠1", 1, "晕地鼠", "beat-audio");
                 setTimeout(function () { $(".BadHamster").remove(); }, 1800);
 
                 //console.log("4");
             }
-            else if (probability >= 30 && probability < 50) {
+            else if (probability >= 3 && probability < 5) {
                 AddHamsterImage(position, "CuteHamster", "萌地鼠1", -1, "哭地鼠", "beatError-audio");
                 setTimeout(function () { $(".CuteHamster").remove(); }, 1800);
                 //console.log("5");
@@ -195,7 +196,7 @@ $(".begin-btn").click(function () {
                 clearInterval(countDown);
                 clearInterval(animation);
 
-                ResultModalFrame();
+               
 
                 //console.log("6");
             }
