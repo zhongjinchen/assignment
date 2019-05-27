@@ -94,8 +94,6 @@
 
 
 $(function () {
-
-
     $("main").mousedown(function () {
         $("main").css('cursor', 'url(/images/KnockHamsterGame/锤子-down.png)7 58,auto')
     }).mouseup(function () {

@@ -11,15 +11,15 @@ namespace assignment
             Console.WriteLine("吃午饭");
         }
     }
-    interface Sleep
+    interface ISleep
     {
         void Rest();
     }
-    interface Bathe
+    interface IBathe
     {
         void Swim();
     }
-    public class Man: Eat, Sleep, Bathe
+    public class Man: Eat, ISleep, IBathe
     {
         public void Rest()
         {
@@ -32,23 +32,23 @@ namespace assignment
     }
     //为找到最大值定义一个接口，并在“二分查找”和“暴力查找”中实现 
     
-    internal interface seekMaxValue
+    internal interface IseekMaxValue
     {
         void seek();
     }
-    internal interface seekMinValue
+    internal interface IseekMinValue
     {
         void seek();
     }
 
-    public class BinaryChop: seekMaxValue
+    public class BinaryChop: IseekMaxValue
     {
         public void seek()
         {
             Console.WriteLine("二分查找");
         }
     }
-    public class violenceSeek : seekMaxValue
+    public class violenceSeek : IseekMaxValue
     {
         public void seek()
         {
@@ -57,13 +57,13 @@ namespace assignment
     }
 
     //虚拟一个需要使用接口“显式实现”的场景，并实现之
-    public class DisplayImplementation:seekMaxValue,seekMinValue
+    public class DisplayImplementation:IseekMaxValue,IseekMinValue
     {
-        void seekMaxValue.seek()
+        void IseekMaxValue.seek()
         {
             Console.WriteLine("查找最大值");
         }
-        void seekMinValue.seek()
+        void IseekMinValue.seek()
         {
             Console.WriteLine("查找最小值");
         }
