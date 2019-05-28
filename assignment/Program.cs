@@ -6,7 +6,6 @@ namespace assignment
     {
         static void Main(string[] args)
         {
-
             //值类型传递是copy
             //int i = 8;
             //int j = i;
@@ -69,83 +68,103 @@ namespace assignment
             //Generic<int> generic = new Generic<int>(4);
             //Console.WriteLine(generic.Age);
             //用泛型改造之前代码，包括：取最大值、冒泡排序、快速排序
-    //        <int>[]= new < int >[]  { 2,4,3,7,9,5,6,8,0 };
-    //        Max(new < int >[]{ 2,4,3,7,9,5,6,8,0 });
 
-    //        Console.Read();
-    //    }
-    //    static void Max<T>(T[] array)
-    //    {
-    //        T max = array[0];
-    //        Console.WriteLine($"最大值的初始值为:{max}");
-    //        for (int i = 1; i < array.Length; i++)
-    //        {
-    //            if (array[i] > max)
-    //            {
-    //                Console.WriteLine($"第{i}次比较，{array[i]}>{max},目前最大值为{array[i]}"); max = array[i];
-
-    //            }
-    //            else
-    //            {
-    //                Console.WriteLine($"第{i}次比较，{array[i]}<={max},最大值不变" + max);
-    //            }
-    //        }
-    //        Console.WriteLine($"最终结果，最大值为{max}");
-    //    }
-    //    static void school(string name)
-    //        {
-
-    //            char[] input = name.ToCharArray();
-    //            char[] output = new char[input.Length];
+            //Max(new int[] { 2, 4, 3, 7, 9, 5, 6, 8, 0 });
 
 
-    //            for (int i = 0; i < input.Length; i++)
-    //            {
-    //                output[i] = input[input.Length - 1 - i];
-    //            }
 
-    //            Console.WriteLine(output);
-    //        }
-    //        static void Date()
-    //        {
-    //            DateTime date = new DateTime(2019, 1, 1);
-    //            for (int day = 1; day < 7; day++)
-    //            {
-    //                if (date.DayOfWeek == DayOfWeek.Monday)
-    //                {
-    //                    break;
-    //                }
-    //                else
-    //                {
-    //                    date = date.AddDays(1);
-    //                }
-    //            }
-    //            Console.WriteLine($"{date.Year}年{date.Month}月{date.Day}日为该年第一个星期一");
+            //foreach遍历数组
+            //ForEach(new int[]{2,3 });
 
-    //            int week = 1;
-    //            bool success = false;
+            //冒泡排序
+            Sort sort = new Sort();
+            sort.bubbleSort(new int[] { 2, 3,3,9,12,33,44,2,7, 2, 5, 8, 5, 9, 5, 7, 1, 4, 5 });
 
-    //            DateTime expiryDate = date;
-    //            while (!success)
-    //            {
-    //                if (expiryDate.Year < 2020)
-    //                {
-    //                    DateTime Todate = date.AddDays((7 * week) - 7);
-    //                    Console.Write($"第{week}周:{Todate.Year}年{Todate.Month}月{Todate.Day}日-");
-    //                    expiryDate = date.AddDays(7 * week - 1);
-    //                    Console.WriteLine($"{expiryDate.Year}年{expiryDate.Month}月{expiryDate.Day}日");
-    //                    Console.WriteLine();
-    //                    week++;
-    //                }
-    //                else
-    //                {
-    //                    success = false;
-    //                }
-    //            }
-    //        }
-        
- 
-    //}
+            Console.Read();
+        }
+
+        static void ForEach<T>(T[] array)
+        {
+            foreach(T j in array){
+                Console.WriteLine(j);
+            }
+        }
+
+        static void Max(int[] array)
+        {
+            int max = array[0];
+            Console.WriteLine($"最大值的初始值为:{max}");
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i] > max)
+                {
+                    Console.WriteLine($"第{i}次比较，{array[i]}>{max},目前最大值为{array[i]}"); max = array[i];
+
+                }
+                else
+                {
+                    Console.WriteLine($"第{i}次比较，{array[i]}<={max},最大值不变" + max);
+                }
+            }
+            Console.WriteLine($"最终结果，最大值为{max}");
+        }
+
+        static void school(string name)
+        {
+
+            char[] input = name.ToCharArray();
+            char[] output = new char[input.Length];
+
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                output[i] = input[input.Length - 1 - i];
+            }
+
+            Console.WriteLine(output);
+        }
+
+        static void Date()
+        {
+            DateTime date = new DateTime(2019, 1, 1);
+            for (int day = 1; day < 7; day++)
+            {
+                if (date.DayOfWeek == DayOfWeek.Monday)
+                {
+                    break;
+                }
+                else
+                {
+                    date = date.AddDays(1);
+                }
+            }
+            Console.WriteLine($"{date.Year}年{date.Month}月{date.Day}日为该年第一个星期一");
+
+            int week = 1;
+            bool success = false;
+
+            DateTime expiryDate = date;
+            while (!success)
+            {
+                if (expiryDate.Year < 2020)
+                {
+                    DateTime Todate = date.AddDays((7 * week) - 7);
+                    Console.Write($"第{week}周:{Todate.Year}年{Todate.Month}月{Todate.Day}日-");
+                    expiryDate = date.AddDays(7 * week - 1);
+                    Console.WriteLine($"{expiryDate.Year}年{expiryDate.Month}月{expiryDate.Day}日");
+                    Console.WriteLine();
+                    week++;
+                }
+                else
+                {
+                    success = false;
+                }
+            }
+        }
+
+
+    }
+
     class Mimicstact
     {
         private object[] array = null;
@@ -268,10 +287,21 @@ namespace assignment
             }
         }
 
+    }
 
 
+    internal class FG<T> where T: IComparable/*, IConvertible*/
+    {
+        //public FG(T a, T b)
+        //{
+            
+        //    if (a.CompareTo(b)>0)
+        //    {
+                               
+        //    }
+        //}
 
-
+   
     }
 
     class Beautyliu

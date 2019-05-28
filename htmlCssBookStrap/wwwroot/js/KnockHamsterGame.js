@@ -104,6 +104,7 @@ $(function () {
 //添加地鼠图片方法（坏地鼠/萌地鼠）
 function AddHamsterImage(position, what, imageName, addReduce, replaceImage, audio) {
     let $badMole = $(`<img class="${what}" src="/images/knockHamsterGame/${imageName}.png">`);
+    $("[rise-audio]")[0].play();
 
     $(`[taft='${position}']`).after($badMole);
 
@@ -129,6 +130,7 @@ function AddHamsterImage(position, what, imageName, addReduce, replaceImage, aud
 function AddBombImage(position) {
     let $bombMole = $('<img class="Bomb" src="/images/knockHamsterGame/炸弹1.png">');
     $(`[taft='${position}']`).after($bombMole);
+    $("[rise-audio]")[0].play();
 
 }
 
@@ -157,6 +159,11 @@ $(".begin-btn").click(function () {
             clearInterval(animation);
 
             ResultModalFrame();
+
+        }
+        else if ($("[time-value]").text()==="2") {
+            
+            $("[countDown-audio]")[0].play();
 
         }
     }, 1000)

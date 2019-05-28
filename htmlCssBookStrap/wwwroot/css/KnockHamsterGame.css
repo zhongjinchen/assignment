@@ -76,8 +76,6 @@ main {
 }
 
 .explode {
-    /*width: 45px;
-    right: 114px;*/
     top: -32px;
     right:90px;
     position: absolute;   
