@@ -6,6 +6,11 @@ namespace assignment
     {
         static void Main(string[] args)
         {
+            //属性
+            getSet get = new getSet();
+            get.Age = 4;
+            Console.WriteLine(get.Age);
+
             //值类型传递是copy
             //int i = 8;
             //int j = i;
@@ -65,11 +70,16 @@ namespace assignment
             //objectHomeWork.Array();
 
             //泛型
-            //Generic<int> generic = new Generic<int>(4);
+            //Generic<object> generic = new Generic<object>("fg");
             //Console.WriteLine(generic.Age);
-            //用泛型改造之前代码，包括：取最大值、冒泡排序、快速排序
 
-            //Max(new int[] { 2, 4, 3, 7, 9, 5, 6, 8, 0 });
+
+            //用泛型改造之前代码，包括：取最大值、冒泡排序、快速排序
+            //取最大值
+            //FG<string> fG = new FG<string>();
+            //fG.Max(new int[] { 2, 4, 3, 7, 9, 5, 6, 8, 0 });
+            //fG.Max(new string[] { "2", "xl", "lc", "wx"});
+
 
 
 
@@ -77,8 +87,8 @@ namespace assignment
             //ForEach(new int[]{2,3 });
 
             //冒泡排序
-            Sort sort = new Sort();
-            sort.bubbleSort(new int[] { 2, 3,3,9,12,33,44,2,7, 2, 5, 8, 5, 9, 5, 7, 1, 4, 5 });
+            //Sort sort = new Sort();
+            //sort.bubbleSort(new int[] { 2, 3,3,9,12,33,44,2,7, 2, 5, 8, 5, 9, 5, 7, 1, 4, 5 });
 
             Console.Read();
         }
@@ -88,26 +98,7 @@ namespace assignment
             foreach(T j in array){
                 Console.WriteLine(j);
             }
-        }
-
-        static void Max(int[] array)
-        {
-            int max = array[0];
-            Console.WriteLine($"最大值的初始值为:{max}");
-            for (int i = 1; i < array.Length; i++)
-            {
-                if (array[i] > max)
-                {
-                    Console.WriteLine($"第{i}次比较，{array[i]}>{max},目前最大值为{array[i]}"); max = array[i];
-
-                }
-                else
-                {
-                    Console.WriteLine($"第{i}次比较，{array[i]}<={max},最大值不变" + max);
-                }
-            }
-            Console.WriteLine($"最终结果，最大值为{max}");
-        }
+        }    
 
         static void school(string name)
         {
@@ -294,14 +285,31 @@ namespace assignment
     {
         //public FG(T a, T b)
         //{
-            
+
         //    if (a.CompareTo(b)>0)
         //    {
-                               
+
         //    }
         //}
+        internal void Max(T[] array) 
+        {
+            T max = array[0];
+            Console.WriteLine($"最大值的初始值为:{max}");
+            for (int i = 1; i < array.Length; i++)
+            {             //泛型不能用运算符
+                if (array[i].CompareTo(max) > 0)
+                {
+                    Console.WriteLine($"第{i}次比较，{array[i]}>{max},目前最大值为{array[i]}"); max = array[i];
 
-   
+                }
+                else
+                {
+                    Console.WriteLine($"第{i}次比较，{array[i]}<={max},最大值不变" + max);
+                }
+            }
+            Console.WriteLine($"最终结果，最大值为{max}");
+        }
+
     }
 
     class Beautyliu
@@ -327,10 +335,9 @@ namespace assignment
         //{
 
         //}
-
-
-
-
     }
+
+
+
 }
 

@@ -4,9 +4,9 @@ using System.Text;
 
 namespace assignment
 {
-    //冒泡排序
     class Sort
     {
+        //冒泡排序
         internal void bubbleSort(int[] array)
         {
             int swap;
