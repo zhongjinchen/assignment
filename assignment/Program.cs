@@ -6,10 +6,15 @@ namespace assignment
     {
         static void Main(string[] args)
         {
+            //引用类型的类型转换
+            Basics basics = new Child();
+            Child child = (Child)basics;
+
+
             //属性
-            getSet get = new getSet();
-            get.Age = 4;
-            Console.WriteLine(get.Age);
+            //getSet get = new getSet();
+            //get.Age = 4;
+            //Console.WriteLine(get.Age);
 
             //值类型传递是copy
             //int i = 8;
@@ -73,6 +78,67 @@ namespace assignment
             //Generic<object> generic = new Generic<object>("fg");
             //Console.WriteLine(generic.Age);
 
+            DoubleLinkedList<int> doubleLinkedList = new DoubleLinkedList<int>();
+
+            DLinkNode<int> firstNode = new DLinkNode<int> { Content = 1 };
+            doubleLinkedList.AddAfter(firstNode);
+            //case-1 => 1
+            Console.WriteLine(doubleLinkedList.Count);
+            //case-1 => true
+            Console.WriteLine(firstNode == doubleLinkedList.Head);
+            //case-1 => true
+            Console.WriteLine(firstNode == doubleLinkedList.Tail);
+
+            DLinkNode<int> secondNode = new DLinkNode<int> { Content = 2 };
+            doubleLinkedList.AddAfter(secondNode);
+            //case-2 =>node_2 的上一个节点是链表的头结点;
+            Console.WriteLine(secondNode.Previous == doubleLinkedList.Head);
+            //case-2 =>node_1 的下一个节点是node_2;
+            Console.WriteLine(firstNode.Next == secondNode);
+            //case-2 => 2
+            Console.WriteLine(doubleLinkedList.Count);
+            //case-2 => true
+            Console.WriteLine(firstNode == doubleLinkedList.Head);
+            //case-2 => tail is node_2
+            Console.WriteLine(secondNode == doubleLinkedList.Tail);
+
+            DLinkNode<int> thirdNode = new DLinkNode<int> { Content = 3 };
+            doubleLinkedList.AddAfter(thirdNode);
+            //case-3 =>node_3 的上一个节点是node_2;
+            Console.WriteLine(thirdNode.Previous == secondNode);
+            //case-3 =>node_2 的下一个节点是node_3;
+            Console.WriteLine(secondNode.Next == thirdNode);
+            //case-3 => 3
+            Console.WriteLine(doubleLinkedList.Count);
+            //case-3 => true
+            Console.WriteLine(firstNode == doubleLinkedList.Head);
+            //case-3 => tail is node_3
+            Console.WriteLine(thirdNode == doubleLinkedList.Tail);
+            //case-3 => node_2 isn't tail  
+            Console.WriteLine(secondNode != doubleLinkedList.Tail);
+
+            //DoubleLinkedList<int> doubleLinkedList = new DoubleLinkedList<int>();
+
+            //DLinkNode<int> firstNode = new DLinkNode<int> { Content=1};
+            //doubleLinkedList.AddAfter(firstNode);
+            //DLinkNode<int> secondNode = new DLinkNode<int> { Content = 2 };
+            //doubleLinkedList.AddAfter(secondNode);
+            //DLinkNode<int> thirdNode = new DLinkNode<int> { Content = 3 };
+            //doubleLinkedList.AddAfter(thirdNode);
+
+            //Head.Next = middle;
+            //middle.Previous = Head;
+            //middle.Next = Tail;
+            //Tail.Previous = middle;
+
+            DLinkNode<int> current = firstNode;
+            while (current != null) 
+            {
+                Console.WriteLine(current.Content);
+                current=current.Next;
+            }
+
+            //list.AddAfter(new DLinkNode<int>());
 
             //用泛型改造之前代码，包括：取最大值、冒泡排序、快速排序
             //取最大值
@@ -81,14 +147,17 @@ namespace assignment
             //fG.Max(new string[] { "2", "xl", "lc", "wx"});
 
 
-
-
             //foreach遍历数组
             //ForEach(new int[]{2,3 });
 
             //冒泡排序
             //Sort sort = new Sort();
             //sort.bubbleSort(new int[] { 2, 3,3,9,12,33,44,2,7, 2, 5, 8, 5, 9, 5, 7, 1, 4, 5 });
+
+
+
+
+
 
             Console.Read();
         }

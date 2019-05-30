@@ -34,23 +34,34 @@ namespace assignment
     {
         public DLinkNode<T> Previous;
         public DLinkNode<T> Next;
-        public T Content;
+        public T Content { get; set; }
     }
-    class Node
-    {
-
-    }
-
-
     class DoubleLinkedList<T>
     {
-        public T Head;
-        public T Tail;
-        public int Count;
-        //AddAfter(T node, T beAdded)
-        //{
+        private int _count;
+        public DLinkNode<T> Head;
+        public DLinkNode<T> Tail;
+        internal int Count { get { return _count; } /*set;*/ }
+        internal void AddAfter(DLinkNode<T> node)
+        {
+            if (_count==0)
+            {
+                Head = node;
+            }
+            else
+            {
+                DLinkNode<T> oldTail = Tail;
+                Tail.Next = node;
+                node.Previous = Tail;
+                
+            }
+            Tail = node;
+            _count++;
+        }
+        internal void Remove(T node)
+        {
 
-        //}
+        }
     }
 
 
