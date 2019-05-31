@@ -78,12 +78,12 @@ namespace assignment
             //Generic<object> generic = new Generic<object>("fg");
             //Console.WriteLine(generic.Age);
 
+            //----在后面添加节点
             DoubleLinkedList<int> doubleLinkedList = new DoubleLinkedList<int>();
-
             DLinkNode<int> firstNode = new DLinkNode<int> { Content = 1 };
             doubleLinkedList.AddAfter(firstNode);
             //case-1 => 1
-            Console.WriteLine(doubleLinkedList.Count);
+            Console.WriteLine($"在后面添加节点=>{doubleLinkedList.Count}");
             //case-1 => true
             Console.WriteLine(firstNode == doubleLinkedList.Head);
             //case-1 => true
@@ -91,6 +91,7 @@ namespace assignment
 
             DLinkNode<int> secondNode = new DLinkNode<int> { Content = 2 };
             doubleLinkedList.AddAfter(secondNode);
+
             //case-2 =>node_2 的上一个节点是链表的头结点;
             Console.WriteLine(secondNode.Previous == doubleLinkedList.Head);
             //case-2 =>node_1 的下一个节点是node_2;
@@ -117,28 +118,59 @@ namespace assignment
             //case-3 => node_2 isn't tail  
             Console.WriteLine(secondNode != doubleLinkedList.Tail);
 
-            //DoubleLinkedList<int> doubleLinkedList = new DoubleLinkedList<int>();
+            //case-4 => 4
+            DLinkNode<int> fourthNode = new DLinkNode<int> { Content = 4 };
+            doubleLinkedList.AddAfter(fourthNode);
+            Console.WriteLine(doubleLinkedList.Count);
 
-            //DLinkNode<int> firstNode = new DLinkNode<int> { Content=1};
-            //doubleLinkedList.AddAfter(firstNode);
-            //DLinkNode<int> secondNode = new DLinkNode<int> { Content = 2 };
-            //doubleLinkedList.AddAfter(secondNode);
-            //DLinkNode<int> thirdNode = new DLinkNode<int> { Content = 3 };
-            //doubleLinkedList.AddAfter(thirdNode);
 
-            //Head.Next = middle;
-            //middle.Previous = Head;
-            //middle.Next = Tail;
-            //Tail.Previous = middle;
+            // ----在前面添加节点
+            DLinkNode<int> fifthNode = new DLinkNode<int> { Content = 5 };
+            doubleLinkedList.Addbefore(fifthNode);
+            //case-1 => 5
+            Console.WriteLine($"在前面添加节点=>{doubleLinkedList.Head.Content}");
 
-            DLinkNode<int> current = firstNode;
-            while (current != null) 
-            {
-                Console.WriteLine(current.Content);
-                current=current.Next;
-            }
+            //-----删除节点
+            //doubleLinkedList.Remove(firstNode);
+            ////case-1 => true
+            //Console.WriteLine($"删除节点=>{firstNode.Previous == null}");
+            //Console.WriteLine(firstNode.Next == null);
 
-            //list.AddAfter(new DLinkNode<int>());
+            //doubleLinkedList.Remove(secondNode);
+            ////case-2 => true
+            //Console.WriteLine(secondNode.Previous == null);
+            //Console.WriteLine(secondNode.Next == null);
+
+            //doubleLinkedList.Remove(thirdNode);
+            ////case-3 => true
+            //Console.WriteLine(thirdNode.Previous == null);
+            //Console.WriteLine(thirdNode.Next == null);
+            //Console.WriteLine(thirdNode.Previous);
+
+            //----节点数量
+            //Console.WriteLine($"节点数量=>{doubleLinkedList._count}");
+
+            //----在后面插入
+            DLinkNode<int> sixthNode = new DLinkNode<int> { Content = 6 };
+            doubleLinkedList.Insert(firstNode,sixthNode);
+            //case => 6
+            Console.WriteLine($"Insert=>{doubleLinkedList.Head.Next.Next.Content}");
+
+            ////----交换
+            //doubleLinkedList.Swap(thirdNode, secondNode);
+            //doubleLinkedList.Swap(secondNode, thirdNode);
+            ////case-1 => 3
+            //Console.WriteLine(doubleLinkedList.Head.Next.Content);
+            ////case-1 => 2
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Content);
+
+            //doubleLinkedList.Swap(firstNode, thirdNode);
+            ////case-1 => 3
+            //Console.WriteLine(doubleLinkedList.Head.Next.Content);
+            ////case-1 => 2
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Content);
+
+
 
             //用泛型改造之前代码，包括：取最大值、冒泡排序、快速排序
             //取最大值
@@ -164,10 +196,11 @@ namespace assignment
 
         static void ForEach<T>(T[] array)
         {
-            foreach(T j in array){
+            foreach (T j in array)
+            {
                 Console.WriteLine(j);
             }
-        }    
+        }
 
         static void school(string name)
         {
@@ -350,7 +383,7 @@ namespace assignment
     }
 
 
-    internal class FG<T> where T: IComparable/*, IConvertible*/
+    internal class FG<T> where T : IComparable/*, IConvertible*/
     {
         //public FG(T a, T b)
         //{
@@ -360,7 +393,7 @@ namespace assignment
 
         //    }
         //}
-        internal void Max(T[] array) 
+        internal void Max(T[] array)
         {
             T max = array[0];
             Console.WriteLine($"最大值的初始值为:{max}");

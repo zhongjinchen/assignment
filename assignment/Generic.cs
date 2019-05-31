@@ -38,30 +38,173 @@ namespace assignment
     }
     class DoubleLinkedList<T>
     {
-        private int _count;
+        internal int _count;
         public DLinkNode<T> Head;
         public DLinkNode<T> Tail;
         internal int Count { get { return _count; } /*set;*/ }
+
+        //----在后面添加节点
         internal void AddAfter(DLinkNode<T> node)
         {
-            if (_count==0)
+            if (_count == 0)
             {
                 Head = node;
             }
             else
             {
                 DLinkNode<T> oldTail = Tail;
-                Tail.Next = node;
-                node.Previous = Tail;
-                
+                oldTail.Next = node;
+                node.Previous = oldTail;
+
             }
             Tail = node;
             _count++;
         }
-        internal void Remove(T node)
+
+        // ----在前面添加节点
+        internal void Addbefore(DLinkNode<T> node)
         {
+            if (_count == 0)
+            {
+                Tail = node;
+            }
+            else
+            {
+                DLinkNode<T> oldHead = Head;
+                oldHead.Previous = node;
+                node.Next = oldHead;
+            }
+            Head = node;
+            _count++;
+        }
+
+        //-----删除节点
+        internal void Remove(DLinkNode<T> node)
+        {
+            if (node.Previous == null && node.Next != null)
+            {
+                Head = node.Next;
+
+                node.Next.Previous = null;
+                node.Next = null;
+            }
+            else if (node.Next == null && node.Previous != null)
+            {
+                Tail = node.Previous;
+                node.Previous.Next = null;
+                node.Previous = null;
+            }
+            else if (node.Previous == null && node.Next == null)
+            {
+                node = null;
+            }
+            else
+            {
+                node.Previous.Next = node.Next;
+                node.Next.Previous = node.Previous;
+
+                node.Previous = null;
+                node.Next = null;
+            }
+            _count--;
+        }
+
+        //----插入节点
+        internal void Insert(DLinkNode<T> previousNode, DLinkNode<T> node)
+        {
+            if (previousNode.Next==null)
+            {
+                Console.WriteLine("请使用AddAfter()方法");
+            }
+            else 
+            {
+                node.Next = previousNode.Next;
+                previousNode.Next.Previous = node;
+                previousNode.Next = node;
+                node.Previous = previousNode;
+                
+            }
+            _count++;
 
         }
+
+        //----交换节点
+        internal void Swap(DLinkNode<T> a, DLinkNode<T> b)
+        {
+            if (a.Next == b)
+            {
+                if (a.Previous == null && b.Next != null)
+                {
+                    //a.Next = b.Next;
+                    //b.Next.Previous = a;
+                    //b.Previous = null;
+                    //b.Next = a;
+                    //a.Previous = b;
+                    //Head = b;
+                }
+                else if (a.Previous != null && b.Next == null)
+                {
+                    //b.Next = a;
+                    //b.Previous = a.Previous;
+                    //a.Previous.Next = b;
+                    //a.Next = null;
+                    //a.Previous = b;
+
+                    //Tail = a;
+                }
+                else if (a.Previous == null && b.Next == null)
+                {
+                    //a.Previous = b;
+                    //a.Next = null;
+                    //b.Next = a;
+                    //b.Previous = null;
+                    //Head = b;
+                    //Head = a;
+                }
+                else
+                {
+                    //a.Next = b.Next;
+                    //b.Next.Previous = a;
+                    //DLinkNode<T> c = a.Previous;
+                    //a.Previous = b;
+                    //b.Next = a;
+                    //b.Previous = c;
+                    //c.Next = b;
+                }
+            }
+            else if (a.Previous == b)
+            {
+
+            }
+            else 
+            {
+                if (a.Previous == null)
+                {
+                    if (b.Next==null)
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else 
+                {
+                    if (b.Next==null)
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
+                }
+
+            }
+        }
+
+
     }
 
 
