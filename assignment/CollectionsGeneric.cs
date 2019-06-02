@@ -17,14 +17,11 @@ namespace assignment
     //评价（Appraise）类
     //关键字（Keyword）类
     //并构建以下关系： 
-    //一篇文章可以有多个评论
-    //一个评论必须有一个它所评论的文章
-    //每个文章和评论都有一个评价
-    //一篇文章可以有多个关键字，一个关键字可以对应多篇文章
 
+   
     class Problem<T>
     {
-        internal T Author;
+        internal User Author;
         internal T Title;
         internal T Body;
         internal void Pubilc()
@@ -42,9 +39,12 @@ namespace assignment
     }
     class Article<T>
     {
-        internal T Author;
+        internal User Author;
         internal T Title;
         internal T Body;
+        internal List<Comment> comment;
+        internal Appraise appraise;
+        internal List<KeyWord> keyWords;
         internal void Pubilc()
         {
         }
@@ -60,7 +60,7 @@ namespace assignment
     }
     class Suggest<T>
     {
-        internal T Author;
+        internal User Author;
         internal T Title;
         internal T Body;
         internal void Pubilc()
@@ -76,8 +76,25 @@ namespace assignment
         {
         }
     }
-    class Comment { }
+    class Comment
+    {
+        internal Article<string> article;
+        internal Appraise appraise;
+        internal string content;
+    }
     class Appraise { }
-    class KeyWord { }
-    
+    class KeyWord
+    {
+        internal string name;
+        internal List<Article<string>> articles;
+    }
+    class User { }
+    //调用扩展方法Max()
+    static class DoubleLinkedList
+    {
+        internal static void Max(this DoubleLinkedList<int> source)
+        {
+            Console.WriteLine("调用Max()方法");
+        }
+    }
 }

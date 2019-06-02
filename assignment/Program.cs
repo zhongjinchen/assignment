@@ -261,12 +261,37 @@ namespace assignment
             //Console.WriteLine(doubleLinkedList.Head.Next.Content);
 
             //13,泛型集合
-            foreach (var item in new DoubleLinkedList<int>())
+            foreach (var item in doubleLinkedList)
             {
                 Console.WriteLine(item);
             }
-    
 
+            ////调用扩展方法Max()
+            //DoubleLinkedList<int> Node = new DoubleLinkedList<int> ();
+            //Node.Max();
+
+            //一篇文章可以有多个评论
+            Comment goodComment = new Comment { content = "好评" };
+            Comment badComment = new Comment { content = "差评" };
+            Article<string> article = new Article<string> { comment = new List<Comment> { goodComment, badComment } };
+
+            //一个评论必须有一个它所评论的文章
+            goodComment.article = article;
+
+            //每个文章和评论都有一个评价
+            Appraise appraise = new Appraise();
+            article.appraise = appraise;
+            goodComment.appraise = appraise;
+
+            //一篇文章可以有多个关键字，一个关键字可以对应多篇文章
+            KeyWord Csharp = new KeyWord { name = "C#" };
+            KeyWord SQL = new KeyWord { name = "SQL" };
+            KeyWord Javascript = new KeyWord { name = "Javascript" };
+
+            Article<string> LifeArticle = new Article<string> { keyWords = new List<KeyWord>{ Csharp, SQL } };
+            Article<string> StudyArticle = new Article<string> { keyWords = new List<KeyWord> { Csharp, SQL, Javascript } };
+
+            Csharp.articles = new List<Article<string>> { LifeArticle, StudyArticle };
 
 
 

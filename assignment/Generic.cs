@@ -40,7 +40,7 @@ namespace assignment
     }
 
     //----双向链表
-    class DoubleLinkedList<T> /*: IEnumerable<T>*/
+    class DoubleLinkedList<T> : IEnumerable<T>
     {
         internal int _count;
         public  DLinkNode<T> Head;
@@ -268,53 +268,62 @@ namespace assignment
             }
         }
 
-        //public IEnumerator<T> GetEnumerator()
-        //{
-        //    return new Enumerator();
-        //}
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new Enumerator(this);
+        }
 
-        //IEnumerator IEnumerable.GetEnumerator()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
 
-        //class Enumerator : IEnumerator<T>
-        //{
-     
-        //    internal DLinkNode<T> _current = new DoubleLinkedList<T>().Head;
-        //    public T Current
-        //    {
-        //        get
-        //        {
-        //            return _current.Content;
-        //        }
-        //    }
+        class Enumerator : IEnumerator<T>
+        {
+       
+            private DLinkNode<T> _current;
+            private DoubleLinkedList<T> _dlnodes;
+            public Enumerator(DoubleLinkedList<T> dlnodes)
+            {
+                _dlnodes = dlnodes;
+               
+            }
 
-        //    object IEnumerator.Current => throw new NotImplementedException();
+            public T Current
+            {
+                get
+                {
+                    return _current.Content;
+                }
+            }
 
-        //    public void Dispose()
-        //    {
-        //        throw new NotImplementedException();
-        //    }
+            object IEnumerator.Current => throw new NotImplementedException();
 
-        //    public bool MoveNext()
-        //    {
-        //        if (_current.Next!=null)
-        //        {
-        //            _current = _current.Next;
-        //            return true;
-        //        }
-        //        else
-        //        {
-        //            return false;
-        //        }
-        //    }
+            public void Dispose()
+            {
+                
+            }
 
-        //    public void Reset()
-        //    {
-        //        throw new NotImplementedException();
-        //    }
-        //}
+            public bool MoveNext()
+            {
+                if (_current == null)
+                {
+                    _current = _dlnodes.Head;
+                }
+                else
+                {
+                    _current = _current.Next;
+                }
+
+                return _current != null;
+
+            }
+
+            public void Reset()
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 
 
