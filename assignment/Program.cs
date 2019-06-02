@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace assignment
 {
@@ -6,21 +7,22 @@ namespace assignment
     {
         static void Main(string[] args)
         {
-            //引用类型的类型转换
+            //1，引用类型的类型转换
             Basics basics = new Child();
             Child child = (Child)basics;
 
 
-            //属性
+            //2，属性
             //getSet get = new getSet();
             //get.Age = 4;
             //Console.WriteLine(get.Age);
 
-            //值类型传递是copy
+            //3，值类型传递是copy
             //int i = 8;
             //int j = i;
             //Console.WriteLine(i);     --i还有值
 
+            //4，
             //Console.WriteLine(typeof(char));
             //多态练习
             //Father father = new Son();    //----父类的实例指向子类的引用
@@ -29,7 +31,7 @@ namespace assignment
             //Dad dad = new Boy();
             //dad.Eat();
 
-            ////接口联系
+            ////5，接口联系
             //Man man = new Man();
             //man.Lunch();
             //man.Rest();
@@ -45,7 +47,7 @@ namespace assignment
             //IseekMinValue Seek = new DisplayImplementation();
             //Seek.seek();
 
-            //模拟出入栈
+            //6，模拟出入栈
             //Mimicstact imitate = new Mimicstact(5);
             //imitate.Push(new object[] {"xl"});  //调用用params（参数数组）方法既可以传递
             //imitate.Push("is", true);         //一个数组实参如(new int[] { 8 })，也可以传递一组数字如（2，2，4）
@@ -54,6 +56,7 @@ namespace assignment
             //imitate.Push(4);
             //imitate.Push(7);
 
+            ////7，
             // Bueaty bueaty = new Bueaty(20);
             //// bueaty.toBueaty();
             // Console.WriteLine(bueaty.toBueaty);
@@ -70,14 +73,29 @@ namespace assignment
             //Beautyliu liu = new Beautyliu();
             //liu.beauty = 30;
 
-            //使用object改造数据结构栈（Stack），并在出栈时获得出栈元素      
+            //8，使用object改造数据结构栈（Stack），并在出栈时获得出栈元素      
             //ObjectHomeWork objectHomeWork = new ObjectHomeWork(new object[] { });
             //objectHomeWork.Array();
 
-            //泛型
+            //9,foreach遍历数组
+            //ForEach(new int[]{2,3 });
+
+            //10，冒泡排序
+            //Sort sort = new Sort();
+            //sort.bubbleSort(new int[] { 2, 3,3,9,12,33,44,2,7, 2, 5, 8, 5, 9, 5, 7, 1, 4, 5 });
+
+
+            //11，泛型
             //Generic<object> generic = new Generic<object>("fg");
             //Console.WriteLine(generic.Age);
 
+            //用泛型改造之前代码，包括：取最大值、冒泡排序、快速排序
+            //取最大值
+            //FG<string> fG = new FG<string>();
+            //fG.Max(new int[] { 2, 4, 3, 7, 9, 5, 6, 8, 0 });
+            //fG.Max(new string[] { "2", "xl", "lc", "wx"});
+
+            ////12，----双向链表
             //----在后面添加节点
             DoubleLinkedList<int> doubleLinkedList = new DoubleLinkedList<int>();
             DLinkNode<int> firstNode = new DLinkNode<int> { Content = 1 };
@@ -157,35 +175,97 @@ namespace assignment
             Console.WriteLine($"Insert=>{doubleLinkedList.Head.Next.Next.Content}");
 
             ////----交换
-            //doubleLinkedList.Swap(thirdNode, secondNode);
-            //doubleLinkedList.Swap(secondNode, thirdNode);
+            ///----5,1,6,2,3,4
+            ///----首个和中间第5个交换
+            //Console.WriteLine("首个和中间第5个交换");      
+            ////case-1 => 5
+            //Console.WriteLine($"交换{doubleLinkedList.Head.Content}");
             ////case-1 => 3
-            //Console.WriteLine(doubleLinkedList.Head.Next.Content);
-            ////case-1 => 2
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Content);
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
+            //doubleLinkedList.Swap(thirdNode, fifthNode);
+            ////case-1 => 3
+            //Console.WriteLine(doubleLinkedList.Head.Content);
+            ////case-1 => 5
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
 
+            ////----首尾交换
+            //Console.WriteLine("首尾交换");
+            ////case-2 => 5
+            //Console.WriteLine(doubleLinkedList.Head.Content);
+            ////case-2 => 4
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Next.Content);
+            //doubleLinkedList.Swap(fourthNode, fifthNode);
+            ////case-2 => 4
+            //Console.WriteLine(doubleLinkedList.Head.Content);
+            ////case-2 => 5
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Next.Content);
+
+            ////----末尾和中间第3个交换
+            //Console.WriteLine("末尾和中间第3个交换");
+            ////case-3 => 6
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Content);
+            ////case-3 => 4
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Next.Content);
+            //doubleLinkedList.Swap(fourthNode, sixthNode);
+            ////case-3 => 4
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Content);
+            ////case-3 => 6
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Next.Content);
+
+            ////----中间相隔交换
+            //Console.WriteLine("----中间相隔交换");
+            ////case-7 => 1
+            //Console.WriteLine(doubleLinkedList.Head.Next.Content);
+            ////case-7 => 3
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
             //doubleLinkedList.Swap(firstNode, thirdNode);
-            ////case-1 => 3
+            ////case-7 => 1
             //Console.WriteLine(doubleLinkedList.Head.Next.Content);
-            ////case-1 => 2
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Content);
+            ////case-7 => 3
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
 
+            ////----中间相邻交换
+            //Console.WriteLine("----中间相邻交换");
+            ////case-4 => 2
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Content);
+            ////case-4 => 3
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
+            //doubleLinkedList.Swap(secondNode, thirdNode);
+            ////case-4 => 3
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Content);
+            ////case-4 => 2
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
 
+            ////----末尾相邻交换
+            //Console.WriteLine("----末尾相邻交换");
+            ////case-5 => 3
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
+            ////case-5 => 4
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Next.Content);
+            //doubleLinkedList.Swap(fourthNode, thirdNode);
+            ////case-5 => 4
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
+            ////case-5 => 3
+            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Next.Content);
 
-            //用泛型改造之前代码，包括：取最大值、冒泡排序、快速排序
-            //取最大值
-            //FG<string> fG = new FG<string>();
-            //fG.Max(new int[] { 2, 4, 3, 7, 9, 5, 6, 8, 0 });
-            //fG.Max(new string[] { "2", "xl", "lc", "wx"});
+            ////----头部相邻交换
+            //Console.WriteLine("----头部相邻交换");
+            ////case-6 => 5
+            //Console.WriteLine(doubleLinkedList.Head.Content);
+            ////case-6 => 1
+            //Console.WriteLine(doubleLinkedList.Head.Next.Content);
+            //doubleLinkedList.Swap(firstNode, fifthNode);
+            ////case-6 => 5
+            //Console.WriteLine(doubleLinkedList.Head.Content);
+            ////case-6' => 1
+            //Console.WriteLine(doubleLinkedList.Head.Next.Content);
 
-
-            //foreach遍历数组
-            //ForEach(new int[]{2,3 });
-
-            //冒泡排序
-            //Sort sort = new Sort();
-            //sort.bubbleSort(new int[] { 2, 3,3,9,12,33,44,2,7, 2, 5, 8, 5, 9, 5, 7, 1, 4, 5 });
-
+            //13,泛型集合
+            foreach (var item in new DoubleLinkedList<int>())
+            {
+                Console.WriteLine(item);
+            }
+    
 
 
 

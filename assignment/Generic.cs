@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace assignment
 {
-    class Generic<TAge> where TAge : class, new()
+    public class Generic<TAge> where TAge : class, new()
     {
         public TAge Age;
         public Generic()
@@ -30,20 +31,23 @@ namespace assignment
     //Remove(T node)：删除链表中的node节点
     //Swap(T a, T b)：交换a节点和b节点的位置
 
+    //链表节点
     public class DLinkNode<T>
     {
         public DLinkNode<T> Previous;
         public DLinkNode<T> Next;
         public T Content { get; set; }
     }
-    class DoubleLinkedList<T>
+
+    //----双向链表
+    class DoubleLinkedList<T> /*: IEnumerable<T>*/
     {
         internal int _count;
-        public DLinkNode<T> Head;
+        public  DLinkNode<T> Head;
         public DLinkNode<T> Tail;
         internal int Count { get { return _count; } /*set;*/ }
 
-        //----在后面添加节点
+        //----在最后面添加节点
         internal void AddAfter(DLinkNode<T> node)
         {
             if (_count == 0)
@@ -61,7 +65,7 @@ namespace assignment
             _count++;
         }
 
-        // ----在前面添加节点
+        // ----在最前面添加节点
         internal void Addbefore(DLinkNode<T> node)
         {
             if (_count == 0)
@@ -112,17 +116,18 @@ namespace assignment
         //----插入节点
         internal void Insert(DLinkNode<T> previousNode, DLinkNode<T> node)
         {
-            if (previousNode.Next==null)
+            if (previousNode.Next == null)
             {
                 Console.WriteLine("请使用AddAfter()方法");
             }
-            else 
+            else
             {
-                node.Next = previousNode.Next;
+
                 previousNode.Next.Previous = node;
+                node.Next = previousNode.Next;
                 previousNode.Next = node;
                 node.Previous = previousNode;
-                
+
             }
             _count++;
 
@@ -135,76 +140,181 @@ namespace assignment
             {
                 if (a.Previous == null && b.Next != null)
                 {
-                    //a.Next = b.Next;
-                    //b.Next.Previous = a;
-                    //b.Previous = null;
-                    //b.Next = a;
-                    //a.Previous = b;
-                    //Head = b;
+                    a.Next = b.Next;
+                    b.Next.Previous = a;
+                    b.Previous = null;
+                    b.Next = a;
+                    a.Previous = b;
+                    Head = b;
+
                 }
                 else if (a.Previous != null && b.Next == null)
                 {
-                    //b.Next = a;
-                    //b.Previous = a.Previous;
-                    //a.Previous.Next = b;
-                    //a.Next = null;
-                    //a.Previous = b;
+                    b.Next = a;
+                    a.Previous.Next = b;
 
-                    //Tail = a;
+                    b.Previous = a.Previous;
+                    a.Next = null;
+                    a.Previous = b;
+
+                    Tail = a;
                 }
                 else if (a.Previous == null && b.Next == null)
                 {
-                    //a.Previous = b;
-                    //a.Next = null;
-                    //b.Next = a;
-                    //b.Previous = null;
-                    //Head = b;
-                    //Head = a;
+                    a.Previous = b;
+                    a.Next = null;
+                    b.Next = a;
+                    b.Previous = null;
+                    Head = b;
+                    Head = a;
                 }
                 else
                 {
-                    //a.Next = b.Next;
-                    //b.Next.Previous = a;
-                    //DLinkNode<T> c = a.Previous;
-                    //a.Previous = b;
-                    //b.Next = a;
-                    //b.Previous = c;
-                    //c.Next = b;
+                    a.Next = b.Next;
+                    b.Next.Previous = a;
+                    DLinkNode<T> c = a.Previous;
+                    a.Previous = b;
+                    b.Next = a;
+                    b.Previous = c;
+                    c.Next = b;
                 }
             }
             else if (a.Previous == b)
             {
+                if (b.Previous == null && a.Next != null)
+                {
+                    Remove(b);
+                    Insert(a, b);
+                    Head = a;
+                }
+                else if (b.Previous != null && a.Next == null)
+                {
+                    Remove(a);
+                    Insert(b.Previous, a);
+                    Tail = b;
+                }
+                else if (b.Previous == null && a.Next == null)
+                {
+                    Remove(b);
+                    AddAfter(b);
+                    Head = a;
+                    Tail = b;
+                }
+                else
+                {
+                    Remove(b);
+                    Insert(a, b);
 
+                }
             }
-            else 
+            else
             {
                 if (a.Previous == null)
                 {
-                    if (b.Next==null)
-                    {
 
+                    Remove(a);
+                    Insert(b, a);
+                    Remove(b);
+                    Addbefore(b);
+                    Head = b;
+                    if (a.Next == null)
+                    {
+                        Tail = a;
                     }
                     else
                     {
 
                     }
                 }
-                else 
+                else if (a.Previous != null && b.Next == null)
                 {
-                    if (b.Next==null)
-                    {
-
-                    }
-                    else
-                    {
-
-                    }
+                    DLinkNode<T> c = a.Previous;
+                    Remove(a);
+                    AddAfter(a);
+                    Remove(b);
+                    Insert(c, b);
+                    Tail = a;
                 }
 
+                else if (b.Previous == null)
+                {
+                    Remove(b);
+                    Insert(a, b);
+                    Remove(a);
+                    Addbefore(a);
+                    Head = a;
+                    if (a.Next == null)
+                    {
+                        Tail = b;
+                    }
+                }
+                else if (b.Previous != null && a.Next == null)
+                {
+                    DLinkNode<T> c = b.Previous;
+                    Remove(b);
+                    AddAfter(b);
+                    Remove(a);
+                    Insert(c, a);
+                    Tail = b;
+                }
+                else
+                {
+                    DLinkNode<T> Previous = a.Previous;
+                    Remove(a);
+                    Insert(b, a);
+                    Remove(b);
+                    Insert(Previous, b);
+                }
             }
         }
 
+        //public IEnumerator<T> GetEnumerator()
+        //{
+        //    return new Enumerator();
+        //}
 
+        //IEnumerator IEnumerable.GetEnumerator()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //class Enumerator : IEnumerator<T>
+        //{
+     
+        //    internal DLinkNode<T> _current = new DoubleLinkedList<T>().Head;
+        //    public T Current
+        //    {
+        //        get
+        //        {
+        //            return _current.Content;
+        //        }
+        //    }
+
+        //    object IEnumerator.Current => throw new NotImplementedException();
+
+        //    public void Dispose()
+        //    {
+        //        throw new NotImplementedException();
+        //    }
+
+        //    public bool MoveNext()
+        //    {
+        //        if (_current.Next!=null)
+        //        {
+        //            _current = _current.Next;
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            return false;
+        //        }
+        //    }
+
+        //    public void Reset()
+        //    {
+        //        throw new NotImplementedException();
+        //    }
+        //}
     }
 
 
