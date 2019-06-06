@@ -18,8 +18,7 @@ namespace assignment
     //关键字（Keyword）类
     //并构建以下关系： 
 
-   
-    class Problem<T>
+    class Common<T>
     {
         internal User Author;
         internal T Title;
@@ -37,44 +36,22 @@ namespace assignment
         {
         }
     }
-    class Article<T>
+    class Problem<T>: Common<T>
     {
-        internal User Author;
-        internal T Title;
-        internal T Body;
+      
+    }
+    class Article<T>:Common<T>
+    {
+
+        internal DateTime date;
         internal List<Comment> comment;
         internal Appraise appraise;
         internal List<KeyWord> keyWords;
-        internal void Pubilc()
-        {
-        }
-        internal void agree()
-        {
-        }
-        internal void Disagree()
-        {
-        }
-        internal void Comment()
-        {
-        }
+        
     }
-    class Suggest<T>
+    class Suggest<T>: Common<T>
     {
-        internal User Author;
-        internal T Title;
-        internal T Body;
-        internal void Pubilc()
-        {
-        }
-        internal void agree()
-        {
-        }
-        internal void Disagree()
-        {
-        }
-        internal void Comment()
-        {
-        }
+       
     }
     class Comment
     {
@@ -88,7 +65,10 @@ namespace assignment
         internal string name;
         internal List<Article<string>> articles;
     }
-    class User { }
+    class User
+    {
+        internal string name;
+    }
     //调用扩展方法Max()
     static class DoubleLinkedList
     {
@@ -97,4 +77,10 @@ namespace assignment
             Console.WriteLine("调用Max()方法");
         }
     }
+
+    //协变，逆变 out/in
+    interface IPeople<in T> { }
+    class Man<T> : IPeople<T> { }
+    class Clever { }
+    class foolish : Clever { }
 }

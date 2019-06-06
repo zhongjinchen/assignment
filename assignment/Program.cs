@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace assignment
 {
@@ -7,21 +8,54 @@ namespace assignment
     {
         static void Main(string[] args)
         {
+            #region 引用类型
+
             //1，引用类型的类型转换
-            Basics basics = new Child();
-            Child child = (Child)basics;
+            Basics basics = new Basics();  //注意！！如果父类对象（basics）指向的
+            Child child = new Child();     //是子类实例:new Child() 强制转换（子类转父类）就可以转换成功
+                                           //child = (Child)basics;         //子类不可以装父类
 
+            //----as,转换失败返回null
+            //child = basics as Child;
+            //if (child==null)
+            //{
+            //    Console.WriteLine("basics 未能转换成功，返回null值");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("转换成功");
+            //}
+            //basics = child;                   //父类可以装子类
+            //child.BasicsTry();
+            //child.ChildTry(); 
 
+            ////----is,判断是否是某种类型，是返回true.否返回false(子类可以是父类，实现接口类型)
+            //basics = child;
+            //Console.WriteLine(basics is Basics);
+            //Console.WriteLine(basics is Child); 
+            #endregion
+
+            #region 属性
             //2，属性
             //getSet get = new getSet();
             //get.Age = 4;
-            //Console.WriteLine(get.Age);
+            //Console.WriteLine(get.Age);  
+            #endregion
 
+            #region 值类型传递，装箱
             //3，值类型传递是copy
             //int i = 8;
             //int j = i;
-            //Console.WriteLine(i);     --i还有值
+            //Console.WriteLine(i);     //--i还有值
 
+            ////装箱（值类型赋值给引用类型（object））和拆箱(引用类型（object）赋值给值类型)
+            //int i = 8;
+            //object j = i;    //装箱,在堆上开辟一个空间，把i的值赋值一份进去，j保存这个空间的地址
+            //Console.WriteLine($"i={i},j={j}");
+            //int x = (int)j;     //（int）区别于强制类型转换 
+            #endregion
+
+            #region 多态
             //4，
             //Console.WriteLine(typeof(char));
             //多态练习
@@ -29,13 +63,15 @@ namespace assignment
             //father.Fly();
             ////Console.WriteLine(father.Bird());
             //Dad dad = new Boy();
-            //dad.Eat();
+            //dad.Eat(); 
+            #endregion
 
+            #region 接口
             ////5，接口联系
             //Man man = new Man();
             //man.Lunch();
             //man.Rest();
-            //man.Swim();
+            //man.Swim(); 
 
             ////接口作业
             ////用接口实例（不是类的实例）调用“找到最大值”的方法 
@@ -46,7 +82,9 @@ namespace assignment
             //IseekMaxValue Seek = new DisplayImplementation();
             //IseekMinValue Seek = new DisplayImplementation();
             //Seek.seek();
+            #endregion
 
+            #region 模拟出入栈
             //6，模拟出入栈
             //Mimicstact imitate = new Mimicstact(5);
             //imitate.Push(new object[] {"xl"});  //调用用params（参数数组）方法既可以传递
@@ -54,37 +92,37 @@ namespace assignment
             //imitate.pop();
             //imitate.Push(10, 3);
             //imitate.Push(4);
-            //imitate.Push(7);
+            //imitate.Push(7); 
+            #endregion
 
-            ////7，
-            // Bueaty bueaty = new Bueaty(20);
-            //// bueaty.toBueaty();
-            // Console.WriteLine(bueaty.toBueaty);
-            //Bueaty BueatyHeight = new Bueaty(170);
-            //  bueaty.Bueatyheight(168);
+            #region 字符串位置颠倒方法
+            //school("yuanzhan"); 
+            #endregion
 
-            // bueaty.Age = 100;
-            // Console.WriteLine(bueaty.Age);
-            //Console.WriteLine(bueaty.Height);
-            //Child money = new Child();
-            //Console.WriteLine(money.Tomoney);
-            //school("yuanzhan");
+            #region 日期计算
             //Date date = new Date();
-            //Beautyliu liu = new Beautyliu();
-            //liu.beauty = 30;
+            //date.DateCalculation(); 
+            #endregion
 
+            #region 使用object改造数据结构栈
             //8，使用object改造数据结构栈（Stack），并在出栈时获得出栈元素      
             //ObjectHomeWork objectHomeWork = new ObjectHomeWork(new object[] { });
-            //objectHomeWork.Array();
+            //objectHomeWork.Array(); 
+            #endregion
 
+            #region foreach遍历
             //9,foreach遍历数组
-            //ForEach(new int[]{2,3 });
+            //ForEach(new int[]{2,3 }); 
+            #endregion
 
+            #region 冒泡排序
             //10，冒泡排序
             //Sort sort = new Sort();
             //sort.bubbleSort(new int[] { 2, 3,3,9,12,33,44,2,7, 2, 5, 8, 5, 9, 5, 7, 1, 4, 5 });
 
+            #endregion
 
+            #region 泛型
             //11，泛型
             //Generic<object> generic = new Generic<object>("fg");
             //Console.WriteLine(generic.Age);
@@ -93,60 +131,66 @@ namespace assignment
             //取最大值
             //FG<string> fG = new FG<string>();
             //fG.Max(new int[] { 2, 4, 3, 7, 9, 5, 6, 8, 0 });
-            //fG.Max(new string[] { "2", "xl", "lc", "wx"});
+            //fG.Max(new string[] { "2", "xl", "lc", "wx"}); 
 
+            ////协变，逆变 out/in
+            //IPeople<Clever> people = new  Man<Clever>();
+            //IPeople<foolish> boy = new Man<foolish>();
+            //boy = people;
+
+            #region 双向链表
             ////12，----双向链表
-            //----在后面添加节点
-            DoubleLinkedList<int> doubleLinkedList = new DoubleLinkedList<int>();
-            DLinkNode<int> firstNode = new DLinkNode<int> { Content = 1 };
-            doubleLinkedList.AddAfter(firstNode);
-            //case-1 => 1
-            Console.WriteLine($"在后面添加节点=>{doubleLinkedList.Count}");
-            //case-1 => true
-            Console.WriteLine(firstNode == doubleLinkedList.Head);
-            //case-1 => true
-            Console.WriteLine(firstNode == doubleLinkedList.Tail);
+            ////----在后面添加节点
+            //DoubleLinkedList<int> doubleLinkedList = new DoubleLinkedList<int>();
+            //DLinkNode<int> firstNode = new DLinkNode<int> { Content = 1 };
+            //doubleLinkedList.AddAfter(firstNode);
+            ////case-1 => 1
+            //Console.WriteLine($"在后面添加节点=>{doubleLinkedList.Count}");
+            ////case-1 => true
+            //Console.WriteLine(firstNode == doubleLinkedList.Head);
+            ////case-1 => true
+            //Console.WriteLine(firstNode == doubleLinkedList.Tail);
 
-            DLinkNode<int> secondNode = new DLinkNode<int> { Content = 2 };
-            doubleLinkedList.AddAfter(secondNode);
+            //DLinkNode<int> secondNode = new DLinkNode<int> { Content = 2 };
+            //doubleLinkedList.AddAfter(secondNode);
 
-            //case-2 =>node_2 的上一个节点是链表的头结点;
-            Console.WriteLine(secondNode.Previous == doubleLinkedList.Head);
-            //case-2 =>node_1 的下一个节点是node_2;
-            Console.WriteLine(firstNode.Next == secondNode);
-            //case-2 => 2
-            Console.WriteLine(doubleLinkedList.Count);
-            //case-2 => true
-            Console.WriteLine(firstNode == doubleLinkedList.Head);
-            //case-2 => tail is node_2
-            Console.WriteLine(secondNode == doubleLinkedList.Tail);
+            ////case-2 =>node_2 的上一个节点是链表的头结点;
+            //Console.WriteLine(secondNode.Previous == doubleLinkedList.Head);
+            ////case-2 =>node_1 的下一个节点是node_2;
+            //Console.WriteLine(firstNode.Next == secondNode);
+            ////case-2 => 2
+            //Console.WriteLine(doubleLinkedList.Count);
+            ////case-2 => true
+            //Console.WriteLine(firstNode == doubleLinkedList.Head);
+            ////case-2 => tail is node_2
+            //Console.WriteLine(secondNode == doubleLinkedList.Tail);
 
-            DLinkNode<int> thirdNode = new DLinkNode<int> { Content = 3 };
-            doubleLinkedList.AddAfter(thirdNode);
-            //case-3 =>node_3 的上一个节点是node_2;
-            Console.WriteLine(thirdNode.Previous == secondNode);
-            //case-3 =>node_2 的下一个节点是node_3;
-            Console.WriteLine(secondNode.Next == thirdNode);
-            //case-3 => 3
-            Console.WriteLine(doubleLinkedList.Count);
-            //case-3 => true
-            Console.WriteLine(firstNode == doubleLinkedList.Head);
-            //case-3 => tail is node_3
-            Console.WriteLine(thirdNode == doubleLinkedList.Tail);
-            //case-3 => node_2 isn't tail  
-            Console.WriteLine(secondNode != doubleLinkedList.Tail);
+            //DLinkNode<int> thirdNode = new DLinkNode<int> { Content = 3 };
+            //doubleLinkedList.AddAfter(thirdNode);
+            ////case-3 =>node_3 的上一个节点是node_2;
+            //Console.WriteLine(thirdNode.Previous == secondNode);
+            ////case-3 =>node_2 的下一个节点是node_3;
+            //Console.WriteLine(secondNode.Next == thirdNode);
+            ////case-3 => 3
+            //Console.WriteLine(doubleLinkedList.Count);
+            ////case-3 => true
+            //Console.WriteLine(firstNode == doubleLinkedList.Head);
+            ////case-3 => tail is node_3
+            //Console.WriteLine(thirdNode == doubleLinkedList.Tail);
+            ////case-3 => node_2 isn't tail  
+            //Console.WriteLine(secondNode != doubleLinkedList.Tail);
 
-            //case-4 => 4
-            DLinkNode<int> fourthNode = new DLinkNode<int> { Content = 4 };
-            doubleLinkedList.AddAfter(fourthNode);
-            Console.WriteLine(doubleLinkedList.Count);
+            ////case-4 => 4
+            //DLinkNode<int> fourthNode = new DLinkNode<int> { Content = 4 };
+            //doubleLinkedList.AddAfter(fourthNode);
+            //Console.WriteLine(doubleLinkedList.Count);
 
 
-            // ----在前面添加节点
-            DLinkNode<int> fifthNode = new DLinkNode<int> { Content = 5 };
-            doubleLinkedList.Addbefore(fifthNode);
-            //case-1 => 5
-            Console.WriteLine($"在前面添加节点=>{doubleLinkedList.Head.Content}");
+            //// ----在前面添加节点
+            //DLinkNode<int> fifthNode = new DLinkNode<int> { Content = 5 };
+            //doubleLinkedList.Addbefore(fifthNode);
+            ////case-1 => 5
+            //Console.WriteLine($"在前面添加节点=>{doubleLinkedList.Head.Content}");
 
             //-----删除节点
             //doubleLinkedList.Remove(firstNode);
@@ -168,11 +212,11 @@ namespace assignment
             //----节点数量
             //Console.WriteLine($"节点数量=>{doubleLinkedList._count}");
 
-            //----在后面插入
-            DLinkNode<int> sixthNode = new DLinkNode<int> { Content = 6 };
-            doubleLinkedList.Insert(firstNode,sixthNode);
-            //case => 6
-            Console.WriteLine($"Insert=>{doubleLinkedList.Head.Next.Next.Content}");
+            ////----在后面插入
+            //DLinkNode<int> sixthNode = new DLinkNode<int> { Content = 6 };
+            //doubleLinkedList.Insert(firstNode,sixthNode);
+            ////case => 6
+            //Console.WriteLine($"Insert=>{doubleLinkedList.Head.Next.Next.Content}");
 
             ////----交换
             ///----5,1,6,2,3,4
@@ -260,11 +304,16 @@ namespace assignment
             ////case-6' => 1
             //Console.WriteLine(doubleLinkedList.Head.Next.Content);
 
-            //13,泛型集合
-            foreach (var item in doubleLinkedList)
-            {
-                Console.WriteLine(item);
-            }
+            #endregion
+
+            #endregion
+
+            #region 泛型集合
+            ////13,泛型集合
+            //foreach (var item in doubleLinkedList)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
             ////调用扩展方法Max()
             //DoubleLinkedList<int> Node = new DoubleLinkedList<int> ();
@@ -287,16 +336,203 @@ namespace assignment
             KeyWord Csharp = new KeyWord { name = "C#" };
             KeyWord SQL = new KeyWord { name = "SQL" };
             KeyWord Javascript = new KeyWord { name = "Javascript" };
+            KeyWord Net = new KeyWord { name = ".NET" };
 
-            Article<string> LifeArticle = new Article<string> { keyWords = new List<KeyWord>{ Csharp, SQL } };
-            Article<string> StudyArticle = new Article<string> { keyWords = new List<KeyWord> { Csharp, SQL, Javascript } };
+            User fg = new User { name = "飞哥" };
+            User xy = new User { name = "小余" };
+            User aj = new User { name = "阿杰" };
+
+            Article<string> LifeArticle = new Article<string>
+            {
+                keyWords = new List<KeyWord> { Csharp, SQL, Net },
+                Author = fg,
+                Title = "飞哥有才华",
+                date = new DateTime(2019, 2, 2)
+            };
+            Article<string> StudyArticle = new Article<string>
+            {
+                keyWords = new List<KeyWord> { Csharp, SQL, Javascript },
+                Author = xy,
+                Title = "小鱼吃大鱼",
+                date = new DateTime(2019, 1, 2)
+            };
+            Article<string> eatArticle = new Article<string>
+            {
+                keyWords = new List<KeyWord> { SQL, Javascript },
+                Author = xy,
+                Title = "小鱼吃饭",
+                date = new DateTime(2019, 3, 2)
+            };
 
             Csharp.articles = new List<Article<string>> { LifeArticle, StudyArticle };
 
+            #endregion
+
+            #region 匿名类
+            ////15,匿名类-----区别于无名对象new Child ()
+            //var g = new { name="fg",age=18};
+            //Console.WriteLine(g.GetType());
+
+            ////索引
+            //Index index = new Index();
+            //index._score = new int[10];
+            //index[0] = 1;
+            //index[1] = 2;
+            //Console.WriteLine(index[1]);
+            //foreach (var item in index._score)
+            //{
+            //    Console.WriteLine(item);
+            //} 
+            #endregion
+
+            #region Linq
+            //14,----Linq
+            //Teacher xy = new Teacher { teachers = "小余", age = 25 };
+            //Teacher fg = new Teacher { teachers = "飞哥", age = 38 };
+            //Teacher aj = new Teacher { teachers = "阿杰", age = 38 };
 
 
+            //Classmate xl = new Classmate { name = "xl", age = 21, teacher = xy };
+            //Classmate lm = new Classmate { name = "lm", age = 18, teacher = xy };
+            //Classmate wx = new Classmate { name = "wx", age = 25, teacher = fg };
+
+            //IList<Classmate> yz = new List<Classmate> { xl, lm, wx };
+
+            //where条件筛选
+            //var goodboy = from b in yz
+            //              where b.name.StartsWith("l")
+            //              select b;
+            //foreach (var item in goodboy)
+            //{
+            //    Console.WriteLine(item.name);
+
+            //}
+
+            //排序
+            //var order = from o in yz
+            //            orderby o.age ascending    //降序 descending
+            //            select o;
+            //foreach (var item in order)
+            //{
+            //    Console.WriteLine(item.name+","+item.age);
+            //}
+
+            //分组
+            //var group = from gr in yz
+            //group gr by gr.teacher;
+
+            //投影
+            //var select = from gr in yz
+            //group gr by gr.teacher into gm
+            //            select new { teacher = gm.Key, count = gm.Count() };
+            //foreach (var item in select)
+            //{
+            //    Console.WriteLine(item.teacher.teachers+","+item.count);
+            //}
+
+            //连接，内连接
+            //var join = from y in yz
+            //           join z in new List<Teacher> { xy, fg }
+            //           on y.teacher equals z into YZ
+            //           from r in YZ.DefaultIfEmpty()
+            //           select new { Majors = y.name, teacher = r.teachers };
+
+            //左连接，关键字（DefaultIfEmpty）
+            //var join = from z in new List<Teacher> { xy, fg }
+            //           join y in yz
+            //           on z equals y.teacher into YZ
+            //           from r in YZ.DefaultIfEmpty()
+            //           select new { teacher = z.teachers, Majors = r?.name ?? "没有课程"};
+
+            //连接后分组
+            //var join = from z in new List<Teacher> { xy, fg, aj }
+            //           join y in yz
+            //           on z equals y.teacher into YZ
+            //           from r in YZ.DefaultIfEmpty()
+            //           select new { Key = z.teachers, value = YZ };
+            //foreach (var item in join)
+            //{
+            //    Console.WriteLine(item.Key + "," + item.value);
+            //}
+
+            #region Link作业
+
+            //找出“飞哥”发布的文章
+            List<Article<string>> ts = new List<Article<string>> { eatArticle, LifeArticle, StudyArticle };
+            //var fgArticle = from a in ts
+            //                where a.Author.name == "飞哥"
+            //                select a;
+            //foreach (var item in fgArticle)
+            //{
+            //    Console.WriteLine(item.Title);
+
+            //}
+            //找出2019年1月1日以后“小鱼”发布的文章
+            //var xyArticle = from b in ts
+            //                where b.date > new DateTime(2019, 1, 1) && b.Author.name == "小余"
+            //                select b;
+            //foreach (var item in xyArticle)
+            //{
+            //    Console.WriteLine(item.Title);
+            //}
+            //按发布时间升序 / 降序排列显示文章
+            //var publicTime = from c in ts
+            //                 orderby c.date ascending     //desending
+            //                 select c;
+            //foreach (var item in publicTime)
+            //{
+            //    Console.WriteLine(item.Title+","+item.date);
+            //}
+            //统计每个用户各发布了多少篇文章
+            //var publicCount = from d in new List<User> { fg, xy }
+            //                  join e in ts
+            //                  on d equals e.Author into de
+            //                  from f in de.DefaultIfEmpty()
+            //                  select new { key = d,value= de.Count() };
+            //foreach (var item in publicCount)
+            //{
+            //    Console.WriteLine(item.key.name+","+item.value);
+            //}
+            //找出包含关键字“C#”或“.NET”的文章 
+            //var KeyWordArticle = from g in ts
+            //                     let ks = g.keyWords
+            //                     from k in ks
+            //                     where k.name == "C#" || k.name==".NET"
+            //                     select g;
+
+            var KeyWordArticle = from g in ts
+                                 where g.keyWords.Any(
+                                     k => k.name == "C#" || k.name == ".NET")
+                                 select g;
+
+            foreach (var item in KeyWordArticle/*.Distinct()*/)
+            {
+                Console.WriteLine(item.Title);
+            }
+            //找出评论数量最多的文章
+            //var CommentMost = from j in ts 
+            #endregion
+
+            #endregion
+
+            #region Lambda表达式，委托
+            //委托
+            Delegate.AddDel(1, 2, Delegate.Add);
+            Delegate.rootingDel(2, Delegate.rooting);
+
+
+            //委托和事件
+            //Button button = new Button();
+            //button.OnClick += Button_OnClick;
+            //button.click(); 
+            #endregion
 
             Console.Read();
+        }
+
+        private static void Button_OnClick(object sender, EventArgs e)
+        {
+            Console.WriteLine("点击事件");
         }
 
         static void ForEach<T>(T[] array)
@@ -306,7 +542,6 @@ namespace assignment
                 Console.WriteLine(j);
             }
         }
-
         static void school(string name)
         {
 
@@ -321,7 +556,6 @@ namespace assignment
 
             Console.WriteLine(output);
         }
-
         static void Date()
         {
             DateTime date = new DateTime(2019, 1, 1);
@@ -359,9 +593,8 @@ namespace assignment
                 }
             }
         }
-
-
     }
+
 
     class Mimicstact
     {
@@ -427,41 +660,11 @@ namespace assignment
             }
         }
     }
-    class Bueaty
-    {
-        //internal readonly int Age;
-        //internal int Height;
-        private int Age;
-        public Bueaty(int age)
-        {
-
-            Age = age;
-        }
-        //public int toBueaty
-        //{
-        //    get{ return Age; }
-
-        //  //  set { Age = value; }
-        //}
-        public int toBueaty { get; private set; } = 100;
-        //public Bueaty(int age, int height)
-        //{
-        //    Age = age;
-        //    Height = height;
-        //}
-
-        //public int Bueatyheight(int height)
-        //{
-        //    Height = height;
-        //    return Height;
-        //}
-
-    }
     class Date
     {
         internal DateTime date1 = new DateTime(2019, 3, 6);
 
-        internal Date()
+        internal void DateCalculation()
         {
             Console.WriteLine($"当前日期{date1.Year}年{date1.Month}月{date1.Day}日请输入：");
             string input = Convert.ToString(Console.ReadLine());
@@ -486,8 +689,6 @@ namespace assignment
         }
 
     }
-
-
     internal class FG<T> where T : IComparable/*, IConvertible*/
     {
         //public FG(T a, T b)
@@ -518,33 +719,6 @@ namespace assignment
         }
 
     }
-
-    class Beautyliu
-    {
-        private int _age;
-        //internal int beauty
-        //{
-        //    get { return _age; }
-        //    //set { _age = 20; }
-        //}
-
-        //internal int beauty { get;private set; }
-        //internal int Age { get; set; } = 28;
-
-        public int beauty
-        {
-            get => _age;
-            //set => _age = 18;
-            set { _age = 18; }
-        }
-
-        //public Beauty()
-        //{
-
-        //}
-    }
-
-
 
 }
 
