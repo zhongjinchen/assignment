@@ -10,12 +10,20 @@ namespace assignment
         {
             Console.WriteLine("飞");
         }
+        internal  void Run()
+        {
+            Console.WriteLine("跑");
+        }
     }
     class Son : Father
     {
         internal override void Fly()
         {
             Console.WriteLine("扇翅膀飞");
+        }
+        new internal void Run()
+        {
+            Console.WriteLine("使劲跑");
         }
     }
     //class Father

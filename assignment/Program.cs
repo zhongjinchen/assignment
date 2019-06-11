@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using assignment._17ban;
 
 namespace assignment
 {
@@ -61,6 +62,7 @@ namespace assignment
             //多态练习
             //Father father = new Son();    //----父类的实例指向子类的引用
             //father.Fly();
+            //father.Run();
             ////Console.WriteLine(father.Bird());
             //Dad dad = new Boy();
             //dad.Eat(); 
@@ -138,191 +140,225 @@ namespace assignment
             //IPeople<foolish> boy = new Man<foolish>();
             //boy = people;
 
-            #region 双向链表
+            //#region 双向链表
             ////12，----双向链表
             ////----在后面添加节点
             //DoubleLinkedList<int> doubleLinkedList = new DoubleLinkedList<int>();
             //DLinkNode<int> firstNode = new DLinkNode<int> { Content = 1 };
-            //doubleLinkedList.AddAfter(firstNode);
+            //doubleLinkedList.AddOnTail(firstNode);
             ////case-1 => 1
-            //Console.WriteLine($"在后面添加节点=>{doubleLinkedList.Count}");
+            //Console.WriteLine(doubleLinkedList.Count == 1);
             ////case-1 => true
             //Console.WriteLine(firstNode == doubleLinkedList.Head);
             ////case-1 => true
             //Console.WriteLine(firstNode == doubleLinkedList.Tail);
 
             //DLinkNode<int> secondNode = new DLinkNode<int> { Content = 2 };
-            //doubleLinkedList.AddAfter(secondNode);
+            //doubleLinkedList.AddOnTail(secondNode);
 
             ////case-2 =>node_2 的上一个节点是链表的头结点;
             //Console.WriteLine(secondNode.Previous == doubleLinkedList.Head);
             ////case-2 =>node_1 的下一个节点是node_2;
             //Console.WriteLine(firstNode.Next == secondNode);
             ////case-2 => 2
-            //Console.WriteLine(doubleLinkedList.Count);
-            ////case-2 => true
+            //Console.WriteLine(doubleLinkedList.Count == 2);
+            ////case-2 => 第一个节点仍然是头节点
             //Console.WriteLine(firstNode == doubleLinkedList.Head);
             ////case-2 => tail is node_2
             //Console.WriteLine(secondNode == doubleLinkedList.Tail);
 
             //DLinkNode<int> thirdNode = new DLinkNode<int> { Content = 3 };
-            //doubleLinkedList.AddAfter(thirdNode);
+            //doubleLinkedList.AddOnTail(thirdNode);
             ////case-3 =>node_3 的上一个节点是node_2;
             //Console.WriteLine(thirdNode.Previous == secondNode);
             ////case-3 =>node_2 的下一个节点是node_3;
             //Console.WriteLine(secondNode.Next == thirdNode);
             ////case-3 => 3
-            //Console.WriteLine(doubleLinkedList.Count);
+            //Console.WriteLine(doubleLinkedList.Count == 3);
             ////case-3 => true
             //Console.WriteLine(firstNode == doubleLinkedList.Head);
             ////case-3 => tail is node_3
             //Console.WriteLine(thirdNode == doubleLinkedList.Tail);
             ////case-3 => node_2 isn't tail  
-            //Console.WriteLine(secondNode != doubleLinkedList.Tail);
+            //Console.WriteLine(secondNode != doubleLinkedList.Head &&
+            //    secondNode != doubleLinkedList.Tail);
 
             ////case-4 => 4
             //DLinkNode<int> fourthNode = new DLinkNode<int> { Content = 4 };
-            //doubleLinkedList.AddAfter(fourthNode);
-            //Console.WriteLine(doubleLinkedList.Count);
+            //doubleLinkedList.AddOnTail(fourthNode);
+            //Console.WriteLine(doubleLinkedList.Count == 4);
 
+            //Console.WriteLine("----从头添加节点");
 
-            //// ----在前面添加节点
             //DLinkNode<int> fifthNode = new DLinkNode<int> { Content = 5 };
-            //doubleLinkedList.Addbefore(fifthNode);
+            //doubleLinkedList.AddOnHead(fifthNode);
             ////case-1 => 5
-            //Console.WriteLine($"在前面添加节点=>{doubleLinkedList.Head.Content}");
+            //Console.WriteLine(doubleLinkedList.Head == fifthNode);
+            //Console.WriteLine(doubleLinkedList.Count == 5);
 
-            //-----删除节点
+            //Console.WriteLine("-----删除firstNode之前");
+            //Console.WriteLine(firstNode.Previous == doubleLinkedList.Head);
+            //Console.WriteLine(doubleLinkedList.Head.Next == firstNode);
+            //Console.WriteLine(firstNode.Next == secondNode);
+            //Console.WriteLine(secondNode.Previous == firstNode);
             //doubleLinkedList.Remove(firstNode);
-            ////case-1 => true
-            //Console.WriteLine($"删除节点=>{firstNode.Previous == null}");
+            //Console.WriteLine("-----删除firstNode之后");
+            //Console.WriteLine(doubleLinkedList.Count == 4);
+            //Console.WriteLine(firstNode.Previous == null);
             //Console.WriteLine(firstNode.Next == null);
+            //Console.WriteLine(fifthNode.Next == secondNode);
+            //Console.WriteLine(secondNode.Previous == fifthNode);
 
-            //doubleLinkedList.Remove(secondNode);
-            ////case-2 => true
+            //Console.WriteLine("--删除fifthNode（头结点）之前");
+            //Console.WriteLine(fifthNode.Previous == null);
+            //Console.WriteLine(fifthNode.Next == secondNode);
+            //Console.WriteLine(secondNode.Previous == fifthNode);
+            //doubleLinkedList.Remove(fifthNode);
+            //Console.WriteLine("-----删除fifthNode（头结点）之后");
+            //Console.WriteLine(doubleLinkedList.Count == 3);
+            //Console.WriteLine(fifthNode.Previous == null);
+            //Console.WriteLine(fifthNode.Next == null);
+            //Console.WriteLine(doubleLinkedList.Head == secondNode);
             //Console.WriteLine(secondNode.Previous == null);
-            //Console.WriteLine(secondNode.Next == null);
+
+            //Console.WriteLine("--删除fourthNode（尾节点）之前");
+            //Console.WriteLine(fourthNode.Previous == thirdNode);
+            //Console.WriteLine(fourthNode.Next == null);
+            //Console.WriteLine(thirdNode.Next == fourthNode);
+            //doubleLinkedList.Remove(fourthNode);
+            //Console.WriteLine("--删除fourthNode（尾节点）之后");
+            //Console.WriteLine(doubleLinkedList.Count == 2);
+            //Console.WriteLine(fourthNode.Previous == null);
+            //Console.WriteLine(fourthNode.Next == null);
+            //Console.WriteLine(thirdNode.Next = null);
 
             //doubleLinkedList.Remove(thirdNode);
-            ////case-3 => true
-            //Console.WriteLine(thirdNode.Previous == null);
-            //Console.WriteLine(thirdNode.Next == null);
-            //Console.WriteLine(thirdNode.Previous);
+            //doubleLinkedList.Remove(secondNode);
+            //Console.WriteLine("-- 删除所有节点");
+            //Console.WriteLine(doubleLinkedList.Count == 0);
+            //Console.WriteLine(doubleLinkedList.Head == null);
+            //Console.WriteLine(doubleLinkedList.Tail == null);
 
-            //----节点数量
-            //Console.WriteLine($"节点数量=>{doubleLinkedList._count}");
+            //Console.WriteLine("---------------");
 
-            ////----在后面插入
-            //DLinkNode<int> sixthNode = new DLinkNode<int> { Content = 6 };
-            //doubleLinkedList.Insert(firstNode,sixthNode);
-            ////case => 6
-            //Console.WriteLine($"Insert=>{doubleLinkedList.Head.Next.Next.Content}");
 
-            ////----交换
-            ///----5,1,6,2,3,4
-            ///----首个和中间第5个交换
-            //Console.WriteLine("首个和中间第5个交换");      
-            ////case-1 => 5
-            //Console.WriteLine($"交换{doubleLinkedList.Head.Content}");
-            ////case-1 => 3
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
-            //doubleLinkedList.Swap(thirdNode, fifthNode);
-            ////case-1 => 3
-            //Console.WriteLine(doubleLinkedList.Head.Content);
-            ////case-1 => 5
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
+            ////----节点数量
+            ////Console.WriteLine($"节点数量=>{doubleLinkedList._count}");
 
-            ////----首尾交换
-            //Console.WriteLine("首尾交换");
-            ////case-2 => 5
-            //Console.WriteLine(doubleLinkedList.Head.Content);
-            ////case-2 => 4
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Next.Content);
-            //doubleLinkedList.Swap(fourthNode, fifthNode);
-            ////case-2 => 4
-            //Console.WriteLine(doubleLinkedList.Head.Content);
-            ////case-2 => 5
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Next.Content);
+            //////----在后面插入
+            ////DLinkNode<int> sixthNode = new DLinkNode<int> { Content = 6 };
+            ////doubleLinkedList.Insert(firstNode,sixthNode);
+            //////case => 6
+            ////Console.WriteLine($"Insert=>{doubleLinkedList.Head.Next.Next.Content}");
 
-            ////----末尾和中间第3个交换
-            //Console.WriteLine("末尾和中间第3个交换");
-            ////case-3 => 6
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Content);
-            ////case-3 => 4
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Next.Content);
-            //doubleLinkedList.Swap(fourthNode, sixthNode);
-            ////case-3 => 4
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Content);
-            ////case-3 => 6
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Next.Content);
+            //////----交换
+            /////----5,1,6,2,3,4
+            /////----首个和中间第5个交换
+            ////Console.WriteLine("首个和中间第5个交换");      
+            //////case-1 => 5
+            ////Console.WriteLine($"交换{doubleLinkedList.Head.Content}");
+            //////case-1 => 3
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
+            ////doubleLinkedList.Swap(thirdNode, fifthNode);
+            //////case-1 => 3
+            ////Console.WriteLine(doubleLinkedList.Head.Content);
+            //////case-1 => 5
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
 
-            ////----中间相隔交换
-            //Console.WriteLine("----中间相隔交换");
-            ////case-7 => 1
-            //Console.WriteLine(doubleLinkedList.Head.Next.Content);
-            ////case-7 => 3
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
-            //doubleLinkedList.Swap(firstNode, thirdNode);
-            ////case-7 => 1
-            //Console.WriteLine(doubleLinkedList.Head.Next.Content);
-            ////case-7 => 3
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
+            //////----首尾交换
+            ////Console.WriteLine("首尾交换");
+            //////case-2 => 5
+            ////Console.WriteLine(doubleLinkedList.Head.Content);
+            //////case-2 => 4
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Next.Content);
+            ////doubleLinkedList.Swap(fourthNode, fifthNode);
+            //////case-2 => 4
+            ////Console.WriteLine(doubleLinkedList.Head.Content);
+            //////case-2 => 5
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Next.Content);
 
-            ////----中间相邻交换
-            //Console.WriteLine("----中间相邻交换");
-            ////case-4 => 2
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Content);
-            ////case-4 => 3
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
-            //doubleLinkedList.Swap(secondNode, thirdNode);
-            ////case-4 => 3
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Content);
-            ////case-4 => 2
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
+            //////----末尾和中间第3个交换
+            ////Console.WriteLine("末尾和中间第3个交换");
+            //////case-3 => 6
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Next.Content);
+            //////case-3 => 4
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Next.Content);
+            ////doubleLinkedList.Swap(fourthNode, sixthNode);
+            //////case-3 => 4
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Next.Content);
+            //////case-3 => 6
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Next.Content);
 
-            ////----末尾相邻交换
-            //Console.WriteLine("----末尾相邻交换");
-            ////case-5 => 3
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
-            ////case-5 => 4
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Next.Content);
-            //doubleLinkedList.Swap(fourthNode, thirdNode);
-            ////case-5 => 4
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
-            ////case-5 => 3
-            //Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Next.Content);
+            //////----中间相隔交换
+            ////Console.WriteLine("----中间相隔交换");
+            //////case-7 => 1
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Content);
+            //////case-7 => 3
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
+            ////doubleLinkedList.Swap(firstNode, thirdNode);
+            //////case-7 => 1
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Content);
+            //////case-7 => 3
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
 
-            ////----头部相邻交换
-            //Console.WriteLine("----头部相邻交换");
-            ////case-6 => 5
-            //Console.WriteLine(doubleLinkedList.Head.Content);
-            ////case-6 => 1
-            //Console.WriteLine(doubleLinkedList.Head.Next.Content);
-            //doubleLinkedList.Swap(firstNode, fifthNode);
-            ////case-6 => 5
-            //Console.WriteLine(doubleLinkedList.Head.Content);
-            ////case-6' => 1
-            //Console.WriteLine(doubleLinkedList.Head.Next.Content);
+            //////----中间相邻交换
+            ////Console.WriteLine("----中间相邻交换");
+            //////case-4 => 2
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Content);
+            //////case-4 => 3
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
+            ////doubleLinkedList.Swap(secondNode, thirdNode);
+            //////case-4 => 3
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Content);
+            //////case-4 => 2
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
 
-            #endregion
+            //////----末尾相邻交换
+            ////Console.WriteLine("----末尾相邻交换");
+            //////case-5 => 3
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
+            //////case-5 => 4
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Next.Content);
+            ////doubleLinkedList.Swap(fourthNode, thirdNode);
+            //////case-5 => 4
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Content);
+            //////case-5 => 3
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Next.Next.Next.Next.Content);
+
+            //////----头部相邻交换
+            ////Console.WriteLine("----头部相邻交换");
+            //////case-6 => 5
+            ////Console.WriteLine(doubleLinkedList.Head.Content);
+            //////case-6 => 1
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Content);
+            ////doubleLinkedList.Swap(firstNode, fifthNode);
+            //////case-6 => 5
+            ////Console.WriteLine(doubleLinkedList.Head.Content);
+            //////case-6' => 1
+            ////Console.WriteLine(doubleLinkedList.Head.Next.Content);
+
+            //#endregion
 
             #endregion
 
             #region 泛型集合
-            ////13,泛型集合
+            //13,泛型集合
             //foreach (var item in doubleLinkedList)
             //{
             //    Console.WriteLine(item);
             //}
 
-            ////调用扩展方法Max()
-            //DoubleLinkedList<int> Node = new DoubleLinkedList<int> ();
-            //Node.Max();
+            //调用扩展方法Max()
+            DoubleLinkedList<int> Node = new DoubleLinkedList<int>();
+            Node.Max();
 
             //一篇文章可以有多个评论
             Comment goodComment = new Comment { content = "好评" };
+
+            Comment mediumComment = new Comment { content = "中评" };
+
             Comment badComment = new Comment { content = "差评" };
-            Article<string> article = new Article<string> { comment = new List<Comment> { goodComment, badComment } };
+            Article article = new Article { comment = new List<Comment> { goodComment, badComment } };
 
             //一个评论必须有一个它所评论的文章
             goodComment.article = article;
@@ -342,29 +378,35 @@ namespace assignment
             User xy = new User { name = "小余" };
             User aj = new User { name = "阿杰" };
 
-            Article<string> LifeArticle = new Article<string>
+            Article LifeArticle = new Article
             {
                 keyWords = new List<KeyWord> { Csharp, SQL, Net },
                 Author = fg,
                 Title = "飞哥有才华",
-                date = new DateTime(2019, 2, 2)
+                date = new DateTime(2019, 2, 2),
+                comment = new List<Comment> { goodComment, mediumComment },
+                
             };
-            Article<string> StudyArticle = new Article<string>
+            Article StudyArticle = new Article
             {
                 keyWords = new List<KeyWord> { Csharp, SQL, Javascript },
                 Author = xy,
                 Title = "小鱼吃大鱼",
-                date = new DateTime(2019, 1, 2)
+                date = new DateTime(2019, 1, 2),
+                comment = new List<Comment> { goodComment, mediumComment, badComment }
+
             };
-            Article<string> eatArticle = new Article<string>
+            Article eatArticle = new Article
             {
                 keyWords = new List<KeyWord> { SQL, Javascript },
                 Author = xy,
                 Title = "小鱼吃饭",
-                date = new DateTime(2019, 3, 2)
+                date = new DateTime(2019, 3, 2),
+                comment = new List<Comment> { badComment }
+
             };
 
-            Csharp.articles = new List<Article<string>> { LifeArticle, StudyArticle };
+            Csharp.articles = new List<Article> { LifeArticle, StudyArticle };
 
             #endregion
 
@@ -387,17 +429,20 @@ namespace assignment
 
             #region Linq
             //14,----Linq
-            //Teacher xy = new Teacher { teachers = "小余", age = 25 };
-            //Teacher fg = new Teacher { teachers = "飞哥", age = 38 };
-            //Teacher aj = new Teacher { teachers = "阿杰", age = 38 };
+            Teacher XY = new Teacher { teachers = "小余", age = 25 };
+            Teacher FG = new Teacher { teachers = "飞哥", age = 38 };
+            Teacher AJ = new Teacher { teachers = "阿杰", age = 38 };
 
 
-            //Classmate xl = new Classmate { name = "xl", age = 21, teacher = xy };
-            //Classmate lm = new Classmate { name = "lm", age = 18, teacher = xy };
-            //Classmate wx = new Classmate { name = "wx", age = 25, teacher = fg };
+            Classmate xl = new Classmate { name = "xl", age = 21, teacher = XY };
+            Classmate lm = new Classmate { name = "lm", age = 18, teacher = XY };
+            Classmate wx = new Classmate { name = "wx", age = 25, teacher = FG };
 
-            //IList<Classmate> yz = new List<Classmate> { xl, lm, wx };
-
+            IList<Classmate> yz = new List<Classmate> { xl, lm, wx };
+            Problem fgProblem = new Problem {Reward=6,Author=fg };
+            Problem xyProblem = new Problem { Reward = 3,Author=xy };
+            Problem xyStudyProblem = new Problem { Reward = 4,Author=xy };
+            List<Problem> problems = new List<Problem> {fgProblem,xyProblem,xyStudyProblem };
             //where条件筛选
             //var goodboy = from b in yz
             //              where b.name.StartsWith("l")
@@ -455,10 +500,10 @@ namespace assignment
             //    Console.WriteLine(item.Key + "," + item.value);
             //}
 
-            #region Link作业
+            //#region Link作业 1
 
-            //找出“飞哥”发布的文章
-            List<Article<string>> ts = new List<Article<string>> { eatArticle, LifeArticle, StudyArticle };
+            ////找出“飞哥”发布的文章
+            List<Article> ts = new List<Article> { eatArticle, LifeArticle, StudyArticle };
             //var fgArticle = from a in ts
             //                where a.Author.name == "飞哥"
             //                select a;
@@ -467,7 +512,7 @@ namespace assignment
             //    Console.WriteLine(item.Title);
 
             //}
-            //找出2019年1月1日以后“小鱼”发布的文章
+            ////找出2019年1月1日以后“小鱼”发布的文章
             //var xyArticle = from b in ts
             //                where b.date > new DateTime(2019, 1, 1) && b.Author.name == "小余"
             //                select b;
@@ -475,56 +520,91 @@ namespace assignment
             //{
             //    Console.WriteLine(item.Title);
             //}
-            //按发布时间升序 / 降序排列显示文章
+            ////按发布时间升序 / 降序排列显示文章
             //var publicTime = from c in ts
             //                 orderby c.date ascending     //desending
             //                 select c;
             //foreach (var item in publicTime)
             //{
-            //    Console.WriteLine(item.Title+","+item.date);
+            //    Console.WriteLine(item.Title + "," + item.date);
             //}
-            //统计每个用户各发布了多少篇文章
+            ////统计每个用户各发布了多少篇文章
             //var publicCount = from d in new List<User> { fg, xy }
             //                  join e in ts
             //                  on d equals e.Author into de
             //                  from f in de.DefaultIfEmpty()
-            //                  select new { key = d,value= de.Count() };
+            //                  select new { key = d, value = de.Count() };
             //foreach (var item in publicCount)
             //{
-            //    Console.WriteLine(item.key.name+","+item.value);
+            //    Console.WriteLine(item.key.name + "," + item.value);
             //}
-            //找出包含关键字“C#”或“.NET”的文章 
+            ////找出包含关键字“C#”或“.NET”的文章 
+            ////var KeyWordArticle = from g in ts
+            ////                     let ks = g.keyWords
+            ////                     from k in ks
+            ////                     where k.name == "C#" || k.name == ".NET"
+            ////                     select g;
+
             //var KeyWordArticle = from g in ts
-            //                     let ks = g.keyWords
-            //                     from k in ks
-            //                     where k.name == "C#" || k.name==".NET"
+            //                     where g.keyWords.Any(
+            //                         k => k.name == "C#" || k.name == ".NET")
             //                     select g;
 
-            var KeyWordArticle = from g in ts
-                                 where g.keyWords.Any(
-                                     k => k.name == "C#" || k.name == ".NET")
-                                 select g;
+            //foreach (var item in KeyWordArticle/*.Distinct()*/)
+            //{
+            //    Console.WriteLine(item.Title);
+            //}
+            ////找出评论数量最多的文章
+            ////var CommentMost = from j in ts
+            ////                  where j.comment
 
-            foreach (var item in KeyWordArticle/*.Distinct()*/)
-            {
-                Console.WriteLine(item.Title);
-            }
-            //找出评论数量最多的文章
-            //var CommentMost = from j in ts 
+
+
+
+
+            //#endregion
+
+            #region Link作业 2
+            //    找出每个作者最近发布的一篇文章
+            //为求助（Problem）添加悬赏（Reward）属性，
+            //并找出每一篇求助的悬赏都大于5个帮帮币的文章作者
+
+
             #endregion
+            var RecentlyPublic = ts.OrderByDescending(o=>o.date).GroupBy(g => g.Author.name);
+            var x = RecentlyPublic.SelectMany(s => s, (s, m) => new { s, m });
+
+            foreach (var item in x)
+            {
+                Console.WriteLine($"{item.m.Title}:{item.m.date}");
+            }
+
 
             #endregion
 
             #region Lambda表达式，委托
             //委托
-            Delegate.AddDel(1, 2, Delegate.Add);
-            Delegate.rootingDel(2, Delegate.rooting);
-
+            //Delegate.AddDel(1, 2, Delegate.Add);
+            //Delegate.rootingDel(2, Delegate.rooting);
 
             //委托和事件
             //Button button = new Button();
             //button.OnClick += Button_OnClick;
             //button.click(); 
+
+            //Func<string, Fathers> father = (name) =>
+            //{
+            //    return new Fathers();
+            //};
+            //Func<string, Children> children = (name) =>
+            //   {
+            //       return new Children();
+            //   };
+
+            //father = children;
+            //father();
+            ////children = father;
+            //children();
             #endregion
 
             Console.Read();
@@ -558,7 +638,7 @@ namespace assignment
         }
         static void Date()
         {
-            DateTime date = new DateTime(2019, 1, 1);
+            DateTime date = new DateTime(2019,1,1);
             for (int day = 1; day < 7; day++)
             {
                 if (date.DayOfWeek == DayOfWeek.Monday)

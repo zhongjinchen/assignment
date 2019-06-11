@@ -48,7 +48,7 @@ namespace assignment
         internal int Count { get { return _count; } /*set;*/ }
 
         //----在最后面添加节点
-        internal void AddAfter(DLinkNode<T> node)
+        internal void AddOnTail(DLinkNode<T> node)
         {
             if (_count == 0)
             {
@@ -66,7 +66,7 @@ namespace assignment
         }
 
         // ----在最前面添加节点
-        internal void Addbefore(DLinkNode<T> node)
+        internal void AddOnHead(DLinkNode<T> node)
         {
             if (_count == 0)
             {
@@ -101,6 +101,8 @@ namespace assignment
             else if (node.Previous == null && node.Next == null)
             {
                 node = null;
+                Head = null;
+                Tail = null;
             }
             else
             {
@@ -196,7 +198,7 @@ namespace assignment
                 else if (b.Previous == null && a.Next == null)
                 {
                     Remove(b);
-                    AddAfter(b);
+                    AddOnTail(b);
                     Head = a;
                     Tail = b;
                 }
@@ -215,7 +217,7 @@ namespace assignment
                     Remove(a);
                     Insert(b, a);
                     Remove(b);
-                    Addbefore(b);
+                    AddOnHead(b);
                     Head = b;
                     if (a.Next == null)
                     {
@@ -230,7 +232,7 @@ namespace assignment
                 {
                     DLinkNode<T> c = a.Previous;
                     Remove(a);
-                    AddAfter(a);
+                    AddOnTail(a);
                     Remove(b);
                     Insert(c, b);
                     Tail = a;
@@ -241,7 +243,7 @@ namespace assignment
                     Remove(b);
                     Insert(a, b);
                     Remove(a);
-                    Addbefore(a);
+                    AddOnHead(a);
                     Head = a;
                     if (a.Next == null)
                     {
@@ -252,7 +254,7 @@ namespace assignment
                 {
                     DLinkNode<T> c = b.Previous;
                     Remove(b);
-                    AddAfter(b);
+                    AddOnTail(b);
                     Remove(a);
                     Insert(c, a);
                     Tail = b;

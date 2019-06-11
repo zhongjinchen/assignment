@@ -18,57 +18,6 @@ namespace assignment
     //关键字（Keyword）类
     //并构建以下关系： 
 
-    class Common<T>
-    {
-        internal User Author;
-        internal T Title;
-        internal T Body;
-        internal void Pubilc()
-        {
-        }
-        internal void Agree()
-        {
-        }
-        internal void Disagree()
-        {
-        }
-        internal void Comment()
-        {
-        }
-    }
-    class Problem<T>: Common<T>
-    {
-      
-    }
-    class Article<T>:Common<T>
-    {
-
-        internal DateTime date;
-        internal List<Comment> comment;
-        internal Appraise appraise;
-        internal List<KeyWord> keyWords;
-        
-    }
-    class Suggest<T>: Common<T>
-    {
-       
-    }
-    class Comment
-    {
-        internal Article<string> article;
-        internal Appraise appraise;
-        internal string content;
-    }
-    class Appraise { }
-    class KeyWord
-    {
-        internal string name;
-        internal List<Article<string>> articles;
-    }
-    class User
-    {
-        internal string name;
-    }
     //调用扩展方法Max()
     static class DoubleLinkedList
     {

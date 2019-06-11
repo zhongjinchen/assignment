@@ -26,6 +26,7 @@ namespace assignment
             b(a);
         }
     }
+
     public delegate void calculator<in T>(T a);
     class Button
     {
@@ -37,5 +38,10 @@ namespace assignment
                 OnClick(this,new EventArgs());
             }
         }
+    }
+    class Fathers { }
+    class Children : Fathers
+    {
+
     }
 }
