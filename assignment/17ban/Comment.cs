@@ -6,8 +6,12 @@ namespace assignment._17ban
 {
     class Comment
     {
-        internal Article article;
-        internal Appraise appraise;
-        internal string content;
+        internal Article article { get; set; }
+        internal Appraise appraise { get; set; }
+        internal string content { get; set; }
+        public Comment(Publish publish)
+        {
+            publish.article.comment.Add(this);
+        }
     }
 }

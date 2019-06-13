@@ -6,7 +6,7 @@ namespace assignment._17ban
 {
     class ArticleRepository : IArticleRepository
     {
-        private IList<Article> _articles;
+        private IList<Article> _articles { get; set; }
         public  IList<Article> Get()
         {
             return _articles;

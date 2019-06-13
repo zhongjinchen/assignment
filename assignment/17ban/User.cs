@@ -6,6 +6,6 @@ namespace assignment._17ban
 {
     class User
     {
-        internal string name;
+        internal string name { get;}
     }
 }

@@ -15,6 +15,7 @@ namespace Practise
             //Console.WriteLine(ReadonlyConst.b);
             #endregion
 
+            #region IO和文件操作
             //----路径(Path)
             string path = "c:\\17bang";
             //path = path + @"\test";
@@ -81,6 +82,18 @@ namespace Practise
             //    writer.WriteLine(new char[] { 'w','w','y','z','b','y'});
             //}
 
+            //用实例调用
+            //FileInfo file = new FileInfo(Path.Join(subPath,"greet"));
+            //using(StreamWriter writer = file.AppendText())
+            //{
+            //    writer.Write("study");
+            //} 
+
+            
+
+
+
+            #endregion
 
 
             Console.ReadLine();

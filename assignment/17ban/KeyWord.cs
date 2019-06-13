@@ -6,7 +6,7 @@ namespace assignment._17ban
 {
     class KeyWord
     {
-        internal string name;
-        internal List<Article> articles;
+        internal string name { get; set; }
+        internal List<Article> articles { get; set; }
     }
 }

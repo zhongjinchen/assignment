@@ -4,8 +4,8 @@ using System.Text;
 
 namespace assignment._17ban
 {
-    class Problem : Common
+    class Publish
     {
-        public int Reward { get; set; }
+        internal Article article { get; set; } 
     }
 }

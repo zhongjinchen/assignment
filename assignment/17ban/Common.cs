@@ -6,9 +6,11 @@ namespace assignment._17ban
 {
     class Common
     {
-        internal User Author;
-        internal string Title;
-        internal string Body;
+        internal User Author { get; }
+        internal string Title { get; }
+        internal string Body { get; }
+        internal DateTime date { get; }
+
         internal void Pubilc()
         {
         }
