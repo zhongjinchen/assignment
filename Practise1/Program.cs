@@ -2,6 +2,8 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
+using System.Threading;
 
 namespace Practise
 {
@@ -63,7 +65,7 @@ namespace Practise
             //----文件
             //创建
             string greet = "Hello luckystack";
-            //StreamWriter writer = File.CreateText(Path.Join(subPath, "greet"));
+            StreamWriter writer = File.CreateText(Path.Join(subPath, "greet"));
             //writer.Write(greet);
             //writer.Write(true);
 
@@ -75,7 +77,7 @@ namespace Practise
             //writer.Flush = true;     //writer.AutoFlush = true;   //自动冲入
 
             //销毁dispose/using
-            //writer.Dispose();
+            writer.Dispose();
 
             //using (StreamWriter writer = File.AppendText(Path.Join(subPath, "greet")))
             //{                
@@ -89,14 +91,35 @@ namespace Practise
             //    writer.Write("study");
             //} 
 
-            
+
 
 
 
             #endregion
 
+            #region Link to XML
+            //XElement LuckyStack = new XElement(
+            //"LuckStack",
+            //new XComment("--注释--"),
+            //new XElement("student", "王ba", new XAttribute("score", 10))
+            //        );
 
+            //XDocument document = new XDocument(new XDeclaration("3.0", "gjhg", "no"), LuckyStack);
+            //LuckyStack.Save(@"C:\17bang\fg\xml");
+            //Console.WriteLine(document);
+            #endregion
+
+            Thread primary = Thread.CurrentThread;
+            Thread work = new Thread(new ThreadStart(process));
+            Console.WriteLine(work.ManagedThreadId);
+            Console.WriteLine(work.IsThreadPoolThread);
+            Console.WriteLine(work.Priority);
+            Console.WriteLine(Thread.GetDomain().FriendlyName);
             Console.ReadLine();
+        }
+        static void process()
+        {
+            Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+using System.Xml.Linq;
 using assignment._17ban;
 
 namespace assignment
@@ -126,6 +128,7 @@ namespace assignment
 
             #region 泛型
 
+            #region 练习
             //11，泛型
             //Generic<object> generic = new Generic<object>("fg");
             //Console.WriteLine(generic.Age);
@@ -136,11 +139,11 @@ namespace assignment
             //fG.Max(new int[] { 2, 4, 3, 7, 9, 5, 6, 8, 0 });
             //fG.Max(new string[] { "2", "xl", "lc", "wx"}); 
 
-            ////协变，逆变 out/in
-            //IPeople<Clever> people = new  Man<Clever>();
+            //协变，逆变 out/in
+            //IPeople<Clever> people = new Man<Clever>();
             //IPeople<foolish> boy = new Man<foolish>();
-            //boy = people;
-
+            //boy = people; 
+            #endregion
 
 
             #region 泛型集合
@@ -154,61 +157,59 @@ namespace assignment
             //DoubleLinkedList<int> Node = new DoubleLinkedList<int>();
             //Node.Max();
 
-            //一篇文章可以有多个评论
-            Comment goodComment = new Comment { content = "好评" };
-
-            Comment mediumComment = new Comment { content = "中评" };
-
-            Comment badComment = new Comment { content = "差评" };
-            Article article = new Article { comment = new List<Comment> { goodComment, badComment } };
-
-            //一个评论必须有一个它所评论的文章
-            goodComment.article = article;
-
-            //每个文章和评论都有一个评价
-            Appraise appraise = new Appraise();
-            article.appraise = appraise;
-            goodComment.appraise = appraise;
-
-            //一篇文章可以有多个关键字，一个关键字可以对应多篇文章
+            //一篇文章可以有多个关键字，
             KeyWord Csharp = new KeyWord { name = "C#" };
             KeyWord SQL = new KeyWord { name = "SQL" };
             KeyWord Javascript = new KeyWord { name = "Javascript" };
             KeyWord Net = new KeyWord { name = ".NET" };
 
-            User fg = new User { name = "飞哥" };
-            User xy = new User { name = "小余" };
-            User aj = new User { name = "阿杰" };
+            User fg = new User("飞哥");
+            User xy = new User("小余");
+            User aj = new User("阿杰");
 
-            Article LifeArticle = new Article
+
+            Article article = new Article(new Content(xy, "大飞鱼", "鲲鹏的后代飞行速度极快", new DateTime(2019, 6, 2)))
             {
-                keyWords = new List<KeyWord> { Csharp, SQL, Net },
-                Author = fg,
-                Title = "飞哥有才华",
-                date = new DateTime(2019, 2, 2),
-                comment = new List<Comment> { goodComment, mediumComment },
+                keyWords = new List<KeyWord> { Csharp, SQL }
+            };
+            article.Public(new TRepository<Article>());
+            Article LifeArticle = new Article(new Content(fg, "才华", "飞哥有才华", new DateTime(2019, 2, 2)))
+            {
+                keyWords = new List<KeyWord> { Csharp, SQL, Net }
+            };
+            LifeArticle.Public(new TRepository<Article>());
+            Article StudyArticle = new Article(new Content(xy, "大鱼", "小鱼吃大鱼", new DateTime(2019, 1, 2)))
+            {
+                keyWords = new List<KeyWord> { Csharp, SQL, Javascript }
 
             };
-            Article StudyArticle = new Article
+            StudyArticle.Public(new TRepository<Article>());
+            Article eatArticle = new Article(new Content(xy, "小鱼", "小鱼吃饭", new DateTime(2019, 3, 2)))
             {
-                keyWords = new List<KeyWord> { Csharp, SQL, Javascript },
-                Author = xy,
-                Title = "小鱼吃大鱼",
-                date = new DateTime(2019, 1, 2),
-                comment = new List<Comment> { goodComment, mediumComment, badComment }
-
+                keyWords = new List<KeyWord> { SQL, Javascript }
             };
-            Article eatArticle = new Article
-            {
-                keyWords = new List<KeyWord> { SQL, Javascript },
-                Author = xy,
-                Title = "小鱼吃饭",
-                date = new DateTime(2019, 3, 2),
-                comment = new List<Comment> { badComment }
+            eatArticle.Public(new TRepository<Article>());
 
-            };
-
+            //一个关键字可以对应多篇文章
             Csharp.articles = new List<Article> { LifeArticle, StudyArticle };
+
+
+            //一个评论必须有一个它所评论的文章
+            Comment goodComment = new Comment(LifeArticle) { content = "好评" };
+            Comment mediumComment = new Comment(StudyArticle) { content = "中评" };
+            Comment badComment = new Comment(eatArticle) { content = "差评" };
+
+            //一篇文章可以有多个评论
+            article.comment = new List<Comment> { goodComment, badComment };
+            LifeArticle.comment = new List<Comment> { goodComment, mediumComment };
+            StudyArticle.comment = new List<Comment> { goodComment, mediumComment, badComment };
+            eatArticle.comment = new List<Comment> { badComment };
+
+            //每个文章和评论都有一个评价
+            article.appraise = new Appraise();
+            goodComment.appraise = new Appraise();
+
+
 
             #endregion
 
@@ -241,9 +242,9 @@ namespace assignment
             Classmate wx = new Classmate { name = "wx", age = 25, teacher = FG };
 
             IList<Classmate> yz = new List<Classmate> { xl, lm, wx };
-            Problem fgProblem = new Problem { Reward = 6, Author = fg };
-            Problem xyProblem = new Problem { Reward = 3, Author = xy };
-            Problem xyStudyProblem = new Problem { Reward = 4, Author = xy };
+            Problem fgProblem = new Problem(new Content(fg, "飞哥", "我要健身", new DateTime(2019, 6, 2))) { Reward = 6 };
+            Problem xyProblem = new Problem(new Content(xy, "饥饿", "几天没吃吃饭", new DateTime(2019, 6, 5))) { Reward = 3 };
+            Problem xyStudyProblem = new Problem(new Content(xy, "小龙虾", "好想吃小龙虾", new DateTime(2019, 6, 12))) { Reward = 4 };
             List<Problem> problems = new List<Problem> { fgProblem, xyProblem, xyStudyProblem };
             //where条件筛选
             //var goodboy = from b in yz
@@ -312,7 +313,6 @@ namespace assignment
             //foreach (var item in fgArticle)
             //{
             //    Console.WriteLine(item.Title);
-
             //}
             ////找出2019年1月1日以后“小鱼”发布的文章
             //var xyArticle = from b in ts
@@ -375,16 +375,14 @@ namespace assignment
             //为求助（Problem）添加悬赏（Reward）属性，
             //并找出每一篇求助的悬赏都大于5个帮帮币的文章作者
 
-
-            #endregion
-            //var RecentlyPublic = ts.OrderByDescending(o=>o.date).GroupBy(g => g.Author.name);
-            //var x = RecentlyPublic.SelectMany(s => s, (s, m) => new { s, m });
-
-            //foreach (var item in x)
+            //var RecentlyPublic = new TRepository<Article>().Get().OrderByDescending(o => o.Content._date).GroupBy(g => g.Content.Author);
+            //var a = RecentlyPublic.First();
+            //foreach (var item in a)
             //{
-            //    Console.WriteLine($"{item.m.Title}:{item.m.date}");
-            //}
 
+            //    Console.WriteLine($"{item.Content.Author.Name}:{item.Content.Title}:{item.Content._date}");
+            //}
+            #endregion
 
             #endregion
 
@@ -413,6 +411,114 @@ namespace assignment
             //children();
             #endregion
 
+            //按以下格式生成一个XML对象： 
+            XElement bang = new XElement(
+                "articles", new XComment("!--以下存放所有“源栈”所有文章--"),
+                new XElement(
+                    "article", new XAttribute("isDraft", "false"),
+                     new XElement("id", 1),
+                     new XElement("title", "源栈培训：C#进阶-7：Linq to XML"),
+                     new XElement("body", "什么是XML（EXtensible Markup " +
+                     "Language）是一种文本文件格式被设计用来传输和存储数据由：" +
+                     "标签和属性组成元素（节点），由元素组成“树状结构”必须" +
+                     "有而且只能有一个根节点其他："),
+                     new XElement("authorId", 1),
+                     new XElement("publishDate", "2019/6/18 18:15"),
+                     new XElement(
+                         "comments",
+                         new XElement(
+                         "comment", new XAttribute("recommend", "true"),
+                         new XElement("id", 12),
+                         new XElement("body", "不错，赞!"),
+                         new XElement("authorId", 2)
+                         ),
+                         new XElement(
+                         "comment", new XElement("id", 14),
+                         new XElement("body", "作业太难了"),
+                         new XElement("authorId", "3")
+                         )
+                     )
+                 ),
+                 new XElement(
+                     "article",
+                     new XAttribute("isDraft", "true"),
+                     new XElement("id", 2),
+                     new XElement("title", "源栈培训：C#进阶-6：异步和并行"),
+                     new XElement("authorId", 1)
+                  )
+            );
+
+            //然后，将其以文件形式存放到磁盘中； 
+            //bang.Save(@"C:\17bang\fg\ban");
+
+            //再从磁盘中读取到内存中。 
+            XElement element = XElement.Load(@"C:\17bang\fg\ban");
+
+            //在根节点下添加一个新的article元素，内容至少包含id、title和authorId
+            element.Add(new XElement("article",
+                new XElement("id", "3"),
+                new XElement("title", "今天作业好多啊！"),
+                new XElement("authorId", "3")
+                )
+             );
+
+            //删除id = 12的评论
+            //方法1
+            var commen = element.Descendants("comment").Where(w => w.Element("id").Value == 12.ToString());
+            //commen.Remove();
+
+            //方法2
+            //IEnumerable <XElement> comment = element.Element("article")
+            //   .Element("comments").Elements();
+            //var targetcomment = commen.Where(w => Convert.ToInt32(w.Element("id").Value) == 12);
+            //targetcomment.Remove();
+
+            //  改变id = 2的article：isDraft = false，title = 源栈培训：C#进阶-8：异步和并行 
+            //var articlelist = element.Elements().Where(w => Convert.ToInt32(w.Element("id").Value) == 2).Single();
+            //articlelist.SetAttributeValue("isDraft", "false");
+            //articlelist.Element("title").SetValue("源栈培训：C#进阶-8：异步和并行");
+
+            //参照上述articles，代码生成一个XML的users对象，能够存放用户的id、name和password，然后并存放到磁盘
+            //扩展user和articles的内容，使其能够完成以下操作： 
+            //根据用户名查找他发布的全部文章
+            //统计出每个用户各发表了多少篇文章
+            //查出每个用户最近发布的一篇文章
+            //每个用户评论最多的一篇文章
+            //删除没有发表文章的用户
+            XElement users = new XElement(
+                "user",
+                new XElement("id", 1),
+                new XElement("name", "龙顺金"),
+                new XElement("password", 1234)
+                );
+            element.Elements("article").Where(w => w.Element("id").Value == 1.ToString()).Single().AddFirst(users);
+            var art = element.Elements("article").Where(w => w.Element("id").Value == 2.ToString()).Single();
+            art.AddFirst(users);
+
+            art.Add(new XElement("publishDate", "2019,6,19"));
+            art.Add(
+                    );
+
+
+
+
+
+
+
+            Console.WriteLine(element);
+
+
+
+            /*作业----
+             * 现有一个txt文件，里面存放了若干email地址，使用分号（;）
+             * 或者换行进行了分隔。请删除其中重复的email地址，并按每30个
+             * email一行（行内用;分隔）重新组织
+             * 测试1
+             * removeRepeatTest()=>没有输出“有重复”
+             * 
+             * */
+            //removeRepeat(@"C:\17bang\yzHomework\email.txt");
+
 
 
 
@@ -424,7 +530,6 @@ namespace assignment
         {
             Console.WriteLine("点击事件");
         }
-
         static void ForEach<T>(T[] array)
         {
             foreach (T j in array)
@@ -483,6 +588,71 @@ namespace assignment
                 }
             }
         }
+        static IList<string> removeRepeat(string path)
+        {
+            IEnumerable<string> emailFile = File.ReadLines(path);
+            IList<string> emailList = new List<string>();
+            int x = 0, y = 0;
+            foreach (var item in emailFile)
+            {
+
+                string[] email = item.Split(";");
+                using (StreamWriter writer = File.AppendText(@"C:\17bang\yzHomework\emailList.txt"))
+                {
+                    foreach (var i in email)
+                    {
+                        if (!emailList.Contains(i))
+                        {
+                            emailList.Add(i);
+                            x++;
+
+                            writer.Write(i + " ; ");
+
+                            Console.Write(i + " ; ");
+                            if (x == 30)
+                            {
+                                x = 0;
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                writer.WriteLine();
+                                writer.WriteLine();
+
+                            }
+                        }
+                        else
+                        {
+                            y++;
+                        }
+                    }
+                }
+
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine($"有{y}处重复被去除");
+            //StreamWriter writer = File.CreateText(@"C:\17bang\yzHomework\emailList.txt");
+
+
+
+            return emailList;
+        }
+        static void removeRepeatTest()
+        {
+
+            IList<string> emailList = new List<string>();
+            foreach (var item in removeRepeat(@"C:\17bang\yzHomework\email.txt"))
+            {
+                if (!emailList.Contains(item))
+                {
+                    emailList.Add(item);
+                }
+                else
+                {
+                    Console.WriteLine("有重复");
+                }
+            }
+        }
+       
     }
 
 
@@ -579,7 +749,7 @@ namespace assignment
         }
 
     }
-    internal class FG<T> where T : IComparable/*, IConvertible*/
+    internal class FG<T> where T : IComparable, IConvertible
     {
         //public FG(T a, T b)
         //{

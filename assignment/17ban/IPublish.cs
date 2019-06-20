@@ -4,8 +4,8 @@ using System.Text;
 
 namespace assignment._17ban
 {
-    class Publish
+    public interface IPublish<T>
     {
-        internal Article article { get; set; } 
+        void Public(T repository, DateTime date);
     }
 }

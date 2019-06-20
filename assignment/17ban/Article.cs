@@ -4,11 +4,20 @@ using System.Text;
 
 namespace assignment._17ban
 {
-    class Article : Common
+    public class Article : IPublish<ArticleRepository>
     {
+  
         internal List<Comment> comment { get; set; }
         internal Appraise appraise { get; set; }
         internal List<KeyWord> keyWords { get; set; }
-
+        public Content Content;
+        public Article(Content content)
+        {
+            Content = content;
+        }
+        public void Public(ArticleRepository repository, DateTime date)
+        {
+            repository.Add(this,date);
+        }
     }
 }
