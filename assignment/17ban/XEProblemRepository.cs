@@ -5,28 +5,29 @@ using System.Xml.Linq;
 
 namespace assignment._17ban
 {
-    class ProblemRepository : IRepository<Problem>
+    class XEProblemRepository
     {
-        private static IList<Problem> Trepository;
-        public IList<Problem> Get()
+        private static XElement Trepository;
+        public XElement Get()
         {
             return Trepository;
         }
         public void Add(Problem problem)
         {
-            if (Trepository == null)
+            if (Trepository != null)
             {
-                Trepository = new List<Problem>();
+                Trepository.Add(problem);
             }
             else
             {
-
+                Trepository = new XElement("problems");
+                Trepository.Add(problem);
             }
-            Trepository.Add(problem);
         }
         public IList<Problem> GetBy(string title)
         {
             return new List<Problem>();
         }
     }
+   
 }

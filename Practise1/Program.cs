@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Practise
 {
@@ -109,17 +110,63 @@ namespace Practise
             //Console.WriteLine(document);
             #endregion
 
-            Thread primary = Thread.CurrentThread;
-            Thread work = new Thread(new ThreadStart(process));
-            Console.WriteLine(work.ManagedThreadId);
-            Console.WriteLine(work.IsThreadPoolThread);
-            Console.WriteLine(work.Priority);
-            Console.WriteLine(Thread.GetDomain().FriendlyName);
+            //Thread current = Thread.CurrentThread;
+            //Thread current = new Thread(new ThreadStart(process));
+            //work.IsBackground = true;
+            //current.Start();
+            //Thread.Sleep(3000);
+            //Console.WriteLine("111");
+            //Console.WriteLine("111");
+            //Console.WriteLine("111");
+
+            Action getup=() =>
+            {
+                Console.WriteLine($"Action里面的1：Task-{Task.CurrentId},ThreadId-{Thread.CurrentThread.ManagedThreadId}");
+                Console.WriteLine($"Action里面的2：Task-{Task.CurrentId},ThreadId-{Thread.CurrentThread.ManagedThreadId}");
+               
+            };
+               
+            Func<long> func = () => {
+                Console.WriteLine($"Func里面的1：Task-{Task.CurrentId},ThreadId-{Thread.CurrentThread.ManagedThreadId}");
+                Console.WriteLine($"Func里面的2：Task-{Task.CurrentId},ThreadId-{Thread.CurrentThread.ManagedThreadId}");
+
+                return DateTime.Now.Ticks;
+            };
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine($"第{i + 1}次");
+                //Task t = new Task(getup);
+                Task<long> t = new Task<long>(func);
+                t.Start();
+
+                Console.WriteLine($"外面的：Task-{Task.CurrentId},ThreadId-{Thread.CurrentThread.ManagedThreadId}");
+                Console.WriteLine("wwwwwwwwwwwwwwwwwwwwwwww");
+                Console.WriteLine("dddddddddddddddddddddddddddddd");
+                Console.WriteLine("sssssssssssssssssssssssssss");
+
+                //t.RunSynchronously();       //同步运行
+                t.Wait();
+                //Task t = Task.Run(getup);
+                //Task t = Task.Factory.StartNew(getup);
+                //Console.WriteLine($"t.result={t.Result}");
+                Console.WriteLine("呦吼");
+                Console.WriteLine();
+
+
+            }
             Console.ReadLine();
         }
         static void process()
         {
+            Thread current = Thread.CurrentThread;
+
             Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
+            Console.WriteLine(current.ManagedThreadId);
+            Console.WriteLine(current.IsThreadPoolThread);
+            Console.WriteLine(current.Priority);
+            Console.WriteLine(Thread.GetDomain().FriendlyName);
+            Console.WriteLine(current.ThreadState);
         }
+       
     }
 }

@@ -5,8 +5,8 @@ using System.Xml.Linq;
 
 namespace assignment._17ban
 {
-    interface IRepository
+    interface IRepository<T>
     {
-        XElement Get();
+        IList<T> Get();
     }
 }

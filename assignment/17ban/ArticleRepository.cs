@@ -6,10 +6,10 @@ using System.Xml.Linq;
 
 namespace assignment._17ban
 {
-    public class ArticleRepository : IRepository
+    public class ArticleRepository : IRepository<Article>
     {
-        private static XElement Trepository;
-        public XElement Get()
+        private static IList<Article> Trepository;
+        public IList<Article> Get()
         {
             return Trepository;
         }
@@ -17,29 +17,14 @@ namespace assignment._17ban
         {
             if (Trepository == null)
             {
-                Trepository = new XElement("articles");
-
+                Trepository = new List<Article>();
             }
             else
             {
                
             }
-            Trepository.Add(
-              new XElement(
-                "article",
-                new XElement(
-                  "user",
-                  new XElement("id", article.Content.Author.Id),
-                  new XElement("name", "id", article.Content.Author.Name),
-                  new XElement("password", article.Content.Author.Password)
-                ),
-                new XAttribute("isDraft", "true"),
-                new XElement("id", article.Content.Id),
-                new XElement("title", article.Content.Title),
-                new XElement("publishDate", publishDate),
-                new XElement("comments")
-              )
-            );
+            Trepository.Add(article);
+      
         }
         public IList<Article> GetBy(string title)
         {
