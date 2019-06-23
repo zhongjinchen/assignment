@@ -6,14 +6,14 @@ using System.Xml.Linq;
 
 namespace assignment._17ban
 {
-    public class ArticleRepository : IRepository<Article>
+    public class ArticleRepository : IArticleRepository
     {
         private static IList<Article> Trepository;
         public IList<Article> Get()
         {
             return Trepository;
         }
-        public void Add(Article article, DateTime publishDate)
+        public void Add(Article article)
         {
             if (Trepository == null)
             {
@@ -26,9 +26,9 @@ namespace assignment._17ban
             Trepository.Add(article);
       
         }
-        public IList<Article> GetBy(string title)
+        public Article GetByAuthor(string Author)
         {
-            return new List<Article>();
+            return ;
         }
     }
 }

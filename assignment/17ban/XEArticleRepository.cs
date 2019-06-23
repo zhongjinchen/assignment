@@ -5,14 +5,14 @@ using System.Xml.Linq;
 
 namespace assignment._17ban
 {
-    public class XEArticleRepository
+    public class XEArticleRepository:IArticleRepository
     {
         private static XElement Trepository;
-        public XElement Get()
+        public List<XElement> Get()
         {
             return Trepository;
         }
-        public void Add(Article article, DateTime publishDate)
+        public void Add(Article article)
         {
             if (Trepository == null)
             {
@@ -35,7 +35,7 @@ namespace assignment._17ban
                 new XAttribute("isDraft", "true"),
                 new XElement("id", article.Content.Id),
                 new XElement("title", article.Content.Title),
-                new XElement("publishDate", publishDate),
+                new XElement("publishDate", DateTime.Now),
                 new XElement("comments")
               )
             );

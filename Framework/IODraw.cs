@@ -5,6 +5,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -23,7 +24,7 @@ namespace Framework
         ////image.Save(@"C:\17bang\Hello.jpg", ImageFormat.Jpeg); 
         #endregion
 
-        //#region 作业
+        #region 作业
 
         //////参考一起帮的登录页面，绘制一个验证码图片，存放到当前项目中。验证码应包含： 
         //////随机字符串
@@ -118,29 +119,45 @@ namespace Framework
         //    image.Save(@"C:\17bang\homework.jpg", ImageFormat.Jpeg);
         //}
 
-        //#endregion
+        #endregion
         #endregion
     }
     class Captcha
     {
-        internal Random random;
-        internal Bitmap image;
-        internal Graphics g;
-        internal string path;
-        public Color StringColor { get; }
-        public Captcha(int Width, int Height, Color stringColor)
+        private Random random;
+        private Bitmap image;
+        private Graphics g;
+        private string path;
+        private int Width;
+        private int Height;
+        private Color StringColor { get; }
+        private const string str = "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+        public Captcha(int width, int height, Color stringColor)
         {
+            Width = width;
+            Height = height;
             random = new Random();
-            image =new Bitmap(Width,Height);
+
             StringColor = stringColor;
-            g = Graphics.FromImage(image);
         }
+
+        public Bitmap createCanvas()
+        {
+            return new Bitmap(Width, Height);
+        }
+
         internal Bitmap Get()
         {
             try
             {
+                Task<Bitmap> createCanvasTask = Task<Bitmap>.Run(() => createCanvas());
+                createCanvasTask.Wait();
+                image = createCanvasTask.Result;
+                g = Graphics.FromImage(image);
                 setbackground();
-                drawcode(g);
+                Thread Drawcode = new Thread(new ThreadStart(() => { drawcode(g); }));
+                Drawcode.Start();
+               
                 addNoise();
             }
             catch (Exception e)
@@ -159,8 +176,11 @@ namespace Framework
 
             try
             {
-                addLine(g);
-                addPoint();
+                Task AddLineTask = Task.Run(()=> { addLine(g); });
+                //AddLineTask.Wait();
+                //Task AddPointTask = Task.Run(()=> { addPoint(); });
+                AddLineTask.ContinueWith((x) => { addPoint(); });
+                
             }
             catch (ArgumentOutOfRangeException e)
             {
@@ -181,7 +201,7 @@ namespace Framework
         private void setbackground()
         {
             g.Clear(Color.White);
-          
+
         }
         ////保存到文件方法
         //public void Save(string path)
@@ -197,7 +217,7 @@ namespace Framework
             }
             else
             {
-                string str = "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+                
                 string firstPlaceStr = str.Substring(random.Next(str.Length), 1);
                 string scondPlaceStr = str.Substring(random.Next(str.Length), 1);
                 string thirdPlaceStr = str.Substring(random.Next(str.Length), 1);

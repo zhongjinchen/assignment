@@ -7,6 +7,11 @@ namespace assignment._17ban
 {
     interface IRepository<T>
     {
-        IList<T> Get();
+        List<T> Get();
+
+    }
+    interface IArticleRepository : IRepository<Article>
+    {
+
     }
 }

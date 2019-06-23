@@ -6,6 +6,6 @@ namespace assignment._17ban
 {
     public interface IPublish<T>
     {
-        void Public(T repository, DateTime date);
+        void Public(T repository);
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace assignment._17ban
 {
-    public class Article : IPublish<XEArticleRepository>
+    public class Article : IPublish<XEArticleRepository>,IPublish<ArticleRepository>
     {
   
         internal List<Comment> comment { get; set; }
@@ -15,9 +15,14 @@ namespace assignment._17ban
         {
             Content = content;
         }
-        public void Public(XEArticleRepository repository, DateTime date)
+        public void Public(XEArticleRepository repository)
         {
-            repository.Add(this,date);
+            repository.Add(this);
+        }
+
+        public void Public(ArticleRepository repository)
+        {
+            repository.Add(this);
         }
     }
 }

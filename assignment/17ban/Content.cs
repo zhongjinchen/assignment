@@ -6,10 +6,11 @@ namespace assignment._17ban
 {
     public class Content
     {
-        public int Id { get; }
+        internal int Id { get; }
         internal User Author { get; }
         internal string Title { get; }
         internal string Body { get; }
+        internal Comment Comment;
         //internal DateTime _date { get; }
         internal Content(User author, string title, string body, DateTime date)
         {
@@ -28,9 +29,7 @@ namespace assignment._17ban
         internal void Disagree()
         {
         }
-        internal void Comment()
-        {
-        }
+        
     }
 
 }
