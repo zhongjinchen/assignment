@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml.Linq;
 
-namespace assignment._17ban
+namespace assignment
 {
     class ProblemRepository : IRepository<Problem>
     {

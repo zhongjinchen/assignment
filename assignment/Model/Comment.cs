@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace assignment._17ban
+namespace assignment
 {
     class Comment:IPublish<Comment>
     {
@@ -16,7 +16,7 @@ namespace assignment._17ban
             _article = article;
         }
 
-        public void Public(TRepository<Comment> repository)
+        public void Public(IRepository<Comment> repository)
         {
             repository.Add(this);
         }

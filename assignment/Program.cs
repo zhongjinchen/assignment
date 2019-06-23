@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System.Xml.Linq;
-using assignment._17ban;
 using System.Threading;
 
 namespace assignment
@@ -20,6 +19,7 @@ namespace assignment
 
             callMethod.XML();
 
+            ArticleFactory.inti();
 
             Console.Read();
         }

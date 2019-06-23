@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace assignment._17ban
+namespace assignment
 {
     class Suggest : IPublish<Suggest>
     {

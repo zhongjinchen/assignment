@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
-namespace assignment._17ban
+namespace assignment
 {
-    public class ArticleRepository : IArticleRepository
+    public class MArticleRepository : IRepository<Article>
     {
         private static IList<Article> Trepository;
         public IList<Article> Get()
@@ -29,6 +29,11 @@ namespace assignment._17ban
         public Article GetByAuthor(string Author)
         {
             return ;
+        }
+
+        public Article Load()
+        {
+            throw new NotImplementedException();
         }
     }
 }

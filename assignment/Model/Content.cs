@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace assignment._17ban
+namespace assignment
 {
     public class Content
     {
@@ -12,7 +12,7 @@ namespace assignment._17ban
         internal string Body { get; }
         internal Comment Comment;
         //internal DateTime _date { get; }
-        internal Content(User author, string title, string body, DateTime date)
+        internal Content(User author, string title, string body)
         {
             Author = author;
             Title = title;

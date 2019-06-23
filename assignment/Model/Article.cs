@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace assignment._17ban
+namespace assignment
 {
-    public class Article : IPublish<XEArticleRepository>,IPublish<ArticleRepository>
+    public class Article : IPublish<XArticleRepository>,IPublish<MArticleRepository>
     {
   
         internal List<Comment> comment { get; set; }
@@ -15,12 +15,12 @@ namespace assignment._17ban
         {
             Content = content;
         }
-        public void Public(XEArticleRepository repository)
+        public void Public()
         {
-            repository.Add(this);
+            
         }
 
-        public void Public(ArticleRepository repository)
+        public void Public(MArticleRepository repository)
         {
             repository.Add(this);
         }
