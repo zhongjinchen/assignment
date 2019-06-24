@@ -10,9 +10,11 @@ namespace assignment
     {
         private const string path = @"C:\17bang\repoistory\Articl";
         private static IList<Article> Trepository;
+        private XElement articles;
+
         public override IList<Article> Get()
         {
-            XElement articles = XElement.Load(path);
+            articles = XElement.Load(path);
             IList<XElement> XArticles =(IList<XElement>)articles.Descendants();
             IList<Article> result = new List<Article>();
             foreach (var item in XArticles)
@@ -20,29 +22,32 @@ namespace assignment
                 result.Add(MapIntoModel(item));
                 return result;
             }
-            //    XElement New = MapIntoXml(article);
-            //    old.Add(New);
             return Trepository;
         }
+
         public override void Add(Article article)
         {
             if (File.Exists(path))
             {
-           
             }
             else
             {
-                File.CreateText(path);
+                //File.CreateText(path);
+                XElement element = new XElement("articles");
+                Save();
             }
-            XElement old = XElement.Load(path);
+            articles = XElement.Load(path);
             XElement New = MapIntoXml(article);
-            old.Add(New);
+            articles.Add(New);
+            Save();
         }
+
         public void Save()
         {
-
+            articles.Save(path);
         }
-        public IList<Article> GetBy(string title)
+
+        public IList<Article> GetById(int Id)
         {
             return new List<Article>();
         }
@@ -51,6 +56,8 @@ namespace assignment
         {
             throw new NotImplementedException();
         }
+
+        //XElement转换成Article方法
         public Article MapIntoModel(XElement element )
         {
             int UserId = Convert.ToInt32(element.Element("user").Element("id").Value);
@@ -62,6 +69,8 @@ namespace assignment
 
             return new Article(new Content(user,title,body));
         }
+
+        //Article转换成XElement方法
         public XElement MapIntoXml(Article article)
         {
 

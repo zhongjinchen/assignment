@@ -19,14 +19,14 @@ namespace assignment
             {
                 Trepository = new List<Article>();
             }
+
             else
             {
-               
             }
             Trepository.Add(article);
-      
         }
-        public Article GetByAuthor(string Author)
+
+        public Article GetById(int Id)
         {
             return ;
         }
