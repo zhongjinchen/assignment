@@ -137,7 +137,6 @@ namespace Framework
             Width = width;
             Height = height;
             random = new Random();
-
             StringColor = stringColor;
         }
 
@@ -157,7 +156,6 @@ namespace Framework
                 setbackground();
                 Thread Drawcode = new Thread(new ThreadStart(() => { drawcode(g); }));
                 Drawcode.Start();
-               
                 addNoise();
             }
             catch (Exception e)

@@ -4,17 +4,21 @@ using System.Text;
 
 namespace assignment
 {
-    class Problem : IPublish<Problem>
+    class Problem : IPublish<Article>
     {
-        public int Reward { get; set; }
-        private Content Content;
-        public Problem(Content content)
+        public int Reward { get; }
+        public Content Content{ get;}
+        public List<KeyWord> KeyWords { get; }
+
+        public Problem(Content content, List<KeyWord> keyWords)
         {
             Content = content;
+            KeyWords = keyWords;
         }
-        public void Public(TRepository<Problem> repository)
+
+        public void Public()
         {
-            repository.Add(this);
+            throw new NotImplementedException();
         }
     }
 }

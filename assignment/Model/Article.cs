@@ -4,25 +4,22 @@ using System.Text;
 
 namespace assignment
 {
-    public class Article : IPublish<XArticleRepository>,IPublish<MArticleRepository>
+    public class Article : IPublish<Article>
     {
   
-        internal List<Comment> comment { get; set; }
-        internal Appraise appraise { get; set; }
-        internal List<KeyWord> keyWords { get; set; }
+        public List<Comment> comment { get; }
+        public Appraise appraise { get; }
+        public List<KeyWord> KeyWords { get; }
         public Content Content;
-        public Article(Content content)
+        public Article(Content content,List<KeyWord> keyWords )
         {
             Content = content;
+            KeyWords = keyWords;
         }
         public void Public()
         {
             
         }
 
-        public void Public(MArticleRepository repository)
-        {
-            repository.Add(this);
-        }
     }
 }

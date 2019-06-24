@@ -23,7 +23,7 @@ namespace Framework
                     Captcha draw = new Captcha(200, 200, Color.Blue);
                     Bitmap image=draw.Get();
                     Task Save = Task.Run(() =>{ image.Save(@"C:\17bang\homework.jpg", ImageFormat.Jpeg); });
-                    
+                    Save.Wait();
                 }
                 catch (StringColorErrorException e)
                 {
@@ -39,8 +39,22 @@ namespace Framework
                 }
                 finally
                 {
-
                 }
+                //  catch (StringColorErrorException e)
+                //{
+                //    Console.WriteLine("字符串颜色不能为白色");
+                //}
+                //catch (ArgumentOutOfRangeException e)
+                //{
+                //    Console.WriteLine("线超出界限");
+                //}
+                //catch (Exception e)
+                //{
+                //    Console.WriteLine(e);
+                //}
+                //finally
+                //{
+                //}
             }
 
             //作业： 

@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace assignment
 {
-    class ProblemRepository : IRepository<Problem>
+    class ProblemRepository : Repository<Problem>
     {
         private static IList<Problem> Trepository;
         public IList<Problem> Get()
@@ -24,9 +24,15 @@ namespace assignment
             }
             Trepository.Add(problem);
         }
-        public IList<Problem> GetBy(string title)
+
+        public Problem GetById()
         {
-            return new List<Problem>();
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Problem model)
+        {
+            throw new NotImplementedException();
         }
     }
 }

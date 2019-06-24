@@ -4,10 +4,15 @@ using System.Text;
 
 namespace assignment
 {
-    public class XRepository<T> : IRepository<T>
+    public class Repository<T> : IRepository<T>
     {
 
         public virtual void Add(T model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(T model)
         {
             throw new NotImplementedException();
         }
@@ -17,10 +22,9 @@ namespace assignment
             throw new NotImplementedException();
         }
 
-        public T Load()
+        public T GetById()
         {
             throw new NotImplementedException();
         }
-
     }
 }

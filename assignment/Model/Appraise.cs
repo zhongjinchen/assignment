@@ -4,6 +4,6 @@ using System.Text;
 
 namespace assignment
 {
-    class Appraise { }
+    public class Appraise { }
 
 }

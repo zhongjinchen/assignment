@@ -24,7 +24,7 @@ namespace assignment
         }
         public void Make()
         {
-            Article article = new Article();
+            Article article = new Article(new Content(new User(1,"",1234), "", ""),new List<KeyWord>());
             article.Public();
             IRepository<Article> repository = new XArticleRepository();
             repository.Add(article);

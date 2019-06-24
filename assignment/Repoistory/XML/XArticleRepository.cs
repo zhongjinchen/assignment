@@ -6,10 +6,10 @@ using System.IO;
 
 namespace assignment
 {
-    public class XArticleRepository:XRepository<Article>
+    public class XArticleRepository:Repository<Article>
     {
         private const string path = @"C:\17bang\repoistory\Articl";
-        private static IList<Article> Trepository;
+    
         private XElement articles;
 
         public override IList<Article> Get()
@@ -20,9 +20,9 @@ namespace assignment
             foreach (var item in XArticles)
             {
                 result.Add(MapIntoModel(item));
-                return result;
+                
             }
-            return Trepository;
+            return result;
         }
 
         public override void Add(Article article)
@@ -47,14 +47,9 @@ namespace assignment
             articles.Save(path);
         }
 
-        public IList<Article> GetById(int Id)
+        public Article GetById(int Id)
         {
-            return new List<Article>();
-        }
-
-        public Article Load()
-        {
-            throw new NotImplementedException();
+            return new Article();
         }
 
         //XElement转换成Article方法
@@ -67,7 +62,7 @@ namespace assignment
             string title = element.Element("title").Value.ToString();
             string body= element.Element("body").Value.ToString();
 
-            return new Article(new Content(user,title,body));
+            return new Article(new Content(user,title,body), new List<KeyWord>());
         }
 
         //Article转换成XElement方法

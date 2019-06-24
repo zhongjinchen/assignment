@@ -4,21 +4,24 @@ using System.Text;
 
 namespace assignment
 {
-    class Comment:IPublish<Comment>
+    public class Comment:IPublish<Comment>
     {
-        internal Article _article { get; }
-        internal User user { get; }
-        internal Appraise appraise { get; set; }
-        internal string content { get; set; }
-        internal IPublish<Comment> publish { get; }
+        public Article _article { get; }
+        public User user { get; }
+        public Appraise appraise { get;}
+        public string content { get; }
+        public IPublish<Comment> publish { get; }
         public Comment(Article article)
         {
             _article = article;
         }
-
-        public void Public(IRepository<Comment> repository)
+        public void Add()
         {
-            repository.Add(this);
+            _article.comment.Add(this);
+        }
+        public void Public()
+        {
+            
         }
     }
 }

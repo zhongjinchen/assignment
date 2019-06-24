@@ -245,10 +245,10 @@ namespace assignment
         Classmate wx = new Classmate { name = "wx", age = 25, teacher = FG };
 
         IList<Classmate> yz = new List<Classmate> { xl, lm, wx };
-        Problem fgProblem = new Problem(new Content(fg, "飞哥", "我要健身", new DateTime(2019, 6, 2))) { Reward = 6 };
-        Problem xyProblem = new Problem(new Content(xy, "饥饿", "几天没吃吃饭", new DateTime(2019, 6, 5))) { Reward = 3 };
-        Problem xyStudyProblem = new Problem(new Content(xy, "小龙虾", "好想吃小龙虾", new DateTime(2019, 6, 12))) { Reward = 4 };
-        List<Problem> problems = new List<Problem> { fgProblem, xyProblem, xyStudyProblem };
+        Article fgProblem = new Article(new Content(fg, "飞哥", "我要健身", new DateTime(2019, 6, 2))) { Reward = 6 };
+        Article xyProblem = new Article(new Content(xy, "饥饿", "几天没吃吃饭", new DateTime(2019, 6, 5))) { Reward = 3 };
+        Article xyStudyProblem = new Article(new Content(xy, "小龙虾", "好想吃小龙虾", new DateTime(2019, 6, 12))) { Reward = 4 };
+        List<Article> problems = new List<Article> { fgProblem, xyProblem, xyStudyProblem };
         //where条件筛选
         //var goodboy = from b in yz
         //              where b.name.StartsWith("l")

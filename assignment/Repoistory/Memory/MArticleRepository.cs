@@ -28,10 +28,15 @@ namespace assignment
 
         public Article GetById(int Id)
         {
-            return ;
+            return null;
         }
 
-        public Article Load()
+        public Article GetById()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Article model)
         {
             throw new NotImplementedException();
         }

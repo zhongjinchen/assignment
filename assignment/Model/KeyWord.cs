@@ -4,7 +4,7 @@ using System.Text;
 
 namespace assignment
 {
-    class KeyWord
+    public class KeyWord
     {
         internal string name { get; set; }
         internal List<Article> articles { get; set; }
