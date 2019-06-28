@@ -4,9 +4,8 @@ using System.Text;
 
 namespace assignment
 {
-    public class IAppraise 
-    {    
+    class Reflect
+    {
      
     }
-
 }

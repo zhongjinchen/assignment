@@ -9,7 +9,8 @@ namespace assignment
         public int Reward { get; }
         public Content Content{ get;}
         public List<KeyWord> KeyWords { get; }
-
+        public int AgreeCount;
+        public int DisagreeCount;
         public Problem(Content content, List<KeyWord> keyWords)
         {
             Content = content;

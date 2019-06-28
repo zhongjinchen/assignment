@@ -233,159 +233,159 @@ namespace assignment
         //} 
         #endregion
 
-        #region Linq
-        //14,----Linq
-        Teacher XY = new Teacher { teachers = "小余", age = 25 };
-        Teacher FG = new Teacher { teachers = "飞哥", age = 38 };
-        Teacher AJ = new Teacher { teachers = "阿杰", age = 38 };
+        //#region Linq
+        ////14,----Linq
+        //Teacher XY = new Teacher { teachers = "小余", age = 25 };
+        //Teacher FG = new Teacher { teachers = "飞哥", age = 38 };
+        //Teacher AJ = new Teacher { teachers = "阿杰", age = 38 };
 
 
-        Classmate xl = new Classmate { name = "xl", age = 21, teacher = XY };
-        Classmate lm = new Classmate { name = "lm", age = 18, teacher = XY };
-        Classmate wx = new Classmate { name = "wx", age = 25, teacher = FG };
+        //Classmate xl = new Classmate { name = "xl", age = 21, teacher = XY };
+        //Classmate lm = new Classmate { name = "lm", age = 18, teacher = XY };
+        //Classmate wx = new Classmate { name = "wx", age = 25, teacher = FG };
 
-        IList<Classmate> yz = new List<Classmate> { xl, lm, wx };
-        Article fgProblem = new Article(new Content(fg, "飞哥", "我要健身", new DateTime(2019, 6, 2))) { Reward = 6 };
-        Article xyProblem = new Article(new Content(xy, "饥饿", "几天没吃吃饭", new DateTime(2019, 6, 5))) { Reward = 3 };
-        Article xyStudyProblem = new Article(new Content(xy, "小龙虾", "好想吃小龙虾", new DateTime(2019, 6, 12))) { Reward = 4 };
-        List<Article> problems = new List<Article> { fgProblem, xyProblem, xyStudyProblem };
-        //where条件筛选
-        //var goodboy = from b in yz
-        //              where b.name.StartsWith("l")
-        //              select b;
-        //foreach (var item in goodboy)
-        //{
-        //    Console.WriteLine(item.name);
+        //IList<Classmate> yz = new List<Classmate> { xl, lm, wx };
+        //Article fgProblem = new Article(new Content(fg, "飞哥", "我要健身", new DateTime(2019, 6, 2))) { Reward = 6 };
+        //Article xyProblem = new Article(new Content(xy, "饥饿", "几天没吃吃饭", new DateTime(2019, 6, 5))) { Reward = 3 };
+        //Article xyStudyProblem = new Article(new Content(xy, "小龙虾", "好想吃小龙虾", new DateTime(2019, 6, 12))) { Reward = 4 };
+        //List<Article> problems = new List<Article> { fgProblem, xyProblem, xyStudyProblem };
+        ////where条件筛选
+        ////var goodboy = from b in yz
+        ////              where b.name.StartsWith("l")
+        ////              select b;
+        ////foreach (var item in goodboy)
+        ////{
+        ////    Console.WriteLine(item.name);
 
-        //}
+        ////}
 
-        //排序
-        //var order = from o in yz
-        //            orderby o.age ascending    //降序 descending
-        //            select o;
-        //foreach (var item in order)
-        //{
-        //    Console.WriteLine(item.name+","+item.age);
-        //}
+        ////排序
+        ////var order = from o in yz
+        ////            orderby o.age ascending    //降序 descending
+        ////            select o;
+        ////foreach (var item in order)
+        ////{
+        ////    Console.WriteLine(item.name+","+item.age);
+        ////}
 
-        //分组
-        //var group = from gr in yz
-        //group gr by gr.teacher;
+        ////分组
+        ////var group = from gr in yz
+        ////group gr by gr.teacher;
 
-        //投影
-        //var select = from gr in yz
-        //group gr by gr.teacher into gm
-        //            select new { teacher = gm.Key, count = gm.Count() };
-        //foreach (var item in select)
-        //{
-        //    Console.WriteLine(item.teacher.teachers+","+item.count);
-        //}
+        ////投影
+        ////var select = from gr in yz
+        ////group gr by gr.teacher into gm
+        ////            select new { teacher = gm.Key, count = gm.Count() };
+        ////foreach (var item in select)
+        ////{
+        ////    Console.WriteLine(item.teacher.teachers+","+item.count);
+        ////}
 
-        //连接，内连接
-        //var join = from y in yz
-        //           join z in new List<Teacher> { xy, fg }
-        //           on y.teacher equals z into YZ
-        //           from r in YZ.DefaultIfEmpty()
-        //           select new { Majors = y.name, teacher = r.teachers };
+        ////连接，内连接
+        ////var join = from y in yz
+        ////           join z in new List<Teacher> { xy, fg }
+        ////           on y.teacher equals z into YZ
+        ////           from r in YZ.DefaultIfEmpty()
+        ////           select new { Majors = y.name, teacher = r.teachers };
 
-        //左连接，关键字（DefaultIfEmpty）
-        //var join = from z in new List<Teacher> { xy, fg }
-        //           join y in yz
-        //           on z equals y.teacher into YZ
-        //           from r in YZ.DefaultIfEmpty()
-        //           select new { teacher = z.teachers, Majors = r?.name ?? "没有课程"};
+        ////左连接，关键字（DefaultIfEmpty）
+        ////var join = from z in new List<Teacher> { xy, fg }
+        ////           join y in yz
+        ////           on z equals y.teacher into YZ
+        ////           from r in YZ.DefaultIfEmpty()
+        ////           select new { teacher = z.teachers, Majors = r?.name ?? "没有课程"};
 
-        //连接后分组
-        //var join = from z in new List<Teacher> { xy, fg, aj }
-        //           join y in yz
-        //           on z equals y.teacher into YZ
-        //           from r in YZ.DefaultIfEmpty()
-        //           select new { Key = z.teachers, value = YZ };
-        //foreach (var item in join)
-        //{
-        //    Console.WriteLine(item.Key + "," + item.value);
-        //}
+        ////连接后分组
+        ////var join = from z in new List<Teacher> { xy, fg, aj }
+        ////           join y in yz
+        ////           on z equals y.teacher into YZ
+        ////           from r in YZ.DefaultIfEmpty()
+        ////           select new { Key = z.teachers, value = YZ };
+        ////foreach (var item in join)
+        ////{
+        ////    Console.WriteLine(item.Key + "," + item.value);
+        ////}
 
-        //#region Link作业 1
+        ////#region Link作业 1
 
-        ////找出“飞哥”发布的文章
-        List<Article> ts = new List<Article> { eatArticle, LifeArticle, StudyArticle };
-        //var fgArticle = from a in ts
-        //                where a.Author.name == "飞哥"
-        //                select a;
-        //foreach (var item in fgArticle)
-        //{
-        //    Console.WriteLine(item.Title);
-        //}
-        ////找出2019年1月1日以后“小鱼”发布的文章
-        //var xyArticle = from b in ts
-        //                where b.date > new DateTime(2019, 1, 1) && b.Author.name == "小余"
-        //                select b;
-        //foreach (var item in xyArticle)
-        //{
-        //    Console.WriteLine(item.Title);
-        //}
-        ////按发布时间升序 / 降序排列显示文章
-        //var publicTime = from c in ts
-        //                 orderby c.date ascending     //desending
-        //                 select c;
-        //foreach (var item in publicTime)
-        //{
-        //    Console.WriteLine(item.Title + "," + item.date);
-        //}
-        ////统计每个用户各发布了多少篇文章
-        //var publicCount = from d in new List<User> { fg, xy }
-        //                  join e in ts
-        //                  on d equals e.Author into de
-        //                  from f in de.DefaultIfEmpty()
-        //                  select new { key = d, value = de.Count() };
-        //foreach (var item in publicCount)
-        //{
-        //    Console.WriteLine(item.key.name + "," + item.value);
-        //}
-        ////找出包含关键字“C#”或“.NET”的文章 
+        //////找出“飞哥”发布的文章
+        //List<Article> ts = new List<Article> { eatArticle, LifeArticle, StudyArticle };
+        ////var fgArticle = from a in ts
+        ////                where a.Author.name == "飞哥"
+        ////                select a;
+        ////foreach (var item in fgArticle)
+        ////{
+        ////    Console.WriteLine(item.Title);
+        ////}
+        //////找出2019年1月1日以后“小鱼”发布的文章
+        ////var xyArticle = from b in ts
+        ////                where b.date > new DateTime(2019, 1, 1) && b.Author.name == "小余"
+        ////                select b;
+        ////foreach (var item in xyArticle)
+        ////{
+        ////    Console.WriteLine(item.Title);
+        ////}
+        //////按发布时间升序 / 降序排列显示文章
+        ////var publicTime = from c in ts
+        ////                 orderby c.date ascending     //desending
+        ////                 select c;
+        ////foreach (var item in publicTime)
+        ////{
+        ////    Console.WriteLine(item.Title + "," + item.date);
+        ////}
+        //////统计每个用户各发布了多少篇文章
+        ////var publicCount = from d in new List<User> { fg, xy }
+        ////                  join e in ts
+        ////                  on d equals e.Author into de
+        ////                  from f in de.DefaultIfEmpty()
+        ////                  select new { key = d, value = de.Count() };
+        ////foreach (var item in publicCount)
+        ////{
+        ////    Console.WriteLine(item.key.name + "," + item.value);
+        ////}
+        //////找出包含关键字“C#”或“.NET”的文章 
+        //////var KeyWordArticle = from g in ts
+        //////                     let ks = g.keyWords
+        //////                     from k in ks
+        //////                     where k.name == "C#" || k.name == ".NET"
+        //////                     select g;
+
         ////var KeyWordArticle = from g in ts
-        ////                     let ks = g.keyWords
-        ////                     from k in ks
-        ////                     where k.name == "C#" || k.name == ".NET"
+        ////                     where g.keyWords.Any(
+        ////                         k => k.name == "C#" || k.name == ".NET")
         ////                     select g;
 
-        //var KeyWordArticle = from g in ts
-        //                     where g.keyWords.Any(
-        //                         k => k.name == "C#" || k.name == ".NET")
-        //                     select g;
-
-        //foreach (var item in KeyWordArticle/*.Distinct()*/)
-        //{
-        //    Console.WriteLine(item.Title);
-        //}
-        //找出评论数量最多的文章
-        //var CommentOrder = from j in ts
-        //                   orderby j.comment.Count() descending
-        //                   select j;
-        //var CommentMost = CommentOrder.First();
-        //Console.WriteLine(CommentMost.Title);
+        ////foreach (var item in KeyWordArticle/*.Distinct()*/)
+        ////{
+        ////    Console.WriteLine(item.Title);
+        ////}
+        ////找出评论数量最多的文章
+        ////var CommentOrder = from j in ts
+        ////                   orderby j.comment.Count() descending
+        ////                   select j;
+        ////var CommentMost = CommentOrder.First();
+        ////Console.WriteLine(CommentMost.Title);
 
 
 
 
 
 
-        #endregion
+        //#endregion
 
-        #region Link作业 2
-        //    找出每个作者最近发布的一篇文章
-        //为求助（Problem）添加悬赏（Reward）属性，
-        //并找出每一篇求助的悬赏都大于5个帮帮币的文章作者
+        //#region Link作业 2
+        ////    找出每个作者最近发布的一篇文章
+        ////为求助（Problem）添加悬赏（Reward）属性，
+        ////并找出每一篇求助的悬赏都大于5个帮帮币的文章作者
 
-        //var RecentlyPublic = new TRepository<Article>().Get().OrderByDescending(o => o.Content._date).GroupBy(g => g.Content.Author);
-        //var a = RecentlyPublic.First();
-        //foreach (var item in a)
-        //{
+        ////var RecentlyPublic = new TRepository<Article>().Get().OrderByDescending(o => o.Content._date).GroupBy(g => g.Content.Author);
+        ////var a = RecentlyPublic.First();
+        ////foreach (var item in a)
+        ////{
 
-        //    Console.WriteLine($"{item.Content.Author.Name}:{item.Content.Title}:{item.Content._date}");
-        //}
-        #endregion
+        ////    Console.WriteLine($"{item.Content.Author.Name}:{item.Content.Title}:{item.Content._date}");
+        ////}
+        //#endregion
 
         #endregion
 

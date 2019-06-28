@@ -7,6 +7,8 @@ namespace assignment
     public class Suggest : IPublish<Suggest>
     {
         private Content Content;
+        public int AgreeCount;
+        public int DisagreeCount;
         public Suggest(Content content)
         {
             Content = content;

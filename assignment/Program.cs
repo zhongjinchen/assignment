@@ -11,15 +11,15 @@ namespace assignment
     {
         static void Main(string[] args)
         {
-            callMethod.referenceTypeCast();
+            //callMethod.referenceTypeCast();
 
-            callMethod.getSet();
+            //callMethod.getSet();
 
-            callMethod.toRepeat();
+            //callMethod.toRepeat();
 
-            callMethod.XML();
+            //callMethod.XML();
 
-            ArticleFactory.inti();
+            //ArticleFactory.inti();
 
             Console.Read();
         }

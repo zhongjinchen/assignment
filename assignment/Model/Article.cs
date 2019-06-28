@@ -8,7 +8,8 @@ namespace assignment
     {
   
         public List<Comment> comment { get; }
-        public Appraise appraise { get; }
+        //public Appraise<Article> appraise { get; }
+       
         public List<KeyWord> KeyWords { get; }
         public Content Content;
         public Article(Content content,List<KeyWord> keyWords )

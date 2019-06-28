@@ -8,7 +8,9 @@ namespace assignment
     {
         public Article _article { get; }
         public User user { get; }
-        public Appraise appraise { get;}
+        //public Appraise appraise { get;}
+        public int AgreeCount;
+        public int DisagreeCount;
         public string content { get; }
         public IPublish<Comment> publish { get; }
         public Comment(Article article)

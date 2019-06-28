@@ -11,7 +11,9 @@ namespace assignment
         internal string Title { get; }
         internal string Body { get; }
         internal Comment Comment;
-        //internal DateTime _date { get; }
+        internal IList<Agree> Agrees;
+        internal IList<Disagree> Disagrees;
+
         internal Content(User author, string title, string body)
         {
             Author = author;
