@@ -22,7 +22,7 @@ namespace assignment
             throw new NotImplementedException();
         }
 
-        public T GetById()
+        public T GetBy(int id)
         {
             throw new NotImplementedException();
         }

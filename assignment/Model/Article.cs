@@ -4,20 +4,22 @@ using System.Text;
 
 namespace assignment
 {
-    public class Article : IPublish<Article>
+    public class Article : IPublish
     {
-  
-        public List<Comment> comment { get; }
-        //public Appraise<Article> appraise { get; }
-       
+        public Message Message { get; }
+        public Content Content { get; }
+        public List<Comment> Comments { get; }
+        public Appraise appraise { get; }
         public List<KeyWord> KeyWords { get; }
-        public Content Content;
-        public Article(Content content,List<KeyWord> keyWords )
+
+        public Article(Content content, Message message, List<KeyWord> keyWords )
         {
             Content = content;
+            Message = message;
             KeyWords = keyWords;
         }
-        public void Public()
+
+        public void Publish()
         {
             
         }

@@ -4,8 +4,8 @@ using System.Text;
 
 namespace assignment
 {
-    public interface IPublish<T>
+    public interface IPublish
     {
-        void Public();
+        void Publish();
     }
 }

@@ -4,13 +4,11 @@ using System.Text;
 
 namespace assignment
 {
-    class Disagree
+    class UserRepoistory
     {
-
-        public Disagree()
+        public static User Get(int id)
         {
-           
+            return null;
         }
-
     }
 }

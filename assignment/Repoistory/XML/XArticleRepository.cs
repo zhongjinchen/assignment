@@ -8,14 +8,14 @@ namespace assignment
 {
     public class XArticleRepository:Repository<Article>
     {
-        private const string path = @"C:\17bang\repoistory\Articl";
+        private const string _path = @"C:\17bang\repoistory\Articl";
     
-        private XElement articles;
+        private XElement _articles;
 
         public override IList<Article> Get()
         {
-            articles = XElement.Load(path);
-            IList<XElement> XArticles =(IList<XElement>)articles.Descendants();
+            _articles = XElement.Load(_path);
+            IList<XElement> XArticles =(IList<XElement>)_articles.Descendants();
             IList<Article> result = new List<Article>();
             foreach (var item in XArticles)
             {
@@ -27,29 +27,29 @@ namespace assignment
 
         public override void Add(Article article)
         {
-            if (File.Exists(path))
-            {
-            }
-            else
+            //只考虑“File.Exists(_path)==false”的情况
+            if (File.Exists(_path)==false)
             {
                 //File.CreateText(path);
                 XElement element = new XElement("articles");
                 Save();
             }
-            articles = XElement.Load(path);
+
+            _articles = XElement.Load(_path);
             XElement New = MapIntoXml(article);
-            articles.Add(New);
+            _articles.Add(New);
             Save();
         }
 
         public void Save()
         {
-            articles.Save(path);
+            _articles.Save(_path);
         }
 
         public Article GetById(int Id)
         {
-            return new Article();
+            //return new Article();
+            throw new NotImplementedException();
         }
 
         //XElement转换成Article方法

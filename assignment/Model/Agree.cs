@@ -10,9 +10,6 @@ namespace assignment
         {
             
         }
-        public void agree()
-        {
 
-        }
     }
 }

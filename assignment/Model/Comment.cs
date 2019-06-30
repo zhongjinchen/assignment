@@ -4,24 +4,25 @@ using System.Text;
 
 namespace assignment
 {
-    public class Comment:IPublish<Comment>
+    public class Comment:IPublish
     {
-        public Article _article { get; }
-        public User user { get; }
-        //public Appraise appraise { get;}
+        public int Id { get; }
+        public Article Article { get; }
+        public User User { get; }
+        public Appraise appraise { get; }
         public int AgreeCount;
         public int DisagreeCount;
-        public string content { get; }
-        public IPublish<Comment> publish { get; }
+        public string Body { get; }
+
         public Comment(Article article)
         {
-            _article = article;
+            Article = article;
         }
         public void Add()
         {
-            _article.comment.Add(this);
+            Article.Comments.Add(this);
         }
-        public void Public()
+        public void Publish()
         {
             
         }

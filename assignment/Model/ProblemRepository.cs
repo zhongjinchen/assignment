@@ -7,22 +7,22 @@ namespace assignment
 {
     class ProblemRepository : Repository<Problem>
     {
-        private static IList<Problem> Trepository;
+        private static IList<Problem> Repository;
         public IList<Problem> Get()
         {
-            return Trepository;
+            return Repository;
         }
         public void Add(Problem problem)
         {
-            if (Trepository == null)
+            if (Repository == null)
             {
-                Trepository = new List<Problem>();
+                Repository = new List<Problem>();
             }
             else
             {
 
             }
-            Trepository.Add(problem);
+            Repository.Add(problem);
         }
 
         public Problem GetById()

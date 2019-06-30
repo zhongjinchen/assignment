@@ -4,7 +4,7 @@ using System.Text;
 
 namespace assignment
 {
-    public class Suggest : IPublish<Suggest>
+    public class Suggest : IPublish
     {
         private Content Content;
         public int AgreeCount;
@@ -15,7 +15,7 @@ namespace assignment
         }
 
 
-        public void Public()
+        public void Publish()
         {
             throw new NotImplementedException();
         }

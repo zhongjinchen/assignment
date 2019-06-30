@@ -4,26 +4,39 @@ using System.Text;
 
 namespace Practise
 {
-    class ReadonlyConst
+    public interface IReadonlyConst
     {
-        internal readonly Abb _a;
+
+        int MyProperty { get; set; }    //属性简写（prop）
+        void C();
+
+        void relect();
+    
+    }
+    public class ReadonlyConst:IReadonlyConst
+    {
+        public readonly Abb _a;
         public const int b = 2;
         public readonly int f = 9;
-
+        private int _age = 32;
         public ReadonlyConst(Abb a)       //构造函数简写（ctor）
         {
             _a = a;
         }
         public int MyProperty { get; set; }    //属性简写（prop）
-        public void c()
+        public void C()
         {
             const int d = 8;
             int e = f;
             int g = b;
 
         }
+        public void relect()
+        {
+            Console.WriteLine($"{_a}反射");
+        }
     }
-    class Abb { }
+    public class Abb { }
     class Baa : ReadonlyConst
     {
         public Baa(Abb d) : base(d)     //如果父类构造函数有形参，子类必须继承

@@ -8,30 +8,23 @@ namespace assignment
 {
     public class MArticleRepository : IRepository<Article>
     {
-        private static IList<Article> Trepository;
+        private static IList<Article> Repository;
         public IList<Article> Get()
         {
-            return Trepository;
+            return Repository;
         }
         public void Add(Article article)
         {
-            if (Trepository == null)
+            //只考虑“Trepository == null”的情况
+            if (Repository == null)
             {
-                Trepository = new List<Article>();
+                Repository = new List<Article>();
             }
 
-            else
-            {
-            }
-            Trepository.Add(article);
+            Repository.Add(article);
         }
 
-        public Article GetById(int Id)
-        {
-            return null;
-        }
-
-        public Article GetById()
+        public Article GetBy(int id)
         {
             throw new NotImplementedException();
         }

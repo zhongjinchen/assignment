@@ -4,8 +4,11 @@ using System.Text;
 
 namespace assignment
 {
-    class Reflect
+    class UserFactory
     {
-     
+        public void Make()
+        {
+
+        }
     }
 }

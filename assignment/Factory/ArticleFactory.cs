@@ -12,7 +12,7 @@ namespace assignment
         {
             _repository = repository;
         }
-        public static void inti()
+        public static void init()
         {
             //#if XML
             //            ArticleFactory articleFactory = new ArticleFactory(new XArticleRepository());
@@ -24,10 +24,11 @@ namespace assignment
         }
         public void Make()
         {
-            Article article = new Article(new Content(new User(1,"",1234), "", ""),new List<KeyWord>());
-            article.Public();
-            IRepository<Article> repository = new XArticleRepository();
-            repository.Add(article);
+            User lc = UserRepoistory.Get(/*id*/1);
+            Article article = new Article(new Content( "", ""),new Message(),new List<KeyWord>());
+            article.Publish();
+            _repository = new XArticleRepository();
+            _repository.Add(article);
         }
     }
 }

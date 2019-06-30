@@ -115,6 +115,9 @@ namespace Practise
             Reflect reflect = new Reflect();
             reflect.reflectCall();
 
+            Attribute attribute = OnlineAttribute.GetCustomAttribute(typeof(Reflect), typeof(OnlineAttribute));
+            Console.WriteLine(((OnlineAttribute)attribute).name);
+
             Console.ReadLine();
         }
     }

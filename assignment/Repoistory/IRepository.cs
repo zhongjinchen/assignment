@@ -7,7 +7,7 @@ namespace assignment
 {
     public interface IRepository<T>
     {
-        T GetById();
+        T GetBy(int Id);
         IList<T> Get();
         void Add(T model);
         void Delete(T model);

@@ -8,14 +8,14 @@ namespace assignment
 {
     class XEProblemRepository:Repository<Problem>
     {
-        private const string path = @"C:\17bang\repoistory\Articl";
+        private const string _path = @"C:\17bang\repoistory\Articl";
 
-        private XElement problems;
+        private XElement _problems;
 
         public override IList<Problem> Get()
         {
-            problems = XElement.Load(path);
-            IList<XElement> XProblems = (IList<XElement>)problems.Descendants();
+            _problems = XElement.Load(_path);
+            IList<XElement> XProblems = (IList<XElement>)_problems.Descendants();
             IList<Problem> result = new List<Problem>();
             foreach (var item in XProblems)
             {
@@ -27,7 +27,7 @@ namespace assignment
 
         public override void Add(Problem problem)
         {
-            if (File.Exists(path))
+            if (File.Exists(_path))
             {
             }
             else
@@ -36,20 +36,21 @@ namespace assignment
                 XElement element = new XElement("problems");
                 Save();
             }
-            problems = XElement.Load(path);
+            _problems = XElement.Load(_path);
             XElement New = MapIntoXml(problem);
-            problems.Add(New);
+            _problems.Add(New);
             Save();
         }
 
         public void Save()
         {
-            problems.Save(path);
+            _problems.Save(_path);
         }
 
         public Problem GetById(int Id)
         {
-            return new Problem();
+            //return new Problem();
+            throw new NotImplementedException();
         }
 
         //XElement转换成Problem方法

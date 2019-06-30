@@ -6,7 +6,8 @@ namespace assignment
 {
     public class KeyWord
     {
-        internal string name { get; set; }
-        internal List<Article> articles { get; set; }
+        public int Id { get; }
+        internal string Name { get; set; }
+        internal IList<Article> Articles { get; set; }
     }
 }

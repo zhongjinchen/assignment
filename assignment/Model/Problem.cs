@@ -4,11 +4,11 @@ using System.Text;
 
 namespace assignment
 {
-    class Problem : IPublish<Article>
+    class Problem : IPublish
     {
         public int Reward { get; }
         public Content Content{ get;}
-        public List<KeyWord> KeyWords { get; }
+        public IList<KeyWord> KeyWords { get; }
         public int AgreeCount;
         public int DisagreeCount;
         public Problem(Content content, List<KeyWord> keyWords)
@@ -17,7 +17,7 @@ namespace assignment
             KeyWords = keyWords;
         }
 
-        public void Public()
+        public void Publish()
         {
             throw new NotImplementedException();
         }
