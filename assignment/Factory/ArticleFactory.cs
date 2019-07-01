@@ -24,11 +24,11 @@ namespace assignment
         }
         public void Make()
         {
-            User lc = UserRepoistory.Get(/*id*/1);
-            Article article = new Article(new Content( "", ""),new Message(),new List<KeyWord>());
-            article.Publish();
-            _repository = new XArticleRepository();
-            _repository.Add(article);
+            //User lc = UserRepoistory.Get(/*id*/1);
+            //Article article = new Article(new Content( "", ""),new Message(),new List<KeyWord>());
+            //article.Publish();
+            //_repository = new XArticleRepository();
+            //_repository.Add(article);
         }
     }
 }

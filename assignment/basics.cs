@@ -521,7 +521,9 @@ namespace assignment
                * removeRepeatTest()=>没有输出“有重复”
                * 
                * */
-            //removeRepeat(@"C:\17bang\yzHomework\email.txt"); 
+            //EmailRemoveRepeat.removeRepeat(@"C:\17bang\yzHomework\email.txt");
+
+            EmailRemoveRepeat.test();
             #endregion
         }
         private static void Button_OnClick(object sender, EventArgs e)
@@ -586,70 +588,7 @@ namespace assignment
                 }
             }
         }
-        static IList<string> removeRepeat(string path)
-        {
-            IEnumerable<string> emailFile = File.ReadLines(path);
-            IList<string> emailList = new List<string>();
-            int x = 0, y = 0;
-            foreach (var item in emailFile)
-            {
-
-                string[] email = item.Split(";");
-                using (StreamWriter writer = File.AppendText(@"C:\17bang\yzHomework\emailList.txt"))
-                {
-                    foreach (var i in email)
-                    {
-                        if (!emailList.Contains(i))
-                        {
-                            emailList.Add(i);
-                            x++;
-
-                            writer.Write(i + " ; ");
-
-                            Console.Write(i + " ; ");
-                            if (x == 30)
-                            {
-                                x = 0;
-                                Console.WriteLine();
-                                Console.WriteLine();
-                                writer.WriteLine();
-                                writer.WriteLine();
-
-                            }
-                        }
-                        else
-                        {
-                            y++;
-                        }
-                    }
-                }
-
-            }
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine($"有{y}处重复被去除");
-            //StreamWriter writer = File.CreateText(@"C:\17bang\yzHomework\emailList.txt");
-
-
-
-            return emailList;
-        }
-        static void removeRepeatTest()
-        {
-
-            IList<string> emailList = new List<string>();
-            foreach (var item in removeRepeat(@"C:\17bang\yzHomework\email.txt"))
-            {
-                if (!emailList.Contains(item))
-                {
-                    emailList.Add(item);
-                }
-                else
-                {
-                    Console.WriteLine("有重复");
-                }
-            }
-        }
+ 
 
     }
     //引用类型的类型转换

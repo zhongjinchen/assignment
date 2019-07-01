@@ -63,7 +63,8 @@ namespace assignment
             string title = element.Element("title").Value.ToString();
             string body = element.Element("body").Value.ToString();
 
-            return new Problem(new Content(user, title, body),new List<KeyWord>());
+            //return new Problem(new Content( title, body),new Message(),new List<KeyWord>());
+            return null;
         }
 
         //Problem转换成XElement方法
@@ -75,12 +76,12 @@ namespace assignment
               "problem",
               new XElement(
                 "user",
-                new XElement("id", problem.Content.Author.Id),
-                new XElement("name", problem.Content.Author.Name),
-                new XElement("password", problem.Content.Author.Password)
+                new XElement("id", problem.Message.Author.Id),
+                new XElement("name", problem.Message.Author.Name),
+                new XElement("password", problem.Message.Author.Password)
               ),
               new XAttribute("isDraft", "true"),
-              new XElement("id", problem.Content.Id),
+              new XElement("id", problem.Message.Id),
               new XElement("title", problem.Content.Title),
               new XElement("publishDate", DateTime.Now),
               new XElement("comments")

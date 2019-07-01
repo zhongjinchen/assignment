@@ -21,7 +21,11 @@ namespace assignment
 
             //ArticleFactory.inti();
 
-            aReflect.aReflectCall();
+            //aReflect.aReflectCall();
+
+            callMethod.toRepeat();
+
+
 
             Console.Read();
         }

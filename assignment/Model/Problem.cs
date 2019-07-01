@@ -7,13 +7,15 @@ namespace assignment
     class Problem : IPublish
     {
         public int Reward { get; }
-        public Content Content{ get;}
-        public IList<KeyWord> KeyWords { get; }
-        public int AgreeCount;
-        public int DisagreeCount;
-        public Problem(Content content, List<KeyWord> keyWords)
+        public Message Message { get; }
+        public Content Content { get; }
+        public List<Comment> Comments { get; }
+        public Appraise appraise { get; }
+        public List<KeyWord> KeyWords { get; }
+        public Problem(Content content, Message message, List<KeyWord> keyWords)
         {
             Content = content;
+            Message = message;
             KeyWords = keyWords;
         }
 

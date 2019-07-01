@@ -55,6 +55,8 @@ namespace assignment
         //XElement转换成Article方法
         public Article MapIntoModel(XElement element )
         {
+            int Id = Convert.ToInt32(element.Element("id").Value);
+
             int UserId = Convert.ToInt32(element.Element("user").Element("id").Value);
             string name = element.Element("user").Element("name").Value.ToString();
             int password= Convert.ToInt32(element.Element("user").Element("password").Value);
@@ -62,7 +64,7 @@ namespace assignment
             string title = element.Element("title").Value.ToString();
             string body= element.Element("body").Value.ToString();
 
-            return new Article(new Content(user,title,body), new List<KeyWord>());
+            return new Article(new Content(title,body),new Message(Id, user), new List<KeyWord>());
         }
 
         //Article转换成XElement方法
@@ -74,12 +76,12 @@ namespace assignment
               "article",
               new XElement(
                 "user",
-                new XElement("id", article.Content.Author.Id),
-                new XElement("name", article.Content.Author.Name),
-                new XElement("password", article.Content.Author.Password)
+                new XElement("id", article.Message.Author.Id),
+                new XElement("name", article.Message.Author.Name),
+                new XElement("password", article.Message.Author.Password)
               ),
               new XAttribute("isDraft", "true"),
-              new XElement("id", article.Content.Id),
+              new XElement("id", article.Message.Id),
               new XElement("title", article.Content.Title),
               new XElement("publishDate", DateTime.Now),
               new XElement("comments")
