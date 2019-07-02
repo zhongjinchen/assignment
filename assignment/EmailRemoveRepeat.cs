@@ -21,8 +21,8 @@ namespace assignment
             * 
             * */
 
-            SaveInGroup(Filter(new List<string>() { "LC@163.com; lc163.com" }));
-            //SaveInGroup(Filter(new List<string>() { "wp@qq.com    ; wp@qq.com" }));
+            //SaveInGroup(Filter(new List<string>() { "LC@163.com; lc163.com" }));
+            SaveInGroup(Filter(new List<string>() { "wp@qq.com    ; wp@qq.com" }));
 
         }
 
@@ -38,14 +38,15 @@ namespace assignment
         static IEnumerable<string> Filter(IEnumerable<string> emailFile)
         {
             IList<string> emails = new List<string>();
-
+            string emailstring;
             foreach (var item in emailFile)
             {
+                emailstring = item.Replace(@";|,","");
 
-                string[] email = item.Split(";");
+                string[] email = emailstring.Split("");
                 foreach (var i in email)
                 {
-                    emails.Add(i);
+                    emails.Add(i.ToLower());
 
                 }
             }
