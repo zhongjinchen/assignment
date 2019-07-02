@@ -19,12 +19,15 @@ namespace assignment
             /*
             * LC@163.com; lc@163.com =>
             * wp@qq.com    ; wp@qq.com =>
-            *  lc@163.com; ,'lc163.com =>
+            *  lc@163.com; ,'lc@163.com =>
+            *   lc@163.com;    ;:xl@163.com =>
             * */
 
             //SaveInGroup(Filter(signCastEmpyt(new List<string>() { "LC@163.com; lc@163.com" })));
             //SaveInGroup(Filter(signCastEmpyt(new List<string>() { "wp@qq.com    ; wp@qq.com" })));
-            SaveInGroup(Filter(signCastEmpyt(new List<string>() { "lc@163.com; ,'lc@163.com" })));
+            //SaveInGroup(Filter(signCastEmpyt(new List<string>() { "lc@163.com; ,'lc@163.com" })));
+            SaveInGroup(Filter(signCastEmpyt(new List<string>() { "  lc@163.com;    ;:xl@163.com" })));
+
         }
 
         static IEnumerable<string> GetFromTxt(string path)
@@ -44,7 +47,14 @@ namespace assignment
             {
                 for (int i = 0; i < signs.Length; i++)
                 {
-                    emailstring = item.Replace(signs[i], " ");
+                    if (i==0)
+                    {
+                        emailstring = item.Replace(signs[i], " ");
+                    }
+                    else
+                    {
+                        emailstring = emailstring.Replace(signs[i], " ");
+                    }
 
                 }
                 emails.Add(emailstring);
