@@ -10,20 +10,21 @@ namespace assignment
     {
         public static void removeRepeat(string path)
         {
-            SaveInGroup(Filter(GetFromTxt(path)));
-
+            SaveInGroup(Filter(signCastEmpyt(GetFromTxt(path))));
         }
+
         public static void test()
         {
+
             /*
-            * LC@163.com; lc163.com =>
+            * LC@163.com; lc@163.com =>
             * wp@qq.com    ; wp@qq.com =>
-            * 
+            *  lc@163.com; ,'lc163.com =>
             * */
 
-            //SaveInGroup(Filter(new List<string>() { "LC@163.com; lc163.com" }));
-            SaveInGroup(Filter(new List<string>() { "wp@qq.com    ; wp@qq.com" }));
-
+            //SaveInGroup(Filter(signCastEmpyt(new List<string>() { "LC@163.com; lc@163.com" })));
+            //SaveInGroup(Filter(signCastEmpyt(new List<string>() { "wp@qq.com    ; wp@qq.com" })));
+            SaveInGroup(Filter(signCastEmpyt(new List<string>() { "lc@163.com; ,'lc@163.com" })));
         }
 
         static IEnumerable<string> GetFromTxt(string path)
@@ -33,20 +34,45 @@ namespace assignment
             return emailFile;
 
         }
+        static IEnumerable<string> signCastEmpyt(IEnumerable<string> emailFile)
+        {
+            IList<string> emails = new List<string>();
+            string[] signs = {"`","\\","'",",","~","!", "#", "$", "%", "^", "&", "*", "_",
+                "-", "+", "=", ":", "\"", "<", ">", "(", ")", "|", "?", "{", "}", "[", "]", "/",";"};
+            string emailstring=null;
+            foreach (var item in emailFile)
+            {
+                for (int i = 0; i < signs.Length; i++)
+                {
+                    emailstring = item.Replace(signs[i], " ");
 
+                }
+                emails.Add(emailstring);
+            }
+            return emails;
+        }
 
         static IEnumerable<string> Filter(IEnumerable<string> emailFile)
         {
             IList<string> emails = new List<string>();
-            string emailstring;
+            
+
             foreach (var item in emailFile)
             {
-                emailstring = item.Replace(@";|,","");
+              
 
-                string[] email = emailstring.Split("");
+                string[] email = item.Split(" ");
                 foreach (var i in email)
                 {
-                    emails.Add(i.ToLower());
+                    if (i!="")
+                    {
+                        emails.Add(i.ToLower());
+
+                    }
+                    else
+                    {
+                        //不添加进去
+                    }
 
                 }
             }
