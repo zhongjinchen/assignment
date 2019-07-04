@@ -6,8 +6,8 @@ namespace assignment
 {
     public class Message
     {
-        internal int Id { get; }
-        internal User Author { get; }
+        public int Id { get; }
+        public User Author { get; }
         public Message(int id, User author)
         {
             Id = id;

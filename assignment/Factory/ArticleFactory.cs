@@ -22,12 +22,12 @@ namespace assignment
             ArticleFactory articleFactory = new ArticleFactory(new XArticleRepository());
             articleFactory.Make();
         }
-        public void Make()
+        public void Make(/*Article article*/)
         {
             //User lc = UserRepoistory.Get(/*id*/1);
-            //Article article = new Article(new Content( "", ""),new Message(),new List<KeyWord>());
+            ////article应该作为一个参数传入，而不是在方法里面自己生成
+            //Article article = new Article(new Content("", ""), new Message(), new List<KeyWord>());
             //article.Publish();
-            //_repository = new XArticleRepository();
             //_repository.Add(article);
         }
     }

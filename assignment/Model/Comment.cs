@@ -9,9 +9,7 @@ namespace assignment
         public int Id { get; }
         public Article Article { get; }
         public User User { get; }
-        public Appraise appraise { get; }
-        public int AgreeCount;
-        public int DisagreeCount;
+        public Appraise Appraise { get; }
         public string Body { get; }
 
         public Comment(Article article)

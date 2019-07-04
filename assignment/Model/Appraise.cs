@@ -10,11 +10,11 @@ namespace assignment
         internal IList<Disagree> Disagrees;
         internal void Agree()
         {
-
+            Agrees.Add(new Agree());
         }
         internal void Disagree()
         {
-
+            Disagrees.Add(new Disagree());
         }
     }
 

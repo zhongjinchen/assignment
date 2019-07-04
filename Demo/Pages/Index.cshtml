@@ -1,0 +1,31 @@
+﻿@page
+
+<p>当前时间：@(DateTime.Now)</p>
+
+@{ 
+    string name = "飞哥";
+    int height = 187;
+}
+
+@functions{
+    int faceScore;
+
+    int FaceScore {
+        get { return faceScore; }
+        set { faceScore = 100; }
+    }
+    string greet()
+    {
+        return $"源栈{faceScore}";
+    }
+}
+
+<p>@greet()</p>
+
+<p>@name</p>
+
+@("<p style=\"color: aqua\">大神</p>")
+
+@Html.Raw("<p style=\"color: aqua\">大神</p>")
+
+<a>1134@(height)1628</a>

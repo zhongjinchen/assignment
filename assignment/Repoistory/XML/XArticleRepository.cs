@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml.Linq;
 using System.IO;
+using System.Linq;
 
 namespace assignment
 {
@@ -10,12 +11,12 @@ namespace assignment
     {
         private const string _path = @"C:\17bang\repoistory\Articl";
     
-        private XElement _articles;
+        private XElement _article;
 
         public override IList<Article> Get()
         {
-            _articles = XElement.Load(_path);
-            IList<XElement> XArticles =(IList<XElement>)_articles.Descendants();
+            _article = XElement.Load(_path);
+            IList<XElement> XArticles =(IList<XElement>)_article.Descendants();
             IList<Article> result = new List<Article>();
             foreach (var item in XArticles)
             {
@@ -36,26 +37,29 @@ namespace assignment
                 Save();
             }
 
-            _articles = XElement.Load(_path);
+            _article = XElement.Load(_path);
             XElement New = MapIntoXml(article);
-            _articles.Add(New);
+            _article.Add(New);
             Save();
-        }
-
-        public void Save()
-        {
-            _articles.Save(_path);
         }
 
         public override void Delete(Article model)
         {
-            throw new NotImplementedException();
+            _article = XElement.Load(_path);
+            var article = _article.Elements("article").Where(w => w.Element("id").Value == 12.ToString());
+            article.Remove();
+            Save();
         }
 
-        public override Article GetBy(int Id)
+        public override Article GetBy(int id)
         {
-            
-            throw new NotImplementedException();
+            var article =Get().Where(w=>w.Message.Id==id).Single();
+            return article;
+        }
+
+        public void Save()
+        {
+            _article.Save(_path);
         }
 
         //XElement转换成Article方法
