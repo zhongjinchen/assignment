@@ -26,12 +26,13 @@ namespace assignment
 
         public Article GetBy(int id)
         {
-            throw new NotImplementedException();
+            var article= Repository.Where(w=>w.Message.Id==id).Single();
+            return article;
         }
 
         public void Delete(Article model)
         {
-            throw new NotImplementedException();
+            Repository.Remove(model);
         }
     }
 }

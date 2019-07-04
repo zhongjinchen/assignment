@@ -12,7 +12,7 @@ namespace assignment
             throw new NotImplementedException();
         }
 
-        public void Delete(T model)
+        public virtual void Delete(T model)
         {
             throw new NotImplementedException();
         }
@@ -22,7 +22,7 @@ namespace assignment
             throw new NotImplementedException();
         }
 
-        public T GetBy(int id)
+        public virtual T GetBy(int id)
         {
             throw new NotImplementedException();
         }

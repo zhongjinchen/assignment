@@ -28,6 +28,7 @@ namespace assignment
         public override void Add(Article article)
         {
             //只考虑“File.Exists(_path)==false”的情况
+
             if (File.Exists(_path)==false)
             {
                 //File.CreateText(path);
@@ -46,9 +47,14 @@ namespace assignment
             _articles.Save(_path);
         }
 
-        public Article GetById(int Id)
+        public override void Delete(Article model)
         {
-            //return new Article();
+            throw new NotImplementedException();
+        }
+
+        public override Article GetBy(int Id)
+        {
+            
             throw new NotImplementedException();
         }
 
