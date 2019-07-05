@@ -2,7 +2,5 @@
 
 namespace ClassLibrary1
 {
-    public class Class1
-    {
-    }
+   //从c#入门，到删库跑路。
 }
