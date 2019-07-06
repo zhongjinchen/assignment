@@ -1,9 +1,47 @@
 ﻿@page
-@model AboutModel
-@{
-    ViewData["Title"] = "About";
-}
-<h2>@ViewData["Title"]</h2>
-<h3>@Model.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+@{
+    string color;
+}
+
+@functions{
+    void rank()
+    {
+
+    }
+}
+@for (int i = 0; i < 5; i++)
+{
+    if (i % 2 == 0)
+    {
+        color = "blue";
+    }
+    else
+    {
+        color = "red";
+    }
+    if (i == 0)
+    {
+        i--;
+        <div style="text-align:center;">
+            @for (int x = 0; x < i + 2; x++)
+            {
+                <span style="color:@(color)">i</span>
+            }
+        </div>
+        i++;
+    }
+    else
+    {
+        <div style="text-align:center;">
+            @for (int x = 0; x < i + 2; x++)
+            {
+                <span style="color:@(color)">i</span>
+            }
+        </div>
+    }
+
+}
+@section test{
+    <p>section2</p>
+}

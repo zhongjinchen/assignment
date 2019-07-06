@@ -1,5 +1,9 @@
 ﻿@page
 
+@{ 
+    Layout = "_yz";
+}
+
 <p>当前时间：@(DateTime.Now)</p>
 
 @{ 
@@ -9,7 +13,7 @@
 
 @functions{
     int faceScore;
-
+    
     int FaceScore {
         get { return faceScore; }
         set { faceScore = 100; }
@@ -29,3 +33,32 @@
 @Html.Raw("<p style=\"color: aqua\">大神</p>")
 
 <a>1134@(height)1628</a>
+
+@if (DateTime.Now.Ticks % 2 == 0)
+{
+    <p>@DateTime.Now</p>
+}
+else
+{ 
+}
+
+@switch (height)
+{
+    case 187:
+        <p>身高</p>
+        break;
+    default:
+        <p>体重</p>
+        break;
+}
+
+@section bar{ 
+    <p>section</p>
+}
+
+
+<a asp-page="/About/">about</a>
+@*<!yz:img asp-append-version="true" src="~/images/banner1.svg" />*@
+
+<pager path="/Article" pageIndex="2">pager 2</pager>
+
