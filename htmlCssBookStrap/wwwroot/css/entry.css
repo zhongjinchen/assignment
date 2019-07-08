@@ -1,17 +1,9 @@
 ﻿body {
 }
-.notice {
-    margin-top: 63px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1370px;
-    text-align: center;
-    background-color: #eee;
-    height: 28px;
-}
+
 main {
-    margin-left: 100px;
-    margin-right: 100px
+    margin-left: 200px;
+    margin-right: 200px
 }
 
 .content {
@@ -55,32 +47,4 @@ aside {
         主流浏览器支持自动换行*/
     }
 
-footer {
-    margin-top: 10px;
-    margin-left: 100px;
-    margin-right: 100px;
-    margin-bottom: 70px;
-    border-top: 1px solid #eee;
-}
 
-    footer a {
-        float: left;
-        margin-top: 10px;
-    }
-
-    footer div {
-        float: left;
-        margin-top: 10px;
-        margin-left: 4px;
-    }
-
-.help-feedback a {
-    border: 0px;
-    background-color: rgba(128,255,212,.7);
-    color: #23527c;
-    position: fixed;
-    bottom: 100px;
-    right: 40px;
-    padding: 10px;
-    border-radius: 0px 10px;
-}

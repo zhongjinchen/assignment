@@ -1,0 +1,132 @@
+﻿body {
+}
+
+header {
+    border-bottom: 1px solid #e7e7e7;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 60px;
+    background-color: #fff;
+    z-index: 999;
+}
+
+header > span {
+    float: left;
+    margin-top: 6px;
+    margin-left: 50px;
+}
+
+header > div {
+    float: left;
+    margin-top: 20px;
+    margin-left: 10px;
+    color: gray;
+}
+
+header > form {
+    float: right;
+    margin-top: 20px;
+    margin-right: 50px;
+    color: gray;
+}
+
+.dropdown {
+    float: right;
+}
+
+    .dropdown > li {
+        position: relative;
+        margin-right: 50px;
+        display: inline-block;
+    }
+
+.notice {
+    margin-top: 63px;
+    margin-left: 200px;
+    margin-right: 200px;
+    text-align: center;
+    background-color: #eee;
+    height: 28px;
+}
+
+    .notice > a {
+        float: right;
+        margin-right: 25px;
+        margin-top: 3px;
+        color: #23527c;
+    }
+
+a {
+    text-decoration: none;
+}
+
+.dropdown > li > a {
+    color: #777;
+}
+
+.dropdown-content a {
+    color: black;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    list-style: none;
+    border: 1px solid rgba(0,0,0,.15);
+    width: 100px;
+    background-color: #fff;
+    float: left;
+    right: 0px;
+}
+
+.dropdown > li:hover .dropdown-content {
+    display: block;
+}
+
+footer {
+    margin-top: 100px;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 70px;
+    border-top: 1px solid #eee;
+}
+
+    footer a {
+        float: left;
+        margin-top: 10px;
+    }
+
+    footer div {
+        float: left;
+        margin-top: 10px;
+        margin-left: 4px;
+    }
+
+.help-feedback a {
+    border: 0px;
+    background-color: rgba(128,255,212,.7);
+    color: #23527c;
+    position: fixed;
+    bottom: 100px;
+    right: 40px;
+    padding: 10px;
+    border-radius: 0px 10px;
+}
+
+.help-feedback a {
+    border: 0px;
+    background-color: rgba(128,255,212,.7);
+    color: #23527c;
+    position: fixed;
+    bottom: 100px;
+    right: 40px;
+    padding: 10px;
+    border-radius: 0px 10px;
+}
+
+.bottom {
+    bottom: 100px;
+}
+

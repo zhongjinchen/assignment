@@ -8,6 +8,7 @@ namespace assignment
 {
     class EmailRemoveRepeat
     {
+        public const string path= @"C:\17bang\yzHomework\emailList.txt";
         public static void removeRepeat(string path)
         {
             SaveInGroup(Filter(signCastEmpyt(GetFromTxt(path))));
@@ -55,7 +56,6 @@ namespace assignment
                     {
                         emailstring = emailstring.Replace(signs[i], " ");
                     }
-
                 }
                 emails.Add(emailstring);
             }
@@ -65,25 +65,19 @@ namespace assignment
         static IEnumerable<string> Filter(IEnumerable<string> emailFile)
         {
             IList<string> emails = new List<string>();
-            
-
             foreach (var item in emailFile)
             {
-              
-
                 string[] email = item.Split(" ");
                 foreach (var i in email)
                 {
                     if (i!="")
                     {
                         emails.Add(i.ToLower());
-
                     }
                     else
                     {
                         //不添加进去
                     }
-
                 }
             }
             return emails;
@@ -92,39 +86,23 @@ namespace assignment
         static void SaveInGroup(IEnumerable<string> emails)
         {
 
-            int x = 0;
-            string groupEmails = null;
+            int j = 1;
+            StringBuilder groupEmails = new StringBuilder();
             var cleanEmails = emails.Distinct();
             foreach (var item in cleanEmails)
             {
-                //if (x == 0)
-                //{
-                //    groupEmails = item;
 
-                //}
-                //else if (x % 30 == 0)
-                //{
-
-                //    groupEmails = groupEmails + Environment.NewLine + Environment.NewLine;
-                //}
-                //else
-                //{
-                //    groupEmails = groupEmails + item+"; ";
-
-                //}
-                if (x % 30 == 0 && x != 0)
+                string groupEmail = groupEmails.Append(item + "; ").ToString();
+                
+                if (j % 30 == 0 )
                 {
-                    groupEmails = groupEmails + Environment.NewLine + Environment.NewLine;
+                    groupEmail += Environment.NewLine + Environment.NewLine;
                 }
-                else
-                {
-                    groupEmails = groupEmails + item + "; ";
-
-                }
-                x++;
+           
+                j++;
             }
 
-            using (StreamWriter writer = File.AppendText(@"C:\17bang\yzHomework\emailList.txt"))
+            using (StreamWriter writer = File.AppendText(path))
             {
                 writer.Write(groupEmails);
             }

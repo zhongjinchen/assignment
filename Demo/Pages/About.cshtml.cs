@@ -13,6 +13,7 @@ namespace Demo.Pages
         public void OnGet()
         {
             Message = "Your application description page.";
+            ViewData["title"] = "一起帮";
         }
     }
 }

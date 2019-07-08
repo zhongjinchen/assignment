@@ -1,20 +1,23 @@
 ﻿@page
+<link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 
-@{ 
+
+@{
     Layout = "_yz";
 }
 
 <p>当前时间：@(DateTime.Now)</p>
 
-@{ 
+@{
     string name = "飞哥";
     int height = 187;
 }
 
 @functions{
     int faceScore;
-    
-    int FaceScore {
+
+    int FaceScore
+    {
         get { return faceScore; }
         set { faceScore = 100; }
     }
@@ -39,7 +42,7 @@
     <p>@DateTime.Now</p>
 }
 else
-{ 
+{
 }
 
 @switch (height)
@@ -52,7 +55,7 @@ else
         break;
 }
 
-@section bar{ 
+@section bar{
     <p>section</p>
 }
 
@@ -62,3 +65,18 @@ else
 
 <pager path="/Article" pageIndex="2">pager 2</pager>
 
+<form method="post" asp-page="/About">
+<div>
+    <label>用户名：</label><input type="text" name="UserName" />
+</div>
+<div>
+    <label>密码：</label><input type="password" name="Password" />
+</div>
+<div>
+    <button type="submit">提交</button>
+</div>
+</form>
+<datetime>@DateTime.Now</datetime>
+<datetime asp-showicon="true" >@DateTime.Now</datetime>
+
+@*<datetime sp-only="date">@DateTime.Now</datetime>*@

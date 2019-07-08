@@ -1,5 +1,5 @@
 ﻿@page
-
+@model  Demo.Pages.AboutModel
 @{
     string color;
 }
@@ -7,41 +7,27 @@
 @functions{
     void rank()
     {
-
     }
 }
+
 @for (int i = 0; i < 5; i++)
 {
-    if (i % 2 == 0)
-    {
-        color = "blue";
-    }
-    else
-    {
-        color = "red";
-    }
-    if (i == 0)
-    {
-        i--;
-        <div style="text-align:center;">
-            @for (int x = 0; x < i + 2; x++)
-            {
-                <span style="color:@(color)">i</span>
-            }
-        </div>
-        i++;
-    }
-    else
-    {
-        <div style="text-align:center;">
-            @for (int x = 0; x < i + 2; x++)
-            {
-                <span style="color:@(color)">i</span>
-            }
-        </div>
-    }
+
+    color = i % 2 == 0 ? "blue" : "red";
+
+    <div style="text-align:center;">
+        @for (int x = 0; x <= i * 2; x++)
+        {
+            <span style="color:@(color)">i</span>
+        }
+    </div>
 
 }
+
 @section test{
     <p>section2</p>
 }
+
+<p>@Model.Message</p>
+
+<h1>@ViewData["title"]</h1>

@@ -16,7 +16,7 @@ namespace assignment
         public override IList<Article> Get()
         {
             _article = XElement.Load(_path);
-            IList<XElement> XArticles =(IList<XElement>)_article.Descendants();
+            IList<XElement> XArticles = _article.Elements().ToList();
             IList<Article> result = new List<Article>();
             foreach (var item in XArticles)
             {

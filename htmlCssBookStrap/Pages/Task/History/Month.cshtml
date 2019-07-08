@@ -1,0 +1,78 @@
+﻿@page
+@model htmlCssBookStrap.Pages.Task.History.MonthModel
+@*@{
+        ViewData["Title"] = "Month";
+        Layout = "~/Pages/Shared/_Layout.cshtml";
+    }*@
+
+<link rel="stylesheet" type="text/css" href="~/css/site.css" />
+<link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <table class="table table-striped">
+                <caption>2019年7月</caption>
+                <tbody>
+                    @for (int i = 0; i < 6; i++)
+                    {
+                        <tr>
+                            @for (int j = 0; j < 7; j++)
+                            {
+                                <td>一</td>
+                            }
+
+                        </tr>
+                    }
+
+                    @*<tr>
+                            <td>一</td>
+                            <td>二</td>
+                            <td>三</td>
+                            <td>四</td>
+                            <td>五</td>
+                            <td>六</td>
+                            <td>日</td>
+                        </tr>
+                        <tr>
+                            <td>一</td>
+                            <td>二</td>
+                            <td>三</td>
+                            <td>四</td>
+                            <td>五</td>
+                            <td>六</td>
+                            <td>日</td>
+                        </tr>
+                        <tr>
+                            <td>一</td>
+                            <td>二</td>
+                            <td>三</td>
+                            <td>四</td>
+                            <td>五</td>
+                            <td>六</td>
+                            <td>日</td>
+                        </tr>
+                        <tr>
+                            <td>一</td>
+                            <td>二</td>
+                            <td>三</td>
+                            <td>四</td>
+                            <td>五</td>
+                            <td>六</td>
+                            <td>日</td>
+                        </tr>
+                        <tr>
+                            <td>一</td>
+                            <td>二</td>
+                            <td>三</td>
+                            <td>四</td>
+                            <td>五</td>
+                            <td>六</td>
+                            <td>日</td>
+                        </tr>*@
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
