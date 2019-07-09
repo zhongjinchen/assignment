@@ -23,9 +23,9 @@ namespace assignment
 
             //aReflect.aReflectCall();
 
-            callMethod.toRepeat();
+            //callMethod.toRepeat();
 
-
+            Console.WriteLine(DateTime.Now.DayOfWeek.GetHashCode());
 
             Console.Read();
         }
