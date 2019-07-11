@@ -1,4 +1,6 @@
 ﻿@page
+<link rel="stylesheet" type="text/css" href="~/css/Month.css" />
+
 @model htmlCssBookStrap.Pages.Task.History.MonthModel
 @*@{
         ViewData["Title"] = "Month";
@@ -17,47 +19,53 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-4">
-            <table class="table table-striped">
-                <caption style="text-align:center">@(time.Year)年@(time.Month)月</caption>
-                <tbody>
-                    <tr>
-                        @for (int i = 0; i < 7; i++)
-                        {
-                            <td>@week[i]</td>
-                        }
+            <div class="calendar">
+                <div class=" tr-yearMonth">@(time.Year)年@(time.Month)月</div>
 
-                    </tr>
-                    @for (int i = 0; i < 5; i++)
-                    {
-                    <tr>
-                        @for (int j = 1; j < 8; j++)
-                        {
-                            if (i == 0 && j < time.DayOfWeek.GetHashCode())
-                            {
-                                <td></td>
-                            }
-                            else
-                            {
+                <table class="table table-striped ">
 
-                                if (time.AddDays(k).Month == time.Month)
-                                {
-                                    <td>@time.AddDays(k).Day</td>
-                                }
-                                else
-                                {
-                                    <td></td>
-                                }
-                                k++;
+                    @*<caption style="text-align:center">@(time.Year)年@(time.Month)月</caption>*@
+                    <tbody>
+
+                        <tr>
+                            @for (int i = 0; i < 7; i++)
+                            {
+                                <td>@week[i]</td>
                             }
 
+                        </tr>
+                        @for (int i = 0; i < 5; i++)
+                        {
+                            <tr>
+                                @for (int j = 1; j < 8; j++)
+                                {
+                                    if (i == 0 && j < time.DayOfWeek.GetHashCode())
+                                    {
+                                        <td></td>
+                                    }
+                                    else
+                                    {
+
+                                        if (time.AddDays(k).Month == time.Month)
+                                        {
+                                            <td>@time.AddDays(k).Day</td>
+                                        }
+                                        else
+                                        {
+                                            <td></td>
+                                        }
+                                        k++;
+                                    }
+
+                                }
+
+                            </tr>
                         }
 
-                    </tr>
-                    }
 
-                   
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
     </div>

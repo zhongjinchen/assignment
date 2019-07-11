@@ -1,0 +1,14 @@
+﻿body {
+   
+}
+.calendar {
+    margin-top: 10px;
+    border: 1px solid;
+    border-radius: 10px;
+}
+.tr-yearMonth{
+    padding:10px;
+    border-bottom:1px solid;
+    text-align:center;
+    
+}

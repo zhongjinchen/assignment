@@ -1,8 +1,9 @@
-﻿using System;
+﻿using assignment;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace assignment
+namespace BLL
 {
     public class User
     {

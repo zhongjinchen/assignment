@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace assignment
+namespace BLL
 {
-    public class Agree
+    class Disagree
     {
 
-        public Agree()
+        public Disagree()
         {
-            
+           
         }
 
     }

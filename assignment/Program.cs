@@ -27,6 +27,7 @@ namespace assignment
 
             Console.WriteLine(DateTime.Now.DayOfWeek.GetHashCode());
 
+
             Console.Read();
         }
 

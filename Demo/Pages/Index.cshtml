@@ -1,4 +1,5 @@
 ﻿@page
+@model Demo.Pages.IndexModel
 <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 
 
@@ -65,18 +66,34 @@ else
 
 <pager path="/Article" pageIndex="2">pager 2</pager>
 
-<form method="post" asp-page="/About">
-<div>
-    <label>用户名：</label><input type="text" name="UserName" />
-</div>
-<div>
-    <label>密码：</label><input type="password" name="Password" />
-</div>
-<div>
-    <button type="submit">提交</button>
-</div>
+<form method="post">
+    <div>
+        <span asp-validation-for="UserName"></span>
+        <label>用户名：</label><input type="text" name="UserName" />
+    </div>
+    <div>
+        <label>密码：</label><input type="password" name="Password" />
+    </div>
+    <label><input type="checkbox" asp-for="Remember" />复选框</label>
+    <div>
+        <input type="radio" asp-for="student" value="男" />男
+        <input type="radio" asp-for="student" value="女" />女
+    </div>
+    <div>
+        @*<select asp-for="day" asp-items="Html.GetEnumSelectList(typeof(DayOfWeek))"></select>*@
+        @*<select asp-for="YZfee" asp-items="Html.GetEnumSelectList(typeof(Fee))"></select>*@
+        @*<select asp-for="NumberList" asp-items="Html.GetEnumSelectList(typeof(SelectList))"></select>*@
+        <select asp-for="Winner" asp-items="Model.Stutents"></select>     @*//加multiple属性可以多选*@
+
+
+    </div>
+
+    <div>
+        <button type="submit">提交</button>
+    </div>
 </form>
 <datetime>@DateTime.Now</datetime>
-<datetime asp-showicon="true" >@DateTime.Now</datetime>
+<datetime asp-showicon="true">@DateTime.Now</datetime>
 
 @*<datetime sp-only="date">@DateTime.Now</datetime>*@
+
