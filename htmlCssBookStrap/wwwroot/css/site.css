@@ -1,10 +1,23 @@
-
-
-main {
-    
-    margin-left: 200px;
-    margin-right: 200px
+.return {
+    float: right;
+    border: 0px;
+    background-color: rgba(128,255,212,.7);
+    color: #23527c;
+    padding: 10px;
+    border-radius: 0px 0px 0px 10px;
 }
+
+.register-font {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.cause {
+    margin-left: 120px;
+    float: right;
+}
+
+
 
 .content {
     float: left;
@@ -16,10 +29,7 @@ main {
     border-style: dashed;
     border-width: 2px;
     border-color: #eee;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding:20px 10px 10px 10px;
     background-color: #ffffe0;
     border-radius: 5px;
 }
@@ -30,22 +40,16 @@ main {
     padding-left: 20px;
 }
 
+.promptMessage {
+    color: #b94a48;
+}
+
 h1 {
     color: dimgray;
 }
 
-aside {
-    float: right;
-    margin-right: 200px;
-    width: 550px;
-    margin-top: 10px;
+aside > ol li {
+    margin-bottom: 12px;
+    /*word-wrap: break-word;
+        主流浏览器支持自动换行*/
 }
-
-    aside > ol li {
-        margin-bottom: 12px;
-        /*word-wrap: break-word;*/
-        /*主流浏览器支持自动换行*/
-    }
-
-
-

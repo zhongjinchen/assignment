@@ -1,69 +1,116 @@
 ﻿@page
+@model htmlCssBookStrap.Pages.IndexModel
+
 <link rel="stylesheet" type="text/css" href="~/css/site.css" />
 <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-<main>
-    <a style="float:right;border:0px;background-color:rgba(128,255,212,.7);color:#23527c;padding:10px;border-radius:0px 0px 0px 10px;" href="http://17bang.ren/">返回</a>
 
-    <h1 style="font-size:30px;font-weight:500;">®注册</h1>
-    <hr style="border:0px;border-top:1px solid #eee;" /><br />
-    <form class="content">
-        <div class="framefirst">
-            邀请人：<a style="margin-left:120px;float:right;" href="  http://17bang.ren/FAQ/Account#invite">为什么需要邀请</a><br />
-            <input type="text" name="邀请人" style="width:300px;height:30px;border:1px solid #ccc" ;maxlength="16" placeholder="他的用户名，模糊查询只能从头开始" /><br /><br />
-            邀请码：<br />
-            <input type="text" name="邀请码" style="width:300px;height:30px;border:1px solid #ccc;" maxlength="16" placeholder="4位数字" /><br />
+<div class="container">
+    <div class="row">
+        <a class="return" href="http://17bang.ren/">返回</a>
+
+        <h1 class="register-font"><span class="glyphicon glyphicon-registration-mark"></span> 注册</h1>
+        <hr style="border:0px;border-top:1px solid #eee;" /><br />
+        <div class="col-md-4">
+            <main>
+                <form role="form" method="post">
+
+                    <div class="framefirst">
+
+                        <a class="cause" href="http://17bang.ren/FAQ/Account#invite">为什么需要邀请</a><br />
+                        <label>邀请人：</label>
+                        <div class="form-group">
+                            <input class="form-control"asp-for="Register.Inviter"  placeholder="他的用户名模糊,查询只能从头开始" />
+                            <span asp-validation-for="Register.Inviter"class="promptMessage"></span>
+                        </div>
+
+                        <label>邀请码：</label>
+                        <div class="form-group">
+                            <input class="form-control" asp-for="Register.InvitationCode" placeholder="4位数字" />
+                            <span asp-validation-for="Register.InvitationCode"class="promptMessage"></span>
+                        </div>
+                    </div>
+
+                    <div class="framesecond">
+                        <label>用户名：</label>
+                        <div class="form-group">
+                            <input class="form-control" asp-for="Register.UserName" placeholder="登陆用户名，可修改，不能重复" />
+                            <span asp-validation-for="Register.UserName"class="promptMessage"></span>
+                        </div>
+
+                        <label>密码：</label>
+                        <div class="form-group">
+                            <input asp-for="Register.Password" class="form-control" placeholder="不少于4个字符" />
+                            <span asp-validation-for="Register.Password"class="promptMessage"></span>
+                        </div>
+
+                        <label>验证密码：</label>
+                        <div class="form-group">
+                            <input asp-for="Register.ConfirmPassword" class="form-control" placeholder="和密码相同" />
+                            <span asp-validation-for="Register.ConfirmPassword"class="promptMessage"></span>
+                        </div>
+
+                        <label>验证码：</label>
+                        <div class="form-group">
+                            <input class="form-control" asp-for="Register.identifyingCode" style="width:80px;height:30px;border:1px solid #ccc;" maxlength="16" />
+                            <span asp-validation-for="Register.identifyingCode" class="promptMessage"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                            <button class="btn btn-primary" type="submit" value="提交">提交</button>
+                            <button class="btn btn-default" type="reset" value="重置">重置</button>
+                        </div>
+
+                        <div class="col-md-5">
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="vehicle" value="记住我"> 记住我</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2" style="padding-top:8px">
+                            <a style="color:#23527c;" href="http://17bang.ren/Log/On?prepage=%2f">登陆</a>
+                        </div>
+                    </div>
+                </form>
+
+            </main>
         </div>
-        <div class="framesecond">
-            <span>
-                用户名：<br />
-                <input type="text" name="用户名" style="width:325px;height:30px;border:1px solid #ccc;" maxlength="16" placeholder="登陆用户名，可修改，不能重复" /><br />
-            </span>
-            <br />
 
-            密码：<br />
-            <input type="password" name="密码" style="width:325px;height:30px;border:1px solid #ccc;" maxlength="16" placeholder="不少于4个字符" /><br /><br />
-            验证密码：<br />
-            <input type="password" name="验证密码" style="width:325px;height:30px;border:1px solid #ccc;" maxlength="16" placeholder="和密码相同" /><br /><br />
-            验证码：<br />
-            <input type="text" name="验证码" style="width:80px;height:30px;border:1px solid #ccc;" maxlength="16" /><br /><br />
-            <input type="submit" value="提交" style="width:50px;height:30px;border:1px solid #204d74;background-color:#286090;color:#fff;border-radius:5px;" />
-            <input type="reset" value="重置" style="width:50px;height:30px;border:1px solid #ccc;margin-left:10px;border-radius:5px;" />
-            <label><input type="checkbox" name="vehicle" value="记住我"> 记住我</label>
-            <a style="margin-left:120px;color:#23527c;" href="http://17bang.ren/Log/On?prepage=%2f">登陆</a>
+        <div class="col-md-5 col-md-offset-2">
+            <aside>
+
+                <h2 style="color:#23527c;">说明</h2>
+                <ol>
+                    <li>
+                        我们希望通过一起帮，能直接解决大家在电脑操作/软件使用/编程学
+                        习等方面的具体问题。
+                    </li>
+
+                    <li>
+                        现在互联网远程技术（比如QQ桌面共享）已经非常成熟，当我们再
+                        遇到上述问题，如果别人能直接远程给予帮助，岂不是好？
+                    </li>
+
+                    <li>
+                        当然，你也可以在你熟悉的领域去帮助别人。由此而形成我们这
+                        个“你帮他他帮我我帮你，大家一起帮”的网上互助社区平台。
+                    </li>
+
+                    <li>
+                        公平起见，我们还引入了 帮帮点/币/豆 三级概念，以记录和衡量社
+                        区成员的收获和贡献。
+                    </li>
+                    <li> 赶快加入我们，赚取帮帮币吧！</li>
+                    <li> <a style="color:#23527c;" href="#">了解更多</a></li>
+                </ol>
+
+
+
+            </aside>
         </div>
-    </form>
-</main>
 
-<aside>
-  
-        <h2 style="color:#23527c;">说明</h2>
-        <ol>
-            <li>
-                我们希望通过一起帮，能直接解决大家在电脑操作/软件使用/编程学
-                习等方面的具体问题。
-            </li>
+        <br style="clear:both;" />
 
-            <li>
-                现在互联网远程技术（比如QQ桌面共享）已经非常成熟，当我们再
-                遇到上述问题，如果别人能直接远程给予帮助，岂不是好？
-            </li>
-
-            <li>
-                当然，你也可以在你熟悉的领域去帮助别人。由此而形成我们这
-                个“你帮他他帮我我帮你，大家一起帮”的网上互助社区平台。
-            </li>
-
-            <li>
-                公平起见，我们还引入了 帮帮点/币/豆 三级概念，以记录和衡量社
-                区成员的收获和贡献。
-            </li>
-            <li> 赶快加入我们，赚取帮帮币吧！</li>
-            <li> <a style="color:#23527c;" href="#">了解更多</a></li>
-        </ol>
-
-   
-
-</aside>
-<br style="clear:both;" />
-
+    </div>
+</div>
 

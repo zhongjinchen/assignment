@@ -68,11 +68,14 @@ else
 
 <form method="post">
     <div>
+
+        <label>用户名：</label><input asp-for="UserName" />
         <span asp-validation-for="UserName"></span>
-        <label>用户名：</label><input type="text" name="UserName" />
     </div>
+
     <div>
-        <label>密码：</label><input type="password" name="Password" />
+        <label>密码：</label><input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
     </div>
     <label><input type="checkbox" asp-for="Remember" />复选框</label>
     <div>
@@ -83,7 +86,7 @@ else
         @*<select asp-for="day" asp-items="Html.GetEnumSelectList(typeof(DayOfWeek))"></select>*@
         @*<select asp-for="YZfee" asp-items="Html.GetEnumSelectList(typeof(Fee))"></select>*@
         @*<select asp-for="NumberList" asp-items="Html.GetEnumSelectList(typeof(SelectList))"></select>*@
-        <select asp-for="Winner" asp-items="Model.Stutents"></select>     @*//加multiple属性可以多选*@
+        @*<select asp-for="Winner" asp-items="Model.Stutents"></select>*@     @*//加multiple属性可以多选*@
 
 
     </div>

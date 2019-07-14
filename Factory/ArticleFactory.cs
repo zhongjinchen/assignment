@@ -1,9 +1,9 @@
-﻿
+﻿using BLL;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace assignment
+namespace Factory
 {
     public class ArticleFactory
     {

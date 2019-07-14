@@ -12,8 +12,16 @@ namespace Demo.Pages
     [BindProperties]
     public class IndexModel : PageModel
     {
-        [Required(AllowEmptyStrings =false,ErrorMessage = "* 必须填写")]
+        [MaxLength(2,ErrorMessage = "最大长度为2")]
+        //[Required(AllowEmptyStrings =true,ErrorMessage = "* 必须填写")]
+        [YZrequired]
+        [Display(Name ="用户名")]
+        //[DisplayFormat(ConvertEmptyStringToNull = false)]
         public string UserName { get; set; }
+        [YZOnlyNumber]
+        [DataType(DataType.Password)]
+        [Display(Name ="密码")]
+        public string Password { get; set; }
         public string Remember { get; set; }
         public string student { get; set; }
         public DayOfWeek day { get; set; }
@@ -39,7 +47,7 @@ namespace Demo.Pages
             {
                 return Page();       //return;
             }
-            return RedirectToAction("/About");
+            return RedirectToAction("About");
         }
     }
 
@@ -55,5 +63,24 @@ namespace Demo.Pages
     {
         public int Id { get; set; }
         public string Name { get; set; }
+    }
+
+    public class YZrequired : RequiredAttribute
+    {
+        public override string FormatErrorMessage(string name)
+        {
+            return $"* {name}必须填写"; 
+        }
+    }
+
+    public class YZOnlyNumber : RegularExpressionAttribute
+    {
+        public YZOnlyNumber() : base("[0-9]*")
+        {
+        }
+        public override string FormatErrorMessage(string name)
+        {
+            return $"{name}必须是数字";
+        }
     }
 }

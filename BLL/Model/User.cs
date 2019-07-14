@@ -7,16 +7,26 @@ namespace BLL
 {
     public class User
     {
-        public int Id;
-        public string Name { get; }
-        public int Password;
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Password { get; set; }
         public Token token { get; }
-        public User(int id,string name,int password)
+
+        public User()
         {
-            Id = id;
+
+        }
+
+        public User(string name,string password)
+        {
+           
             Name = name;
             Password = password;
         }
 
+        public void Register()
+        {
+
+        }
     }
 }

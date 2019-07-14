@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Servise
+namespace Factory
 {
     public class Class1
     {

@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System.Xml.Linq;
 
-namespace assignment
+namespace BLL
 {
     class XEProblemRepository:Repository<Problem>
     {
@@ -58,8 +58,8 @@ namespace assignment
         {
             int UserId = Convert.ToInt32(element.Element("user").Element("id").Value);
             string name = element.Element("user").Element("name").Value.ToString();
-            int password = Convert.ToInt32(element.Element("user").Element("password").Value);
-            User user = new User(UserId, name, password);
+            string password = element.Element("user").Element("password").Value;
+            User user = new User(name, password);
             string title = element.Element("title").Value.ToString();
             string body = element.Element("body").Value.ToString();
 
