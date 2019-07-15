@@ -13,10 +13,10 @@ namespace htmlCssBookStrap.Pages
     public class IndexModel : PageModel
     {
         public Register Register { get; set; }
-        public RegisterSevise _registerSevise;
+        public UserService _registerSevise;
         public IndexModel()
         {
-            _registerSevise = new RegisterSevise();
+            _registerSevise = new UserService();
         }
         public void OnGet()
         {

@@ -6,6 +6,8 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using BLL;
+using Microsoft.EntityFrameworkCore;
 
 namespace Practise
 {
@@ -112,11 +114,13 @@ namespace Practise
             #endregion
 
 
-            Reflect reflect = new Reflect();
-            reflect.reflectCall();
+            //Reflect reflect = new Reflect();
+            //reflect.reflectCall();
 
-            Attribute attribute = OnlineAttribute.GetCustomAttribute(typeof(Reflect), typeof(OnlineAttribute));
-            Console.WriteLine(((OnlineAttribute)attribute).name);
+            //Attribute attribute = OnlineAttribute.GetCustomAttribute(typeof(Reflect), typeof(OnlineAttribute));
+            //Console.WriteLine(((OnlineAttribute)attribute).name);
+
+            new UserRepoistory().Database.Migrate();
 
             Console.ReadLine();
         }

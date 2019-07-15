@@ -9,14 +9,19 @@ namespace BLL
     public class UserRepoistory : DbContext
     {
         public DbSet<User> _users { get; set; }
-        private static int _idCount;
-        public User Save(User user)
+        public DbSet<Email> _emails { get; set; }
+        public void Save(User user)
         {
-            _idCount++;
-            user.Id = _idCount;
             _users.Add(user);
             SaveChanges();
-            return user;
+        
+        }
+
+        public void Save(Email email)
+        {
+            _emails.Add(email);
+            SaveChanges();
+           
         }
 
         public User GetByName(string userName)
@@ -31,7 +36,7 @@ namespace BLL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string ConnectionString= @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=17bang;Integrated Security=True";
+            string ConnectionString= @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=17bang;Integrated Security=True;";
             optionsBuilder.UseSqlServer(ConnectionString);
 
         }
