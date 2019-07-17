@@ -24,6 +24,11 @@ namespace BLL
            
         }
 
+        public void Flush()
+        {
+            SaveChanges();
+        }
+
         public User GetByName(string userName)
         {
             return _users.Where(w => w.Name == userName).SingleOrDefault();
@@ -34,11 +39,19 @@ namespace BLL
             return null;
         }
 
+        public Email GetEmailById(int id)
+        {
+            Email email = _emails.Where(w => w.Id == id).SingleOrDefault();
+            return email;
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string ConnectionString= @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=17bang;Integrated Security=True;";
             optionsBuilder.UseSqlServer(ConnectionString);
 
         }
+
+       
     }
 }

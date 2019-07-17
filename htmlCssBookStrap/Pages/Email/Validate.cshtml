@@ -1,8 +1,26 @@
 ﻿@page
 @model htmlCssBookStrap.Pages.Email.ValidateModel
 
+
+@if (ViewData["valid"] != null)
+{
+    if ((bool)ViewData["valid"])
+    {
+        <div>激活成功</div>
+    }
+    else
+    {
+        <div>激活失败</div>
+    }
+}
+else
+{
+
+}
+
 <form method="post">
     <label>Email:</label>
     <input asp-for="EmailAddress" />
     <button type="submit">提交</button>
 </form>
+

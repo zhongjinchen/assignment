@@ -120,7 +120,9 @@ namespace Practise
             //Attribute attribute = OnlineAttribute.GetCustomAttribute(typeof(Reflect), typeof(OnlineAttribute));
             //Console.WriteLine(((OnlineAttribute)attribute).name);
 
-            new UserRepoistory().Database.Migrate();
+            //new UserRepoistory().Database.Migrate();
+
+            Console.WriteLine(new Random().Next(1000, 9999).ToString());
 
             Console.ReadLine();
         }

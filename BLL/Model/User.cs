@@ -15,7 +15,7 @@ namespace BLL
 
 
         public Token token { get; }
-        private const string _salt = "yzlc";
+
         public User()
         {
 
@@ -34,21 +34,24 @@ namespace BLL
             {
 
             }
-            using (MD5 md5Hash = MD5.Create())
-            {
-                Password = GetMd5Hash(md5Hash, Password + _salt);
-            }
+
+            Password = GetMd5Hash(Password);
+
         }
 
-        private string GetMd5Hash(MD5 md5Hash, string input)
+        public static string GetMd5Hash(string input)
         {
-            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
-            StringBuilder stringBuilder = new StringBuilder();
-            for (int i = 0; i < data.Length; i++)
+            const string _salt = "yzlc";
+            using (MD5 md5Hash = MD5.Create())
             {
-                stringBuilder.Append(data[i].ToString("x2"));
+                byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input + _salt));
+                StringBuilder stringBuilder = new StringBuilder();
+                for (int i = 0; i < data.Length; i++)
+                {
+                    stringBuilder.Append(data[i].ToString("x2"));
+                }
+                return stringBuilder.ToString();
             }
-            return stringBuilder.ToString();
         }
 
 

@@ -27,7 +27,7 @@ namespace BLL.Migrations
 
                     b.Property<string>("Address");
 
-                    b.Property<bool>("EmailHasValidated");
+                    b.Property<DateTime?>("EmailHasValidated");
 
                     b.Property<string>("ValidationCode");
 

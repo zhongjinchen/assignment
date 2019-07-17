@@ -9,10 +9,13 @@ using Servise;
 
 namespace htmlCssBookStrap.Pages.Email
 {
-    
+
     public class ValidateModel : PageModel
     {
         private UserService _userService;
+        private const string _id = "id";
+        private const string _code = "code";
+        public const string Valid = "valid";
 
         public ValidateModel()
         {
@@ -25,6 +28,14 @@ namespace htmlCssBookStrap.Pages.Email
         public string EmailAddress { get; set; }
         public void OnGet()
         {
+            string Id = Request.Query[_id];
+            string code = Request.Query[_code];
+            if (!string.IsNullOrEmpty(Id) && !string.IsNullOrEmpty(code))
+            {
+                ViewData[Valid] = _userService.ValidationEmail(Convert.ToInt32(Id), code);
+            }
+
+
 
         }
 
@@ -35,10 +46,10 @@ namespace htmlCssBookStrap.Pages.Email
                 return;
             }
 
-            string ValidationUrlFormat = 
-                $"{Request.Scheme}://{Request.Host}/Email/Validation?code={{0}}&Id={{1}}";
+            string ValidationUrlFormat =
+                $"{Request.Scheme}://{Request.Host}/Email/Validate?{_code}={{0}}&{_id}={{1}}";
 
-            _userService.SendValidationEmail(EmailAddress,ValidationUrlFormat);
+            _userService.SendValidationEmail(EmailAddress, ValidationUrlFormat);
         }
     }
 }
