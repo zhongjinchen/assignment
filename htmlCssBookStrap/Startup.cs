@@ -47,7 +47,12 @@ namespace WebApplication1
             }
 
             app.UseStaticFiles();
-            app.UseCookiePolicy();
+
+            //app.UseCookiePolicy(new CookiePolicyOptions {
+            //    CheckConsentNeeded = x => false
+            //});
+
+            //app.UseCookiePolicy();
 
             app.UseMvc();
         }

@@ -14,24 +14,25 @@
         <hr style="border:0px;border-top:1px solid #eee;" /><br />
         <div class="col-md-4">
             <main>
+             
                 <form role="form" method="post">
 
                     <label>用户名：</label>
                     <div class="form-group">
-                        <input class="form-control" asp-for="Register.UserName" placeholder="登陆用户名，可修改，不能重复" />
-                        <span asp-validation-for="Register.UserName" class="promptMessage"></span>
+                        <input class="form-control" asp-for="Login.UserName" placeholder="登陆用户名，可修改，不能重复" />
+                        <span asp-validation-for="Login.UserName" class="promptMessage"></span>
                     </div>
 
                     <label>密码：</label>
                     <div class="form-group">
-                        <input asp-for="Register.Password" class="form-control" placeholder="不少于4个字符" />
-                        <span asp-validation-for="Register.Password" class="promptMessage"></span>
+                        <input asp-for="Login.Password" class="form-control" placeholder="不少于4个字符" />
+                        <span asp-validation-for="Login.Password" class="promptMessage"></span>
                     </div>
 
                     <label>验证码：</label>
                     <div class="form-group">
-                        <input class="form-control" asp-for="Register.identifyingCode" style="width:80px;height:30px;border:1px solid #ccc;" maxlength="16" />
-                        <span asp-validation-for="Register.identifyingCode" class="promptMessage"></span>
+                        <input class="form-control" asp-for="Login.identifyingCode" style="width:80px;height:30px;border:1px solid #ccc;" maxlength="16" />
+                        <span asp-validation-for="Login.identifyingCode" class="promptMessage"></span>
                     </div>
 
                     <input type="submit" value="提交" style="width:50px;height:30px;border:1px solid #204d74;background-color:#286090;color:#fff;border-radius:5px;" />

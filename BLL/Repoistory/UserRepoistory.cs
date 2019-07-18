@@ -34,6 +34,11 @@ namespace BLL
             return _users.Where(w => w.Name == userName).SingleOrDefault();
         }
 
+        public User GetById(int id)
+        {
+            return _users.Where(w => w.Id == id).SingleOrDefault();
+        }
+
         public static User Get(int id)
         {
             return null;

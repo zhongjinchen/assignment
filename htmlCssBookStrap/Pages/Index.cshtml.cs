@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using htmlCssBookStrap.Pages.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Servise;
@@ -10,7 +11,7 @@ using Servise;
 namespace htmlCssBookStrap.Pages
 {
     [BindProperties]
-    public class IndexModel : PageModel
+    public class IndexModel : _LayoutModel
     {
         public Register Register { get; set; }
         public UserService _registerSevise;
@@ -18,8 +19,9 @@ namespace htmlCssBookStrap.Pages
         {
             _registerSevise = new UserService();
         }
-        public void OnGet()
+        public override void OnGet()
         {
+            base.OnGet();
             ViewData["title"] = "注册";
         }
         public void OnPost()
@@ -43,34 +45,34 @@ namespace htmlCssBookStrap.Pages
 
     public class Register
     {
-        [YZrequired]
+        [YZRegister]
         [Display(Name = " * 邀请人")]
         public string Inviter { get; set; }
 
-        [YZrequired]
+        [YZRegister]
         [Display(Name = " * 邀请码")]
-        public string UserName { get; set; }
-
-        [YZrequired]
-        [Display(Name =" * 用户名")]
         public string InvitationCode { get; set; }
 
-        [YZrequired]
+        [YZRegister]
+        [Display(Name = " * 用户名")]
+        public string UserName { get; set; }
+
+        [YZRegister]
         [Display(Name = " * 密码")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [YZrequired]
+        [YZRegister]
         [Display(Name = " * 确认密码")]
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
 
-        [YZrequired]
+        [YZRegister]
         [Display(Name = " * 验证码")]
         public string identifyingCode  { get; set; }
     }
 
-    public class YZrequired : RequiredAttribute
+    public class YZRegister : RequiredAttribute
     {
         public override string FormatErrorMessage(string name)
         {

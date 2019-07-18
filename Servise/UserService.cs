@@ -23,6 +23,12 @@ namespace Servise
             return _userRepoistory.GetByName(userName) != null;
         }
 
+        public UserMode GetById(int Id)
+        {
+            User user=_userRepoistory.GetById(Id);
+            return MapFrom(user);
+        }
+
         public void SendValidationEmail(string emailAddress,string ValidationUrlFormat)
         {
             Email email = new Email { Address = emailAddress };
@@ -46,20 +52,27 @@ namespace Servise
             SmtpServer.Send(mail);
         }
 
-        public UserMode GetUser(string userName)
+        public UserMode GetName(string userName)
         {
             User user = _userRepoistory.GetByName(userName);
+            return MapFrom(user);
+        }
+
+        private UserMode MapFrom(User user)
+        {
             if (user == null)
             {
                 return null;
             }
             else
             {
-                UserMode mode = new UserMode();
- 
-                mode.Id = user.Id;
-                mode.MD5Password = user.Password;
-                return mode;
+                UserMode userMode = new UserMode
+                {
+                    Id = user.Id,
+                    Name = user.Name,
+                    MD5Password = user.Password
+                };
+                return userMode;
             }
         }
 
@@ -82,6 +95,7 @@ namespace Servise
     public class UserMode
     {
         public int Id { get; set; }
+        public string Name { get; set; }
         public string MD5Password { get; set; }
     }
 }

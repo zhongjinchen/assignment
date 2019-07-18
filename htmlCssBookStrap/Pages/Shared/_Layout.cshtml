@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+@model htmlCssBookStrap.Pages.Shared._LayoutModel
 <html>
 <head>
 
@@ -69,7 +70,14 @@
     <div class="notice">
         <a class="small" href="http://17bang.ren/Message/Index">全部消息</a>
     </div>
-
+    @if (ViewData["UserName"] == null)
+    {
+        <span>未登录</span>
+    }
+    else
+    {
+        <span>@ViewData["UserName"]登陆成功</span>
+    }
     @RenderBody()
 
     <br style="clear:both;" />
