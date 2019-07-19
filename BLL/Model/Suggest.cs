@@ -6,9 +6,11 @@ namespace BLL
 {
     public class Suggest : IPublish
     {
+        public Message Message;
         private Content Content;
         public int AgreeCount;
         public int DisagreeCount;
+        public DateTime PublishedTime { get; private set; }
         public Suggest(Content content)
         {
             Content = content;
@@ -17,7 +19,7 @@ namespace BLL
 
         public void Publish()
         {
-            throw new NotImplementedException();
+            PublishedTime =DateTime.Now ;
         }
     }
 }

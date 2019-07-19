@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace WebApplication1
 {
@@ -29,7 +30,15 @@ namespace WebApplication1
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
+            services.AddMemoryCache();
+            services.AddSession(Options =>
+            {
+                Options.Cookie = new CookieBuilder
+                {
+                    Name = "mysession"
+                };
+                Options.IdleTimeout = new TimeSpan(0, 2, 0);
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -53,7 +62,7 @@ namespace WebApplication1
             //});
 
             //app.UseCookiePolicy();
-
+            app.UseSession();
             app.UseMvc();
         }
     }

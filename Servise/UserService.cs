@@ -23,7 +23,7 @@ namespace Servise
             return _userRepoistory.GetByName(userName) != null;
         }
 
-        public UserMode GetById(int Id)
+        public UserModel GetById(int Id)
         {
             User user=_userRepoistory.GetById(Id);
             return MapFrom(user);
@@ -52,13 +52,13 @@ namespace Servise
             SmtpServer.Send(mail);
         }
 
-        public UserMode GetName(string userName)
+        public UserModel GetName(string userName)
         {
             User user = _userRepoistory.GetByName(userName);
             return MapFrom(user);
         }
 
-        private UserMode MapFrom(User user)
+        private UserModel MapFrom(User user)
         {
             if (user == null)
             {
@@ -66,7 +66,7 @@ namespace Servise
             }
             else
             {
-                UserMode userMode = new UserMode
+                UserModel userMode = new UserModel
                 {
                     Id = user.Id,
                     Name = user.Name,
@@ -92,7 +92,7 @@ namespace Servise
         }
     }
 
-    public class UserMode
+    public class UserModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

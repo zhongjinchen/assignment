@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 using Servise;
 
 namespace htmlCssBookStrap.Pages
@@ -39,32 +40,33 @@ namespace htmlCssBookStrap.Pages
                 return;       //return Page();
             }
 
-            UserMode mode = _userService.GetName(Login.UserName);
+            UserModel model = _userService.GetName(Login.UserName);
 
-            if (mode==null)
+            if (model==null)
             {
                 ModelState.AddModelError("UserName","* 用户名不存在");
                 return;
             }
-            if(!_userService.PasswordCorrect(Login.Password,mode.MD5Password))
+            if(!_userService.PasswordCorrect(Login.Password,model.MD5Password))
             {
                 ModelState.AddModelError("UserName", "* 用户名或密码错误");
                 return;
             }
 
-            
-            Response.Cookies.Append(_userId, mode.Id.ToString(),
-                new CookieOptions
-                {
-                    //        //Domain = Request.Host.Value,
-                    //        Path="/entry",
-                    Expires = DateTime.Now.AddDays(1)//,
-                    //        IsEssential =true
-                } 
-                );
-            Response.Cookies.Append(_password,mode.MD5Password);
 
-       
+            //Response.Cookies.Append(_userId, mode.Id.ToString(),
+            //    new CookieOptions
+            //    {
+            //        //        //Domain = Request.Host.Value,
+            //        //        Path="/entry",
+            //        Expires = DateTime.Now.AddDays(1)//,
+            //        //        IsEssential =true
+            //    } 
+            //    );
+            //Response.Cookies.Append(_password,mode.MD5Password);
+
+            HttpContext.Session.SetString("UserName",JsonConvert.SerializeObject(model));
+
         }
     }
 

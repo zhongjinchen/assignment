@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BLL.Repoistory;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,20 +7,23 @@ using System.Text;
 
 namespace BLL
 {
-    public class UserRepoistory : DbContext
+    public class UserRepoistory : SQLContext
     {
-        public DbSet<User> _users { get; set; }
-        public DbSet<Email> _emails { get; set; }
+        private SQLContext _sqlContext;
+        public UserRepoistory()
+        {
+            _sqlContext = new SQLContext();
+        }
         public void Save(User user)
         {
-            _users.Add(user);
+            _sqlContext._users.Add(user);
             SaveChanges();
         
         }
 
         public void Save(Email email)
         {
-            _emails.Add(email);
+            _sqlContext._emails.Add(email);
             SaveChanges();
            
         }
@@ -31,12 +35,12 @@ namespace BLL
 
         public User GetByName(string userName)
         {
-            return _users.Where(w => w.Name == userName).SingleOrDefault();
+            return _sqlContext._users.Where(w => w.Name == userName).SingleOrDefault();
         }
 
         public User GetById(int id)
         {
-            return _users.Where(w => w.Id == id).SingleOrDefault();
+            return _sqlContext._users.Where(w => w.Id == id).SingleOrDefault();
         }
 
         public static User Get(int id)
@@ -46,16 +50,11 @@ namespace BLL
 
         public Email GetEmailById(int id)
         {
-            Email email = _emails.Where(w => w.Id == id).SingleOrDefault();
+            Email email = _sqlContext._emails.Where(w => w.Id == id).SingleOrDefault();
             return email;
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            string ConnectionString= @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=17bang;Integrated Security=True;";
-            optionsBuilder.UseSqlServer(ConnectionString);
-
-        }
+    
 
        
     }

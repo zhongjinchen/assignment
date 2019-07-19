@@ -1,5 +1,19 @@
 ﻿<!DOCTYPE html>
 @model htmlCssBookStrap.Pages.Shared._LayoutModel
+@using Microsoft.AspNetCore.Http
+@using Servise
+@using Newtonsoft.Json
+@{
+    string jsUser = Context.Session.GetString("UserName");
+    UserModel userModel =null;
+    if (!string.IsNullOrEmpty(jsUser))
+    {
+        userModel = JsonConvert.DeserializeObject<UserModel>(jsUser);
+    }
+
+}
+
+
 <html>
 <head>
 
@@ -70,13 +84,13 @@
     <div class="notice">
         <a class="small" href="http://17bang.ren/Message/Index">全部消息</a>
     </div>
-    @if (ViewData["UserName"] == null)
+    @if (@*ViewData["UserName"]*@userModel == null)
     {
         <span>未登录</span>
     }
     else
     {
-        <span>@ViewData["UserName"]登陆成功</span>
+        <span>@*@ViewData["UserName"]*@ @(userModel.Name)登陆成功</span>
     }
     @RenderBody()
 
