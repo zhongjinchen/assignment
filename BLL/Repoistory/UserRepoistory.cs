@@ -7,7 +7,7 @@ using System.Text;
 
 namespace BLL
 {
-    public class UserRepoistory : SQLContext
+    public class UserRepoistory 
     {
         private SQLContext _sqlContext;
         public UserRepoistory()
@@ -17,20 +17,20 @@ namespace BLL
         public void Save(User user)
         {
             _sqlContext._users.Add(user);
-            SaveChanges();
+            _sqlContext.SaveChanges();
         
         }
 
         public void Save(Email email)
         {
             _sqlContext._emails.Add(email);
-            SaveChanges();
+            _sqlContext.SaveChanges();
            
         }
 
         public void Flush()
         {
-            SaveChanges();
+            _sqlContext.SaveChanges();
         }
 
         public User GetByName(string userName)

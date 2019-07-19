@@ -6,16 +6,24 @@ namespace BLL
 {
     public class Suggest : IPublish
     {
-        public Message Message;
-        private Content Content;
-        public int AgreeCount;
-        public int DisagreeCount;
+        public int Id { get; set; }
+        //public Message Message { get; set; }
+        //public Content Content { get; set; }
+        //public User Author { get; set; }
+        public string Title { get; set; }
+        public string Body { get; set; }
+        public int AgreeCount { get; set; }
+        public int DisagreeCount { get; set; }
         public DateTime PublishedTime { get; private set; }
-        public Suggest(Content content)
+        //public Suggest(Content content,Message message)
+        //{
+        //    Message = message;
+        //    Content = content;
+        //}
+        public Suggest()
         {
-            Content = content;
+      
         }
-
 
         public void Publish()
         {

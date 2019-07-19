@@ -1,6 +1,8 @@
 ﻿using assignment;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -10,7 +12,11 @@ namespace BLL
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        [Required]
         public string Password { get; set; }
+        [NotMapped]
+        public string ConfirmPassword { get; set; }
+
         public User InvitedBy { get; set; }
 
 

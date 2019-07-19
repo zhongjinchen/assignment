@@ -6,11 +6,11 @@ namespace BLL
 {
     public class Content
     {
-     
-        internal string Title { get; }
-        internal string Body { get; }
+        public int Id { get; private set; }
+        public string Title { get; set; }
+        public string Body { get; set; }
 
-        internal Content( string title, string body)
+        public Content(string title, string body)
         {
             Title = title;
             Body = body;

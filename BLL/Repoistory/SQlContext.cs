@@ -18,5 +18,14 @@ namespace BLL.Repoistory
 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>(options => {
+                options.ToTable("User")
+                .Property(x => x.Name)
+                .IsRequired();
+            });
+            modelBuilder.Entity<Article>();
+        }
     }
 }

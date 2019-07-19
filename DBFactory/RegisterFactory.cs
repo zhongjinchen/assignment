@@ -1,4 +1,5 @@
-﻿using Servise;
+﻿using BLL;
+using Servise;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,6 +8,7 @@ namespace DBFactory
 {
     internal class RegisterFactory
     {
+        internal static User ZhangSan, LiSi; 
         private static UserService _userService;
         static RegisterFactory()
         {
@@ -15,9 +17,9 @@ namespace DBFactory
         internal static void Create()
         {
 
-            _userService.Register("张三",Helper.Password);
-            _userService.Register("李四", Helper.Password);
-
+            ZhangSan=_userService.Register("张三",Helper.Password);
+            LiSi=_userService.Register("李四", Helper.Password);
+            
         }
     }
 }

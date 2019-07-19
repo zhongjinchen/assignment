@@ -11,11 +11,13 @@ namespace Servise
         {
             _userRepoistory = new UserRepoistory();
         }
-        public void Register(string name, string password)
+        public User Register(string name, string password)
         {
             User user = new User(name, password);
             user.Register();
+            
             _userRepoistory.Save(user);
+            return user;
         }
 
         public bool HasExist(string userName)

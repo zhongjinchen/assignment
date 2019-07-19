@@ -6,11 +6,11 @@ namespace BLL
 {
     public class Message
     {
-        public int Id { get; }
-        public User Author { get; }
-        public Message(int id, User author)
+        public int Id { get;private set; }
+        public User Author { get; set; }
+        public Message(User author)
         {
-            Id = id;
+            
             Author = author; 
         }
     }
