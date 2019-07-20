@@ -38,6 +38,11 @@ namespace BLL
             return _sqlContext._users.Where(w => w.Name == userName).SingleOrDefault();
         }
 
+        public User GetByEmail(string email)
+        {
+            return _sqlContext._users.Where(w => w.Email.Address == email).SingleOrDefault();
+        }
+
         public User GetById(int id)
         {
             return _sqlContext._users.Where(w => w.Id == id).SingleOrDefault();

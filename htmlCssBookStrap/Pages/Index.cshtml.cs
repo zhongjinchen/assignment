@@ -31,7 +31,20 @@ namespace htmlCssBookStrap.Pages
                 return;       //return Page();
             }
             //return RedirectToAction("About");
+            try
+            {
+                if (Register.ConfirmPassword.GetType() == typeof(int))
+                {
+                    ViewData["IsNumber"] = true;
+                    return;
+                }
+            }
+            catch (Exception)
+            {
 
+              
+            }
+           
             if (_registerSevise.HasExist(Register.UserName))
             {
                 ModelState.AddModelError("Register.UserName", "* 用户名重复");
@@ -45,29 +58,34 @@ namespace htmlCssBookStrap.Pages
 
     public class Register
     {
-        [YZRegister]
+        [Required(ErrorMessage = " * 邀请人不能为空")]
         [Display(Name = " * 邀请人")]
         public string Inviter { get; set; }
 
-        [YZRegister]
+        [Required(ErrorMessage = " * 邀请码不能为空")]
         [Display(Name = " * 邀请码")]
         public string InvitationCode { get; set; }
 
-        [YZRegister]
+        [Required(ErrorMessage = " * 用户名不能为空")]
         [Display(Name = " * 用户名")]
+        [MaxLength(10,ErrorMessage = " * 用户名长度不能大于10")]
         public string UserName { get; set; }
 
-        [YZRegister]
+        [Required(ErrorMessage = " * 密码不能为空")]
         [Display(Name = " * 密码")]
+        [MaxLength(20, ErrorMessage = "* 密码长度不能大于20")]
+        [MinLength(6,ErrorMessage ="* 密码长度不能小于6")]
+        [RegularExpression("[A-Za-z0-9]*", ErrorMessage ="* 密码只能为数字或字母")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [YZRegister]
+        [Required(ErrorMessage = " * 确认密码不能为空")]
         [Display(Name = " * 确认密码")]
         [DataType(DataType.Password)]
+        [Compare("Password",ErrorMessage = "* 两次密码输入不一致")]
         public string ConfirmPassword { get; set; }
 
-        [YZRegister]
+        [Required(ErrorMessage = " * 验证码不能为空")]
         [Display(Name = " * 验证码")]
         public string identifyingCode  { get; set; }
     }

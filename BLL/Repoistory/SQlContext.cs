@@ -25,7 +25,7 @@ namespace BLL.Repoistory
                 .Property(x => x.Name)
                 .IsRequired();
             });
-            modelBuilder.Entity<Article>();
+            //modelBuilder.Entity<Article>();
         }
     }
 }

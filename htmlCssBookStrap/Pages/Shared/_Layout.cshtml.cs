@@ -12,9 +12,10 @@ namespace htmlCssBookStrap.Pages.Shared
     {
         protected const string userId = "userId";
         protected const string password = "password";
-
+       
         public virtual void OnGet()
         {
+            
             ViewData["UserName"] = HttpContext.Session.GetString("UserName");
 
             //string userIdValue;

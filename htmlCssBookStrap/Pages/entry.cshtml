@@ -1,6 +1,8 @@
 ﻿@page
 @model htmlCssBookStrap.Pages.entryModel
-
+@{ 
+    ViewData["title"] = "登录";
+}
 <link rel="stylesheet" type="text/css" href="~/css/entry.css" />
 <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 
@@ -38,8 +40,8 @@
                     <input type="submit" value="提交" style="width:50px;height:30px;border:1px solid #204d74;background-color:#286090;color:#fff;border-radius:5px;" />
 
                     <label><input type="checkbox" name="vehicle" value="记住我">记住我</label>
-                    <a style="margin-left:100px;color:#23527c;" href="http://17bang.ren/Password/Forget">忘了</a>
-                    <a style="margin-left:20px;color:#23527c;" href="http://17bang.ren/Register/Home?prepage=%2f">®注册</a>
+                    <a style="margin-left:100px;color:#23527c;" href="~/Forget">忘记密码</a>
+                    <a style="margin-left:20px;color:#23527c;" href="">®注册</a>
                 </form>
             </main>
         </div>

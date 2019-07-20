@@ -1,0 +1,41 @@
+﻿@page
+@model htmlCssBookStrap.Pages.ForgetModel
+@{
+    ViewData["Title"] = "忘记密码";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+@*<link rel="stylesheet" type="text/css" href="~/css/site.css" />*@
+<link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+
+<div class="container">
+    <form role="form" method="post">
+        <div class="row">
+            <div class="col-md-5">
+
+                <label>用户名：</label>
+                <div class="form-group">
+                    <input class="form-control" asp-for="ForgetPassword.UserName" />
+                    <span asp-validation-for="ForgetPassword.UserName" class="promptMessage"></span>
+                </div>
+
+                <label>Email：</label>
+                <div class="form-group">
+                    <input asp-for="ForgetPassword.Email" class="form-control"/>
+                    <span asp-validation-for="ForgetPassword.Email" class="promptMessage"></span>
+                </div>
+
+                <label>验证码：</label>
+                <div class="form-group">
+                    <input class="form-control" asp-for="ForgetPassword.identifyingCode" style="width:80px;height:30px;border:1px solid #ccc;" maxlength="16" />
+                    <span asp-validation-for="ForgetPassword.identifyingCode" class="promptMessage"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <button class="btn btn-primary" type="submit" value="提交">提交</button>
+                <button class="btn btn-default" type="reset" value="重置">重置</button>
+            </div>
+        </div>
+    </form>
+</div>

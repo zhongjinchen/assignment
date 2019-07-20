@@ -20,7 +20,7 @@ namespace htmlCssBookStrap.Pages
         private const string _userId = "userId";
         private const string _password = "password";
         private UserService _userService;
-        public Login Login { get; set; }
+        public Forget Login { get; set; }
 
         public entryModel()
         {
@@ -29,12 +29,14 @@ namespace htmlCssBookStrap.Pages
 
         public override void OnGet()
         {
+            
             base.OnGet();
-            ViewData["title"] = "登陆";
+            
         }
 
         public void OnPost()
         {
+            
             if (!ModelState.IsValid)
             {
                 return;       //return Page();
@@ -44,12 +46,12 @@ namespace htmlCssBookStrap.Pages
 
             if (model==null)
             {
-                ModelState.AddModelError("UserName","* 用户名不存在");
+                ModelState.AddModelError("Login.UserName", "* 用户名不存在");
                 return;
             }
             if(!_userService.PasswordCorrect(Login.Password,model.MD5Password))
             {
-                ModelState.AddModelError("UserName", "* 用户名或密码错误");
+                ModelState.AddModelError("Login.Password", "* 用户名或密码错误");
                 return;
             }
 
@@ -71,27 +73,21 @@ namespace htmlCssBookStrap.Pages
     }
 
 
-    public class Login
+    public class Forget
     {
 
         [Required(ErrorMessage = " * 用户名不能为空")]
         public string UserName { get; set; }
 
-        [YZLogin]
+        [Required(ErrorMessage = " * 密码不能为空")]
         [Display(Name = " * 密码")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [YZLogin]
+        [Required(ErrorMessage = " * 验证码不能为空")]
         [Display(Name = " * 验证码")]
         public string identifyingCode { get; set; }
     }
 
-    public class YZLogin : RequiredAttribute
-    {
-        public override string FormatErrorMessage(string name)
-        {
-            return $"{name}不能为空";
-        }
-    }
+
 }

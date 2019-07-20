@@ -11,14 +11,16 @@ namespace BLL
     public class User
     {
         public int Id { get; set; }
+       
         public string Name { get; set; }
         [Required]
         public string Password { get; set; }
-        [NotMapped]
+        
         public string ConfirmPassword { get; set; }
 
-        public User InvitedBy { get; set; }
+        public Email Email { get; set; }
 
+        public User InvitedBy { get; set; }
 
         public Token token { get; }
 

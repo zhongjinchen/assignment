@@ -17,8 +17,8 @@ namespace DBFactory
 
             db.EnsureDeleted();
             db.EnsureCreated();
-            //RegisterFactory.Create();
-            //NewFactory.Create();
+            RegisterFactory.Create();
+            NewFactory.Create();
 
         }
     }

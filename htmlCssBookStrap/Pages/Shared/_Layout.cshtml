@@ -5,7 +5,7 @@
 @using Newtonsoft.Json
 @{
     string jsUser = Context.Session.GetString("UserName");
-    UserModel userModel =null;
+    UserModel userModel = null;
     if (!string.IsNullOrEmpty(jsUser))
     {
         userModel = JsonConvert.DeserializeObject<UserModel>(jsUser);
@@ -27,7 +27,7 @@
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-    <title>注册·一起帮</title>
+    <title>@ViewData["title"] · 一起帮</title>
 
 
 </head>
@@ -71,7 +71,15 @@
                     </ul>
                 </li>
                 <li>
+                
+                    @if (@*ViewData["UserName"]*@userModel == null)
+                    {
                     <a href="">未登录</a>
+                    }
+                    else
+                    {
+                    <a href="">@*@ViewData["UserName"]*@ @(userModel.Name)</a>
+                    }
                     <ul class="dropdown-content">
                         <li><a href="">登录</a></li>
                         <li><a href="">注册</a></li>
@@ -84,14 +92,7 @@
     <div class="notice">
         <a class="small" href="http://17bang.ren/Message/Index">全部消息</a>
     </div>
-    @if (@*ViewData["UserName"]*@userModel == null)
-    {
-        <span>未登录</span>
-    }
-    else
-    {
-        <span>@*@ViewData["UserName"]*@ @(userModel.Name)登陆成功</span>
-    }
+
     @RenderBody()
 
     <br style="clear:both;" />

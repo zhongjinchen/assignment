@@ -31,6 +31,11 @@ namespace Servise
             return MapFrom(user);
         }
 
+        public bool HasExistEmail(string email)
+        {
+            return _userRepoistory.GetByEmail(email) != null;
+        }
+
         public void SendValidationEmail(string emailAddress,string ValidationUrlFormat)
         {
             Email email = new Email { Address = emailAddress };

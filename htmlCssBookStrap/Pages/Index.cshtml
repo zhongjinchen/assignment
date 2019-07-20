@@ -19,14 +19,14 @@
                         <a class="cause" href="http://17bang.ren/FAQ/Account#invite">为什么需要邀请</a><br />
                         <label>邀请人：</label>
                         <div class="form-group">
-                            <input class="form-control"asp-for="Register.Inviter"  placeholder="他的用户名模糊,查询只能从头开始" />
-                            <span asp-validation-for="Register.Inviter"class="promptMessage"></span>
+                            <input class="form-control" asp-for="Register.Inviter" placeholder="他的用户名模糊,查询只能从头开始" />
+                            <span asp-validation-for="Register.Inviter" class="promptMessage"></span>
                         </div>
 
                         <label>邀请码：</label>
                         <div class="form-group">
                             <input class="form-control" asp-for="Register.InvitationCode" placeholder="4位数字" />
-                            <span asp-validation-for="Register.InvitationCode"class="promptMessage"></span>
+                            <span asp-validation-for="Register.InvitationCode" class="promptMessage"></span>
                         </div>
                     </div>
 
@@ -34,19 +34,23 @@
                         <label>用户名：</label>
                         <div class="form-group">
                             <input class="form-control" asp-for="Register.UserName" placeholder="登陆用户名，可修改，不能重复" />
-                            <span asp-validation-for="Register.UserName"class="promptMessage"></span>
+                            <span asp-validation-for="Register.UserName" class="promptMessage"></span>
                         </div>
 
                         <label>密码：</label>
                         <div class="form-group">
-                            <input asp-for="Register.Password" class="form-control" placeholder="不少于4个字符" />
-                            <span asp-validation-for="Register.Password"class="promptMessage"></span>
+                            <input asp-for="Register.Password" class="form-control" placeholder="不少于6个字符" />
+                            @if (ViewData["IsNumber"]!=null)
+                            {
+                            <span style="color:#b94a48">* 密码太过简单，请输入数字和字母组合</span>
+                            }
+                            <span asp-validation-for="Register.Password" class="promptMessage"></span>
                         </div>
 
                         <label>验证密码：</label>
                         <div class="form-group">
                             <input asp-for="Register.ConfirmPassword" class="form-control" placeholder="和密码相同" />
-                            <span asp-validation-for="Register.ConfirmPassword"class="promptMessage"></span>
+                            <span asp-validation-for="Register.ConfirmPassword" class="promptMessage"></span>
                         </div>
 
                         <label>验证码：</label>
@@ -68,7 +72,7 @@
                             </div>
                         </div>
                         <div class="col-md-2" style="padding-top:8px">
-                            <a style="color:#23527c;" href="http://17bang.ren/Log/On?prepage=%2f">登陆</a>
+                            <a style="color:#23527c;" href="~/entry">登陆</a>
                         </div>
                     </div>
                 </form>
