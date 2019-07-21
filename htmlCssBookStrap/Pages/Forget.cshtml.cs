@@ -15,20 +15,32 @@ namespace htmlCssBookStrap.Pages
     {
         public ForgetPassword ForgetPassword { get; set; }
         private UserService _userService;
+        public ForgetModel()
+        {
+            _userService = new UserService();
+        }
         public override void OnGet()
         {
 
         }
         public void OnPost()
         {
-            if (_userService.HasExist(ForgetPassword.UserName))
+            if (!ModelState.IsValid)
             {
-
+                return;
             }
-            if (_userService.HasExistEmail(ForgetPassword.Email))
+            if (!_userService.HasExist(ForgetPassword.UserName))
             {
-
+                ModelState.AddModelError("ForgetPassword.UserName", "* 用户名不存在");
+                return;
             }
+            if (!_userService.HasExistEmail(ForgetPassword.Email))
+            {
+                ModelState.AddModelError("ForgetPassword.Email", "* Email错误，请重新填写");
+                return;
+            }
+
+
         }
     }
 
@@ -42,7 +54,7 @@ namespace htmlCssBookStrap.Pages
         [Required(ErrorMessage = " * Email不能为空")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = " * 验证码不能为空")]
+        //[Required(ErrorMessage = " * 验证码不能为空")]
         public string identifyingCode { get; set; }
     }
 }

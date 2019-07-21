@@ -1,6 +1,8 @@
 ﻿@page
 @model htmlCssBookStrap.Pages.IndexModel
-
+@{
+    ViewData["title"] = "注册";
+}
 <link rel="stylesheet" type="text/css" href="~/css/site.css" />
 <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 
@@ -37,12 +39,18 @@
                             <span asp-validation-for="Register.UserName" class="promptMessage"></span>
                         </div>
 
+                        <label>Email：</label>
+                        <div class="form-group">
+                            <input class="form-control" asp-for="Register.Email" placeholder="用户邮箱" />
+                            <span asp-validation-for="Register.Email" class="promptMessage"></span>
+                        </div>
+
                         <label>密码：</label>
                         <div class="form-group">
                             <input asp-for="Register.Password" class="form-control" placeholder="不少于6个字符" />
-                            @if (ViewData["IsNumber"]!=null)
+                            @if (ViewData["IsNumber"] != null)
                             {
-                            <span style="color:#b94a48">* 密码太过简单，请输入数字和字母组合</span>
+                                <span style="color:#b94a48">* 密码太过简单，请输入数字和字母组合</span>
                             }
                             <span asp-validation-for="Register.Password" class="promptMessage"></span>
                         </div>

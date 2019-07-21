@@ -24,19 +24,18 @@ namespace htmlCssBookStrap.Pages
             base.OnGet();
             ViewData["title"] = "注册";
         }
-        public void OnPost()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
-                return;       //return Page();
+                return Page();       //return Page();
             }
-            //return RedirectToAction("About");
             try
             {
                 if (Register.ConfirmPassword.GetType() == typeof(int))
                 {
                     ViewData["IsNumber"] = true;
-                    return;
+                    return Page();
                 }
             }
             catch (Exception)
@@ -48,10 +47,13 @@ namespace htmlCssBookStrap.Pages
             if (_registerSevise.HasExist(Register.UserName))
             {
                 ModelState.AddModelError("Register.UserName", "* 用户名重复");
-                return;
+                return Page();
             }
 
-            _registerSevise.Register(Register.UserName,Register.Password);
+            _registerSevise.Register(Register.UserName,Register.Password,Register.Email);
+
+            //return RedirectToPage("entry");
+
         }
 
     }
@@ -70,6 +72,10 @@ namespace htmlCssBookStrap.Pages
         [Display(Name = " * 用户名")]
         [MaxLength(10,ErrorMessage = " * 用户名长度不能大于10")]
         public string UserName { get; set; }
+
+        [Required(ErrorMessage = " * Email不能为空")]
+        [EmailAddress(ErrorMessage ="* Email格式不正确")]
+        public string Email { get; set; }
 
         [Required(ErrorMessage = " * 密码不能为空")]
         [Display(Name = " * 密码")]

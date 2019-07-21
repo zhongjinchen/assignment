@@ -11,11 +11,17 @@ namespace Servise
         {
             _userRepoistory = new UserRepoistory();
         }
-        public User Register(string name, string password)
+        public User Register(string name, string password, string email)
         {
-            User user = new User(name, password);
+            User user = new User(name, password)
+            {
+                Email = new Email
+                {
+                    Address = email
+                }
+            };
             user.Register();
-            
+
             _userRepoistory.Save(user);
             return user;
         }
@@ -27,7 +33,7 @@ namespace Servise
 
         public UserModel GetById(int Id)
         {
-            User user=_userRepoistory.GetById(Id);
+            User user = _userRepoistory.GetById(Id);
             return MapFrom(user);
         }
 
@@ -36,7 +42,7 @@ namespace Servise
             return _userRepoistory.GetByEmail(email) != null;
         }
 
-        public void SendValidationEmail(string emailAddress,string ValidationUrlFormat)
+        public void SendValidationEmail(string emailAddress, string ValidationUrlFormat)
         {
             Email email = new Email { Address = emailAddress };
             email.MakeValidationCode();
@@ -83,16 +89,16 @@ namespace Servise
             }
         }
 
-        public bool PasswordCorrect(string rawpassword,string MD5Password)
+        public bool PasswordCorrect(string rawpassword, string MD5Password)
         {
-            return User.GetMd5Hash(rawpassword)==MD5Password;
+            return User.GetMd5Hash(rawpassword) == MD5Password;
         }
 
-      
+
 
         public bool ValidationEmail(int id, string code)
         {
-            Email email=_userRepoistory.GetEmailById(id);
+            Email email = _userRepoistory.GetEmailById(id);
             email.Validate();
             _userRepoistory.Flush();
             return email.ValidationCode == code;

@@ -34,6 +34,7 @@ namespace BLL
 
             Name = name;
             Password = password;
+            
         }
 
         public void Register()
