@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace BLL
 {
-    public class XArticleRepository:Repository<Article>
+    public class XArticleRepository:XRepository<Article>
     {
         private const string _path = @"C:\17bang\repoistory\Articl";
     

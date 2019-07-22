@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace BLL
 {
-    class ProblemRepository : Repository<Problem>
+    class ProblemRepository : XRepository<Problem>
     {
         private static IList<Problem> Repository;
         public IList<Problem> Get()

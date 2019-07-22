@@ -5,11 +5,11 @@ using System.Text;
 
 namespace BLL.Repoistory
 {
-    public class SQLContext:DbContext
+    public class SQLContext :DbContext
     {
-        public DbSet<User> _users { get; set; }
-        public DbSet<Email> _emails { get; set; }
-        public DbSet<Suggest> _suggests { get; set; }
+        //public DbSet<User> _users { get; set; }
+        //public DbSet<Email> _emails { get; set; }
+        //public DbSet<Suggest> _suggests { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -25,6 +25,9 @@ namespace BLL.Repoistory
                 .Property(x => x.Name)
                 .IsRequired();
             });
+
+            modelBuilder.Entity<Email>();
+            modelBuilder.Entity<Suggest>();
             //modelBuilder.Entity<Article>();
         }
     }

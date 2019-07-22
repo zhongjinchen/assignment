@@ -4,9 +4,9 @@ using System.Text;
 
 namespace BLL
 {
-    public class Message
+    public class Message: Entity
     {
-        public int Id { get;private set; }
+        
         public User Author { get; set; }
         public Message(User author)
         {

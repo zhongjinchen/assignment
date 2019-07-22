@@ -52,7 +52,7 @@ namespace htmlCssBookStrap.Pages
 
             _registerSevise.Register(Register.UserName,Register.Password,Register.Email);
 
-            //return RedirectToPage("entry");
+            return RedirectToPage("entry");
 
         }
 

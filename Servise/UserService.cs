@@ -1,4 +1,5 @@
 ﻿using BLL;
+using BLL.Repoistory;
 using System;
 using System.Net.Mail;
 
@@ -7,9 +8,11 @@ namespace Servise
     public class UserService
     {
         private UserRepoistory _userRepoistory;
+        private EmailRepository _emailRepository;
         public UserService()
         {
             _userRepoistory = new UserRepoistory();
+            _emailRepository = new EmailRepository();
         }
         public User Register(string name, string password, string email)
         {
@@ -47,7 +50,7 @@ namespace Servise
             Email email = new Email { Address = emailAddress };
             email.MakeValidationCode();
 
-            _userRepoistory.Save(email);
+            _emailRepository.Save(email);
 
             string VaildationUrl = string.Format(ValidationUrlFormat, email.ValidationCode, email.Id);
 

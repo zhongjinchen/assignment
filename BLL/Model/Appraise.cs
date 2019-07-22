@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BLL
 {
-    public class Appraise 
+    public class Appraise: Entity
     {
         internal IList<Agree> Agrees;
         internal IList<Disagree> Disagrees;

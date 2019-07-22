@@ -8,7 +8,7 @@ namespace DBFactory
 {
     internal class RegisterFactory
     {
-        internal static User ZhangSan, LiSi; 
+        internal static User ZhongYi, ZhongEr, ZhongSan,ZhongSi;
         private static UserService _userService;
         static RegisterFactory()
         {
@@ -17,9 +17,11 @@ namespace DBFactory
         internal static void Create()
         {
 
-            ZhangSan=_userService.Register("张三",Helper.Password,"1111@qq.com");
-            LiSi=_userService.Register("李四", Helper.Password, "2222@qq.com");
-            
+            ZhongYi = _userService.Register("钟一", "111111", "1111@qq.com");
+            ZhongEr = _userService.Register("钟二", "222222", "2222@qq.com");
+            ZhongSan = _userService.Register("钟三", "333333", "3333@qq.com");
+            ZhongSan = _userService.Register("钟四", "444444", "4444@qq.com");
+
         }
     }
 }

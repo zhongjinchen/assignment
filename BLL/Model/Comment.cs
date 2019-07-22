@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BLL
 {
-    public class Comment:IPublish
+    public class Comment: Entity, IPublish
     {
         public int Id { get; }
         public Article Article { get; }

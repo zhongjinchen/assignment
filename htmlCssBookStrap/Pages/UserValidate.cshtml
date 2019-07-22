@@ -1,0 +1,22 @@
+﻿@page
+@model htmlCssBookStrap.Pages.UserValidateModel
+@{
+    ViewData["Title"] = "用户验证";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <form role="form" method="post">
+  
+
+        <label>验证码：</label>
+        <div class="form-group">
+            <input class="form-control" asp-for="identifyingCode" style="width:100px;height:30px;border:1px solid #ccc;" maxlength="16" />
+            <span asp-validation-for="identifyingCode" class="promptMessage"></span>
+        </div>
+        <button class="btn btn-primary" type="submit" value="提交">提交</button>
+
+    </form>
+</div>
+
+
+

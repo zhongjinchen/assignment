@@ -17,11 +17,13 @@ namespace Servise
         {
             //Suggest suggest = new Suggest(new Content("title","body")
             //                 ,new Message(new UserRepoistory().GetById(authorId)));
+            UserRepoistory userRepoistory = new UserRepoistory();
+            userRepoistory.SetEntities(_suggestRepository.CurrentContext);
             Suggest suggest = new Suggest
             {
                 Title = title,
-                Body = body//,
-                //Author = new UserRepoistory().GetById(authorId)
+                Body = body,
+                Author = userRepoistory.GetById(authorId)
             };
             suggest.Publish();
             return _suggestRepository.Save(suggest);

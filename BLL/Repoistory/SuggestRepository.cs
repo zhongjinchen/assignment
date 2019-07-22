@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BLL.Repoistory
 {
-    public class SuggestRepository
+    public class SuggestRepository :Repository<Suggest>
     {
         private SQLContext _sqlContext;
         public SuggestRepository()
@@ -12,15 +12,5 @@ namespace BLL.Repoistory
             _sqlContext = new SQLContext();
         }
 
-        public Suggest Save(Suggest suggest)
-        {
-            using (_sqlContext)
-            {
-                _sqlContext._suggests.Add(suggest);
-                _sqlContext.SaveChanges();
-            }
-
-            return suggest;
-        }
     }
 }

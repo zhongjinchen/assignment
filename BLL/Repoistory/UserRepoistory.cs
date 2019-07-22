@@ -7,45 +7,24 @@ using System.Text;
 
 namespace BLL
 {
-    public class UserRepoistory 
+    public class UserRepoistory : Repository<User>
     {
-        private SQLContext _sqlContext;
+        //private SQLContext _sqlContext;
+        private EmailRepository emailRepository;
         public UserRepoistory()
         {
-            _sqlContext = new SQLContext();
-        }
-        public void Save(User user)
-        {
-            _sqlContext._users.Add(user);
-            _sqlContext.SaveChanges();
-        
-        }
-
-        public void Save(Email email)
-        {
-            _sqlContext._emails.Add(email);
-            _sqlContext.SaveChanges();
-           
-        }
-
-        public void Flush()
-        {
-            _sqlContext.SaveChanges();
+            //_sqlContext = new SQLContext();
+            emailRepository = new EmailRepository();
         }
 
         public User GetByName(string userName)
         {
-            return _sqlContext._users.Where(w => w.Name == userName).SingleOrDefault();
+            return entities.Where(w => w.Name == userName).SingleOrDefault();
         }
 
         public User GetByEmail(string email)
         {
-            return _sqlContext._users.Where(w => w.Email.Address == email).SingleOrDefault();
-        }
-
-        public User GetById(int id)
-        {
-            return _sqlContext._users.Where(w => w.Id == id).SingleOrDefault();
+            return entities.Where(w => w.Email.Address == email).SingleOrDefault();
         }
 
         public static User Get(int id)
@@ -55,12 +34,12 @@ namespace BLL
 
         public Email GetEmailById(int id)
         {
-            Email email = _sqlContext._emails.Where(w => w.Id == id).SingleOrDefault();
+            Email email = emailRepository.entities.Where(w => w.Id == id).SingleOrDefault();
             return email;
         }
 
-    
 
-       
+
+
     }
 }

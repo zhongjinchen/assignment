@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BLL
 {
-    class Problem : IPublish
+    class Problem : Entity, IPublish
     {
         public int Reward { get; }
         public Message Message { get; }

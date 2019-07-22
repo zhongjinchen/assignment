@@ -13,6 +13,8 @@ namespace htmlCssBookStrap.Pages
     [BindProperties]
     public class ForgetModel : _LayoutModel
     {
+        private const string _id = "id";
+        private const string _code = "code";
         public ForgetPassword ForgetPassword { get; set; }
         private UserService _userService;
         public ForgetModel()
@@ -23,23 +25,29 @@ namespace htmlCssBookStrap.Pages
         {
 
         }
-        public void OnPost()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
-                return;
+                return Page();
             }
             if (!_userService.HasExist(ForgetPassword.UserName))
             {
                 ModelState.AddModelError("ForgetPassword.UserName", "* 用户名不存在");
-                return;
+                return Page();
             }
             if (!_userService.HasExistEmail(ForgetPassword.Email))
             {
                 ModelState.AddModelError("ForgetPassword.Email", "* Email错误，请重新填写");
-                return;
+                return Page();
             }
 
+            string ValidationUrlFormat =
+                $"{Request.Scheme}://{Request.Host}/Email/Validate?{_code}={{0}}&{_id}={{1}}";
+
+            _userService.SendValidationEmail(ForgetPassword.Email, ValidationUrlFormat);
+
+            return RedirectToPage("/UserValidate");
 
         }
     }
@@ -55,6 +63,6 @@ namespace htmlCssBookStrap.Pages
         public string Email { get; set; }
 
         //[Required(ErrorMessage = " * 验证码不能为空")]
-        public string identifyingCode { get; set; }
+        //public string identifyingCode { get; set; }
     }
 }

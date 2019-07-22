@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BLL
 {
-    public class Repository<T> : IRepository<T>
+    public class XRepository<T> : IRepository<T>
     {
 
         public virtual void Add(T model)

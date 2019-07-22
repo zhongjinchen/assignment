@@ -1,15 +1,16 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BLL
 {
-    public class Suggest : IPublish
+    public class Suggest : Entity,IPublish
     {
-        public int Id { get; set; }
+
         //public Message Message { get; set; }
         //public Content Content { get; set; }
-        //public User Author { get; set; }
+        public User Author { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
         public int AgreeCount { get; set; }
