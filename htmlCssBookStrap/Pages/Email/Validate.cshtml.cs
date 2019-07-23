@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using htmlCssBookStrap.Pages.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Servise;
@@ -10,23 +11,23 @@ using Servise;
 namespace htmlCssBookStrap.Pages.Email
 {
 
-    public class ValidateModel : PageModel
+    public class ValidateModel : _LayoutModel
     {
         private UserService _userService;
         private const string _id = "id";
         private const string _code = "code";
         public const string Valid = "valid";
 
-        public ValidateModel()
+        public ValidateModel(UserService userService)
         {
-            _userService = new UserService();
+            _userService = userService;
         }
 
         [BindProperty]
         [Required]
         [EmailAddress]
         public string EmailAddress { get; set; }
-        public void OnGet()
+        public override void OnGet()
         {
             string Id = Request.Query[_id];
             string code = Request.Query[_code];

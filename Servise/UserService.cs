@@ -7,12 +7,12 @@ namespace Servise
 {
     public class UserService
     {
-        private UserRepoistory _userRepoistory;
+        private UserRepository _userRepository;
         private EmailRepository _emailRepository;
-        public UserService()
+        public UserService(UserRepository userRepository, EmailRepository emailRepository)
         {
-            _userRepoistory = new UserRepoistory();
-            _emailRepository = new EmailRepository();
+            _userRepository = userRepository;
+            _emailRepository = emailRepository;
         }
         public User Register(string name, string password, string email)
         {
@@ -25,24 +25,24 @@ namespace Servise
             };
             user.Register();
 
-            _userRepoistory.Save(user);
+            _userRepository.Save(user);
             return user;
         }
 
         public bool HasExist(string userName)
         {
-            return _userRepoistory.GetByName(userName) != null;
+            return _userRepository.GetByName(userName) != null;
         }
 
         public UserModel GetById(int Id)
         {
-            User user = _userRepoistory.GetById(Id);
+            User user = _userRepository.GetById(Id);
             return MapFrom(user);
         }
 
         public bool HasExistEmail(string email)
         {
-            return _userRepoistory.GetByEmail(email) != null;
+            return _userRepository.GetByEmail(email) != null;
         }
 
         public void SendValidationEmail(string emailAddress, string ValidationUrlFormat)
@@ -70,7 +70,7 @@ namespace Servise
 
         public UserModel GetName(string userName)
         {
-            User user = _userRepoistory.GetByName(userName);
+            User user = _userRepository.GetByName(userName);
             return MapFrom(user);
         }
 
@@ -101,9 +101,9 @@ namespace Servise
 
         public bool ValidationEmail(int id, string code)
         {
-            Email email = _userRepoistory.GetEmailById(id);
+            Email email = _userRepository.GetEmailById(id);
             email.Validate();
-            _userRepoistory.Flush();
+            _userRepository.Flush();
             return email.ValidationCode == code;
         }
     }

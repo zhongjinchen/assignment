@@ -7,14 +7,15 @@ using System.Text;
 
 namespace BLL
 {
-    public class UserRepoistory : Repository<User>
+
+    public class UserRepository : Repository<User>
     {
-        //private SQLContext _sqlContext;
-        private EmailRepository emailRepository;
-        public UserRepoistory()
+        
+        private EmailRepository _emailRepository;
+        public UserRepository(DbContext currentContext, EmailRepository emailRepository) :base(currentContext)
         {
-            //_sqlContext = new SQLContext();
-            emailRepository = new EmailRepository();
+       
+            _emailRepository = emailRepository;
         }
 
         public User GetByName(string userName)
@@ -34,7 +35,7 @@ namespace BLL
 
         public Email GetEmailById(int id)
         {
-            Email email = emailRepository.entities.Where(w => w.Id == id).SingleOrDefault();
+            Email email = _emailRepository.entities.Where(w => w.Id == id).SingleOrDefault();
             return email;
         }
 

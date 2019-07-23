@@ -8,19 +8,19 @@ namespace BLL.Repoistory
 {
     public class Repository<T> where T : Entity
     {
-        public SQLContext CurrentContext { get; set; }
+        public DbContext CurrentContext { get; set; }
         public DbSet<T> entities { get; set; }
-        public Repository()
+        public Repository(DbContext currentContext)
         {
-            CurrentContext = new SQLContext();
+            CurrentContext = currentContext;
             entities = CurrentContext.Set<T>();
         }
 
-        public void SetEntities(SQLContext context )
-        {
-            CurrentContext = context;
-            entities = CurrentContext.Set<T>();
-        }
+        //public void SetEntities(SQLContext context )
+        //{
+        //    CurrentContext = context;
+        //    entities = CurrentContext.Set<T>();
+        //}
 
         public T Save(T entity)
         {

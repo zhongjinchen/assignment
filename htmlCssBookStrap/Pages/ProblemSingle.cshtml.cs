@@ -10,16 +10,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace htmlCssBookStrap.Pages
 {
     [BindProperties]
-    public class publishModel : _LayoutModel
+    public class ProblemSingleModel : _LayoutModel
     {
-        public ProblemModel _problemModel { get; set; }
+        public ProblemSingle ProblemSingle { get; set; }
         public override void OnGet()
         {
-      
+            string Id = Request.Query["id"];
+            ViewData["id"] = Id;
         }
     }
 
-    public class ProblemModel
+    public class ProblemSingle
     {
         [Required]
         public string Title { get; set; }

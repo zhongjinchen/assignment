@@ -22,9 +22,9 @@ namespace htmlCssBookStrap.Pages
         private UserService _userService;
         public Forget Login { get; set; }
 
-        public entryModel()
+        public entryModel(UserService userService)
         {
-            _userService = new UserService();
+            _userService = userService;
         }
 
         public override void OnGet()

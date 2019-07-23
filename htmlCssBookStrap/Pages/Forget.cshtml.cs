@@ -17,9 +17,9 @@ namespace htmlCssBookStrap.Pages
         private const string _code = "code";
         public ForgetPassword ForgetPassword { get; set; }
         private UserService _userService;
-        public ForgetModel()
+        public ForgetModel(UserService userService)
         {
-            _userService = new UserService();
+            _userService = userService;
         }
         public override void OnGet()
         {
@@ -43,11 +43,11 @@ namespace htmlCssBookStrap.Pages
             }
 
             string ValidationUrlFormat =
-                $"{Request.Scheme}://{Request.Host}/Email/Validate?{_code}={{0}}&{_id}={{1}}";
+                $"{Request.Scheme}://{Request.Host}/Forget/Validate?{_code}={{0}}&{_id}={{1}}";
 
             _userService.SendValidationEmail(ForgetPassword.Email, ValidationUrlFormat);
 
-            return RedirectToPage("/UserValidate");
+            return RedirectToPage("UserValidate");
 
         }
     }

@@ -15,9 +15,9 @@ namespace htmlCssBookStrap.Pages
     {
         public Register Register { get; set; }
         public UserService _registerSevise;
-        public IndexModel()
+        public IndexModel(UserService userService)
         {
-            _registerSevise = new UserService();
+            _registerSevise = userService;
         }
         public override void OnGet()
         {
