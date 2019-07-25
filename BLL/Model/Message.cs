@@ -8,6 +8,10 @@ namespace BLL
     {
         
         public User Author { get; set; }
+        public Message()
+        {
+
+        }
         public Message(User author)
         {
             

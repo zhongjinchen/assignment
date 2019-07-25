@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 using Servise;
 using System;
 using System.Collections.Generic;
@@ -8,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace htmlCssBookStrap.Pages.Shared
 {
-    public class _LayoutModel:PageModel
+    public class _LayoutModel : PageModel
     {
         protected const string userId = "userId";
         protected const string password = "password";
-       
+
         public virtual void OnGet()
         {
-            
-            ViewData["UserName"] = HttpContext.Session.GetString("UserName");
+
+            ViewData["Id"] = HttpContext.Session.GetString("Id");
 
             //string userIdValue;
             //if (Request.Cookies.TryGetValue(userId, out userIdValue))
@@ -40,5 +41,6 @@ namespace htmlCssBookStrap.Pages.Shared
             //    }
             //}
         }
+
     }
 }

@@ -5,13 +5,11 @@ using System.Text;
 
 namespace BLL.Repoistory
 {
-    public class EmailRepository :Repository<Email>
+    public class ProblemRepository:Repository<Problem>
     {
-     
-        public EmailRepository(DbContext currentContext) : base(currentContext)
+        public ProblemRepository(DbContext currentContext) : base(currentContext)
         {
 
-           
         }
     }
 }

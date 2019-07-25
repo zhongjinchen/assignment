@@ -67,7 +67,7 @@ namespace htmlCssBookStrap.Pages
             //    );
             //Response.Cookies.Append(_password,mode.MD5Password);
 
-            HttpContext.Session.SetString("UserName",JsonConvert.SerializeObject(model));
+            HttpContext.Session.SetString("Id",JsonConvert.SerializeObject(model));
 
         }
     }

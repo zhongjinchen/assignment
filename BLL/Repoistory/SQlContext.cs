@@ -28,6 +28,8 @@ namespace BLL.Repoistory
 
             modelBuilder.Entity<Email>();
             modelBuilder.Entity<Suggest>();
+            modelBuilder.Entity<Problem>();
+
             //modelBuilder.Entity<Article>();
         }
     }

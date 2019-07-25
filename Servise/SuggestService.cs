@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BLL.Repoistory;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Servise
 {
@@ -10,6 +12,13 @@ namespace Servise
     {
         private SuggestRepository _suggestRepository;
         private UserRepository _userRepository;
+        private SQLContext _sqlContext;
+        public SuggestService()
+        {
+            _sqlContext = new SQLContext();
+            _suggestRepository =new SuggestRepository(_sqlContext);
+            _userRepository = new UserRepository(_sqlContext);
+        }
         public SuggestService(SuggestRepository suggestRepository, UserRepository userRepository)
         {
             _suggestRepository = suggestRepository;
@@ -25,7 +34,7 @@ namespace Servise
             {
                 Title = title,
                 Body = body,
-                Author = _userRepository.GetById(authorId)
+                Author = _userRepository.GetById(authorId).SingleOrDefault()
             };
             suggest.Publish();
             return _suggestRepository.Save(suggest);

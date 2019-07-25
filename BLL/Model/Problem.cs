@@ -4,24 +4,28 @@ using System.Text;
 
 namespace BLL
 {
-    class Problem : Entity, IPublish
+    public class Problem : Entity, IPublish
     {
-        public int Reward { get; }
-        public Message Message { get; }
-        public Content Content { get; }
-        public List<Comment> Comments { get; }
-        public Appraise appraise { get; }
-        public List<KeyWord> KeyWords { get; }
+        public int Reward { get; set; }
+        public Message Message { get; set; }
+        public Content Content { get; set; }
+        //public List<Comment> Comments { get; set; }
+        //public Appraise appraise { get; set; }
+        //public List<KeyWord> KeyWords { get; set; }
+        public Problem()
+        {
+
+        }
         public Problem(Content content, Message message, List<KeyWord> keyWords)
         {
             Content = content;
             Message = message;
-            KeyWords = keyWords;
+            //KeyWords = keyWords;
         }
 
         public void Publish()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

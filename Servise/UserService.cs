@@ -1,6 +1,7 @@
 ﻿using BLL;
 using BLL.Repoistory;
 using System;
+using System.Linq;
 using System.Net.Mail;
 
 namespace Servise
@@ -9,6 +10,11 @@ namespace Servise
     {
         private UserRepository _userRepository;
         private EmailRepository _emailRepository;
+        public UserService()
+        {
+            _userRepository = new UserRepository(new SQLContext());
+            _emailRepository = new EmailRepository(new SQLContext());
+        }
         public UserService(UserRepository userRepository, EmailRepository emailRepository)
         {
             _userRepository = userRepository;
@@ -36,7 +42,7 @@ namespace Servise
 
         public UserModel GetById(int Id)
         {
-            User user = _userRepository.GetById(Id);
+            User user = _userRepository.GetById(Id).SingleOrDefault();
             return MapFrom(user);
         }
 

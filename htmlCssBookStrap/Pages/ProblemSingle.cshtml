@@ -5,5 +5,7 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h2>ProblemSingle</h2>
+<div>@Model.DTOProblemModel.Title</div>
+<main>@Model.DTOProblemModel.Body</main>
+<p>@ViewData["id"]</p>
 

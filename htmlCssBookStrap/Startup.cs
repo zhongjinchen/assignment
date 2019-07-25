@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using BLL;
 using BLL.Repoistory;
 using htmlCssBookStrap;
 using Microsoft.AspNetCore.Builder;
@@ -12,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using Servise;
 
 namespace WebApplication1
 {
@@ -20,6 +23,8 @@ namespace WebApplication1
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+
         }
 
         public IConfiguration Configuration { get; }
@@ -44,7 +49,7 @@ namespace WebApplication1
                 {
                     Name = "mysession"
                 };
-                Options.IdleTimeout = new TimeSpan(0, 2, 0);
+                Options.IdleTimeout = new TimeSpan(2, 2, 0);
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

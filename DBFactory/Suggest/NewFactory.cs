@@ -5,16 +5,16 @@ using System.Text;
 
 namespace DBFactory.Suggest
 {
-    internal class NewFactory
+    public class NewFactory
     {
         private static SuggestService _suggestService;
         static NewFactory()
         {
-            _suggestService = new SuggestService();
+            _suggestService =new SuggestService();
         }
         internal static void Create()
         {
-            _suggestService.Publish("标题","",RegisterFactory.ZhongYi.Id);
+            _suggestService.Publish("标题","",/*RegisterFactory.ZhongYi.Id*/1);
         }
     }
 }

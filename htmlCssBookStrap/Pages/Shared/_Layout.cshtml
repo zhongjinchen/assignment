@@ -4,11 +4,11 @@
 @using Servise
 @using Newtonsoft.Json
 @{
-    string jsUser = Context.Session.GetString("UserName");
+    string jsId = Context.Session.GetString("Id");
     UserModel userModel = null;
-    if (!string.IsNullOrEmpty(jsUser))
+    if (!string.IsNullOrEmpty(jsId))
     {
-        userModel = JsonConvert.DeserializeObject<UserModel>(jsUser);
+        userModel = JsonConvert.DeserializeObject<UserModel>(jsId);
     }
 
 }

@@ -16,11 +16,12 @@ namespace BLL.Repoistory
             entities = CurrentContext.Set<T>();
         }
 
-        //public void SetEntities(SQLContext context )
-        //{
-        //    CurrentContext = context;
-        //    entities = CurrentContext.Set<T>();
-        //}
+        public void SetEntities(SQLContext context)
+        {
+            CurrentContext = context;
+            entities = CurrentContext.Set<T>();
+
+        }
 
         public T Save(T entity)
         {
@@ -34,11 +35,11 @@ namespace BLL.Repoistory
             CurrentContext.SaveChanges();
         }
 
-        public T GetById(int id)
+        public IQueryable<T> GetById(int id)
         {
-            return entities.Where(w => w.Id == id).SingleOrDefault();
+            return entities.Where(w => w.Id == id)/*.SingleOrDefault()*/;
         }
 
-   
+
     }
 }
