@@ -16,9 +16,11 @@ namespace htmlCssBookStrap.Pages
     [BindProperties]
     public class publishModel : _LayoutModel
     {
-        public ProblemModel ProblemModel { get; set; }
+        //public ProblemModel ProblemModel { get; set; }
         private Problem Problem;
         private IProblemService _problemService;
+        public DTOProblemModel DTOProblemModel { get; set; }
+
         public publishModel(IProblemService problemService)
         {
             _problemService = problemService;
@@ -35,23 +37,11 @@ namespace htmlCssBookStrap.Pages
                 return Page();
             }
             
-            string CurrentUserId = HttpContext.Session.GetString("Id");
-            UserModel CurrentUserModel = null;
-            if (!string.IsNullOrEmpty(CurrentUserId))
-            {
-                CurrentUserModel = JsonConvert.DeserializeObject<UserModel>(CurrentUserId);
-            }
-            int Id=_problemService.Publish(ProblemModel.Title, ProblemModel.Body, CurrentUserModel.Id).Id;
+         
+            int Id=_problemService.Publish(DTOProblemModel).Id;
             return Redirect("/ProblemSingle?id="+ Id);
         }
     }
 
-    public class ProblemModel
-    {
-        [Required]
-        public string Title { get; set; }
-        [Required]
-        public string Body { get; set; }
-
-    }
+    
 }

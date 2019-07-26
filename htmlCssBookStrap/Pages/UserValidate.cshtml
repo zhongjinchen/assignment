@@ -6,7 +6,22 @@
 }
 <div class="container">
     <form role="form" method="post">
-  
+
+        <label>密码：</label>
+        <div class="form-group">
+            <input asp-for="Password" class="form-control" placeholder="不少于6个字符" />
+            @if (ViewData["IsNumber"] != null)
+            {
+                <span style="color:#b94a48">* 密码太过简单，请输入数字和字母组合</span>
+            }
+            <span asp-validation-for="Password" class="promptMessage"></span>
+        </div>
+
+        <label>验证密码：</label>
+        <div class="form-group">
+            <input asp-for="ConfirmPassword" class="form-control" placeholder="和密码相同" />
+            <span asp-validation-for="ConfirmPassword" class="promptMessage"></span>
+        </div>
 
         <label>验证码：</label>
         <div class="form-group">

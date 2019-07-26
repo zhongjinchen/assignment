@@ -22,9 +22,9 @@ namespace BLL
             _emailRepository = emailRepository;
         }
 
-        public User GetByName(string userName)
+        public IQueryable<User> GetByName(string userName)
         {
-            return entities.Where(w => w.Name == userName).SingleOrDefault();
+            return entities.Where(w => w.Name == userName);
         }
 
         public User GetByEmail(string email)
@@ -43,8 +43,10 @@ namespace BLL
             return email;
         }
 
-
-
-
+        public void ResetPassword(string password,int UserId)
+        {
+            User user=entities.Where(u=>u.Id==UserId).SingleOrDefault();
+            
+        }
     }
 }

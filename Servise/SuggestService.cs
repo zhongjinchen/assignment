@@ -5,10 +5,11 @@ using System.Text;
 using BLL.Repoistory;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using Microsoft.AspNetCore.Http;
 
 namespace Servise
 {
-    public class SuggestService
+    public class SuggestService:BaseService
     {
         private SuggestRepository _suggestRepository;
         private UserRepository _userRepository;
@@ -19,7 +20,8 @@ namespace Servise
             _suggestRepository =new SuggestRepository(_sqlContext);
             _userRepository = new UserRepository(_sqlContext);
         }
-        public SuggestService(SuggestRepository suggestRepository, UserRepository userRepository)
+        public SuggestService(SuggestRepository suggestRepository, UserRepository userRepository, 
+            IHttpContextAccessor accessor) : base(accessor)
         {
             _suggestRepository = suggestRepository;
             _userRepository = userRepository;

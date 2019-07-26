@@ -42,6 +42,7 @@ namespace WebApplication1
             services.AddService();
             services.AddRepository();
             services.AddScoped<DbContext, SQLContext>();
+            services.AddHttpContextAccessor();
             services.AddMemoryCache();
             services.AddSession(Options =>
             {

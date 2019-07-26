@@ -6,10 +6,17 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="8.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\newtonsoft.json\11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

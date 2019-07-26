@@ -1,12 +1,13 @@
 ﻿using BLL;
 using BLL.Repoistory;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Linq;
 using System.Net.Mail;
 
 namespace Servise
 {
-    public class UserService
+    public class UserService:BaseService
     {
         private UserRepository _userRepository;
         private EmailRepository _emailRepository;
@@ -15,7 +16,8 @@ namespace Servise
             _userRepository = new UserRepository(new SQLContext());
             _emailRepository = new EmailRepository(new SQLContext());
         }
-        public UserService(UserRepository userRepository, EmailRepository emailRepository)
+        public UserService(UserRepository userRepository, EmailRepository emailRepository, 
+               IHttpContextAccessor accessor) :base(accessor)
         {
             _userRepository = userRepository;
             _emailRepository = emailRepository;
@@ -74,9 +76,14 @@ namespace Servise
             SmtpServer.Send(mail);
         }
 
+        public void ResetPassword(string password,int UserId)
+        {
+            _userRepository.ResetPassword(password, UserId);
+        }
+
         public UserModel GetName(string userName)
         {
-            User user = _userRepository.GetByName(userName);
+            User user = _userRepository.GetByName(userName).SingleOrDefault();
             return MapFrom(user);
         }
 

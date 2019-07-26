@@ -7,7 +7,7 @@ namespace Servise
 {
     public interface IProblemService
     {
-        Problem Publish(string title, string body, int authorId);
+        Problem Publish(DTOProblemModel dTOProblemModel);
         DTOProblemModel Get(int id);
     }
 }

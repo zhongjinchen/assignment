@@ -4,8 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using htmlCssBookStrap.Pages.Shared;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 using Servise;
 
 namespace htmlCssBookStrap.Pages
@@ -42,12 +44,14 @@ namespace htmlCssBookStrap.Pages
                 return Page();
             }
 
-            string ValidationUrlFormat =
-                $"{Request.Scheme}://{Request.Host}/Forget/Validate?{_code}={{0}}&{_id}={{1}}";
+            int CurrentUserId = _userService.GetName(ForgetPassword.UserName).Id;
 
-            _userService.SendValidationEmail(ForgetPassword.Email, ValidationUrlFormat);
+            //string ValidationUrlFormat =
+            //    $"{Request.Scheme}://{Request.Host}/Forget/Validate?{_id}={CurrentUserId}";
 
-            return RedirectToPage("UserValidate");
+            //_userService.SendValidationEmail(ForgetPassword.Email, ValidationUrlFormat);
+
+            return Redirect($"/UserValidate?id={CurrentUserId}");
 
         }
     }

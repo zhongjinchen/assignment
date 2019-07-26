@@ -14,7 +14,7 @@ namespace DBFactory
         }
         internal static void Create()
         {
-            _problemService.Publish("求助", "", 1);
+            //_problemService.Publish();
         }
     }
 }
