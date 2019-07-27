@@ -10,7 +10,7 @@ namespace DBFactory.Suggest
         private static SuggestService _suggestService;
         static NewFactory()
         {
-            _suggestService =new SuggestService();
+            //_suggestService =new SuggestService();
         }
         internal static void Create()
         {

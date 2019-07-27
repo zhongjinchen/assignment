@@ -14,12 +14,6 @@ namespace Servise
         private SuggestRepository _suggestRepository;
         private UserRepository _userRepository;
         private SQLContext _sqlContext;
-        public SuggestService()
-        {
-            _sqlContext = new SQLContext();
-            _suggestRepository =new SuggestRepository(_sqlContext);
-            _userRepository = new UserRepository(_sqlContext);
-        }
         public SuggestService(SuggestRepository suggestRepository, UserRepository userRepository, 
             IHttpContextAccessor accessor) : base(accessor)
         {

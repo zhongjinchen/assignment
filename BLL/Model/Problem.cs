@@ -7,8 +7,10 @@ namespace BLL
     public class Problem : Entity, IPublish
     {
         public int Reward { get; set; }
-        public Message Message { get; set; }
-        public Content Content { get; set; }
+        public User User { get; set; }
+        public string Title { get; set; }
+        public string Body { get; set; }
+        public string Date { get; set; }
         //public List<Comment> Comments { get; set; }
         //public Appraise appraise { get; set; }
         //public List<KeyWord> KeyWords { get; set; }
@@ -16,15 +18,15 @@ namespace BLL
         {
 
         }
-        public Problem(Content content, Message message, List<KeyWord> keyWords)
+        public Problem(User Author,string Title,string Body , List<KeyWord> keyWords)
         {
-            Content = content;
-            Message = message;
-            //KeyWords = keyWords;
+        
         }
 
         public void Publish()
         {
+            Date = $"{DateTime.Now.Year}年{DateTime.Now.Month}月{DateTime.Now.Day}" +
+                $"日{DateTime.Now.Hour}时{DateTime.Now.Minute}分";
             
         }
     }

@@ -53,7 +53,7 @@ namespace BLL
 
         public override Article GetBy(int id)
         {
-            var article =Get().Where(w=>w.Message.Id==id).Single();
+            var article =Get().Where(w=>w.Id==id).Single();
             return article;
         }
 
@@ -74,7 +74,7 @@ namespace BLL
             string title = element.Element("title").Value.ToString();
             string body= element.Element("body").Value.ToString();
 
-            return new Article(new Content(title,body),new Message(user), new List<KeyWord>());
+            return new Article(new List<KeyWord>());
         }
 
         //Article转换成XElement方法
@@ -86,13 +86,13 @@ namespace BLL
               "article",
               new XElement(
                 "user",
-                new XElement("id", article.Message.Author.Id),
-                new XElement("name", article.Message.Author.Name),
-                new XElement("password", article.Message.Author.Password)
+                new XElement("id", article.User.Id),
+                new XElement("name", article.User.Name),
+                new XElement("password", article.User.Password)
               ),
               new XAttribute("isDraft", "true"),
-              new XElement("id", article.Message.Id),
-              new XElement("title", article.Content.Title),
+              new XElement("id", article.User.Id),
+              new XElement("title", article.Title),
               new XElement("publishDate", DateTime.Now),
               new XElement("comments")
             );

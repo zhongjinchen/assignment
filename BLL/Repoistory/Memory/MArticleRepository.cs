@@ -26,7 +26,7 @@ namespace BLL
 
         public Article GetBy(int id)
         {
-            var article= Repository.Where(w=>w.Message.Id==id).Single();
+            var article= Repository.Where(w=>w.Id==id).Single();
             return article;
         }
 

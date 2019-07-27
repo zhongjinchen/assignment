@@ -6,16 +6,16 @@ namespace BLL
 {
     public class Article : Entity, IPublish
     {
-        public Message Message { get; }
-        public Content Content { get; }
+        public User User { get; set; }
+        public string Title { get; set; }
+        public string Body { get; set; }
         public List<Comment> Comments { get; }
         public Appraise appraise { get; }
         public List<KeyWord> KeyWords { get; }
 
-        public Article(Content content, Message message, List<KeyWord> keyWords )
+        public Article( List<KeyWord> keyWords )
         {
-            Content = content;
-            Message = message;
+
             KeyWords = keyWords;
         }
 

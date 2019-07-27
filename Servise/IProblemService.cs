@@ -9,5 +9,7 @@ namespace Servise
     {
         Problem Publish(DTOProblemModel dTOProblemModel);
         DTOProblemModel Get(int id);
+        IList<Problem> GetAll();
+
     }
 }

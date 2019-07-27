@@ -24,12 +24,11 @@ namespace Servise
         {
             autoconfiguration = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<Problem, DTOProblemModel>(MemberList.None)
-                   .ForMember(p => p.Title, opt => opt.MapFrom(d => d.Content.Title))
-                   .ForMember(p => p.Body, opt => opt.MapFrom(d => d.Content.Body));
-                cfg.CreateMap<DTOProblemModel,Problem>(MemberList.None)
-                    .ForMember(d=>d.Content,opt=>opt.MapFrom(p=>new Content { Title= p.Title, Body=p.Body }));
-
+                cfg.CreateMap<Problem, DTOProblemModel>(MemberList.None);
+                   //.ForMember(p => p.Body, opt => opt.MapFrom(d => d.Content.Body));
+                cfg.CreateMap<DTOProblemModel, Problem>(MemberList.None);
+                cfg.CreateMap<UserModel, User>(MemberList.None)
+                .ForMember(u=>u.Password,opt=>opt.MapFrom(m=>m.MD5Password));
                 //cfg.CreateMap<Bar, BarDto>();
             });
             // only during development, validate your mappings; remove it before release
@@ -37,10 +36,7 @@ namespace Servise
             // use DI (http://docs.automapper.org/en/latest/Dependency-injection.html) or create the mapper yourself
             
         }
-        public BaseService()
-        {
 
-        }
         public BaseService(IHttpContextAccessor accessor)
         {
             _accessor = accessor;
@@ -58,7 +54,8 @@ namespace Servise
                 }
 
                 UserModel CurrentUserModel = JsonConvert.DeserializeObject<UserModel>(CurrentSession);
-                return null;
+                User user= mapper.Map<UserModel, User>(CurrentUserModel);
+                return user;
             }
         }
 

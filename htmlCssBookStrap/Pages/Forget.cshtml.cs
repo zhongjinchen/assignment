@@ -44,7 +44,7 @@ namespace htmlCssBookStrap.Pages
                 return Page();
             }
 
-            int CurrentUserId = _userService.GetName(ForgetPassword.UserName).Id;
+            int CurrentUserId = _userService.GetName(ForgetPassword.UserName).UserModelId;
 
             //string ValidationUrlFormat =
             //    $"{Request.Scheme}://{Request.Host}/Forget/Validate?{_id}={CurrentUserId}";

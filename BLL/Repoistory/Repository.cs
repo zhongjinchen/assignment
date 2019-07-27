@@ -16,6 +16,11 @@ namespace BLL.Repoistory
             entities = CurrentContext.Set<T>();
         }
 
+        public IList<T> GetAll()
+        {
+            return entities.ToList();
+        }
+
         public void SetEntities(SQLContext context)
         {
             CurrentContext = context;

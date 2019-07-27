@@ -16,17 +16,23 @@ namespace Servise
     {
         private ProblemRepository _problemRepository;
         private UserRepository _userRepository;
-        private SQLContext _sqlContext;
-        public ProblemService()
+
+        //public DbSet<Problem> Problems {
+        //    get
+        //    {
+        //        DbSet<Problem> problems = _problemRepository.entities.OrderByDescending(e => e.Id).;
+        //        return problems;
+        //    }
+        //}
+
+        public IList<Problem> GetAll()
         {
-            _sqlContext = new SQLContext();
-            _problemRepository =new ProblemRepository(_sqlContext);
-            _userRepository =new UserRepository(_sqlContext);
+            return _problemRepository.GetAll();
         }
-        public ProblemService(SQLContext sqlContext, ProblemRepository problemRepository,
+        public ProblemService( ProblemRepository problemRepository,
             UserRepository userRepository, IHttpContextAccessor accessor) : base(accessor)
         {
-            _sqlContext = sqlContext;
+          
             _problemRepository = problemRepository;
             _userRepository = userRepository;
         }
@@ -34,7 +40,7 @@ namespace Servise
         public Problem Publish(DTOProblemModel dtoProblemModel)
         {
 
-
+            dtoProblemModel.User = CurrentUser;
             Problem problem = mapper.Map<DTOProblemModel, Problem>(dtoProblemModel);
          
             problem.Publish();
@@ -45,8 +51,8 @@ namespace Servise
         {
           
 
-            Problem problem=_problemRepository.GetById(id)
-                .Include(p=>p.Content).SingleOrDefault();
+            Problem problem=_problemRepository.GetById(id).SingleOrDefault();
+            //.Include(p=>p.Content).SingleOrDefault();
             return mapper.Map<Problem, DTOProblemModel>(problem);
 
                     //new DTOProblemModel
@@ -63,5 +69,7 @@ namespace Servise
         public string Title { get; set; }
         [Required]
         public string Body { get; set; }
+
+        public User User { get; set; }
     }
 }

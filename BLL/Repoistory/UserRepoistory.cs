@@ -12,10 +12,7 @@ namespace BLL
     {
         
         private EmailRepository _emailRepository;
-        public UserRepository(DbContext currentContext) : base(currentContext)
-        {
-            _emailRepository = new EmailRepository(new SQLContext());
-        }
+  
         public UserRepository(DbContext currentContext, EmailRepository emailRepository) :base(currentContext)
         {
        

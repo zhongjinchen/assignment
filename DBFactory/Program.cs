@@ -13,13 +13,14 @@ namespace DBFactory
         static void Main(string[] args)
         {
             //DatabaseFacade db = new UserRepoistory().Database;
+
             //DatabaseFacade db = new SQLContext().Database;
 
             //db.EnsureDeleted();
             //db.EnsureCreated();
             //RegisterFactory.Create();
             //NewFactory.Create();
-            //ProblemFactory.Create();
+            ProblemFactory.Create();
         }
     }
 }

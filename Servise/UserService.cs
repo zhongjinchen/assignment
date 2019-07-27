@@ -11,11 +11,7 @@ namespace Servise
     {
         private UserRepository _userRepository;
         private EmailRepository _emailRepository;
-        public UserService()
-        {
-            _userRepository = new UserRepository(new SQLContext());
-            _emailRepository = new EmailRepository(new SQLContext());
-        }
+
         public UserService(UserRepository userRepository, EmailRepository emailRepository, 
                IHttpContextAccessor accessor) :base(accessor)
         {
@@ -24,6 +20,7 @@ namespace Servise
         }
         public User Register(string name, string password, string email)
         {
+
             User user = new User(name, password)
             {
                 Email = new Email
@@ -31,9 +28,11 @@ namespace Servise
                     Address = email
                 }
             };
+
             user.Register();
 
             _userRepository.Save(user);
+
             return user;
         }
 
@@ -97,7 +96,7 @@ namespace Servise
             {
                 UserModel userMode = new UserModel
                 {
-                    Id = user.Id,
+                    UserModelId = user.Id,
                     Name = user.Name,
                     MD5Password = user.Password
                 };
@@ -123,7 +122,7 @@ namespace Servise
 
     public class UserModel
     {
-        public int Id { get; set; }
+        public int UserModelId { get; set; }
         public string Name { get; set; }
         public string MD5Password { get; set; }
     }

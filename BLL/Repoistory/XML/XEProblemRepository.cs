@@ -76,13 +76,13 @@ namespace BLL
               "problem",
               new XElement(
                 "user",
-                new XElement("id", problem.Message.Author.Id),
-                new XElement("name", problem.Message.Author.Name),
-                new XElement("password", problem.Message.Author.Password)
+                new XElement("id", problem.User.Id),
+                new XElement("name", problem.User.Name),
+                new XElement("password", problem.User.Password)
               ),
               new XAttribute("isDraft", "true"),
-              new XElement("id", problem.Message.Id),
-              new XElement("title", problem.Content.Title),
+              new XElement("id", problem.Id),
+              new XElement("title", problem.Title),
               new XElement("publishDate", DateTime.Now),
               new XElement("comments")
             );
