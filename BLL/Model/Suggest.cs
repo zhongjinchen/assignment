@@ -10,7 +10,7 @@ namespace BLL
 
         //public Message Message { get; set; }
         //public Content Content { get; set; }
-        public User Author { get; set; }
+        public virtual User Author { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
         public int AgreeCount { get; set; }

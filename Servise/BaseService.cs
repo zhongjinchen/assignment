@@ -28,7 +28,8 @@ namespace Servise
                    //.ForMember(p => p.Body, opt => opt.MapFrom(d => d.Content.Body));
                 cfg.CreateMap<DTOProblemModel, Problem>(MemberList.None);
                 cfg.CreateMap<UserModel, User>(MemberList.None)
-                .ForMember(u=>u.Password,opt=>opt.MapFrom(m=>m.MD5Password));
+                .ForMember(u=>u.Password,opt=>opt.MapFrom(m=>m.MD5Password))
+                .ForMember(u => u.Id, opt => opt.MapFrom(m => m.UserModelId));
                 //cfg.CreateMap<Bar, BarDto>();
             });
             // only during development, validate your mappings; remove it before release

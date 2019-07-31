@@ -12,10 +12,15 @@ using System.Text;
 
 namespace Servise
 {
-    public class ProblemService:BaseService,IProblemService
+    public class ProblemService : BaseService, IProblemService
     {
         private ProblemRepository _problemRepository;
         private UserRepository _userRepository;
+
+        public void Delete(int id)
+        {
+            _problemRepository.Delete(_problemRepository.GetById(id).SingleOrDefault());
+        }
 
         //public DbSet<Problem> Problems {
         //    get
@@ -25,41 +30,55 @@ namespace Servise
         //    }
         //}
 
-        public IList<Problem> GetAll()
+        public IList<Problem> GetAll(int? AuthorId, int pageIndex, int pageSize)
         {
-            return _problemRepository.GetAll();
+            IQueryable<Problem> problems = _problemRepository.Get();
+       
+            if (pageIndex == 0)
+            {
+                pageIndex = 1;
+            }
+            if (AuthorId.HasValue)
+            {
+                problems = _problemRepository.GetByAuthor(AuthorId.Value);
+            }
+            else
+            {
+            }
+            return _problemRepository.Paged(problems, pageIndex, pageSize).ToList();
+
         }
-        public ProblemService( ProblemRepository problemRepository,
+        public ProblemService(ProblemRepository problemRepository,
             UserRepository userRepository, IHttpContextAccessor accessor) : base(accessor)
         {
-          
+
             _problemRepository = problemRepository;
             _userRepository = userRepository;
         }
-   
+
         public Problem Publish(DTOProblemModel dtoProblemModel)
         {
 
             dtoProblemModel.User = CurrentUser;
             Problem problem = mapper.Map<DTOProblemModel, Problem>(dtoProblemModel);
-         
+
             problem.Publish();
+
             return _problemRepository.Save(problem);
         }
 
         public DTOProblemModel Get(int id)
         {
-          
 
-            Problem problem=_problemRepository.GetById(id).SingleOrDefault();
+            Problem problem = _problemRepository.GetById(id).SingleOrDefault();
             //.Include(p=>p.Content).SingleOrDefault();
             return mapper.Map<Problem, DTOProblemModel>(problem);
 
-                    //new DTOProblemModel
-                    //{
-                    //    Title = problem.Content.Title,
-                    //    Body = problem.Content.Body
-                    //};
+            //new DTOProblemModel
+            //{
+            //    Title = problem.Content.Title,
+            //    Body = problem.Content.Body
+            //};
         }
     }
 
@@ -70,6 +89,11 @@ namespace Servise
         [Required]
         public string Body { get; set; }
 
-        public User User { get; set; }
+        public virtual User User { get; set; }
+
+        public virtual IList<Comment> Comments { get; set; }
+
+
+
     }
 }

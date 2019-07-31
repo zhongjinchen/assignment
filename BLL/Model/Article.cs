@@ -10,13 +10,13 @@ namespace BLL
         public string Title { get; set; }
         public string Body { get; set; }
         public List<Comment> Comments { get; }
-        public Appraise appraise { get; }
-        public List<KeyWord> KeyWords { get; }
+        //public Appraise appraise { get; }
+        //public List<KeyWord> KeyWords { get; }
 
-        public Article( List<KeyWord> keyWords )
+        public Article()
         {
 
-            KeyWords = keyWords;
+            
         }
 
         public void Publish()

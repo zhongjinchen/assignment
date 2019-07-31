@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BLL.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +15,9 @@ namespace BLL.Repoistory
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=17bang;Integrated Security=True;";
-            optionsBuilder.UseSqlServer(ConnectionString);
+            optionsBuilder
+                 .UseLazyLoadingProxies()
+                .UseSqlServer(ConnectionString);
 
         }
 
@@ -28,7 +31,14 @@ namespace BLL.Repoistory
 
             modelBuilder.Entity<Email>();
             modelBuilder.Entity<Suggest>();
-            modelBuilder.Entity<Problem>();
+
+            modelBuilder.Entity<Comment>();
+            modelBuilder.Entity<Message>();
+
+            modelBuilder.Entity<Problem>()
+           .HasMany(b => b.Comments)
+           .WithOne(p => p.Problem)
+           .OnDelete(DeleteBehavior.Cascade);
 
             //modelBuilder.Entity<Article>();
         }

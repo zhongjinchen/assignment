@@ -5,7 +5,31 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<div>@Model.DTOProblemModel.Title</div>
-<main>@Model.DTOProblemModel.Body</main>
-<p>@ViewData["id"]</p>
+<div class="container">
+    <div class="row">
 
+        <a href="~/ProblemDelete?Id=@Model.Id">删除</a>
+        <div>@Model.DTOProblemModel.Title</div>
+        <main>@Model.DTOProblemModel.Body</main>
+        <br />
+        <p>评论</p>
+
+        <form method="post" role="form">
+            <div class="form-group">
+                <label for="name">文本框</label>
+                <textarea class="form-control" asp-for="Comment"></textarea>
+            </div>
+
+            <button class="btn btn-primary" type="submit" value="提交">提交</button>
+            <button class="btn btn-default" type="reset" value="重置">重置</button>
+        </form>
+
+        @foreach (var item in Model.DTOProblemModel.Comments)
+        {
+            <div>@item.User.Name</div>
+            <div>@item.Body</div>
+            <br />
+        }
+
+    </div>
+</div>

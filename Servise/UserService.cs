@@ -1,7 +1,9 @@
 ﻿using BLL;
+using BLL.Model;
 using BLL.Repoistory;
 using Microsoft.AspNetCore.Http;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
 
@@ -34,6 +36,11 @@ namespace Servise
             _userRepository.Save(user);
 
             return user;
+        }
+
+        public IList<Message> GetByMessage()
+        {
+           return _userRepository.GetById(CurrentUser.Id).SingleOrDefault().Messages;
         }
 
         public bool HasExist(string userName)

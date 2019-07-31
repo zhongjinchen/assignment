@@ -1,4 +1,5 @@
-﻿using BLL.Repoistory;
+﻿using BLL.Model;
+using BLL.Repoistory;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,8 @@ namespace BLL
         {
             return entities.Where(w => w.Email.Address == email).SingleOrDefault();
         }
+
+  
 
         public static User Get(int id)
         {

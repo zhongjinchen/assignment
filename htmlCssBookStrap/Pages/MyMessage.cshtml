@@ -1,0 +1,18 @@
+﻿@page
+@model htmlCssBookStrap.Pages.MyMessageModel
+@{
+    ViewData["Title"] = "MyMessage";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>我的消息</h2>
+
+@foreach (var item in Model.Messages)
+{
+    <p>@item.Receiver.Name</p>
+    <p>@item.CommentTime</p>
+    <p>@item.Content</p>
+
+}
+
+

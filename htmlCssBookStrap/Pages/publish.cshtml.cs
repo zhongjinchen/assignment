@@ -37,9 +37,9 @@ namespace htmlCssBookStrap.Pages
                 return Page();
             }
             
-         
             int Id=_problemService.Publish(DTOProblemModel).Id;
             return Redirect("/ProblemSingle?id="+ Id);
+
         }
     }
 

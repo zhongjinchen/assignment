@@ -14,7 +14,15 @@ namespace htmlCssBookStrap.Pages
     public class ProblemModel : _LayoutModel
     {
         private IProblemService _problemService;
+
         public IList<Problem> problems { get; set; }
+
+        [BindProperty(SupportsGet =true)]
+        public int PageIndex { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public int? AuthorId { get; set; }
+
         public ProblemModel(IProblemService problemService)
         {
             _problemService = problemService;
@@ -22,7 +30,7 @@ namespace htmlCssBookStrap.Pages
 
         public override void OnGet()
         {
-           problems = _problemService.GetAll();
+           problems = _problemService.GetAll(AuthorId,PageIndex,2);
         }
     }
 }

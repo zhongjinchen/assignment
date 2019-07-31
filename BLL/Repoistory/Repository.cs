@@ -16,9 +16,16 @@ namespace BLL.Repoistory
             entities = CurrentContext.Set<T>();
         }
 
-        public IList<T> GetAll()
+        public IQueryable<T> Get()
         {
-            return entities.ToList();
+            return entities.OrderByDescending(e=>e.Id);
+        }
+
+        public IQueryable<T> Paged(IQueryable<T> entities,int pageIndex, int pageSize)
+        {
+            return entities
+                .Skip((pageIndex - 1) * pageSize)
+                .Take(pageSize);
         }
 
         public void SetEntities(SQLContext context)
@@ -40,9 +47,16 @@ namespace BLL.Repoistory
             CurrentContext.SaveChanges();
         }
 
+
+        public void Delete(T entitie)
+        {
+            entities.Remove(entitie);
+            Flush();
+        }
+
         public IQueryable<T> GetById(int id)
         {
-            return entities.Where(w => w.Id == id)/*.SingleOrDefault()*/;
+            return entities.Where(w => w.Id == id);
         }
 
 

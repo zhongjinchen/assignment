@@ -21,6 +21,9 @@ namespace DBFactory
             //RegisterFactory.Create();
             //NewFactory.Create();
             ProblemFactory.Create();
+
+            Console.WriteLine("完成");
+            Console.ReadLine();
         }
     }
 }

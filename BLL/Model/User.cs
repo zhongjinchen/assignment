@@ -1,4 +1,5 @@
 ﻿using assignment;
+using BLL.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -18,11 +19,13 @@ namespace BLL
         
         public string ConfirmPassword { get; set; }
 
-        public Email Email { get; set; }
+        public virtual Email Email { get; set; }
 
-        public User InvitedBy { get; set; }
+        public virtual User InvitedBy { get; set; }
 
-        public Token token { get; }
+        public virtual Token token { get; }
+
+        public virtual IList<Message> Messages { get; set; }
 
         public User()
         {

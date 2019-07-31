@@ -74,7 +74,7 @@ namespace BLL
             string title = element.Element("title").Value.ToString();
             string body= element.Element("body").Value.ToString();
 
-            return new Article(new List<KeyWord>());
+            return new Article();
         }
 
         //Article转换成XElement方法
