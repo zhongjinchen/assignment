@@ -1,0 +1,19 @@
+﻿@model UI.Models.Register.IndexModel
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>注册</h2>
+
+@using (Html.BeginForm())
+{
+    @*<label></label>
+    @Html.Label("UserName")<br />*@
+    @Html.LabelFor(m=>m.UserName)<br />
+    @Html.TextBoxFor(m=>m.UserName,new {@class="" })<br />
+    @Html.ValidationMessageFor(m => m.UserName);
+
+    @Html.PasswordFor(m=>m.Password)<br />
+    <button type="submit">提交</button>
+}

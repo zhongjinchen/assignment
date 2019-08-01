@@ -6,243 +6,197 @@
 <link rel="stylesheet" type="text/css" href="~/css/Problem.css" />
 <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 
-<main>
-    <form>
+<div class="container">
+    <div class="row">
+        <main class="col-lg-8">
+            <form>
 
-        <ul class="select">
+                <ul class="select">
 
-            <li><span class="glyphicon glyphicon-eye-close"></span> 不显示</li>
-            <li><label><input type="checkbox" name="已酬谢" value="已酬谢"> 全部</label></li>
-            <li><label><input type="checkbox" name="已酬谢" value="已酬谢"> 已酬谢</label></li>
-            <li><label><input type="checkbox" name="已撤销" value="已撤销"> 已撤销</label></li>
-            <li><label><input type="checkbox" name="协助中" value="协助中"> 协助中</label></li>
-            <li class="color"><span class="glyphicon glyphicon-eye-open"></span>只显示</li>
-            <li class="color"><label><input type="checkbox" name="vehicle" value="我的关注"> 我的关注</label></li>
-            <li class="color"> <label><input type="checkbox" name="vehicle" value="有总结"> 有总结</label></li>
-        </ul>
-    </form>
+                    <li><span class="glyphicon glyphicon-eye-close"></span> 不显示</li>
+                    <li><label><input type="checkbox" name="已酬谢" value="已酬谢"> 全部</label></li>
+                    <li><label><input type="checkbox" name="已酬谢" value="已酬谢"> 已酬谢</label></li>
+                    <li><label><input type="checkbox" name="已撤销" value="已撤销"> 已撤销</label></li>
+                    <li><label><input type="checkbox" name="协助中" value="协助中"> 协助中</label></li>
+                    <li class="color"><span class="glyphicon glyphicon-eye-open"></span>只显示</li>
+                    <li class="color"><label><input type="checkbox" name="vehicle" value="我的关注"> 我的关注</label></li>
+                    <li class="color"> <label><input type="checkbox" name="vehicle" value="有总结"> 有总结</label></li>
+                </ul>
+            </form>
 
-    @foreach (var problem in Model.problems)
-    {
+            @foreach (var problem in Model.problems)
+            {
 
-        <div class="a">
-            <div class="date">
-                <span class="glyphicon glyphicon-calendar"></span>@problem.Date
-                <a href="http://17bang.ren/User/1628">@*@problem.User.Name*@</a>
-            </div>
-            <div class="wait" style=" background-color: #5bc0de">
-                协助中
-            </div>
+                <div class="a">
+                    <div class="date">
+                        <span class="glyphicon glyphicon-calendar"></span>@problem.Date
+                        <a href="http://17bang.ren/User/1628">@problem.User.Name</a>
+                    </div>
+                    <div class="wait" style=" background-color: #5bc0de">
+                        协助中
+                    </div>
 
-            <a class="problem" href="http://17bang.ren/Problem/707">@problem.Title</a>
+                    <a class="problem" href="http://17bang.ren/Problem/707">@problem.Title</a>
 
-            <div class="answer">@problem.Body<a href="http://17bang.ren/Problem/707">……</a></div>
+                    <div class="answer">@problem.Body<a href="http://17bang.ren/Problem/707">……</a></div>
 
-            <div class="tag">
-                <a href="http://17bang.ren/Problem?keyword=704">爬虫代理设置</a><a hhref="http://17bang.ren/Problem?keyword=109"> 爬虫</a>
-                <a href="http://17bang.ren/Problem?keyword=173"> Python</a><a href="http://17bang.ren/Problem?keyword=163">编程开发语言</a>
-            </div>
-            <div class="status">
-                悬赏：<span class="rew">1</span>
-                <a href=" http://17bang.ren/Problem/707#new-comment"><span class="glyphicon glyphicon-heart"></span> 应答：0</a>
-                <a href="http://17bang.ren/Problem/707#summary">总结：0</a>
-            </div>
-        </div>
-        <hr class="cut-offruie" />
-    }
-
-    <div class="a">
-        <div class="date">
-            <span class="glyphicon glyphicon-calendar"></span>2019年03月12日 20点40分
-            <a href="http://17bang.ren/User/1628">asd7231</a>
-        </div>
-        <div class="wait" style=" background-color: #5bc0de">
-            协助中
-        </div>
-
-        <a class="problem" href="http://17bang.ren/Problem/707">python爬虫设置代理无效</a>
-
-        <div class="answer">如题，初学python,没有用框架，设置了chrome和PhantomJS代理都没有效果 <a href="http://17bang.ren/Problem/707">……</a></div>
-
-        <div class="tag">
-            <a href="http://17bang.ren/Problem?keyword=704">爬虫代理设置</a><a hhref="http://17bang.ren/Problem?keyword=109"> 爬虫</a>
-            <a href="http://17bang.ren/Problem?keyword=173"> Python</a><a href="http://17bang.ren/Problem?keyword=163">编程开发语言</a>
-        </div>
-        <div class="status">
-            悬赏：<span class="rew">1</span>
-            <a href=" http://17bang.ren/Problem/707#new-comment"><span class="glyphicon glyphicon-heart"></span> 应答：0</a>
-            <a href="http://17bang.ren/Problem/707#summary">总结：0</a>
-        </div>
-    </div>
-    <hr class="cut-offruie" />
-    <div class="b">
-        <div class="date">
-            <span class="glyphicon glyphicon-calendar"></span>2019年03月12日 20点40分
-            <a href="http://17bang.ren/User/3129">1462556133</a>
-        </div>
-        <div class="wait" style=" background-color: #5bc0de">
-            协助中
-        </div>
-        <div class="clearfix"><a href="http://17bang.ren/Problem/396">……</a></div>
-        <div class="tag">
-            <a hhref="http://17bang.ren/Problem?keyword=109"> 多线程</a>
-            <a href="http://17bang.ren/Problem?keyword=170"> Java</a><a href="http://17bang.ren/Problem?keyword=163">编程开发语言</a>
-        </div>
-        <div class="status">
-
-            悬赏： <span class="rew">20</span>
-            <a href=" http://17bang.ren/Problem/707#new-comment"><span class="glyphicon glyphicon-heart"></span>  应答：3</a>
-            <a href="http://17bang.ren/Problem/707#summary">总结：0</a>
-        </div>
-    </div>
-    <hr class="cut-offruie" />
-    <div class="c">
-        <div class="date">
-            <span class="glyphicon glyphicon-calendar"></span> 2019年03月12日 20点40分
-            <a href="http://17bang.ren/User/3129">2556133</a>
-        </div>
-        <div class="wait" style=" background-color: #5bc0de">
-            待协助
-        </div>
-
-        <a class="problem" href="http://17bang.ren/Problem/391">Winform里控件绑定数据源就会报错</a>
-
-
-        <div class="answer"> 项目里的控件绑定属性都会出现这个问题<a href="http://17bang.ren/Problem/391">……</a></div>
-
-        <div class="tag">
-            <a hhref="http://17bang.ren/Problem?keyword=182">VisualStudio</a><a hhref="http://17bang.ren/Problem?keyword=162"> 软件工具</a>
-            <a href="http://17bang.ren/Problem?keyword=169"> C#</a>
-        </div>
-        <div class="status">
-
-            悬赏：<span class="rew">20</span>
-            <a href=" http://17bang.ren/Problem/707#new-comment"><span class="glyphicon glyphicon-heart"></span>  应答：0</a>
-            <a href="http://17bang.ren/Problem/707#summary">总结：3</a>
-        </div>
-    </div>
-    <hr class="cut-offruie" />
-    <div class="a">
-        <div class="date">
-            <span class="glyphicon glyphicon-calendar"></span> 2019年03月12日 20点40分
-            <a href="http://17bang.ren/User/1628">asd7231</a>
-        </div>
-        <div class="wait" style=" background-color: #5bc0de">
-            待协助
-        </div>
-
-        <a class="problem" href="http://17bang.ren/Problem/707">python爬虫设置代理无效</a>
-
-
-        <div class="answer">如题，初学python,没有用框架，设置了chrome和PhantomJS代理都没有效果 <a href="http://17bang.ren/Problem/707">……</a></div>
-
-        <div class="tag">
-            <a hhref="http://17bang.ren/Problem?keyword=704">爬虫代理设置</a><a hhref="http://17bang.ren/Problem?keyword=109"> 爬虫</a>
-            <a href="http://17bang.ren/Problem?keyword=173"> Python</a><a href="http://17bang.ren/Problem?keyword=163">编程开发语言</a>
-        </div>
-        <div class="status">
-
-            悬赏： <span class="rew">2000</span>
-            <a href=" http://17bang.ren/Problem/707#new-comment"><span class="glyphicon glyphicon-heart"></span>  应答：0</a>
-            <a href="http://17bang.ren/Problem/707#summary">总结：1</a>
-        </div>
-    </div>
-    <hr class="cut-offruie" />
-    <canvas style="height:300px;width:300px;border:1px dashed red;"></canvas>
-</main>
-
-<aside>
-    <div class="keywords-border">
-        <h3>  <span class="glyphicon glyphicon-tags"></span>     关键字</h3>
-        <hr class="line" />
-        <iframe src="/KeyWords1"></iframe>
-        <hr class="line" />
-        <div class="separate">
-            <form role="form">
-                <div div class="form-group col-lg-8">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="直接输入关键字查找">
-                        <span class="input-group-addon "><span class="glyphicon glyphicon-search"></span></span>
+                    <div class="tag">
+                        <a href="http://17bang.ren/Problem?keyword=704">爬虫代理设置</a><a hhref="http://17bang.ren/Problem?keyword=109"> 爬虫</a>
+                        <a href="http://17bang.ren/Problem?keyword=173"> Python</a><a href="http://17bang.ren/Problem?keyword=163">编程开发语言</a>
+                    </div>
+                    <div class="status">
+                        悬赏：<span class="rew">1</span>
+                        <a href=" http://17bang.ren/Problem/707#new-comment"><span class="glyphicon glyphicon-heart"></span> 应答：0</a>
+                        <a href="http://17bang.ren/Problem/707#summary">总结：0</a>
                     </div>
                 </div>
-            </form>
-            <button type="button" class="btn btn-default" zjc-button><span class="glyphicon glyphicon-random"></span>    换一批</button>
-        </div>
-    </div>
-    <div class="article">
-        <h3><span class="glyphicon glyphicon-book"></span>  精品文章</h3>
-        <hr class="line" />
-        <div class="article-content">
-            <a href="http://17bang.ren/Article/424">培训班的同学，拜托不要把用人单位想得那么傻，好不好？！</a>
-        </div>
-        <div class="article-content">
-            <a href="http://17bang.ren/Article/422">人心</a>
-        </div>
-        <div class="article-content">
-            <a href="http://17bang.ren/Article/421">榜样的力量二</a>
-        </div>
-        <div class="article-content">
-            <a href="http://17bang.ren/Article/420">榜样的力量</a>
-        </div>
-        <div class="article-content">
-            <a href="http://17bang.ren/Article/419">请个假，立个誓</a>
-        </div>
-        <div class="article-content">
-            <a class="move" href="http://17bang.ren/Article">更多</a>
-        </div>
-    </div>
-    <div class="advertisement">
-        <div class="advertisement-content">
-            <a href="http://17bang.ren/AdInWidget/_Free?position=2">1 免费广告位，抢到就是赚到！</a>
-        </div>
-        <div class="advertisement-content">
-            <a href="http://17bang.ren/AdInWidget/_Free?position=2">2免费广告位，抢到就是赚到！</a>
-        </div>
-        <div class="advertisement-content">
-            <a href="http://17bang.ren/AdInWidget/_Free?position=2">3 免费广告位，抢到就是赚到！</a>
-        </div>
-        <div class="advertisement-content">
-            <a href="http://17bang.ren/AdInWidget/_Free?position=2">4 免费广告位，抢到就是赚到！</a>
-        </div>
-        <div class="advertisement-content">
-            <a href="http://17bang.ren/AdInWidget/_Free?position=2">5 免费广告位，抢到就是赚到！</a>
-        </div>
-        <div class="advertisement-content">
-            6 本站主机由西部数码提供
-        </div>
-    </div>
-    <div class="Write">
-        申请免费广告位<hr />
-        之前用过的广告
-        <select name="Content.SelectedHistory" class="form-control" id="Content_SelectedHistory" data-val-number="字段 SelectedHistory 必须是一个数字。" data-val="true" zyf-ad-in-widget-history-select="">
-            <option value="">----- 使用新的广告 -----</option>
-            <option value="">十年磨一剑，霜刃未曾试。</option>
-            <option value="">今日把示君，谁有不平事。</option>
-        </select>
-        <section class="yellow-highlight" style="padding:10px 20px; margin-bottom:20px;" zyf-ad-content-container="">
-            <div class="text-right checkbox">
-                <label>
-                    <input name="Content.Edit" id="Content_Edit" type="checkbox" value="true" data-val="true" data-val-required="Edit 字段是必需的。" zyf-ad-content-edit=""><input name="Content.Edit" type="hidden" value="false"> 修改
-                </label>
-            </div>
-            <div class="form-group">
-                <label>文字内容：（* 必填）</label>
-                <input name="Content.Text" class="form-control" id="Content_Text" type="text" placeholder="最多不超过24个字符" value="" data-val="true" data-val-required="* 文本不能为空" zyf-ad-in-widget-input-text="" data-val-length-max="30" data-val-length="* 文本的长度不能大于30">
-                <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Content.Text"></span>
-            </div>
-            <div class="form-group">
-                <label>链接：（* 必填）</label>
-                <input name="Content.Url" class="form-control" id="Content_Url" type="text" placeholder="http或https开头的网址" value="" data-val="true" data-val-required="* 链接不能为空" zyf-ad-in-widget-input-url="" data-val-regex-pattern="http(s)?://.*" data-val-regex="* URL格式错误">
-                <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Content.Url"></span>
-            </div>
-        </section>
-        <div class="modal-footer">
-            <input class="btn btn-primary loading" type="submit" value="提交" zyf-submit-once="">
-            <input class="btn btn-default" type="reset" value="重填">
-        </div>
-    </div>
-</aside>
-<div class="clearfix"></div>
+                <hr class="cut-offruie" />
+            }
 
+            <div class="a">
+                <div class="date">
+                    <span class="glyphicon glyphicon-calendar"></span>2019年03月12日 20点40分
+                    <a href="http://17bang.ren/User/1628">asd7231</a>
+                </div>
+                <div class="wait" style=" background-color: #5bc0de">
+                    协助中
+                </div>
+
+                <a class="problem" href="http://17bang.ren/Problem/707">python爬虫设置代理无效</a>
+
+                <div class="answer">如题，初学python,没有用框架，设置了chrome和PhantomJS代理都没有效果 <a href="http://17bang.ren/Problem/707">……</a></div>
+
+                <div class="tag">
+                    <a href="http://17bang.ren/Problem?keyword=704">爬虫代理设置</a><a hhref="http://17bang.ren/Problem?keyword=109"> 爬虫</a>
+                    <a href="http://17bang.ren/Problem?keyword=173"> Python</a><a href="http://17bang.ren/Problem?keyword=163">编程开发语言</a>
+                </div>
+                <div class="status">
+                    悬赏：<span class="rew">1</span>
+                    <a href=" http://17bang.ren/Problem/707#new-comment"><span class="glyphicon glyphicon-heart"></span> 应答：0</a>
+                    <a href="http://17bang.ren/Problem/707#summary">总结：0</a>
+                </div>
+            </div>
+            <hr class="cut-offruie" />
+            <div class="b">
+                <div class="date">
+                    <span class="glyphicon glyphicon-calendar"></span>2019年03月12日 20点40分
+                    <a href="http://17bang.ren/User/3129">1462556133</a>
+                </div>
+                <div class="wait" style=" background-color: #5bc0de">
+                    协助中
+                </div>
+                <div class="clearfix"><a href="http://17bang.ren/Problem/396">……</a></div>
+                <div class="tag">
+                    <a hhref="http://17bang.ren/Problem?keyword=109"> 多线程</a>
+                    <a href="http://17bang.ren/Problem?keyword=170"> Java</a><a href="http://17bang.ren/Problem?keyword=163">编程开发语言</a>
+                </div>
+                <div class="status">
+
+                    悬赏： <span class="rew">20</span>
+                    <a href=" http://17bang.ren/Problem/707#new-comment"><span class="glyphicon glyphicon-heart"></span>  应答：3</a>
+                    <a href="http://17bang.ren/Problem/707#summary">总结：0</a>
+                </div>
+            </div>
+            <hr class="cut-offruie" />
+
+            <canvas style="height:300px;width:300px;border:1px dashed red;"></canvas>
+        </main>
+    @*</div>
+    <div class="row">*@
+        <aside class="col-lg-4">
+            <div class="keywords-border">
+                <h3>  <span class="glyphicon glyphicon-tags"></span>     关键字</h3>
+                <hr class="line" />
+                <iframe src="/KeyWords1"></iframe>
+                <hr class="line" />
+                <div class="separate">
+                    <form role="form">
+                        <div div class="form-group col-lg-8">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="直接输入关键字查找">
+                                <span class="input-group-addon "><span class="glyphicon glyphicon-search"></span></span>
+                            </div>
+                        </div>
+                    </form>
+                    <button type="button" class="btn btn-default" zjc-button><span class="glyphicon glyphicon-random"></span>    换一批</button>
+                </div>
+            </div>
+            <div class="article">
+                <h3><span class="glyphicon glyphicon-book"></span>  精品文章</h3>
+                <hr class="line" />
+                <div class="article-content">
+                    <a href="http://17bang.ren/Article/424">培训班的同学，拜托不要把用人单位想得那么傻，好不好？！</a>
+                </div>
+                <div class="article-content">
+                    <a href="http://17bang.ren/Article/422">人心</a>
+                </div>
+                <div class="article-content">
+                    <a href="http://17bang.ren/Article/421">榜样的力量二</a>
+                </div>
+                <div class="article-content">
+                    <a href="http://17bang.ren/Article/420">榜样的力量</a>
+                </div>
+                <div class="article-content">
+                    <a href="http://17bang.ren/Article/419">请个假，立个誓</a>
+                </div>
+                <div class="article-content">
+                    <a class="move" href="http://17bang.ren/Article">更多</a>
+                </div>
+            </div>
+            <div class="advertisement">
+                <div class="advertisement-content">
+                    <a href="http://17bang.ren/AdInWidget/_Free?position=2">1 免费广告位，抢到就是赚到！</a>
+                </div>
+                <div class="advertisement-content">
+                    <a href="http://17bang.ren/AdInWidget/_Free?position=2">2免费广告位，抢到就是赚到！</a>
+                </div>
+                <div class="advertisement-content">
+                    <a href="http://17bang.ren/AdInWidget/_Free?position=2">3 免费广告位，抢到就是赚到！</a>
+                </div>
+                <div class="advertisement-content">
+                    <a href="http://17bang.ren/AdInWidget/_Free?position=2">4 免费广告位，抢到就是赚到！</a>
+                </div>
+                <div class="advertisement-content">
+                    <a href="http://17bang.ren/AdInWidget/_Free?position=2">5 免费广告位，抢到就是赚到！</a>
+                </div>
+                <div class="advertisement-content">
+                    6 本站主机由西部数码提供
+                </div>
+            </div>
+            <div class="Write">
+                申请免费广告位<hr />
+                之前用过的广告
+                <select name="Content.SelectedHistory" class="form-control" id="Content_SelectedHistory" data-val-number="字段 SelectedHistory 必须是一个数字。" data-val="true" zyf-ad-in-widget-history-select="">
+                    <option value="">----- 使用新的广告 -----</option>
+                    <option value="">十年磨一剑，霜刃未曾试。</option>
+                    <option value="">今日把示君，谁有不平事。</option>
+                </select>
+                <section class="yellow-highlight" style="padding:10px 20px; margin-bottom:20px;" zyf-ad-content-container="">
+                    <div class="text-right checkbox">
+                        <label>
+                            <input name="Content.Edit" id="Content_Edit" type="checkbox" value="true" data-val="true" data-val-required="Edit 字段是必需的。" zyf-ad-content-edit=""><input name="Content.Edit" type="hidden" value="false"> 修改
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>文字内容：（* 必填）</label>
+                        <input name="Content.Text" class="form-control" id="Content_Text" type="text" placeholder="最多不超过24个字符" value="" data-val="true" data-val-required="* 文本不能为空" zyf-ad-in-widget-input-text="" data-val-length-max="30" data-val-length="* 文本的长度不能大于30">
+                        <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Content.Text"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>链接：（* 必填）</label>
+                        <input name="Content.Url" class="form-control" id="Content_Url" type="text" placeholder="http或https开头的网址" value="" data-val="true" data-val-required="* 链接不能为空" zyf-ad-in-widget-input-url="" data-val-regex-pattern="http(s)?://.*" data-val-regex="* URL格式错误">
+                        <span class="field-validation-valid" data-valmsg-replace="true" data-valmsg-for="Content.Url"></span>
+                    </div>
+                </section>
+                <div class="modal-footer">
+                    <input class="btn btn-primary loading" type="submit" value="提交" zyf-submit-once="">
+                    <input class="btn btn-default" type="reset" value="重填">
+                </div>
+            </div>
+        </aside>
+        <div class="clearfix"></div>
+
+    </div>
+</div>
 
 
