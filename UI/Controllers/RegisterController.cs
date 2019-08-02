@@ -11,6 +11,8 @@ namespace UI.Controllers
     {
         public ActionResult Index()
         {
+            ViewData["Greet"] = "Hello";
+
             return View();
         }
 

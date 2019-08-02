@@ -6,14 +6,18 @@
 
 <h2>注册</h2>
 
+<h3>@ViewData["Greet"]</h3>
+<h3>@ViewBag.Greet</h3>
+
+
 @using (Html.BeginForm())
 {
     @*<label></label>
-    @Html.Label("UserName")<br />*@
-    @Html.LabelFor(m=>m.UserName)<br />
-    @Html.TextBoxFor(m=>m.UserName,new {@class="" })<br />
+        @Html.Label("UserName")<br />*@
+    @Html.LabelFor(m => m.UserName)<br />
+    @Html.TextBoxFor(m => m.UserName, new { @class = "" })<br />
     @Html.ValidationMessageFor(m => m.UserName);
 
-    @Html.PasswordFor(m=>m.Password)<br />
+    @Html.PasswordFor(m => m.Password)<br />
     <button type="submit">提交</button>
 }
