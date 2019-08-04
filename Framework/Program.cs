@@ -16,14 +16,14 @@ namespace Framework
         static void Main(string[] args)
         {
 
-            using (Bitmap bitmap = new Bitmap(200, 100))
+            using (Bitmap bitmap = new Bitmap(80, 40))
             {
                 try
                 {
-                    Captcha draw = new Captcha(200, 200, Color.Blue);
+                    Captcha draw = new Captcha(100, 50, Color.Blue);
                     Bitmap image=draw.Get();
-                    Task Save = Task.Run(() =>{ image.Save(@"C:\17bang\homework.jpg", ImageFormat.Jpeg); });
-                    Save.Wait();
+                    image.Save(@"C:\17bang\homework.jpg", ImageFormat.Jpeg); 
+                  
                 }
                 catch (StringColorErrorException e)
                 {
@@ -40,21 +40,6 @@ namespace Framework
                 finally
                 {
                 }
-                //  catch (StringColorErrorException e)
-                //{
-                //    Console.WriteLine("字符串颜色不能为白色");
-                //}
-                //catch (ArgumentOutOfRangeException e)
-                //{
-                //    Console.WriteLine("线超出界限");
-                //}
-                //catch (Exception e)
-                //{
-                //    Console.WriteLine(e);
-                //}
-                //finally
-                //{
-                //}
             }
 
             //作业： 

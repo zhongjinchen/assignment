@@ -35,7 +35,9 @@ namespace UI.Controllers
 
                 }
             }
-            return View(model);
+            return RedirectToAction("Mine");
         }
+
+
     }
 }

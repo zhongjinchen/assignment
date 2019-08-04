@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,5 +27,15 @@ namespace UI.Controllers
 
             return View();
         }
+
+
+        [ChildActionOnly]
+        public PartialViewResult Reminder()
+        {
+            return PartialView();
+        }
+
+
+
     }
 }

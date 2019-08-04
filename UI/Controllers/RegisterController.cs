@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,9 +12,9 @@ namespace UI.Controllers
     {
         public ActionResult Index()
         {
-            ViewData["Greet"] = "Hello";
-
-            return View();
+            ViewData[Const.Greet] = "Hello";
+            IndexModel model = new IndexModel();
+            return View(model);
         }
 
         [HttpPost]
@@ -24,7 +25,21 @@ namespace UI.Controllers
                 return View(model);
             }
 
-            return View();
+            if (model.Captcha != Session[Const.captcha].ToString())
+            {
+                ModelState.AddModelError(Const.Captcha, "* 验证码输入错误");
+                return View(model);
+            }
+
+            return View(model);
+        }
+
+        public ActionResult Get()
+        {
+            CaptchaCall captchaCall = new CaptchaCall();
+            byte[] captcha = captchaCall.CreateCaptcha();
+            Session[Const.captcha] = captchaCall.draw.Drawcode;
+            return File(captcha, "jpg");
         }
     }
 }

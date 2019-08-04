@@ -122,8 +122,47 @@ namespace Framework
         #endregion
         #endregion
     }
-    class Captcha
+
+    public class CaptchaCall
     {
+        public Captcha draw { get; set; }
+        public byte[] CreateCaptcha()
+        {
+            using (Bitmap bitmap = new Bitmap(80, 30))
+            {
+                try
+                {
+                    draw = new Captcha(80, 30, Color.Blue);
+                    Bitmap image = draw.Get();
+                    //image.Save(@"C:\17bang\homework.jpg", ImageFormat.Jpeg);
+                    MemoryStream stream = new MemoryStream();
+                    image.Save(stream, ImageFormat.Jpeg);
+                    return stream.ToArray();
+                }
+                //catch (StringColorErrorException e)
+                //{
+                //    Console.WriteLine("字符串颜色不能为白色");
+                    
+                //}
+                //catch (ArgumentOutOfRangeException e)
+                //{
+                //    Console.WriteLine("线超出界限");
+                //}
+                //catch (Exception e)
+                //{
+                //    Console.WriteLine(e);
+                //}
+                finally
+                {
+                    
+                }
+            }
+        }
+    }
+
+    public class Captcha
+    {
+        public string Drawcode { get; set; }
         private Random random;
         private Bitmap image;
         private Graphics g;
@@ -145,17 +184,23 @@ namespace Framework
             return new Bitmap(Width, Height);
         }
 
+        //public Stream createCanvas()
+        //{
+        //    MemoryStream stream = new MemoryStream();
+        //    new Bitmap(Width, Height).Save(stream, ImageFormat.Jpeg);
+        //    return stream;
+        //}
+
         internal Bitmap Get()
         {
             try
             {
-                Task<Bitmap> createCanvasTask = Task<Bitmap>.Run(() => createCanvas());
-                createCanvasTask.Wait();
-                image = createCanvasTask.Result;
+
+                image = createCanvas();
                 g = Graphics.FromImage(image);
                 setbackground();
-                Thread Drawcode = new Thread(new ThreadStart(() => { drawcode(g); }));
-                Drawcode.Start();
+                drawcode(g);
+                
                 addNoise();
             }
             catch (Exception e)
@@ -164,7 +209,7 @@ namespace Framework
                     Environment.NewLine + e.ToString()
                     + Environment.NewLine
                     + Environment.NewLine);
-                throw new StringColorErrorException("");
+                throw new Exception();
             }
             return image;
         }
@@ -174,11 +219,9 @@ namespace Framework
 
             try
             {
-                Task AddLineTask = Task.Run(()=> { addLine(g); });
-                //AddLineTask.Wait();
-                //Task AddPointTask = Task.Run(()=> { addPoint(); });
-                AddLineTask.ContinueWith((x) => { addPoint(); });
-                
+                addLine(g);
+                addPoint();
+
             }
             catch (ArgumentOutOfRangeException e)
             {
@@ -209,37 +252,39 @@ namespace Framework
         //字符串（验证码）方法
         public void drawcode(Graphics g)
         {
+            string firstPlaceStr = str.Substring(random.Next(str.Length), 1);
+            string scondPlaceStr = str.Substring(random.Next(str.Length), 1);
+            string thirdPlaceStr = str.Substring(random.Next(str.Length), 1);
+            string fourthPlaceStr = str.Substring(random.Next(str.Length), 1);
+
             if (StringColor == Color.White)
             {
                 throw new StringColorErrorException("颜色错误");
             }
             else
             {
-                
-                string firstPlaceStr = str.Substring(random.Next(str.Length), 1);
-                string scondPlaceStr = str.Substring(random.Next(str.Length), 1);
-                string thirdPlaceStr = str.Substring(random.Next(str.Length), 1);
-                string fourthPlaceStr = str.Substring(random.Next(str.Length), 1);
+
                 g.DrawString
                (
                     $"{firstPlaceStr}{scondPlaceStr}{thirdPlaceStr}" +
                     $"{fourthPlaceStr}",
-                    new Font("宋体", 36),
+                    new Font("宋体", 18),
                     new SolidBrush(StringColor),
-                    new PointF(40, 25)
+                    new PointF(10, 5)
                 );
             }
-
+            Drawcode = firstPlaceStr + scondPlaceStr + thirdPlaceStr + fourthPlaceStr;
+            
         }
         //造线方法
         private void addLine(Graphics g)
         {
-            if (image.Width > 200 || image.Height > 100)
+            if (image.Width > 80 || image.Height > 30)
             {
                 throw new ArgumentOutOfRangeException();
             }
 
-            for (int i = 0; i < 80; i++)
+            for (int i = 0; i < 40; i++)
             {
                 int x1 = random.Next(image.Width);
                 int y1 = random.Next(image.Height);
@@ -254,10 +299,10 @@ namespace Framework
         //造点方法点
         private void addPoint()
         {
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 300; i++)
             {
-                int x = random.Next(200);
-                int y = random.Next(100);
+                int x = random.Next(80);
+                int y = random.Next(30);
                 image.SetPixel(x, y, Color.FromArgb(random.Next()));
             }
         }
