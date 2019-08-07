@@ -19,8 +19,8 @@
     }
     <button type="submit">提交</button>
 }
-
+<h3>@DateTime.Now</h3>
 <hr />
-@Html.Action("Reminder","Home")
+@Html.Action("Reminder","Home",true)
 <hr />
 @Html.Partial("../Home/Reminder",new ViewDataDictionary { { "Id",1},{ "Name","老程"} })

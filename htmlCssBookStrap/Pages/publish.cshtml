@@ -79,15 +79,15 @@
                                 <ul class="dropdown-menu" zjc-keyword-dropdownlist="2">
 
                                     @*<li><a data-keyword-id="169">C#</a></li>
-                                        <li><a data-keyword-id="170">JAVA</a></li>
-                                        <li><a data-keyword-id="171">Javascript</a></li>
-                                        <li><a data-keyword-id="199">html</a></li>
-                                        <li><a data-keyword-id="174">SQL</a></li>
-                                        <li><a data-keyword-id="173">Python</a></li>
-                                        <li><a data-keyword-id="200">CSS</a></li>
-                                        <li><a data-keyword-id="172">PHP</a></li>
-                                        <li><a data-keyword-id="175">C++</a></li>
-                                        <li><a data-keyword-id="176">C</a></li>*@
+                            <li><a data-keyword-id="170">JAVA</a></li>
+                            <li><a data-keyword-id="171">Javascript</a></li>
+                            <li><a data-keyword-id="199">html</a></li>
+                            <li><a data-keyword-id="174">SQL</a></li>
+                            <li><a data-keyword-id="173">Python</a></li>
+                            <li><a data-keyword-id="200">CSS</a></li>
+                            <li><a data-keyword-id="172">PHP</a></li>
+                            <li><a data-keyword-id="175">C++</a></li>
+                            <li><a data-keyword-id="176">C</a></li>*@
 
                                 </ul>
 
@@ -117,6 +117,19 @@
                         <a class="pull-right" href="http://17bang.ren/FAQ/Money#gain">如何获得"帮帮币"</a>
                     </div>
                 </form>
+
+
+                <div id="editor">
+                    <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+                </div>
+
+                <script type="text/javascript" src="~/js/wangEditor.js"></script>
+                <script type="text/javascript">
+                    var E = window.wangEditor
+                    var editor = new E('#editor')
+                    // 或者 var editor = new E( document.getElementById('editor') )
+                    editor.create()
+                </script>
             </div>
             <div class="col-lg-3">
                 <div class="assignment">
@@ -139,16 +152,15 @@
             </div>
 
 
-            <div class="clearfix">
-                <a class="pull-right" href="#">修改</a>
-            </div>
-            <br />
-
 
 
         </div>
 
     </div>
+    <div class="clearfix">
+        <a class="pull-right" href="#">修改</a>
+    </div>
+    <br />
 
 </body>
 </html>

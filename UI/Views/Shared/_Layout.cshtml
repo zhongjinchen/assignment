@@ -4,6 +4,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--减少文件传输速度，提高响应-->
+
+    <!--第一种压缩文件方法（Render）-->
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <!--第二种，使用已有的压缩文件（min）-->
+    @*<script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>*@
+
+    <!--使用CDN可以提高响应速度-->
 
     <script type="text/javascript" src="~/Scripts/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.validate.js"></script>

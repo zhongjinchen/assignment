@@ -162,7 +162,6 @@
 --INSERT TRelation VALUES(10,3) INSERT TRelation VALUES(11,18) 
 --INSERT TRelation VALUES(12,3) INSERT TRelation VALUES(12,17) 
 
-
 --UPDATE TProblem SET Reward=Reward*2
 --WHERE Id IN(SELECT a.Id FROM TProblem a  
 --JOIN TRelation b ON a.Id=b.TProblemId 
@@ -396,12 +395,12 @@
 --where dbid = DB_ID('_17bang')
 
 ----视图
-CREATE VIEW VTproblem 
-AS
-SELECT *  FROM TProblem
-WHERE Reward>50 WITH CHECK OPTION
-UPDATE VTproblem SET Reward=500 WHERE Id=5
-SELECT * FROM VTproblem
+--CREATE VIEW VTproblem 
+--AS
+--SELECT *  FROM TProblem
+--WHERE Reward>50 WITH CHECK OPTION
+--UPDATE VTproblem SET Reward=500 WHERE Id=5
+--SELECT * FROM VTproblem
 
 
 --CREATE VIEW V_TProblem_TUser

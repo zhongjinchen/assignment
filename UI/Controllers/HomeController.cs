@@ -9,10 +9,22 @@ namespace UI.Controllers
 {
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
             return View();
         }
+
+        //public JsonResult Index()
+        //{
+        //    return Json(
+        //        new
+        //        {
+        //            age = 21
+        //        },
+        //        JsonRequestBehavior.AllowGet
+        //    );
+        //}
 
         public ActionResult About()
         {

@@ -8,7 +8,7 @@
 
 <h3>@ViewData["Greet"]</h3>
 <h3>@ViewBag.Greet</h3>
-
+<h3>@DateTime.Now</h3>
 
 @using (Html.BeginForm())
 {
@@ -27,9 +27,19 @@
     @Html.TextBoxFor(m => m.Captcha)
     @Html.ValidationMessageFor(m => m.Captcha);
 
+    @Html.DropDownListFor(m=>m.Cites,new SelectList(Model.Cites),"----")
+
     <div>@Model.aaa</div>
     <button type="submit">提交</button>
 }
 
 <img src="~/favicon.ico" />
-<img src="/Register/Get" />
+<img id="captcha" src="/Register/Get" />
+<a href="#" onclick="Captcha()">刷新</a>
+<script>
+    function Captcha() {
+        var url = document.getElementById("captcha").getAttribute("src");
+        var random = Math.random();
+        document.getElementById("captcha").setAttribute("src", url + "?version=" + random);
+    }
+</script>
