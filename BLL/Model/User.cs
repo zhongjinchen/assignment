@@ -25,6 +25,8 @@ namespace BLL
 
         public virtual Token token { get; }
 
+        public int AntiForgeryToken { get; set; }
+
         public virtual IList<Message> Messages { get; set; }
 
         public User()
@@ -48,7 +50,7 @@ namespace BLL
             }
 
             Password = GetMd5Hash(Password);
-
+            AntiForgeryToken = new Random().Next();
         }
 
         public static string GetMd5Hash(string input)

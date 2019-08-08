@@ -24,6 +24,8 @@
             <button class="btn btn-default" type="reset" value="重置">重置</button>
         </form>
 
+        <a href="/Problem?agreeOn=@Model.Id&token=@Model.UserToken">赞</a>
+
         @foreach (var item in Model.DTOProblemModel.Comments)
         {
             <div>@item.User.Name</div>

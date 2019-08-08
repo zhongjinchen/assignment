@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Servise
 {
-    public interface IProblemService
+    public interface IProblemService:IService
     {
         Problem Publish(DTOProblemModel dTOProblemModel);
         DTOProblemModel Get(int id);

@@ -53,13 +53,30 @@ namespace Servise
                 {
                     return null;
                 }
-
+                
                 UserModel CurrentUserModel = JsonConvert.DeserializeObject<UserModel>(CurrentSession);
+
                 User user= mapper.Map<UserModel, User>(CurrentUserModel);
+
+                if (_accessor.HttpContext.Request.Headers[""]=="POST")
+                {
+                    string TokenFront = _accessor.HttpContext.Request.Query["token"];
+
+                    if (string.IsNullOrEmpty(TokenFront) ||
+                        TokenFront != user.AntiForgeryToken.ToString())
+                    {
+                        throw new Exception();
+                    }
+                }
+            
+
                 return user;
             }
         }
 
-
+        public string GetUserToken()
+        {
+            return CurrentUser.AntiForgeryToken.ToString();
+        }
     }
 }

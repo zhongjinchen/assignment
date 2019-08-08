@@ -29,7 +29,10 @@ namespace htmlCssBookStrap.Pages
         {
 
             //string Id = Request.Query["id"];
-            
+
+            UserToken = _problemService.GetUserToken();
+
+
             DTOProblemModel = _problemService.Get(Id);
         }
         public IActionResult OnPost()
