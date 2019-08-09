@@ -49,6 +49,12 @@ namespace UI.Controllers
             return View(model);
         }
 
+        public FileResult GetImg()
+        {
+            string filePath = Server.MapPath("/favicon.ico");
+            return File(filePath,"ico","my.ico");
+        }
+
         public ActionResult Get()
         {
             CaptchaCall captchaCall = new CaptchaCall();
