@@ -1,5 +1,6 @@
 ﻿using assignment;
 using BLL.Model;
+using GLB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -51,6 +52,8 @@ namespace BLL
 
             Password = GetMd5Hash(Password);
             AntiForgeryToken = new Random().Next();
+
+            string context = MessageHtmlTemplate.RegisterSucceed(Id.ToString());
         }
 
         public static string GetMd5Hash(string input)

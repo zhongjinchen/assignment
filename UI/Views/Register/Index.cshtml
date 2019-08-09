@@ -28,6 +28,7 @@
     @Html.ValidationMessageFor(m => m.Captcha);
 
     @Html.DropDownListFor(m=>m.Cites,new SelectList(Model.Cites),"----")
+ 
 
     <div>@Model.aaa</div>
     <button type="submit">提交</button>
@@ -39,9 +40,13 @@
 
 <a href="/Register/GetImg">下载</a>
 
+@Html.ActionLink("Action","/Register/GetImg")
+
 <script>
+
+    var url = document.getElementById("captcha").getAttribute("src");
+
     function Captcha() {
-        var url = document.getElementById("captcha").getAttribute("src");
         var random = Math.random();
         document.getElementById("captcha").setAttribute("src", url + "?version=" + random);
     }
