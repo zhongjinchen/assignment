@@ -4,7 +4,7 @@ namespace GLB
 {
     public static class MessageHtmlTemplate
     {
-        public static string RegisterSucceed(int id)
+        public static string RegisterSucceed(string id)
         {
             string url = MakeUrl($"/{id}","新手任务");
             return "恭喜你注册成功，看看你的";

@@ -22,14 +22,12 @@
     @Html.PasswordFor(m => m.Password)<br />
     @Html.ValidationMessageFor(m => m.Password);
 
-
     @Html.Label("验证码")<br />
     @Html.TextBoxFor(m => m.Captcha)
     @Html.ValidationMessageFor(m => m.Captcha);
 
     @Html.DropDownListFor(m=>m.Cites,new SelectList(Model.Cites),"----")
  
-
     <div>@Model.aaa</div>
     <button type="submit">提交</button>
 }
