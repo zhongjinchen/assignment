@@ -14,7 +14,7 @@ namespace DBFactory
         {
             //DatabaseFacade db = new UserRepoistory().Database;
 
-            DatabaseFacade db = new SQLContext().Database;
+            DatabaseFacade db = Helper.CurrentContext.Database; /*new SQLContext().Database;*/
 
             db.EnsureDeleted();
             db.EnsureCreated();

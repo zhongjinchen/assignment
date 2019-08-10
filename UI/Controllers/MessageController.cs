@@ -13,7 +13,8 @@ namespace UI.Controllers
     {
         // GET: Message
         //[OutputCache(Duration = 100, VaryByParam = "Id")]
-        [DonutOutputCache(Duration = 100/*CacheProfile = "FiveMins"*/)]
+        //[DonutOutputCache(Duration = 100/*CacheProfile = "FiveMins"*/)]
+        [DonutOutputCache(CacheProfile = "MessageMine")]
         public ActionResult Mine()
         {
             //    public object Add(

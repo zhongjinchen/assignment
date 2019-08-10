@@ -41,6 +41,8 @@ namespace WebApplication1
 
             services.AddRepository();
             services.AddScoped<DbContext, SQLContext>();
+            //services.AddDbContext<SQLContext>(
+            //    opt=>opt.UseSqlServer(Configuration.GetConnectionString("RegisterContext")));
             services.AddHttpContextAccessor();
             services.AddMemoryCache();
             services.AddSession(Options =>
