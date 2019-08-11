@@ -1,6 +1,7 @@
 ﻿using Framework;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -61,6 +62,14 @@ namespace UI.Controllers
             byte[] captcha = captchaCall.CreateCaptcha();
             Session[Const.captcha] = captchaCall.draw.Drawcode;
             return File(captcha, "jpg");
+        }
+
+        [HttpPost]
+        public ViewResult Icon(HttpPostedFileWrapper icon)
+        {
+            string fileNema = Path.GetFileName(icon.FileName);
+            icon.SaveAs(Path.Combine(Server.MapPath("~/Image"),fileNema));
+            return View("Index");
         }
     }
 

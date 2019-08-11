@@ -6,7 +6,6 @@ namespace BLL
 {
     public class Email:Entity
     {
-    
         public string Address { get; set; }
         public string ValidationCode { get; set; }
         public DateTime? EmailHasValidated { get; set; }

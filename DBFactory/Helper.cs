@@ -14,10 +14,12 @@ namespace DBFactory
     {
         internal const string Password = "1234";
         public static DbContext CurrentContext;
+        public static string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)
+            .Parent.Parent.FullName;
         static Helper()
         {
             CurrentContext = new SQLContext(new ConfigurationBuilder()
-                .SetBasePath(Path.Combine(AppContext.BaseDirectory))
+                .SetBasePath(projectDirectory /*Path.Combine(AppContext.BaseDirectory)*/)
                 .AddJsonFile("appsettings.json", optional: true)
                 .Build());
         }
