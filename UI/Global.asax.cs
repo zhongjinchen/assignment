@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Elmah;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,14 @@ namespace UI
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        void ErrorLog_Filtering(object sender, ExceptionFilterEventArgs e)
+        {
+            if (e.Exception.GetBaseException() is HttpRequestValidationException)
+            {
+                e.Dismiss();
+            }
         }
     }
 }

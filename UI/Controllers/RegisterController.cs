@@ -14,14 +14,14 @@ namespace UI.Controllers
     {
         [ImportModelState]
         //[OutputCache(Duration=100,VaryByParam = "Id")]
-        public ActionResult Index(int? Id )
+        public ActionResult Index(int? Id)
         {
             //ModelState.Merge((ModelStateDictionary)TempData[Const.ErrorData]);
 
             ViewData[Const.Greet] = "Hello";
             IndexModel model = new IndexModel
             {
-                Cites=new List<Cites>
+                Cites = new List<Cites>
                 {
                     Cites.ChongQin,
                     Cites.HuNan
@@ -40,6 +40,11 @@ namespace UI.Controllers
             //    TempData[Const.ErrorData] = ModelState;
             //    return RedirectToAction("Index");
             //}
+            //if (model.UserName=="lc")
+            //{
+            //    ModelState.AddModelError("UserName","用户名重复");
+
+            //}
 
             if (model.Captcha != Session[Const.captcha].ToString())
             {
@@ -53,7 +58,7 @@ namespace UI.Controllers
         public FileResult GetImg()
         {
             string filePath = Server.MapPath("/favicon.ico");
-            return File(filePath,"ico","my.ico");
+            return File(filePath, "ico", "my.ico");
         }
 
         public ActionResult Get()
@@ -68,8 +73,13 @@ namespace UI.Controllers
         public ViewResult Icon(HttpPostedFileWrapper icon)
         {
             string fileNema = Path.GetFileName(icon.FileName);
-            icon.SaveAs(Path.Combine(Server.MapPath("~/Image"),fileNema));
+            icon.SaveAs(Path.Combine(Server.MapPath("~/Image"), fileNema));
             return View("Index");
+        }
+
+        public JsonResult IsNameDuplicated(string UserName)
+        {
+            return Json(UserName != "lc", JsonRequestBehavior.AllowGet);
         }
     }
 
