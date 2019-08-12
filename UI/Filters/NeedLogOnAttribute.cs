@@ -26,7 +26,7 @@ namespace UI.Filters
             string currentPath = context.Request.Url.PathAndQuery;
             context.Response.Cookies.Add(new HttpCookie("prePage", currentPath));
 
-            filterContext.Result = new RedirectResult("/登录页面");
+            filterContext.Result = new RedirectResult("/");
             //base.OnAuthorization(filterContext);
         }
         private User GetById(int Id)

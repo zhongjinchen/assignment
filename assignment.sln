@@ -35,9 +35,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{1BE1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FWork", "FWork", "{A03A7C1C-C50F-4908-B655-B7E53575D0F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GLB", "ClassLibrary1\GLB.csproj", "{81B59B94-BAD5-4406-A7A3-046BADB9BCE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GLB", "ClassLibrary1\GLB.csproj", "{81B59B94-BAD5-4406-A7A3-046BADB9BCE5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCBLL", "Class\MVCBLL.csproj", "{27176187-FEE4-4370-B32C-09347664FB6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebForm", "WebForm\WebForm.csproj", "{12AF86AF-2835-4714-8F57-5B40D25FB473}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,6 +111,10 @@ Global
 		{27176187-FEE4-4370-B32C-09347664FB6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27176187-FEE4-4370-B32C-09347664FB6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27176187-FEE4-4370-B32C-09347664FB6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12AF86AF-2835-4714-8F57-5B40D25FB473}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12AF86AF-2835-4714-8F57-5B40D25FB473}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12AF86AF-2835-4714-8F57-5B40D25FB473}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12AF86AF-2835-4714-8F57-5B40D25FB473}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
