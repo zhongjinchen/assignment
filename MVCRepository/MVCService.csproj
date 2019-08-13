@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{27176187-FEE4-4370-B32C-09347664FB6E}</ProjectGuid>
+    <ProjectGuid>{B262F845-61C1-4676-A072-215A401702FB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MVCBLL</RootNamespace>
-    <AssemblyName>MVCBLL</AssemblyName>
+    <RootNamespace>MVCService</RootNamespace>
+    <AssemblyName>MVCService</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -37,12 +37,8 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.IdentityModel.Protocols">
-      <HintPath>..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.identitymodel.protocols\5.2.0\lib\netstandard1.4\Microsoft.IdentityModel.Protocols.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -52,26 +48,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dbdata.cs" />
-    <Compile Include="Entitis\Agree.cs" />
-    <Compile Include="Entitis\Disagree.cs" />
-    <Compile Include="Entitis\Entity.cs" />
-    <Compile Include="Entitis\Suggest.cs" />
-    <Compile Include="Entitis\Comment.cs" />
-    <Compile Include="Entitis\Message.cs" />
-    <Compile Include="Entitis\Appraise.cs" />
-    <Compile Include="Entitis\KeyWord.cs" />
-    <Compile Include="Entitis\Email.cs" />
-    <Compile Include="Entitis\Problem.cs" />
-    <Compile Include="Entitis\User.cs" />
+    <Compile Include="EmailService.cs" />
+    <Compile Include="ProblemService.cs" />
+    <Compile Include="Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Class\MVCBLL.csproj">
+      <Project>{27176187-FEE4-4370-B32C-09347664FB6E}</Project>
+      <Name>MVCBLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

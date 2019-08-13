@@ -16,7 +16,6 @@ namespace BLL
   
         public UserRepository(DbContext currentContext, EmailRepository emailRepository) :base(currentContext)
         {
-       
             _emailRepository = emailRepository;
         }
 

@@ -138,6 +138,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="MVCContext.cs" />
     <Compile Include="Const.cs" />
     <Compile Include="Controllers\AdController.cs" />
@@ -209,6 +210,7 @@
     <Content Include="Views\Publish\Problem.cshtml" />
     <Content Include="Views\Publish\Single.cshtml" />
     <Content Include="Views\Publish\Comments.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -239,6 +241,10 @@
     <ProjectReference Include="..\Framework\Framework.csproj">
       <Project>{13F780B4-F197-43B6-BA79-952AA20B3198}</Project>
       <Name>Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MVCRepository\MVCService.csproj">
+      <Project>{B262F845-61C1-4676-A072-215A401702FB}</Project>
+      <Name>MVCService</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

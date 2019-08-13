@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MVCBLL.Entitis
 {
-    public class User
+    public class User : Entity
     {
         public string Name { get; set; }
 

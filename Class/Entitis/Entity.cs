@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MVCBLL.Entitis
 {
-    public class KeyWord : Entity
+    public class Entity 
     {
-        internal string Name { get; set; }
-        //internal IList<Article> Articles { get; set; }
+        public int Id { get; set; }
     }
 }

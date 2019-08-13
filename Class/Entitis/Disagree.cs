@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MVCBLL.Entitis
 {
-    public class Disagree
+    public class Disagree : Entity
     {
     }
 }

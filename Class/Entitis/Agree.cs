@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MVCBLL.Entitis
 {
-    public class Agree
+    public class Agree : Entity
     {
     }
 }

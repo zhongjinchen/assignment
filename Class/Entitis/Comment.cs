@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MVCBLL.Entitis
 {
-    public class Comment
+    public class Comment : Entity
     {
         public virtual Problem Problem { get; set; }
         public virtual User User { get; set; }

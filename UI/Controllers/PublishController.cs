@@ -1,4 +1,5 @@
 ﻿using MVCBLL.Entitis;
+using MVCService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,13 @@ namespace UI.Controllers
 {
     public class PublishController : Controller
     {
-        public static IList<ProblemModel> problems { get; set; }
+        //public static IList<ProblemModel> problems { get; set; }
+        public ProblemService Service { get; set; }
+
+        public PublishController()
+        {
+            Service = new ProblemService();
+        }
 
         // GET: Publish
         public ActionResult Publish()
@@ -27,12 +34,12 @@ namespace UI.Controllers
             {
                 return View();
             }
-            if (problems == null)
+            Problem problem = new Problem
             {
-                problems = new List<ProblemModel>();
-            }
-            problems.Add(model);
-            return RedirectToAction("/Problem",model);
+                Body = model.Body
+            };
+            int Id=Service.Save(problem).Id;
+            return RedirectToAction($"/Single/{Id}");
         }
 
         
@@ -41,25 +48,35 @@ namespace UI.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public ActionResult Single(int id)
         {
-            ProblemModel model = Get(id);
+            Problem problem =Service.GetById(id).SingleOrDefault();
+            ProblemModel model = new ProblemModel
+            {
+                Body = problem.Body
+            };
+
+            if (problem.Comments!=null)
+            {
+                model.Comments = problem.Comments;
+            }
+            
             return View(model);
         }
 
         public ActionResult Post(int id,ProblemModel model)
         {
-            ProblemModel problem = Get(id);
-            problem.Comments = problem.Comments ?? new List<Comment>();
+            Problem problem = null;
+            if (Service.GetById(id)!=null)
+            {
+                 problem = Service.GetById(model.Id).SingleOrDefault();
+            }
+            
+            
             problem.Comments.Add(model.Comment);
 
             return PartialView("Comments",model.Comment);
-        }
-
-        private ProblemModel Get(int id)
-        {
-
-           return problems[id];
         }
 
         //[NeedLogOn]

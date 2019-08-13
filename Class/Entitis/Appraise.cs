@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MVCBLL.Entitis
 {
-    public class Appraise
+    public class Appraise : Entity
     {
         internal IList<Agree> Agrees;
         internal IList<Disagree> Disagrees;

@@ -1,7 +1,7 @@
 ﻿@model UI.Models.Register.IndexModel
 
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "注册";
 }
 
 <h2>注册</h2>
@@ -9,7 +9,7 @@
 <h3>@ViewData["Greet"]</h3>
 <h3>@ViewBag.Greet</h3>
 <h3>@DateTime.Now</h3>
-                                                     
+
 <form method="post" action="/Register/Icon" enctype="multipart/form-data">
     <input name="icon" type="file" accept="image/*" />
     <button type="submit">提交</button>
@@ -19,20 +19,37 @@
 {
     @*<label></label>
         @Html.Label("UserName")<br />*@
-    @Html.LabelFor(m => m.UserName)<br />
+
+    @Html.LabelFor(m => m.Inviter, "邀请人")<br />
+    @Html.TextBoxFor(m => m.Inviter, new { @class = "" })<br />
+    @Html.ValidationMessageFor(m => m.Inviter);
+
+    @Html.LabelFor(m => m.InvitationCode, "邀请码")<br />
+    @Html.TextBoxFor(m => m.InvitationCode, new { @class = "" })<br />
+    @Html.ValidationMessageFor(m => m.InvitationCode);
+
+    @Html.LabelFor(m => m.UserName, "用户名")<br />
     @Html.TextBoxFor(m => m.UserName, new { @class = "" })<br />
     @Html.ValidationMessageFor(m => m.UserName);
+
+    @Html.LabelFor(m => m.Email, "Email")<br />
+    @Html.TextBoxFor(m => m.Email, new { @class = "" })<br />
+    @Html.ValidationMessageFor(m => m.Email);
 
     @Html.Label("密码")<br />
     @Html.PasswordFor(m => m.Password)<br />
     @Html.ValidationMessageFor(m => m.Password);
 
+    @Html.Label("确认密码")<br />
+    @Html.PasswordFor(m => m.ConfirmPassword)<br />
+    @Html.ValidationMessageFor(m => m.ConfirmPassword);
+
     @Html.Label("验证码")<br />
     @Html.TextBoxFor(m => m.Captcha)
     @Html.ValidationMessageFor(m => m.Captcha);
 
-    @Html.DropDownListFor(m=>m.Cites,new SelectList(Model.Cites),"----")
- 
+    @Html.DropDownListFor(m => m.Cites, new SelectList(Model.Cites), "----")
+
     <div>@Model.aaa</div>
     <button type="submit">提交</button>
 }
@@ -43,7 +60,7 @@
 
 <a href="/Register/GetImg">下载</a>
 
-@Html.ActionLink("Action","/Register/GetImg")
+@Html.ActionLink("Action", "/Register/GetImg")
 
 <script>
 

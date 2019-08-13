@@ -1,4 +1,6 @@
 ﻿using Framework;
+using MVCBLL.Entitis;
+using MVCService;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,9 +14,16 @@ namespace UI.Controllers
 {
     public class RegisterController : Controller
     {
+        public UserService Service { get; set; }
+
+        public RegisterController()
+        {
+            Service = new UserService();
+        }
+
         [ImportModelState]
         //[OutputCache(Duration=100,VaryByParam = "Id")]
-        public ActionResult Index(int? Id)
+        public ActionResult Index()
         {
             //ModelState.Merge((ModelStateDictionary)TempData[Const.ErrorData]);
 
@@ -40,17 +49,29 @@ namespace UI.Controllers
             //    TempData[Const.ErrorData] = ModelState;
             //    return RedirectToAction("Index");
             //}
-            //if (model.UserName=="lc")
-            //{
-            //    ModelState.AddModelError("UserName","用户名重复");
+            if (Service.GetByName(model.UserName) != null)
+            {
+                ModelState.AddModelError("UserName", "用户名重复");
+            }
 
-            //}
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
 
             if (model.Captcha != Session[Const.captcha].ToString())
             {
                 ModelState.AddModelError(Const.Captcha, "* 验证码输入错误");
                 return View(model);
             }
+
+            User user = new User
+            {
+                Name = model.UserName,
+                Password = model.Password,
+                Email = new Email { Address = model.Email }
+            };
+            Service.Save(user);
 
             return View(model);
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MVCBLL.Entitis
 {
-    public class Message
+    public class Message : Entity
     {
         public virtual User Receiver { get; set; }
         public string Content { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MVCBLL.Entitis
 {
-    public class Email
+    public class Email : Entity
     {
         public string Address { get; set; }
         public string ValidationCode { get; set; }

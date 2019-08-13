@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MVCBLL.Entitis
 {
-    public class Suggest
+    public class Suggest : Entity
     {
 
         //public Message Message { get; set; }
