@@ -15,7 +15,7 @@
     <button type="submit">提交</button>
 </form>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Post"))
 {
     @*<label></label>
         @Html.Label("UserName")<br />*@
@@ -48,9 +48,9 @@
     @Html.TextBoxFor(m => m.Captcha)
     @Html.ValidationMessageFor(m => m.Captcha);
 
-    @Html.DropDownListFor(m => m.Cites, new SelectList(Model.Cites), "----")
+    @*@Html.DropDownListFor(m => m.Cites, new SelectList(Model.Cites), "----")*@
 
-    <div>@Model.aaa</div>
+    @*<div>@Model.aaa</div>*@
     <button type="submit">提交</button>
 }
 

@@ -21,6 +21,7 @@ namespace UI.Controllers
             Service = new UserService();
         }
 
+        [HttpGet]
         [ImportModelState]
         //[OutputCache(Duration=100,VaryByParam = "Id")]
         public ActionResult Index()
@@ -40,7 +41,7 @@ namespace UI.Controllers
         }
 
         [HttpPost]
-        [AutoValidationFilter]
+        //[AutoValidationFilter]
         public ActionResult Index(IndexModel model)
         {
             //if (!ModelState.IsValid)
@@ -49,7 +50,7 @@ namespace UI.Controllers
             //    TempData[Const.ErrorData] = ModelState;
             //    return RedirectToAction("Index");
             //}
-            if (Service.GetByName(model.UserName) != null)
+            if (Service.GetByName(model.UserName).SingleOrDefault() != null)
             {
                 ModelState.AddModelError("UserName", "用户名重复");
             }
