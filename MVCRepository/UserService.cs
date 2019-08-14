@@ -13,7 +13,6 @@ namespace MVCService
 
         public UserService() : base()
         {
-
             _emailService =new EmailService();
         }
 
@@ -27,7 +26,11 @@ namespace MVCService
             return entities.Where(w => w.Email.Address == email).SingleOrDefault();
         }
 
-
+        public bool PasswordCorrect(string userName, string password)
+        {
+            User user=GetByName(userName).SingleOrDefault();
+            return user.Password == User.GetMd5Hash(password);
+        }
 
         public static User Get(int id)
         {
@@ -44,6 +47,19 @@ namespace MVCService
         {
             User user = entities.Where(u => u.Id == UserId).SingleOrDefault();
 
+        }
+
+        public void Register(string UserName,string Password,Email email)
+        {
+            User user = new User
+            {
+                Name = UserName,
+                Password = Password,
+                Email = email
+            };
+
+            user.Register();
+            Save(user);
         }
     }
 }

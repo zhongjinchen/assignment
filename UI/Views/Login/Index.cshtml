@@ -1,4 +1,4 @@
-﻿
+﻿@model UI.Models.Register.IndexModel
 @{
     ViewBag.Title = "登录";
 }
@@ -6,3 +6,25 @@
 <h2>登录</h2>
 
 
+
+@using (Html.BeginForm())
+{
+
+    @Html.LabelFor(m => m.UserName, "用户名")<br />
+    @Html.TextBoxFor(m => m.UserName, new { @class = "" })<br />
+    @Html.ValidationMessageFor(m => m.UserName);
+
+    @Html.Label("密码")<br />
+    @Html.PasswordFor(m=>m.Password)<br />
+    @Html.ValidationMessageFor(m => m.Password);
+
+    @Html.Label("验证码")<br />
+    @Html.TextBoxFor(m => m.Captcha)
+    @Html.ValidationMessageFor(m => m.Captcha);
+
+    <button type="submit">提交</button>
+}
+
+<img src="~/favicon.ico" />
+<img id="captcha" src="/Register/Get" />
+<a href="#" onclick="Captcha()">刷新</a>

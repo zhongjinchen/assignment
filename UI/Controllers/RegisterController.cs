@@ -55,24 +55,18 @@ namespace UI.Controllers
                 ModelState.AddModelError("UserName", "用户名重复");
             }
 
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
-
             if (model.Captcha != Session[Const.captcha].ToString())
             {
                 ModelState.AddModelError(Const.Captcha, "* 验证码输入错误");
                 return View(model);
             }
 
-            User user = new User
+            if (!ModelState.IsValid)
             {
-                Name = model.UserName,
-                Password = model.Password,
-                Email = new Email { Address = model.Email }
-            };
-            Service.Save(user);
+                return View();
+            }
+
+            Service.Register(model.UserName,model.Password,new Email { Address = model.Email });
 
             return View(model);
         }

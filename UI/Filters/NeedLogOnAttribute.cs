@@ -1,4 +1,5 @@
 ﻿using MVCBLL.Entitis;
+using MVCService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,11 @@ namespace UI.Filters
 {
     public class NeedLogOnAttribute : AuthorizeAttribute
     {
+        public UserService Service { get; set; }
+        public NeedLogOnAttribute()
+        {
+            Service = new UserService();
+        }
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
             HttpContextBase context = filterContext.HttpContext;
@@ -17,7 +23,7 @@ namespace UI.Filters
             if (CookieUser != null)
             {
                 int UserId = Convert.ToInt32(CookieUser.Value);
-                User user = GetById(UserId);
+                User user = Service.GetById(UserId).SingleOrDefault();
                 if (user.Password== context.Request.Cookies["Password"].Value)
                 {
 
@@ -30,10 +36,7 @@ namespace UI.Filters
             filterContext.Result = new RedirectResult("/");
             //base.OnAuthorization(filterContext);
         }
-        private User GetById(int Id)
-        {
-            return new User();
-        }
+
     }
 
 
