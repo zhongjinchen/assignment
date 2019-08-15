@@ -63,9 +63,9 @@ namespace htmlCssBookStrap.Pages
             //        //        Path="/entry",
             //        Expires = DateTime.Now.AddDays(1)//,
             //        //        IsEssential =true
-            //    } 
+            //    }
             //    );
-            //Response.Cookies.Append(_password,mode.MD5Password);
+            //Response.Cookies.Append(_password, mode.MD5Password);
 
             HttpContext.Session.SetString("Id",JsonConvert.SerializeObject(model));
 

@@ -1,4 +1,6 @@
 ﻿<!DOCTYPE html>
+@using MVCService
+@using MVCBLL.Entitis
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,8 +23,28 @@
 
 </head>
 <body>
+    <h2>Layout</h2>
 
-        @RenderBody()
+    @{
+
+        var userCookie = Request.Cookies[Const.USER_NAME];
+
+        var UserId = Request.Cookies[Const.USER_ID];
+        var PassWord=Request.Cookies[Const.USER_PASSWORD];
+        UserService service = new UserService();
+        User CurrentUser = service.GetById(Convert.ToInt32(UserId.Value)).SingleOrDefault();
+    }
+    @if (CurrentUser.Password==PassWord.Value)
+    {
+        <h4>@CurrentUser.Name</h4>
+    }
+    @if (userCookie != null)
+    {
+        <h4>@Server.UrlDecode(userCookie.Value)</h4>
+
+
+    }
+    @RenderBody()
 
 </body>
 </html>

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using UI.Filters;
-using UI.Models.Publish;
+using UI.Models.MVC17bangModels;
 
 namespace UI.Controllers
 {

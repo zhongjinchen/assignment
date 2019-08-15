@@ -18,7 +18,7 @@ namespace UI.Filters
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
             HttpContextBase context = filterContext.HttpContext;
-            HttpCookie CookieUser = context.Request.Cookies[Const.User_Id];
+            HttpCookie CookieUser = context.Request.Cookies[Const.USER_ID];
             
             if (CookieUser != null)
             {

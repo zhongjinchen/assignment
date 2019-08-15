@@ -1,0 +1,162 @@
+﻿<error errorId="c0e8a9d0-1739-40f1-a499-9fcafb38abda" application="/LM/W3SVC/3/ROOT" host="LAPTOP-0QVJ42G4" type="System.Web.HttpCompileException" message="C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\App_Web_publish.cshtml.dc26238a.eyipoduy.0.cs(32): error CS0234: The type or namespace name 'Publish' does not exist in the namespace 'UI.Models' (are you missing an assembly reference?)" source="System.Web" detail="System.Web.HttpCompileException (0x80004005): C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\App_Web_publish.cshtml.dc26238a.eyipoduy.0.cs(32): error CS0234: The type or namespace name 'Publish' does not exist in the namespace 'UI.Models' (are you missing an assembly reference?)&#xD;&#xA;   在 System.Web.Compilation.AssemblyBuilder.Compile()&#xD;&#xA;   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()&#xD;&#xA;   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)&#xD;&#xA;   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)&#xD;&#xA;   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)&#xD;&#xA;   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)&#xD;&#xA;   在 System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)&#xD;&#xA;   在 System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)&#xD;&#xA;   在 System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)&#xD;&#xA;   在 System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)&#xD;&#xA;   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)&#xD;&#xA;   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)&#xD;&#xA;   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass3_6.&lt;BeginInvokeAction&gt;b__3()&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass3_1.&lt;BeginInvokeAction&gt;b__5(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Controller.&lt;&gt;c.&lt;BeginExecuteCore&gt;b__152_1(IAsyncResult asyncResult, ExecuteCoreState innerState)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Controller.&lt;&gt;c.&lt;BeginExecute&gt;b__151_2(IAsyncResult asyncResult, Controller controller)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.MvcHandler.&lt;&gt;c.&lt;BeginProcessRequest&gt;b__20_1(IAsyncResult asyncResult, ProcessRequestState innerState)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)&#xD;&#xA;   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   在 System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)&#xD;&#xA;   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" time="2019-08-15T05:22:10.9894029Z" statusCode="500" webHostHtmlMessage="&lt;!DOCTYPE html&gt;&#xD;&#xA;&lt;html&gt;&#xD;&#xA;    &lt;head&gt;&#xD;&#xA;        &lt;title&gt;编译错误&lt;/title&gt;&#xD;&#xA;        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;&#xD;&#xA;        &lt;style&gt;&#xD;&#xA;         body {font-family:&quot;Verdana&quot;;font-weight:normal;font-size: .7em;color:black;} &#xD;&#xA;         p {font-family:&quot;Verdana&quot;;font-weight:normal;color:black;margin-top: -5px}&#xD;&#xA;         b {font-family:&quot;Verdana&quot;;font-weight:bold;color:black;margin-top: -5px}&#xD;&#xA;         H1 { font-family:&quot;Verdana&quot;;font-weight:normal;font-size:18pt;color:red }&#xD;&#xA;         H2 { font-family:&quot;Verdana&quot;;font-weight:normal;font-size:14pt;color:maroon }&#xD;&#xA;         pre {font-family:&quot;Consolas&quot;,&quot;Lucida Console&quot;,Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}&#xD;&#xA;         .marker {font-weight: bold; color: black;text-decoration: none;}&#xD;&#xA;         .version {color: gray;}&#xD;&#xA;         .error {margin-bottom: 10px;}&#xD;&#xA;         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }&#xD;&#xA;         @media screen and (max-width: 639px) {&#xD;&#xA;          pre { width: 440px; overflow: auto; white-space: pre-wrap; word-wrap: break-word; }&#xD;&#xA;         }&#xD;&#xA;         @media screen and (max-width: 479px) {&#xD;&#xA;          pre { width: 280px; }&#xD;&#xA;         }&#xD;&#xA;        &lt;/style&gt;&#xD;&#xA;    &lt;/head&gt;&#xD;&#xA;&#xD;&#xA;    &lt;body bgcolor=&quot;white&quot;&gt;&#xD;&#xA;&#xD;&#xA;            &lt;span&gt;&lt;H1&gt;“/”应用程序中的服务器错误。&lt;hr width=100% size=1 color=silver&gt;&lt;/H1&gt;&#xD;&#xA;&#xD;&#xA;            &lt;h2&gt; &lt;i&gt;编译错误&lt;/i&gt; &lt;/h2&gt;&lt;/span&gt;&#xD;&#xA;&#xD;&#xA;            &lt;font face=&quot;Arial, Helvetica, Geneva, SunSans-Regular, sans-serif &quot;&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; 说明: &lt;/b&gt;在编译向该请求提供服务所需资源的过程中出现错误。请检查下列特定错误详细信息并适当地修改源代码。&#xD;&#xA;            &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt; 编译器错误消息: &lt;/b&gt;CS0234: The type or namespace name &amp;#39;Publish&amp;#39; does not exist in the namespace &amp;#39;UI.Models&amp;#39; (are you missing an assembly reference?)&lt;br&gt;&lt;br&gt;&#xD;&#xA;&lt;b&gt;源错误:&lt;/b&gt;&lt;br&gt;&lt;br&gt;&#xD;&#xA;            &lt;table width=100% bgcolor=&quot;#ffffcc&quot;&gt;&#xD;&#xA;               &lt;tr&gt;&lt;td&gt;&#xD;&#xA;                              &lt;/td&gt;&lt;/tr&gt;&#xD;&#xA;               &lt;tr&gt;&#xD;&#xA;                  &lt;td&gt;&#xD;&#xA;                      &lt;code&gt;&lt;pre&gt;&#xD;&#xA;&#xD;&#xA;行 30:     &#xD;&#xA;行 31:     &#xD;&#xA;&lt;font color=red&gt;行 32:     public class _Page_Views_Publish_Publish_cshtml : System.Web.Mvc.WebViewPage&amp;lt;UI.Models.Publish.ProblemModel&amp;gt; {&#xD;&#xA;&lt;/font&gt;行 33:         &#xD;&#xA;行 34: #line hidden&lt;/pre&gt;&lt;/code&gt;&#xD;&#xA;&#xD;&#xA;                  &lt;/td&gt;&#xD;&#xA;               &lt;/tr&gt;&#xD;&#xA;            &lt;/table&gt;&#xD;&#xA;&#xD;&#xA;            &lt;br&gt;&#xD;&#xA;&#xD;&#xA;            &lt;b&gt;源文件:&lt;/b&gt; C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\App_Web_publish.cshtml.dc26238a.eyipoduy.0.cs&#xD;&#xA;            &amp;nbsp;&amp;nbsp; &lt;b&gt;行:&lt;/b&gt;  32&#xD;&#xA;            &lt;br&gt;&lt;br&gt;&#xD;&#xA;&lt;br&gt;&lt;div class=&quot;expandable&quot; onclick=&quot;OnToggleTOCLevel1('compilerOutputDiv')&quot;&gt;显示详细的编译器输出:&lt;/div&gt;&#xD;&#xA;&lt;div id=&quot;compilerOutputDiv&quot; style=&quot;display: none;&quot;&gt;&#xD;&#xA;            &lt;br&gt;&lt;table width=100% bgcolor=&quot;#ffffcc&quot;&gt;&#xD;&#xA;               &lt;tr&gt;&#xD;&#xA;                  &lt;td&gt;&#xD;&#xA;                      &lt;code&gt;&lt;pre&gt;&#xD;&#xA;&#xD;&#xA;C:\Program Files (x86)\IIS Express&amp;gt;C:\Users\自由之翼\source\repos\assignment\UI\bin\roslyn\csc.exe /t:library /utf8output /nostdlib+ /R:&amp;quot;C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Runtime.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.WorkflowServices\v4.0_4.0.0.0__31bf3856ad364e35\System.WorkflowServices.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\89dd4d8a\00b78eea_bd4bd301\EntityFramework.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.CSharp\v4.0_4.0.0.0__b03f5f7f11d50a3a\Microsoft.CSharp.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Activities\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Activities.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Activation\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Activation.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\9ef8ce37\001b796d_21f3d301\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml.Linq\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.Linq.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\44d8a8c7\00ce7885_fa26cf01\System.Web.Optimization.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\e43ad199\00e4bfeb_bd4bd301\EntityFramework.SqlServer.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\d5cd395b\00445f6a_186acd01\Microsoft.Web.Infrastructure.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.DynamicData\v4.0_4.0.0.0__31bf3856ad364e35\System.Web.DynamicData.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\4894d7c4\00d48124_9e18cd01\Elmah.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\3e7fa504\7d37ad68_91c6d401\Microsoft.AspNetCore.Mvc.Abstractions.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\ce199a6b\005565d2_60e1cf01\DevTrends.MvcDonutCaching.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\05158116\00c4f90d_149bd301\System.Web.WebPages.Deployment.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Activities\v4.0_4.0.0.0__31bf3856ad364e35\System.Activities.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\4d3045b6\eb5b21e7_9d52d501\MVCBLL.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\6b2f9517\e85d45a4_0b53d501\MVCService.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.IdentityModel\v4.0_4.0.0.0__b77a5c561934e089\System.IdentityModel.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ComponentModel.DataAnnotations\v4.0_4.0.0.0__31bf3856ad364e35\System.ComponentModel.DataAnnotations.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Serialization.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\fff2e6cb\4d4915be_1e53d501\UI.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Services\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.Extensions\v4.0_4.0.0.0__31bf3856ad364e35\System.Web.Extensions.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Web.ApplicationServices\v4.0_4.0.0.0__31bf3856ad364e35\System.Web.ApplicationServices.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_32\System.EnterpriseServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\32478b5d\00afcf12_5aa8d301\Newtonsoft.Json.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel.Web\v4.0_4.0.0.0__31bf3856ad364e35\System.ServiceModel.Web.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\8b62cb6d\00b912f0_3200d301\System.Diagnostics.DiagnosticSource.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\8848521d\00acec7e_139bd301\System.Web.Razor.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel\v4.0_4.0.0.0__b77a5c561934e089\System.ServiceModel.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\App_global.asax.02cvst8q.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\af0fbbb1\00bfe6ea_dcefd201\Microsoft.AspNet.TelemetryCorrelation.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\ef1bda9b\00c4f90d_149bd301\System.Web.WebPages.Razor.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\7a47d262\00db9d02_0018cf01\WebGrease.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\d2bc78be\00909e70_139bd301\System.Web.Mvc.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Microsoft.VisualStudio.Web.PageInspector.Loader\v4.0_1.0.0.0__b03f5f7f11d50a3a\Microsoft.VisualStudio.Web.PageInspector.Loader.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_32\System.Web\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\1b8c4bde\00c4f90d_149bd301\System.Web.WebPages.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\87457698\00c4f90d_149bd301\System.Web.Helpers.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Data.DataSetExtensions\v4.0_4.0.0.0__b77a5c561934e089\System.Data.DataSetExtensions.dll&amp;quot; /R:&amp;quot;C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll&amp;quot; /R:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\assembly\dl3\6950f616\00f072d8_ffadce01\Antlr3.Runtime.dll&amp;quot; /out:&amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\App_Web_publish.cshtml.dc26238a.eyipoduy.dll&amp;quot; /D:DEBUG /debug+ /optimize- /warnaserror- /w:4 /nowarn:1659;1699;1701;612;618 /langversion:default /nowarn:1659;1699;1701  &amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\App_Web_publish.cshtml.dc26238a.eyipoduy.0.cs&amp;quot; &amp;quot;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\App_Web_publish.cshtml.dc26238a.eyipoduy.1.cs&amp;quot;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;Microsoft (R) Visual C# Compiler version 2.8.2.62916 (2ad4aabc)&#xD;&#xA;Copyright (C) Microsoft Corporation. All rights reserved.&#xD;&#xA;&#xD;&#xA;C:\Users\自由之翼\AppData\Local\Temp\Temporary ASP.NET Files\vs\37e71a28\557360db\App_Web_publish.cshtml.dc26238a.eyipoduy.0.cs(32,92): error CS0234: The type or namespace name &amp;#39;Publish&amp;#39; does not exist in the namespace &amp;#39;UI.Models&amp;#39; (are you missing an assembly reference?)&#xD;&#xA;&lt;/pre&gt;&lt;/code&gt;&#xD;&#xA;&#xD;&#xA;                  &lt;/td&gt;&#xD;&#xA;               &lt;/tr&gt;&#xD;&#xA;            &lt;/table&gt;&#xD;&#xA;&#xD;&#xA;            &#xD;&#xA;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;br&gt;&lt;div class=&quot;expandable&quot; onclick=&quot;OnToggleTOCLevel1('dynamicCodeDiv')&quot;&gt;显示完整的编译源:&lt;/div&gt;&#xD;&#xA;&lt;div id=&quot;dynamicCodeDiv&quot; style=&quot;display: none;&quot;&gt;&#xD;&#xA;            &lt;br&gt;&lt;table width=100% bgcolor=&quot;#ffffcc&quot;&gt;&#xD;&#xA;               &lt;tr&gt;&#xD;&#xA;                  &lt;td&gt;&#xD;&#xA;                      &lt;code&gt;&lt;pre&gt;&#xD;&#xA;&#xD;&#xA;行 1:    #pragma checksum &amp;quot;C:\Users\自由之翼\source\repos\assignment\UI\Views\Publish\Publish.cshtml&amp;quot; &amp;quot;{ff1816ec-aa5e-4d10-87f7-6f4963833460}&amp;quot; &amp;quot;B2E35F98A09AB846034E731059628B5F855A0A0E&amp;quot;&#xD;行 2:    //------------------------------------------------------------------------------&#xD;行 3:    // &amp;lt;auto-generated&amp;gt;&#xD;行 4:    //     此代码由工具生成。&#xD;行 5:    //     运行时版本:4.0.30319.42000&#xD;行 6:    //&#xD;行 7:    //     对此文件的更改可能会导致不正确的行为，并且如果&#xD;行 8:    //     重新生成代码，这些更改将会丢失。&#xD;行 9:    // &amp;lt;/auto-generated&amp;gt;&#xD;行 10:   //------------------------------------------------------------------------------&#xD;行 11:   &#xD;行 12:   namespace ASP {&#xD;行 13:       using System;&#xD;行 14:       using System.Collections.Generic;&#xD;行 15:       using System.IO;&#xD;行 16:       using System.Linq;&#xD;行 17:       using System.Net;&#xD;行 18:       using System.Web;&#xD;行 19:       using System.Web.Helpers;&#xD;行 20:       using System.Web.Security;&#xD;行 21:       using System.Web.UI;&#xD;行 22:       using System.Web.WebPages;&#xD;行 23:       using System.Web.Mvc;&#xD;行 24:       using System.Web.Mvc.Ajax;&#xD;行 25:       using System.Web.Mvc.Html;&#xD;行 26:       using System.Web.Optimization;&#xD;行 27:       using System.Web.Routing;&#xD;行 28:       using UI;&#xD;行 29:       using DevTrends.MvcDonutCaching;&#xD;行 30:       &#xD;行 31:       &#xD;行 32:       public class _Page_Views_Publish_Publish_cshtml : System.Web.Mvc.WebViewPage&amp;lt;UI.Models.Publish.ProblemModel&amp;gt; {&#xD;行 33:           &#xD;行 34:   #line hidden&#xD;行 35:           &#xD;行 36:           public _Page_Views_Publish_Publish_cshtml() {&#xD;行 37:           }&#xD;行 38:           &#xD;行 39:           protected ASP.global_asax ApplicationInstance {&#xD;行 40:               get {&#xD;行 41:                   return ((ASP.global_asax)(Context.ApplicationInstance));&#xD;行 42:               }&#xD;行 43:           }&#xD;行 44:           &#xD;行 45:           public override void Execute() {&#xD;行 46:               &#xD;行 47:               #line 2 &amp;quot;C:\Users\自由之翼\source\repos\assignment\UI\Views\Publish\Publish.cshtml&amp;quot;&#xD;行 48:     &#xD;行 49:       ViewBag.Title = &amp;quot;Publish&amp;quot;;&#xD;行 50:   &#xD;行 51:               &#xD;行 52:               #line default&#xD;行 53:               #line hidden&#xD;行 54:   BeginContext(&amp;quot;~/Views/Publish/Publish.cshtml&amp;quot;, 76, 17, true);&#xD;行 55:   &#xD;行 56:   WriteLiteral(&amp;quot;\r\n\r\n&amp;lt;h2&amp;gt;发布&amp;lt;/h2&amp;gt;\r\n&amp;quot;);&#xD;行 57:   &#xD;行 58:   EndContext(&amp;quot;~/Views/Publish/Publish.cshtml&amp;quot;, 76, 17, true);&#xD;行 59:   &#xD;行 60:               &#xD;行 61:               #line 7 &amp;quot;C:\Users\自由之翼\source\repos\assignment\UI\Views\Publish\Publish.cshtml&amp;quot;&#xD;行 62:    using (Html.BeginForm())&#xD;行 63:   {&#xD;行 64:       &#xD;行 65:               &#xD;行 66:               #line default&#xD;行 67:               #line hidden&#xD;行 68:   BeginContext(&amp;quot;~/Views/Publish/Publish.cshtml&amp;quot;, 128, 27, false);&#xD;行 69:   &#xD;行 70:               &#xD;行 71:               #line 9 &amp;quot;C:\Users\自由之翼\source\repos\assignment\UI\Views\Publish\Publish.cshtml&amp;quot;&#xD;行 72:   Write(Html.TextAreaFor(m=&amp;gt;m.Body));&#xD;行 73:   &#xD;行 74:               &#xD;行 75:               #line default&#xD;行 76:               #line hidden&#xD;行 77:   EndContext(&amp;quot;~/Views/Publish/Publish.cshtml&amp;quot;, 128, 27, false);&#xD;行 78:   &#xD;行 79:               &#xD;行 80:               #line 9 &amp;quot;C:\Users\自由之翼\source\repos\assignment\UI\Views\Publish\Publish.cshtml&amp;quot;&#xD;行 81:                                   ;&#xD;行 82:   &#xD;行 83:               &#xD;行 84:               #line default&#xD;行 85:               #line hidden&#xD;行 86:   BeginContext(&amp;quot;~/Views/Publish/Publish.cshtml&amp;quot;, 158, 11, true);&#xD;行 87:   &#xD;行 88:   WriteLiteral(&amp;quot;    &amp;lt;button&amp;quot;);&#xD;行 89:   &#xD;行 90:   EndContext(&amp;quot;~/Views/Publish/Publish.cshtml&amp;quot;, 158, 11, true);&#xD;行 91:   &#xD;行 92:   BeginContext(&amp;quot;~/Views/Publish/Publish.cshtml&amp;quot;, 169, 14, true);&#xD;行 93:   &#xD;行 94:   WriteLiteral(&amp;quot; type=\&amp;quot;submit\&amp;quot;&amp;quot;);&#xD;行 95:   &#xD;行 96:   EndContext(&amp;quot;~/Views/Publish/Publish.cshtml&amp;quot;, 169, 14, true);&#xD;行 97:   &#xD;行 98:   BeginContext(&amp;quot;~/Views/Publish/Publish.cshtml&amp;quot;, 183, 14, true);&#xD;行 99:   &#xD;行 100:  WriteLiteral(&amp;quot;&amp;gt;提交&amp;lt;/button&amp;gt;\r\n&amp;quot;);&#xD;行 101:  &#xD;行 102:  EndContext(&amp;quot;~/Views/Publish/Publish.cshtml&amp;quot;, 183, 14, true);&#xD;行 103:  &#xD;行 104:              &#xD;行 105:              #line 11 &amp;quot;C:\Users\自由之翼\source\repos\assignment\UI\Views\Publish\Publish.cshtml&amp;quot;&#xD;行 106:  }&#xD;行 107:  &#xD;行 108:              &#xD;行 109:              #line default&#xD;行 110:              #line hidden&#xD;行 111:  BeginContext(&amp;quot;~/Views/Publish/Publish.cshtml&amp;quot;, 200, 2, true);&#xD;行 112:  &#xD;行 113:  WriteLiteral(&amp;quot;\r\n&amp;quot;);&#xD;行 114:  &#xD;行 115:  EndContext(&amp;quot;~/Views/Publish/Publish.cshtml&amp;quot;, 200, 2, true);&#xD;行 116:  &#xD;行 117:          }&#xD;行 118:      }&#xD;行 119:  }&#xD;行 120:  &lt;/pre&gt;&lt;/code&gt;&#xD;&#xA;&#xD;&#xA;                  &lt;/td&gt;&#xD;&#xA;               &lt;/tr&gt;&#xD;&#xA;            &lt;/table&gt;&#xD;&#xA;&#xD;&#xA;            &#xD;&#xA;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&#xD;&#xA;    &lt;script type=&quot;text/javascript&quot;&gt;&#xD;&#xA;    function OnToggleTOCLevel1(level2ID)&#xD;&#xA;    {&#xD;&#xA;      var elemLevel2 = document.getElementById(level2ID);&#xD;&#xA;      if (elemLevel2.style.display == 'none')&#xD;&#xA;      {&#xD;&#xA;        elemLevel2.style.display = '';&#xD;&#xA;      }&#xD;&#xA;      else {&#xD;&#xA;        elemLevel2.style.display = 'none';&#xD;&#xA;      }&#xD;&#xA;    }&#xD;&#xA;    &lt;/script&gt;&#xD;&#xA;                          &lt;br&gt;&lt;br&gt;&#xD;&#xA;&#xD;&#xA;    &lt;/body&gt;&#xD;&#xA;&lt;/html&gt;&#xD;&#xA;">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2&#xD;&#xA;HTTP_COOKIE:ASP.NET_SessionId=om03p1xwbc0h3dnczlwflwxw&#xD;&#xA;HTTP_HOST:localhost:57583&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101 Firefox/68.0&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2&#xD;&#xA;Cookie: ASP.NET_SessionId=om03p1xwbc0h3dnczlwflwxw&#xD;&#xA;Host: localhost:57583&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101 Firefox/68.0&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/3/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\Users\自由之翼\source\repos\assignment\UI\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="3" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/3" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Publish/Publish" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\Users\自由之翼\source\repos\assignment\UI\Publish\Publish" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="51509" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Publish/Publish" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="57583" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/Publish/Publish" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="ASP.NET_SessionId=om03p1xwbc0h3dnczlwflwxw" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:57583" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101 Firefox/68.0" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="ASP.NET_SessionId">
+      <value string="om03p1xwbc0h3dnczlwflwxw" />
+    </item>
+  </cookies>
+</error>

@@ -8,9 +8,9 @@ using System.Web.Mvc;
 using UI.Controllers;
 using CompareAttribute = System.Web.Mvc.CompareAttribute;
 
-namespace UI.Models.Register
+namespace UI.Models.MVC17bangModels
 {
-    public class IndexModel
+    public class RegisterModel
     {
         [Required]
         [Remote("IsNameDuplicated", "Register", ErrorMessage = "* 用户名重复", HttpMethod = "GET")]

@@ -139,6 +139,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\SharedController.cs" />
+    <Compile Include="Models\MVC17bangModels\LoginModel.cs" />
     <Compile Include="MVCContext.cs" />
     <Compile Include="Const.cs" />
     <Compile Include="Controllers\AdController.cs" />
@@ -156,9 +158,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Home\AboutModel.cs" />
-    <Compile Include="Models\Message\MineModel.cs" />
-    <Compile Include="Models\Publish\ProblemModel.cs" />
-    <Compile Include="Models\Register\IndexModel.cs" />
+    <Compile Include="Models\MVC17bangModels\MineModel.cs" />
+    <Compile Include="Models\MVC17bangModels\ProblemModel.cs" />
+    <Compile Include="Models\MVC17bangModels\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +219,7 @@
     <Folder Include="Image\" />
     <Folder Include="Views\Ad\" />
     <Folder Include="Views\Problem\" />
+    <Folder Include="Views\_Layout\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

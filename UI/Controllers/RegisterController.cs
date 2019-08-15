@@ -8,7 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using UI.Filters;
-using UI.Models.Register;
+using UI.Models.MVC17bangModels;
 
 namespace UI.Controllers
 {
@@ -29,7 +29,7 @@ namespace UI.Controllers
             //ModelState.Merge((ModelStateDictionary)TempData[Const.ErrorData]);
 
             ViewData[Const.Greet] = "Hello";
-            IndexModel model = new IndexModel
+            RegisterModel model = new RegisterModel
             {
                 Cites = new List<Cites>
                 {
@@ -42,7 +42,7 @@ namespace UI.Controllers
 
         [HttpPost]
         //[AutoValidationFilter]
-        public ActionResult Index(IndexModel model)
+        public ActionResult Index(RegisterModel model)
         {
             //if (!ModelState.IsValid)
             //{

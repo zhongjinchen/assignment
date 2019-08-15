@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace UI.Models.Message
+namespace UI.Models.MVC17bangModels
 {
     public class MineModel
     {
